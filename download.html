@@ -1,0 +1,166 @@
+---
+layout: site
+---
+<div id="wrapper">
+<div id="header">
+<div id="logo">
+<a href="/"><img src="images/Repast_logo_100h.png"></a>
+</div>
+</div>
+<!-- end #header -->
+<!-- div id="menu">
+<?php include ("include/mainmenu.html"); ?>
+</div -->
+<!-- end #menu -->
+<div id="page">
+<div id="page-bgtop">
+<div id="page-bgbtm">
+<div id="content">
+<div class="post">
+<div class="post-bgtop">
+
+<div class="post-bgbtm">
+<a name="whichrepast"></a>
+<h1 class="title"><a href="#">Which Repast Edition Should You Download and Use?</a></h1>
+<p class="meta"></p>
+<div class="entry">
+There are two editions of Repast and several ways to write models in each edition because there are many different kinds of users,
+each of whom has unique needs:
+<p>
+<ul>
+<li><b>New users are strongly encouraged to begin by using ReLogo within Repast Simphony.</b>
+<!--
+<li><b>Users with existing Repast models should use Repast Simphony and follow the <a href="./docs/RepastFAQ.pdf"><i>FAQ</i></a> sections on upgrading models.</b>
+-->
+<li>Users with limited programming backgrounds are strongly encouraged to use ReLogo within Repast Simphony.
+<li>Users desiring rapid prototyping are encouraged to use ReLogo within Repast Simphony.
+<li>Users seeking visual model construction are encouraged to use ReLogo and Statecharts within Repast Simphony.
+<li>Users with a workable knowledge of a Java-generating language such as Groovy and who want to use the features of that language should to use their chosen language along with the Java approach within Repast Simphony.
+<li>Users with a workable knowledge of Java who want highly customized models should to use the Java approach within Repast Simphony.
+<li>Users with a basic knowledge of C++ who <i><b>need models that run on supercomputers</i></b> should use the Logo-style C++ approach within Repast HPC.
+<li>Users with a strong knowledge of C++ who <i><b>need highly customized models that run on supercomputers</i></b> should to use the standard C++ approach within Repast HPC.
+</ul>
+Tutorials on each of these approaches are included in the Repast downloads available below and <a href="docs.html">here</a>.
+</div>
+</div>
+
+<div class="post-bgbtm">
+<a name="newestrs"></a>
+<h1 class="title"><a href="#">Newest Repast Simphony Release</a></h1>
+<p class="meta"></p>
+<div class="entry">
+Everything you need for ReLogo, flowchart, Groovy, and Java-based development is included in the following Repast Simphony 2.3.1 downloads
+released on 1 June 2015:<p>
+<ul>
+<li><b>Windows users</b> should download the either the
+<a href="http://sourceforge.net/projects/repast/files/Repast%20Simphony/Repast%20Simphony%202.3.1/Repast-Simphony-2.3.1-win32.exe/download">Windows 32-bit Installer</a> or
+the <a href="http://sourceforge.net/projects/repast/files/Repast%20Simphony/Repast%20Simphony%202.3.1/Repast-Simphony-2.3.1-win64.exe/download">Windows 64-bit Installer</a>.
+Double click
+on the resulting executable installer file, follow the installation wizard's prompts, and then complete the <a href="docs.html">chosen tutorial</a>.
+
+<li><b>Mac OS X users</b> should download the
+<a href="http://sourceforge.net/projects/repast/files/Repast%20Simphony/Repast%20Simphony%202.3.1/Repast%20Simphony%202.3.1.dmg/download">Mac OS X Disk Image</a>,
+double click on the resulting file, follow the installation instructions that
+appear, and then complete the <a href="docs.html">chosen tutorial</a>. Note that you may You may need to alter your Security & Privacy
+settings in System Preferences to allow you to open Repast Simphony. Alternatively, right clicking on the Repast Simphony
+application and selecting Open will allow you to authenticate and open it.
+
+<li><b>Linux users</b> and <b>Unix-related system users</b> should download
+<a href="http://www.eclipse.org/downloads/packages/eclipse-ide-eclipse-committers-442/lunasr2">Eclipse IDE for Eclipse Committers</a>; then use
+the Eclipse Update Manager (under Help -> Install New Software) to install Repast from its update
+site (<a href=" https://repo.anl-external.org/repos/repast/">https://repo.anl-external.org/repos/repast/</a>).
+Repast when installed via the update site has the following additional requirement that can be installed
+using Eclipse's Update Manager.
+<ul>
+
+<li>From the Groovy Update Site: http://dist.springsource.org/release/GRECLIPSE/e4.4
+<ul>
+<li>Extra Groovy Compilers</li>
+<li>Groovy-Eclipse</li>
+</ul>
+</ul>
+Once you have downloaded eclipse and installed the plugins, the groovy compiler version must be set to anything in the 2.0. version line. Anything else
+will prevent Repast Simphony and especially ReLogo from working correctly. You can set the groovy compiler preferences in either the workspace or project preferences
+pane via the "Groovy Compiler" page.<p><p>
+
+The demonstration models are not provided via the update site, but they can be downloaded
+<a href="http://sourceforge.net/projects/repast/files/Repast%20Simphony/Repast%20Simphony%202.3/Repast-Simphony-demos-2.3.zip/download">here</a>.
+Once downloaded, start eclipse and switch to your chosen workspace. Right click in the package panel, and choose import, General, Archive File
+and follow the wizard from there.
+</ul>
+An Eclipse update site is also available. Interested users should follow the installation instructions given above for the Linux release.
+<br><br>A few important notes are as follows:
+<p>
+<ul>
+<li>Examples can be imported from the Repast Models library as described in the <a href="./docs/RepastSimphonyFAQ.pdf">Repast FAQ</a>.
+<li>Information on installing optional external analysis tools can be found <a href="download-extras.html">here</a>.
+<li>A solution to issues with some NVIDIA graphics drivers is described in the <a href="./docs/RepastSimphonyFAQ.pdf">Repast FAQ</a>.
+</ul>
+Developers who wish to modify or contribute to the Repast Simphony platform should install the
+components described <a href="download-extras.html">here</a>.
+</div>
+</div>
+
+<div class="post-bgbtm">
+<a name="newesthiperform"></a>
+<h1 class="title"><a href="#">Newest Repast High Performance Computing Release</a></h1>
+<p class="meta"></p>
+<div class="entry">
+Repast HPC 2.1, released on 8 May 2015, provides a lean and expert-focused C++-based modeling system or use on
+large computing clusters and supercomputers:
+<p>
+<ul>
+<li><b>Mac OS X users, Linux users</b>, and <b>Unix-related system users</b>
+can download the <a href="http://sourceforge.net/projects/repast/files/Repast%20HPC/Repast%20HPC%202.1/repast_hpc-2.1.0.tar.gz/download">Tar Archive</a>,
+untar it, follow the installation instructions in the enclosed INSTALL.txt file, and then consult the
+<a href="./hpc_tutorial/TOC.html">Tutorial</a> and <a href="./docs/repast_hpc.pdf">Repast HPC Manual</a>.
+
+
+<li><b>Windows 10 users</b> can use the <a href="https://msdn.microsoft.com/en-us/commandline/wsl/faq">
+Windows Subsystem for Linux</a> and install
+the <a href="http://sourceforge.net/projects/repast/files/Repast%20HPC/Repast%20HPC%202.1/repast_hpc-2.1.0.tar.gz/download">Tar Archive</a>
+described above.
+</ul>
+<!--
+<a href="http://sourceforge.net/projects/repast/files/Repast%20HPC/Repast%20HPC%202.1/Repast_HPC_VM_Ubuntu_14.04.ova/download">Repast HPC Virtual Box
+Virtual Machine</a>. This is a virtual Linux installation with Repast HPC pre-installed. In order to use it, Virtual Box
+must first be installed. Virtual Box can be downloaded from <a href="https://www.virtualbox.org/wiki/Downloads">here</a>. Once
+Virtual Box is installed double click on the virtual machine to run it or open it from within Virtual Box. Windows users should
+also download the <a href="http://sourceforge.net/projects/repast/files/Repast%20HPC/Repast%20HPC%202.1/repast_hpc-2.1.0.tar.gz/download">Tar Archive</a>,
+and see the README and INSTALL.txt for additional information on using the virtual machine.
+</ul>
+-->
+
+</div>
+</div>
+
+<div class="post-bgbtm">
+<a name="extras"></a>
+<h1 class="title"><a href="#">Extra Downloads</a></h1>
+<p class="meta"></p>
+<div class="entry">
+Information on supporting components including external analysis tools, and
+Repast Simphony platform development can be found <a href="download-extras.html">here</a>.
+</div>
+</div>
+
+</div>
+</div>
+
+<div style="clear: both;">&nbsp;</div>
+</div>
+<!-- end #content -->
+
+<!--div id="sidebar">
+
+<h2>Links</h2>
+<?php include ("include/sidebarlinks.html"); ?>
+</div -->
+
+<!-- end #sidebar -->
+<div style="clear: both;">&nbsp;</div>
+
+</div>
+</div>
+</div>
+<!-- end #page -->

@@ -1,0 +1,112 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script type="text/javascript" src="js/script.js"></script>
+    <title>Repast HPC Tutorial: Repast HPC Demos</title>
+  </head>
+  <body>
+    <script type="text/javascript">header("RepastHPC_Demo_03_Step_04");</script>
+    <p>In the overview to this demo (<script type="text/javascript">getLinkToPage("RepastHPC_Demo_03_Overview")</script>), the difference between 'WrapAround' and 'Strict' borders was described. Here we see this in action. <script type="text/javascript">getLinkToPage("RepastHPC_Demo_03_Step_03")</script> used WrapAround borders; we will modify it to use strict borders.</p>
+    <p>The main change is simple. In the Model.h file, change the type of space:</p>
+<div class="code"><code><pre>
+class RepastHPCDemoModel{
+	int stopAt;
+	int countOfAgents;
+	repast::Properties* props;
+	repast::SharedContext&lt;RepastHPCDemoAgent&gt; context;
+	
+	RepastHPCDemoAgentPackageProvider* provider;
+	RepastHPCDemoAgentPackageReceiver* receiver;
+
+	repast::SVDataSet* agentValues;
+        repast::SharedDiscreteSpace&lt;RepastHPCDemoAgent, repast::<b class="code">StrictBorders</b>, repast::SimpleAdder&lt;RepastHPCDemoAgent&gt; &gt;* discreteSpace;
+</pre></code></div>
+
+    <p>Change the instantiation of this in the initialization code:</p>
+
+<div class="code"><code><pre>
+RepastHPCDemoModel::RepastHPCDemoModel(std::string propsFile, int argc, char** argv, boost::mpi::communicator* comm): context(comm){
+	props = new repast::Properties(propsFile, argc, argv, comm);
+	stopAt = repast::strToInt(props-&gt;getProperty("stop.at"));
+	countOfAgents = repast::strToInt(props-&gt;getProperty("count.of.agents"));
+	initializeRandom(*props, comm);
+	if(repast::RepastProcess::instance()-&gt;rank() == 0) props-&gt;writeToSVFile("./output/record.csv");
+	provider = new RepastHPCDemoAgentPackageProvider(&context);
+	receiver = new RepastHPCDemoAgentPackageReceiver(&context);
+	
+    repast::Point&lt;double&gt; origin(-100,-100);
+    repast::Point&lt;double&gt; extent(200, 200);
+    
+    repast::GridDimensions gd(origin, extent);
+    
+    std::vector&lt;int&gt; processDims;
+    processDims.push_back(2);
+    processDims.push_back(2);
+    
+    discreteSpace = new repast::SharedDiscreteSpace&lt;RepastHPCDemoAgent, repast::<b class="code">StrictBorders</b>, repast::SimpleAdder&lt;RepastHPCDemoAgent&gt; &gt;("AgentDiscreteSpace", gd, processDims, 2, comm);
+</pre></code></div>
+
+    <p>Change the uses of this in the agent class, beginning in Agent.h:</p>
+
+<div class="code"><code><pre>
+class RepastHPCDemoAgent{
+	
+private:
+    repast::AgentId   id_;
+    double              c;
+    double          total;
+	
+public:
+    RepastHPCDemoAgent(repast::AgentId id);
+	RepastHPCDemoAgent(){}
+    RepastHPCDemoAgent(repast::AgentId id, double newC, double newTotal);
+	
+    ~RepastHPCDemoAgent();
+	
+    /* Required Getters */
+    virtual repast::AgentId& getId(){                   return id_;    }
+    virtual const repast::AgentId& getId() const {      return id_;    }
+	
+    /* Getters specific to this kind of Agent */
+    double getC(){                                      return c;      }
+    double getTotal(){                                  return total;  }
+	
+    /* Setter */
+    void set(int currentRank, double newC, double newTotal);
+	
+    /* Actions */
+    bool cooperate();                                                 // Will indicate whether the agent cooperates or not; probability determined by = c / total
+    void play(repast::SharedContext&lt;RepastHPCDemoAgent&gt;* context,
+              repast::SharedDiscreteSpace&lt;RepastHPCDemoAgent, repast::<b class="code">StrictBorders</b>, repast::SimpleAdder&lt;RepastHPCDemoAgent&gt; &gt;* space);    // Choose three other agents from the given context and see if they cooperate or not
+    void move(repast::SharedDiscreteSpace&lt;RepastHPCDemoAgent, repast::<b class="code">StrictBorders</b>, repast::SimpleAdder&lt;RepastHPCDemoAgent&gt; &gt;* space);
+    
+};
+</pre></code></div>
+
+  <p>And in Agent.cpp:</p>
+
+<div class="code"><code><pre>
+void RepastHPCDemoAgent::move(repast::SharedDiscreteSpace&lt;RepastHPCDemoAgent, repast::<b class="code">StrictBorders</b>, repast::SimpleAdder&lt;RepastHPCDemoAgent&gt; &gt;* space){
+
+    std::vector&lt;int&gt; agentLoc;
+    space-&gt;getLocation(id_, agentLoc);
+    
+    std::vector&lt;int&gt; agentNewLoc;
+    <b class="code">do{
+        agentNewLoc.clear();
+        agentNewLoc.push_back(agentLoc[0] + (repast::Random::instance()-&gt;nextDouble() &lt; .5 ? 1 : -1));
+        agentNewLoc.push_back(agentLoc[1] + (repast::Random::instance()-&gt;nextDouble() &lt; .5 ? 1 : -1));
+        if(!space-&gt;bounds().contains(agentNewLoc)) std::cout &lt;&lt; " INVALID: " &lt;&lt; agentNewLoc[0] &lt;&lt; "," &lt;&lt; agentNewLoc[1] &lt;&lt; std::endl;
+        
+    }while(!space-&gt;bounds().contains(agentNewLoc));
+    </b>
+    space-&gt;moveTo(id_,agentNewLoc);
+    
+}
+</pre></code></div>
+    <p>In addition to the change to the method signature of the 'move' method, we must additionally ensure that the agent does not move out of bounds. With WrapAround borders, moving beyond the global boundaries will position you on the other 'side' of the space. (In fact, moving to a location very far outside the borders will result in the agent being placed back within the known borders, as if the space repeated endlessly.) However, with Strict Borders, it is possible to select a location 'outside' the space. Repast HPC will throw an error in this event. To deal with this, in this demo we have allowed the agents to walk randomly, and if they attempt to step outside of the permitted boundaries, they are redirected back inside. The check on this is the space-&gt;bounds().contains() method.</p>
+    <p>Run this and inspect the output; you should not see any agent near the edge of the global boundaries (e.g. -100, -100) playing any non-local agent. It is still possible for an agent at an interior boundary to play a non-local agent, of course.</p>
+
+    <script type="text/javascript">footer("RepastHPC_Demo_03_Step_03");</script>
+  </body>
+</html>

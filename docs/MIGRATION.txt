@@ -1,0 +1,90 @@
+Migration from Repast HPC 1.0.1 to Repast HPC 2.0
+
+Repast HPC 2.0 is not strictly backwards-compatible with version 1.0.1. Migrating from version 1.0.1 to Repast HPC 2.0 requires key changes; although these changes are not great in number, they must be made on key calls to the original Repast API. 
+
+
+Briefly:
+
+1) The main synchronization routines (requesting agents, synchronization agent states, synchronizing agent status) are now methods of RepastProcess and often take different arguments and template parameters.
+2) Shared Contexts, Shared Networks, and Shared Grids have been modified and may now take different arguments and template parameters to be constructed
+3) All synchronization of networks and grids/spaces is now handled via calls to a new method in Repast Process that synchronizes projection information. This synchronizes all projections simultaneously; calls to methods such as 'createComplementaryEdges' (for networks) and 'initSynchBuffer' and 'synchMove' (for grids) have been eliminated. IMPORTANT: They may still exist in the source code; we have left some of these there for reference only- DO NOT USE THEM.
+4) Classes that are exchanged as part of network synchronization must be explicitly registered (see below)
+
+
+Specifically:
+
+---------------------------------------------------
+Version 1.0.1: 
+
+template<typename T, typename Content, typename Provider, typename AgentCreator>
+void requestAgents(SharedContext<T>& context, AgentRequest& request, Provider& provider, AgentCreator& creator)
+
+Version 2.0:   
+
+template<typename T, typename Content, typename Provider, typename Updater, typename AgentCreator>
+void requestAgents(SharedContext<T>& context, AgentRequest& request, Provider& provider, Updater& updater, AgentCreator& creator, std::string setName = DEFAULT_AGENT_REQUEST_SET, AGENT_IMPORTER_EXPORTER_TYPE setType = DEFAULT_ENUM_SYMBOL);
+
+DEFAULT_AGENT_REQUEST_SET, AGENT_IMPORTER_EXPORTER_TYPE, and DEFAULT_ENUM_SYMBOL are macros that expand to the name of and type of the default Importer/Exporter if 'by set' is used for compilation (the default)- see AgentImporterExporter.h. The setName parameter can be used to request agents by named set.
+
+
+
+---------------------------------------------------
+Version 1.0.1:
+
+template<typename Content, typename Provider, typename Updater>
+void syncAgents(Provider& provider, Updater& updater) 
+
+Version 2.0:
+
+template<typename Content, typename Provider, typename Updater>
+  void synchronizeAgentStates(Provider& provider, Updater& updater, std::string setName = REQUEST_AGENTS_ALL
+);
+
+REQUEST_AGENTS_ALL expands if 'by set' is used for compilation- see AgentImporterExporter.h. The setName parameter can be used to update agents by named set.
+
+
+
+---------------------------------------------------
+Version 1.0.1:
+
+template<typename T, typename Content, typename Provider, typename AgentCreator>
+void RepastProcess::syncAgentStatus(SharedContext<T>& context, Provider& provider, AgentCreator& creator)
+
+Version 2.0:
+
+template<typename T, typename Content, typename Provider, typename AgentCreator, typename Updater>
+void synchronizeAgentStatus(SharedContext<T>& context, Provider& provider, Updater& updater, AgentCreator& creator, EXCHANGE_PATTERN exchangePattern = POLL)
+
+EXCHANGE_PATTERN is used to specify whether all processes will poll all other processes for whether they are sending agents (POLL), whether the same pattern of exchanges as the last call will be used (USE_LAST) or whether the context and projections will report where they believe they should be receiving information from (USE_CURRENT); USE_LAST_OR_POLL and USE_LAST_OR_USE_CURRENT can be used to begin with no knowledge (poll the first time) and afterward use the same pattern repeatedly.
+
+
+
+---------------------------------------------------
+Version 1.0.1:
+
+template<typename V, typename E>
+class SharedNetwork: public Graph<V, E>
+
+Version 2.0:
+
+template<typename V, typename E, typename Ec, typename EcM>
+class SharedNetwork: public Graph<V, E, Ec, EcM>
+
+
+The previous template parameters required were V (the type of vertex, generally an agent representing a node) and E (the type of edge). In the new version, SharedNetworks require two additional parameters: Ec, the type of package that will be used to convey 'EdgeContent', and EcM, the class that can create EdgeContent and can take EdgeContent and build Edges (equivalent to the AgentProvider, AgentCreator, and AgentUpdater classes). Note that the default 'RepastEdgeContent' and 'RepastEdgeContentManeger' are defined in Edge.h and can be used as defaults.
+
+The old methods of SharedNetwork 'notifyExporters' and 'synchRemovedEdges' are obsolete and should NOT be used.
+
+
+---------------------------------------------------
+Version 2.0:
+
+Types of projection information being sent must be registered
+
+Classes that are exchanged as part of exchanging projection information must be explicitly registered. Projection information is exchanged by generic routines that take pointers to the information to be sent and received, and are unaware of the real types. The real type may be a derived class, so that the pointer of type A* points to an instance of class B, where B is a child class of A. To make this happen seamlessly, the derived type must be declared. This is done using a macro:
+
+BOOST_CLASS_EXPORT_GUID(repast::SpecializedProjectionInfoPacket<repast::RepastEdgeContent<Node> >, "SpecializedEdgeContent");
+
+In this case, what is being sent is an edge of type 'RepastEdgeContent<Node>'; 'Node' is a user-created type specific to the simulation. By invoking this macro, RepastHPC can exchange edges with this specialized type. Note that the name given in the quotation marks is arbitrary; any name can be used, so long as two different classes are not assigned the same name.
+
+This macro must be placed in a .cpp file within the simulation.

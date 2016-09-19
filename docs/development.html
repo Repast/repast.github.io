@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Exploitable 
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20090327
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Repast Developers</title>
+<link href="../style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="menu">
+		<ul>
+			<li><a href="./../index.html">Home</a></li>
+			<li><a href="./../screenshots.html">Screenshots</a></li>
+			<li><a href="./../docs.html">Documentation</a></li>
+			<li><a href="./../download.html">Download</a></li>
+			<li><a href="./../support.html">Support</a></li>
+		</ul>
+	</div>
+	<!-- end #menu -->
+	<div id="page">
+	<div id="page-bgtop">
+	<div id="page-bgbtm">
+		<div id="content">
+			<div class="post">
+			<div class="post-bgtop">
+			<div class="post-bgbtm">
+				<h1 class="title"><a href="#">Repast Simphony Development and Update Site</a></h1>
+				<p class="meta"></p>
+				<div class="entry">
+					<i>Updated 10/19/2010</i><br>
+			     <br>
+			     
+			     This section describes how to set up Eclipse to use either the Repast Simphony 
+			     IDE plugin from the update site or for development of the Repast Simphony 
+			     codebase itself.  
+			 
+			     <br>
+				 <br>
+			     The IDE plugin from the update site provides the same
+			     functionality of the stand-alone installers, but permits the flexibility to
+			     add Repast Simphony to an existing Eclipse installation.  This may be useful
+			     for advanced programmers who have additional Eclipse components and
+			     do not want to use the Eclipse that is included with the installers.  This 
+			     configuration (Configuration A) does not required the development environment components or 
+			     source code from the repository.
+			 
+			    <br>
+
+				<br>
+			     Developers who wish to contribute to or modify the Repast Simphony codebase 
+			     will need the development environment components described below and the source
+			     code from the repository.  This configuration (Configuration B) does not require the plugin
+				 from the update site.  
+			     
+				<br>
+				<br>
+				The following components are <u>common to both configurations</u> described above:
+			    
+			  <br>
+				<br>
+			     <ul>
+
+	         	<li>JDK 6 SE from <a href="http://java.sun.com/javase/downloads/index.jsp">http://java.sun.com/javase/downloads/index.jsp</a>
+            <li>Java 3D from <a href="https://java3d.dev.java.net/binary-builds.html">https://java3d.dev.java.net/binary-builds.html</a>
+				    <li>Java Advanced Imaging from <a href="http://jai.dev.java.net/binary-builds.html">http://jai.dev.java.net/binary-builds.html</a>
+					 	<li>JOGL from <a href="https://jogl.dev.java.net/">https://jogl.dev.java.net/</a>	 
+				</ul>	
+						 
+				<br>
+
+					
+				<h3>Configuration A: Repast Simphony IDE for Eclipse plugin</h3>
+				To install the Repast Simphony IDE for Eclipse plugin only:
+				<br> 
+				<br>	
+				<ul>		 
+				  <li><a href="http://www.eclipse.org/downloads/packages/release/galileo/sr2">Eclipse Galileo (3.5.2) Classic</a> 	 
+					<li>Follow the directions given 
+					<a href="./tutorial/SIM/1 Installation.html#1Installation-RepastIDEEclipseUpdateSite">here</a> 
+					to install Repast Simphony and its supporting plug-ins from our update site, 
+					<b>http://mirror.anl.gov/pub/repastsimphony/site.xml</b></li>
+				</ul>
+
+				
+				<br>
+				
+				<h3>Configuration B: Development Environment Components</h3>	 
+				To install the development environment components and check out the Repast 
+				Simphony source code from the Sourceforge SVN repository:		 
+				<br>
+			  <br>
+				<ul>	 
+				  <li><a href ="http://www.eclipse.org/downloads/">Eclipse Helios (3.6) Classic</a>
+					<li>Use the Eclipse plugin installation system to install the following plug-ins:
+						<ul>
+            	<li>Helios Update Site:
+            	  <ul>
+
+            	    <li>Eclipse EMF SDK
+                  <li>Eclipse GEF SDK
+                  <li>Eclipse XML Editors and Tools
+                </ul>
+              <li>Groovy Eclipse Plugin (http://dist.springsource.org/release/GRECLIPSE/e3.6/) 
+              <li>Subclipse 1.6 for SVN (http://subclipse.tigris.org/update_1.6.x)  
+              <br>
+              <B>Note:</B> Mac OS X users will need to separately download and install the Universal Subversion 1.5.4 Binaries from 
+              <a href="http://www.collab.net/downloads/community/">http://www.collab.net/downloads/community/</a>.
+            </ul>
+            <li><a href="svn_checkout.html">Checkout the Repast Simphony projects from SVN</a>)
+			     </ul>
+
+		      <p>
+
+				</div>
+			</div>
+			</div>
+			</div>
+			
+		<div style="clear: both;">&nbsp;</div>
+		</div>
+		<!-- end #content -->
+		
+		<div id="sidebar">
+			
+			<h2>Links</h2>
+			<ul>
+				<li><a href="./../team.html">Team</a></li>
+				<li><a href="./../papers.html">Papers</a></li>
+				<li><a href="./../license.html">License</a></li>
+				<li><a href="http://repast.sourceforge.net/repast_3/index.html">Repast 3</a></li>
+				<li><a href="http://sourceforge.net">Sourceforge</a></li>
+			</ul>
+				
+		</div>
+		
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+		
+	</div>
+	</div>
+	</div>
+	<!-- end #page -->
+	<div id="footer">
+		<p>Copyright (c) 2010 Argonne National Laboratory. All rights reserved.</p>
+	</div>
+	<!-- end #footer -->
+</div>
+</body>
+</html>
