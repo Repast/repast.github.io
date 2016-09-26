@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Repast
-email: your-email@domain.com
+email: nick.collier@gmail.com
 # description: > Repast
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://repast.github.io" # the base hostname & protocol for your site
@@ -22,6 +22,11 @@ url: "http://repast.github.io" # the base hostname & protocol for your site
 github_username:  Repast
 
 exclude: [scripts/]
+
+simphony_version: 2.4.0
+simphony_release_date: 30 September 2016
+hpc_version: 2.2.0
+hpc_release_date: 30 September 2016
 
 # Build settings
 markdown: kramdown
