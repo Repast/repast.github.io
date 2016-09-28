@@ -1,7 +1,7 @@
-Upgrading Repast Simphony
+Upgrading / Troubleshooting Repast Simphony
 
-This document contains FAQ entries and instructions for upgrading Repast Simphony
-from previous versions.
+This document contains FAQ entries and instructions for upgrading and
+troubleshooting Repast Simphony
 
 
 
@@ -101,6 +101,13 @@ or
 
 Remove all the vecmath, java3d and jogl related jars and vecmath, java3d,
 jogl jnilib files from those directories.
+
+Q. When I run my model the 3D display is blank.
+
+A. If you are using OSX with an Nvidia GPU, add the following as a JVM
+argument to your launcher via the Run Configuration menu.
+
+ -Dj3d.transparentOffScreen=true
 
 -- Statechart code is not found
 
