@@ -1,55 +1,72 @@
 Upgrading Repast Simphony
 
 This document contains FAQ entries and instructions for upgrading Repast Simphony
-from previous versions. 
+from previous versions.
 
-Upgrading models from 2.0 to 2.2, open the workspace in 2.2 or
-create a new workspace and import your existing models into that workspace. If
-you do the former, you will most likely run into the
-UnsupportedClassVersionError issue mentioned below. See that for the resolution.
-
-Repast Simphony 2.1 requires Java 1.7. Java 1.7 is included with the
-windows distribution. For OSX and Linux, Java 1.7 can be downloaded from:
-
-http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html
 
 
 Potential Problems
 
 -- UnsupportedClassVersionError
 
-Q. I imported a 2.0 workspace into 2.1 / 2.2 and now I get:
+Q. I imported a previous workspace into a new version and now I get some
+version of:
 
 java.lang.UnsupportedClassVersionError: repast/simphony/runtime/RepastMain :
 Unsupported major.minor version 51.0
 
-A. Repast Simphony 2.1 requires Java 1.7 (aka Java 7). Workspaces that
+A. Repast Simphony 2.4.0 requires Java 1.8. Java 1.8 can be downloaded from:
+
+http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+
+A. Repast Simphony 2.1/2.2,2.3 requires Java 1.7 (aka Java 7). Workspaces that
 previously worked with Simphony will be setup to use Java 1.6. The workspace
 preferences must be updated to use Java 1.7. To do that go to the Preferences
 menu then Java / Installed JREs and choose a Java 7 jre.
+
+-- Launcher Issues
+
+Q. I tried the batch model launcher in eciplse and I get class not found
+errors for the apache CLI classes.
+
+A. Current version of the batch GUI require a different classpath and
+older versions of the .launch file do not have the correct classpath. To
+fix this, open the .launch file as text and replace the line:
+
+<listEntry value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;
+standalone=&quot;no&quot;?&gt;&#10;&lt;runtimeClasspathEntry
+containerPath=&quot;STAND_ALONE_BATCH_CLASSPATH&quot;
+path=&quot;3&quot; type=&quot;3&quot;/&gt;&#10;"/>
+
+with:
+
+<listEntry value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;
+standalone=&quot;no&quot;?&gt;&#10;&lt;runtimeClasspathEntry
+containerPath=&quot;STAND_ALONE_BATCH_LAUNCHER&quot;
+path=&quot;3&quot; type=&quot;4&quot;/&gt;&#10;"/>
 
 -- Build Installer Issues
 
 Q. I have a 2.0 / 2.1 project and I try to build an installer for it using 2.2. I get
 an error like:
 
- [java]    ./.temp/JZombies_Demo/installation_components_temp.xml:127: 
+ [java]    ./.temp/JZombies_Demo/installation_components_temp.xml:127:
  /Applications/Repast Simphony 2.2/eclipse/plugins/repast.simphony.grass_2.2.0
      [java] com.izforge.izpack.compiler.CompilerException: .
-     /.temp/JZombies_Demo/installation_components_temp.xml:127: 
+     /.temp/JZombies_Demo/installation_components_temp.xml:127:
      /Applications/Repast Simphony 2.2/eclipse/plugins/repast.simphony.grass_2.2.0
 
-Note that the error may also refer to the repast.simphony.[ireport | matlab | 
+Note that the error may also refer to the repast.simphony.[ireport | matlab |
 terracotta | visad] plugins.
 
 A. These plugins do not exist in 2.2 and thus a 2.0 / 2.1 installer fails. To fix
 it, delete the relevant line(s) in your projects installer/installation_components.xml
-file. The line number will be specified in the error. For example, line 127 refers 
+file. The line number will be specified in the error. For example, line 127 refers
 to the non-existent grass plugin:
 
-<file src="$EclipsePluginsDirectory/repast.simphony.grass_$REPAST_VERSION" 
+<file src="$EclipsePluginsDirectory/repast.simphony.grass_$REPAST_VERSION"
 	targetdir="$INSTALL_PATH/repast.simphony"/>
-	
+
 So, it should be deleted.
 
 -- JUnit Issues
@@ -99,7 +116,7 @@ code is generated.
 
 -- NullPointer exception when using the new Batch Run GUI
 
-Q. I clicked on the batch run gui button or ran the stand alone batch runner, and 
+Q. I clicked on the batch run gui button or ran the stand alone batch runner, and
 I get:
 
 Exception in thread "AWT-EventQueue-0" java.lang.NullPointerException
@@ -108,7 +125,7 @@ at repast.simphony.batch.gui.BatchConfigMediator.<init>(BatchConfigMediator.java
 at repast.simphony.batch.gui.MainPanel.<init>(MainPanel.java:27)
 ...
 
-A. The MessageCenter.log4j.properties file is out of date and needs to be updated. 
+A. The MessageCenter.log4j.properties file is out of date and needs to be updated.
 Replace the current contents of that file with:
 
 log4j.rootLogger = error
@@ -123,15 +140,15 @@ log4j.logger.MessageCenter.INTERNAL.saf = info, stdout, R
 log4j.logger.repast.simphony.batch = info, stdout, R
 log4j.logger.repast.simphony.batch.ssh.SSHSessionFactory = warn, stdout, R
 
-log4j.appender.stdout = org.apache.log4j.ConsoleAppender 
-log4j.appender.stdout.layout = simphony.util.messages.MessageCenterLayout 
+log4j.appender.stdout = org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.layout = simphony.util.messages.MessageCenterLayout
 log4j.appender.stdout.layout.conversionPattern =%-5p [%t] %d{HH:mm:ss,SSS} %c - %m%n
-#log4j.appender.stdout.Threshold=debug 
+#log4j.appender.stdout.Threshold=debug
 
-log4j.appender.R=org.apache.log4j.RollingFileAppender 
-log4j.appender.R.File=debug.log 
-log4j.appender.R.MaxFileSize=100KB 
-log4j.appender.R.MaxBackupIndex=1 
-#log4j.appender.R.Threshold=info 
+log4j.appender.R=org.apache.log4j.RollingFileAppender
+log4j.appender.R.File=debug.log
+log4j.appender.R.MaxFileSize=100KB
+log4j.appender.R.MaxBackupIndex=1
+#log4j.appender.R.Threshold=info
 log4j.appender.R.layout=simphony.util.messages.MessageCenterLayout
 log4j.appender.R.layout.ConversionPattern=%-5p [%t] %d{ISO8601} %c - %m%n
