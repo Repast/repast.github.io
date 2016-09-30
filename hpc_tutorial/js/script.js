@@ -37,39 +37,33 @@ pages = [["main",                       "Getting Started with Repast HPC"],
          ["RepastHPC_Demo_01_Step_13",  "HPC:D01, Step 13: Removing Imported Agents"],
          ["RepastHPC_Demo_01_Step_14",  "HPC:D01, Step 14: Removing Local Agents"],
          ["RepastHPC_Demo_01_Step_15",  "HPC:D01, Step 15: More Magic: Moving Agents Across Processes"],
-         ["RepastHPC_Demo_01_Step_16",  "HPC:D01, Step 16: Agent Requests: Variations on a Theme"],
-         ["RepastHPC_Demo_01_Step_17",  "HPC:D01, Step 17: Agent Requests in sets"],
-         ["RepastHPC_Demo_01_Step_18",  "HPC:D01, Step 18: Agent Requests in sets"],
+         ["RepastHPC_Demo_01_Step_16",  "HPC:D01, Step 16: Agent Requests in sets"],
+         ["RepastHPC_Demo_01_Step_17",  "HPC:D01, Step 17: Collecting data"],
          ["RepastHPC_Demo_02_Overview", "HPC Demo 02 Overview"],
          ["RepastHPC_Demo_02_Step_00",  "HPC:D02, Step 00: Initial code"],
          ["RepastHPC_Demo_02_Step_01",  "HPC:D02, Step 01: Creating the network projection"],
          ["RepastHPC_Demo_02_Step_02",  "HPC:D02, Step 02: Making network connections"],
-         ["RepastHPC_Demo_02_Step_03",  "HPC:D02, Step 03: Sharing network connections"],
-         ["RepastHPC_Demo_02_Step_04",  "HPC:D02, Step 04: Agents using the network"],
-         ["RepastHPC_Demo_02_Step_05",  "HPC:D02, Step 05: "],
-         ["RepastHPC_Demo_02_Step_06",  "HPC:D02, Step 06: Custom Edges"],
+         ["RepastHPC_Demo_02_Step_03",  "HPC:D02, Step 03: Using network connections"],
+         ["RepastHPC_Demo_02_Step_04",  "HPC:D02, Step 04: Weighted network edges"],
+         ["RepastHPC_Demo_02_Step_05",  "HPC:D02, Step 05: Custom Edges"],
          ["RepastHPC_Demo_03_Overview", "HPC Demo 03 Overview"],
-         ["RepastHPC_Demo_03_Step_01",  "HPC:D03, Step 01: "],
-         ["RepastHPC_Demo_03_Step_02",  "HPC:D03, Step 02: "],
-         ["RepastHPC_Demo_03_Step_03",  "HPC:D03, Step 03: "],
-         ["RepastHPC_Demo_03_Step_04",  "HPC:D03, Step 04: "],
-         ["RepastHPC_Demo_03_Step_05",  "HPC:D03, Step 05: "],
-         ["RepastHPC_Demo_03_Step_06",  "HPC:D03, Step 06: "],
-         ["ReLogo_Demos",            "ReLogo HPC Demos in this Tutorial"],
-         ["ReLogo_Demo_00_Overview", "RL Demo 00 Overview"],
-         ["ReLogo_Demo_00_Step_01",  "RL:D00, Step 01: "],
-         ["ReLogo_Demo_00_Step_02",  "RL:D00, Step 02: "],
-         ["ReLogo_Demo_00_Step_03",  "RL:D00, Step 03: "],
-         ["ReLogo_Demo_00_Step_04",  "RL:D00, Step 04: "],
-         ["ReLogo_Demo_00_Step_05",  "RL:D00, Step 05: "],
-         ["ReLogo_Demo_00_Step_06",  "RL:D00, Step 06: "],
-         ["ReLogo_Demo_01_Overview", "RL Demo 01 Overview"],
-         ["ReLogo_Demo_01_Step_01",  "RL:D01, Step 01: "],
-         ["ReLogo_Demo_01_Step_02",  "RL:D01, Step 02: "],
-         ["ReLogo_Demo_01_Step_03",  "RL:D01, Step 03: "],
-         ["ReLogo_Demo_01_Step_04",  "RL:D01, Step 04: "],
-         ["ReLogo_Demo_01_Step_05",  "RL:D01, Step 05: "],
-         ["ReLogo_Demo_01_Step_06",  "RL:D01, Step 06: "]];         
+         ["RepastHPC_Demo_03_Step_00",  "HPC:D03, Step 00: Initial code"],
+         ["RepastHPC_Demo_03_Step_01",  "HPC:D03, Step 01: Creating the spatial projection"],
+         ["RepastHPC_Demo_03_Step_02",  "HPC:D03, Step 02: Agents Moving in Space"],
+         ["RepastHPC_Demo_03_Step_03",  "HPC:D03, Step 03: Finding agents near each other: Querying spaces"],
+         ["RepastHPC_Demo_03_Step_04",  "HPC:D03, Step 04: Strict Borders"],
+         ["RepastHPC_Demo_03_Step_05",  "HPC:D03, Step 05: Continuous Spaces"],
+         ["RepastHPC_Demo_03_Step_06",  "HPC:D03, Step 06: Multiple spatial projections: coterminous"],
+         ["RepastHPC_Demo_03_Step_07",  "HPC:D03, Step 07: Multiple spatial projections: non-coterminous"],
+         ["RepastHPC_Demo_03_Step_08",  "HPC:D03, Step 08: Spatial and network projections in one simulation"],
+         ["RepastHPC_Demo_04_Overview", "HPC Demo 04 Overview"],
+         ["RepastHPC_Demo_04_Step_00",  "HPC:D04, Step 00: Initial code"],
+         ["RepastHPC_Demo_04_Step_01",  "HPC:D04, Step 01: Creating N-Dimensional Spaces"],
+         ["RepastHPC_Demo_04_Step_02",  "HPC:D04, Step 02: Creating N-Dimensional Value Layers"],
+         ["RepastHPC_Demo_04_Step_03",  "HPC:D04, Step 03: Using N-Dimensional Value Layers"],
+         ["RepastHPC_Demo_04_Step_04",  "HPC:D04, Step 04: Synchronous Updates in Value Layers"],
+         ["RepastHPC_Demo_04_Step_05",  "HPC:D04, Step 05: Diffusion on N-Dimensional Value Layers"]
+];         
 
 function pageIndex(pageName){
   var i = 0;
@@ -84,6 +78,10 @@ function linkToPage(pageIndex){
   if(pageIndex < 0)             return "";
   if(pageIndex >= pages.length) return "";
   return "<a href=\"" + pages[pageIndex][0] + ".html\">" + pages[pageIndex][1] + "</a>";
+}
+
+function getLinkToPage(pageName){
+  document.write(linkToPage(pageIndex(pageName)));
 }
 
 function toc(){

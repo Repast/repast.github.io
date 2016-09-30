@@ -4,11 +4,11 @@ h1.header{
 }
 
 body{
-  background-color:#FFFFDD;
+  background-color:#FFFFFF;
 }
 
 div.code{
-  background-color:#DDDDDD;
+  background-color:#EEEEEE;
   margin-left:30;
   width:100%;
 }
@@ -28,7 +28,7 @@ b.note{
 div.sidebar{
   font-style:italic;
   color:#0000FF;
-
+  font-size: 12;
 }
 
 div.defHIDDEN{
