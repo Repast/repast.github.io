@@ -6,6 +6,533 @@
 <meta name="generator" content="AsciiDoc 8.6.9" />
 <title>Repast Simphony Documentation</title>
 <style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+pre {
+  white-space: pre-wrap;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; vertical-align: text-bottom; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
 
 
 </style>
@@ -215,71 +742,658 @@ asciidoc.install(2);
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_adding_agent_adaptation_using_genetic_algorithms">1. Adding Agent Adaptation Using Genetic Algorithms</h2>
+<h2 id="_introduction">1. Introduction</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>Repast Simphony (Repast S) uses the Java Genetic Algorithms Package (JGAP)
-(<a href="http://jgap.sourceforge.net/">http://jgap.sourceforge.net/</a>) to implement genetic algorithms. JGAP can be used directly within agents
-or the Repast S genetic algorithms (GA) wrapper can be used. Directly using JGAP provides maximum
-flexibility but requires more complex programming. The Repast S GA wrapper simplifies the use of JGAP
-while preserving most options. It is recommended that Repast S users start with the Repast S wrapper
-and, only if needed, eventually move to directly use of JGAP. The Repast S regression wrapper is
-consistent with direct use of JGAP so this should relatively straightforward. Obviously, as with all machine
-learning tools, it is important to make sure that genetic algorithms, in general, and the chosen
+<div class="sect2">
+<h3 id="_about_repast_simphony">1.1. About Repast Simphony</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>Needs updating</p></div>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_installation">1.2. Installation</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>Needs updating</p></div>
+</div></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_project_configuration">2. Project Configuration</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_creating_a_new_repast_project">2.1. Creating a New Repast Project</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>Needs updating</p></div>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_updating_an_existing_repast_project">2.2. Updating an Existing Repast Project</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>Needs updating</p></div>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_adding_repast_to_an_existing_project">2.3. Adding Repast to an Existing Project</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>Needs updating</p></div>
+</div></div>
+<div class="paragraph"><p>If you have an existing Java project in which you would like to reference Repast classes, you can right
+click on the project and select Repast Simphony &#8594; Add Repast Simphony to this Project.
+This will add the Repast libraries to the project class path so that you can reference Repast classes and
+run simulations from your project without needing to manually add all of the Repast libraries and
+dependencies.
+Document</p></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_repast_model_design_fundamental_concepts">3. Repast Model Design Fundamental Concepts</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>This was probably copied from one of our papers, but maybe there is a nicer version.</p></div>
+</div></div>
+<div class="sect2">
+<h3 id="_contexts">3.1. Contexts</h3>
+<div class="paragraph"><p>The Context is the core concept and object in Repast Simphony. It provides a data structure to organize
+your agents from both a modelling perspective as well as a software perspective. Fundamentally, a
+context is just a bucket full of agents, but they provide more richness.</p></div>
+<div class="paragraph"><p>Contexts are hierarchically nested named containers that hold model components. The model
+components can be any type of POJO, including other contexts, but are often expected to be agent
+objects. Each model component can be present in as many contexts as the modeler desires. The
+hierarchical nesting means that a model component that is present in a context is also present in all of
+that context&#8217;s parent contexts. Of course, the converse is not true in the general case. The hierarchical
+nesting structure itself can be declaratively or imperatively specified by the modeler. Context
+membership and structure is completely dynamic and agents can be in any number or combination of
+contexts at any time. Furthermore, agents can themselves contain any number of contexts and even be
+contexts. In addition, the contents of components within contexts (e.g., agent properties) can be
+declaratively logged at runtime.</p></div>
+<div class="paragraph"><p>In addition to supporting hierarchical nesting, contexts support projections. Repast projections are
+named sets of relationships defined over the members of a context. For example, a Repast S network
+projection stores a network or graph relationship between the members of its context. The members of
+this context can then ask who they are linked to and who is linked to them. Similarly, the Repast S grid
+projection stores a set of Cartesian coordinates for each member of the context. The members of this
+context can ask where they are. For more details on projections, see Details on Projections. Each context
+can support any mixture of projections. Also, projections can be declaratively visualized at runtime.
+Contexts also support data layers. Data layers represent numerical data that can be accessed using a set
+of coordinates. Data layers allow model designers to provide numerical values with which their agents
+can interact. The data layers for a given context are separate from the layers for other contexts, allowing
+the agents to orient themselves with respect to a set of data depending on which context they are using.
+Within a context, data layers can be connected to:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+a particular projection (e.g., each cell in a two-dimensional grid may have some data associated
+with it),
+</p>
+</li>
+<li>
+<p>
+multiple projections (e.g., a value at a particular set of coordinates might depend on both a grid and
+a set of network relations), or
+</p>
+</li>
+<li>
+<p>
+no projections (e.g., the data is stored in an abstract matrix).
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_projections">3.2. Projections</h3>
+<div class="paragraph"><p>While Contexts create a bucket to hold your agents, Projections impose a structure upon those agents.
+Simply using Contexts, you could never write a model that provided more than a simple "soup" for the
+agents. The only way to grab other agents would be randomly. Projections allow you to create a
+structure that defines relationships, whether they be spatial, network, or something else. A projection os
+attached to a particular Context and applies to all of the agents in that Context. This raises an important
+point. An object must exist in a Context before it can be used in a projection. So, if you try to work with
+an agent in a projection before you have added it to the Context, it will fail. For example, if you have a
+network, and you try to create a link between agents where at least one of the agents does not yet exist
+in the context, then the operation will fail. This is to maintain the integrity of the context which is used in
+many place throughout the repast system.</p></div>
+<div class="paragraph"><p>You can apply as many projections to a context as you want, so you could have a context that contains, a
+grid, a gis space and 4 networks if you felt so inclined. This provides a great deal of flexibility to design
+your model.</p></div>
+<div class="paragraph"><p>Your agents can get a reference to various projections through their enclosing context. An agent could
+do the following where "this" refers to the agent:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>Context context = ContextUtils.getContext (this)
+Projection projection = context.getProjection("friendshipNetwork");</code></pre>
+</div></div>
+<div class="paragraph"><p>That projection wouldn&#8217;t be that useful unless you cast the projection to something more specific. You
+could also do it like this:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>Context context = ContextUtils.getContext(this);
+Network network = context.getProjection(Network.class, "friendshipNetwork");</code></pre>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_creating_projections">3.3. Creating Projections</h3>
+<div class="paragraph"><p>In general, projections are created using a factory mechanism in the following way.</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Find the factory
+</p>
+</li>
+<li>
+<p>
+Use the factory to create the projection
+</p>
+</li>
+</ol></div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>Use complete examples or merge with the following sections</p></div>
+</div></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>Context&lt;SimpleHappyAgent&gt; context = Contexts.createContext(SimpleHappyAgent.class, "my context");
+GridFactory factory = GridFactoryFinder.createGridFactory(new HashMap());
+Grid grid = factory.createGrid("Simple Grid", context, ...);
+Context&lt;SimpleHappyAgent&gt; context = Contexts.createContext(SimpleHappyAgent.class, "mycontext");</code></pre>
+</div></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>ContinuousSpaceFactory factory = ContinuousSpaceFactoryFinder.createContinuousSpaceFactory(new HashMap());
+ContinuousSpace space = factory.createContinuousSpace("Simple Space", context, ...);</code></pre>
+</div></div>
+<div class="paragraph"><p>Each factory creates a projection of a specific type and requires the context that the projection is
+associated with and the projections name as well as additional arguments particular to the projection
+type. These additional arguments are marked above with "&#8230;" and are explicated on the individual pages
+for that projection.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_continuous_space_projection">3.4. Continuous Space Projection</h3>
+<div class="paragraph"><p>A continuous (real valued) space projection is a space in which an agents location is represented by
+floating point coordinates. For example, one agent may be at the point 2.133, 0 and another may be at
+21.1, 234. This contrasts with the discrete integer valued grid projections. However, much of the
+behavior of a continuous space like that of the grid, so it maybe worthwhile reading those Grid
+Projections pages first.</p></div>
+<div class="paragraph"><p>Repast Simphony provides a rich set of tools to work with grids of all kinds. Specifically, it supports</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+1D, 2D, 3D and ND continuous spaces,
+</p>
+</li>
+<li>
+<p>
+Toroidal, Reflective and Fixed Border conditions.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_random_numbers">3.5. Random Numbers</h3>
+<div class="paragraph"><div class="title">RandomRegistry</div><p>Like many of the other registries in Simphony, the RandomRegistry is available through the current
+RunState (through its getRandomRegistry() method). This interface provides the capability for storing
+named random distributions and retrieving them. It also can set and retrieve the seed that a stream will
+use (or is using) for streams it creates through its addStream(String, Class, &#8230;) methods.</p></div>
+<div class="paragraph"><div class="title">RandomHelper</div><p>The RandomRegistry by itself is somewhat difficult to work with, to simplify using it the RandomHelper
+class was created. This provides methods for creating the random streams that will be used, and for
+retrieving the streams after they have been created, when you do not have a reference to the current
+RunState.</p></div>
+<div class="paragraph"><p>Through its getStream, getUniform and getNormal methods, you can retrieve distributions from the
+current RandomRegistry. Through its numerous createXXX methods, you can create the distributions and
+store them to the current RandomRegistry.</p></div>
+<div class="paragraph"><p>The RandomHelper also handles creating and maintaining a default Uniform number stream. This stream
+is the one used by Repast when it needs a random number, and is no different then the other Uniform
+number streams, except that it will always exist when requested from the RandomHelper (when the
+simulation is running). If you wish to use a Uniform distribution for your random numbers, you can avoid
+some of the extra work that comes with the named streams (meaning, specifying the name of the
+stream, and possibly casting the stream) by simply using RandomHelpers' getDefault, nextInt, and
+nextDouble methods. You also can retrieve and/or set the seed for the default stream through the
+RandomHelper&#8217;s getSeed and setSeed methods.</p></div>
+<div class="paragraph"><p>Generally there are going to be two types of usage of the random functionality. The first would be when
+you just need random numbers of some sort. In this case you would just want to use RandomHelper&#8217;s
+default methods, meaning the getDefault(), nextInt and nextDouble methods.</p></div>
+<div class="paragraph"><p>The other case is when you want numbers from a non-Uniform distribution, or you want multiple random
+streams functioning at once. In this case you can use RandomHelper&#8217;s default methods for any uniform
+numbers, but for producing multiple streams or a non-Uniform stream you have to use the methods that
+take in a stream name. Each of these separate cases will be walked through next.</p></div>
+<div class="paragraph"><div class="title">Single Stream Default Use</div><p>When working with the default Uniform stream there is really only one thing you may want to look at
+manipulating, the default stream&#8217;s random seed. This is set through the RandomHelper&#8217;s setSeed(int)
+method. Setting the random seed should generally happen when the model is setting up. There are two
+ways you can do this. One way is in a ControllerAction, but if you wish to use the random numbers in
+setting up the model you will not have your seed set ahead of time. The other (correct) way is in a
+ParameterSetter.</p></div>
+<div class="paragraph"><p>In the ParameterSetter you are going to want to call RandomHelper&#8217;s setSeed method, as below:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>public class MySimpleSetter extends SimpleParameterSetter {
+        public void next(Parameters params) {
+                RandomHelper.setSeed(System.currentTimeMillis());
+        }
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>The above code will set the default uniform distribution&#8217;s seed to be the current time. Now that the time
+is set, the agents or controller actions (in their runInitialize methods) can use the default distribution and
+will recieve numbers based off of that seed. For example if you had an agent that wanted to move based
+on some random condition, that could look like:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>public void agentAction() {
+        if (myHappiness &lt; RandomHelper.nextDouble()) {
+                move();
+        }
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>The above example compares the agent&#8217;s happiness to a random number between 0 and 1, in (0, 1), if
+the random number is greater than the agent&#8217;s happiness it will move.</p></div>
+<div class="paragraph"><div class="title">Multiple Stream / Non Uniform Stream Usage</div><p>As with the single streams, you generally are going to want to create your Random number streams
+when your model is initializing, primarily in a ParameterSetter, at the point the ParameterSetter will be
+executed the run&#8217;s RandomRegistry will be setup, and you can feel free to use the RandomHelper.</p></div>
+<div class="paragraph"><p>With these streams you are going to need to consistently use the same stream name(s) when working
+with the RandomHelper or the RandomRegistry. You will need to pass this name into the methods, so
+that that the helper/registry knows where to get the values from. For example, let&#8217;s say that you want 2
+random number streams; one a Poisson distribution, and one a Normal distribution. With both of these
+using a distinct random seed.</p></div>
+<div class="paragraph"><p>So an example initialization would look like:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>public class MySetter extends ParameterSetter {
+        public void next(Parameters params) {
+                // first create the normal distribution
+                // we pass in null so that it will use the current random registry
+                RandomHelper.createNormal(null, "MyNormal", normalSeed, 0, 1);
+                // next we create the poisson distribution
+
+                RandomHelper.createPoisson(null, "MyPoisson", poissonSeed, 0);
+        }
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>The above code created a normal distribution named "MyNormal" that has a mean of 0, a standard
+deviation of 1, and some seed (normalSeed). It then creates a poisson distribution named "MyPoisson"
+with a mean of 0 and some specified seed (poissonSeed). It is worth noticing however that unlike the
+default stream, if you do not setup these streams with the given name they will not be created for you.
+You must create them in some way (for instance like above) or you will not be able to use them.</p></div>
+<div class="paragraph"><p>You can then use these distributions from your code. If you wanted to do the same thing as the single
+stream example, but with the normal stream you would do:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>public void agentAction() {
+        if (myHappiness &lt; RandomHelper.getNormal("MyNormal").nextDouble()) {
+                move();
+        }
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>The Poisson stream is slightly less straighforward to use, in that direct helper methods are not provided
+that will cast the stream to a Poisson distribution. For this distribution you must cast the stream
+yourself. This is more complicated than it sounds, and functions simply like:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>public void agentAction() {
+        // grab the distribution with the given name, casting it to a Poisson distribution
+        Poisson randomStream = (Poisson) RandomHelper.getStream("MyPoisson");
+        // now use it
+        if (myHappiness &lt; randomStream.nextDouble()) {
+                move();
+        }
+}</code></pre>
+</div></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_batch_runs">4. Batch Runs</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>Brief explanation or see Batch guide.</p></div>
+</div></div>
+<div class="sect2">
+<h3 id="_batch_parameters">4.1. Batch Parameters</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>Needs updating</p></div>
+</div></div>
+<div class="paragraph"><p>Repast Simphony supports the creation of a parameter sweep through an xml file or through a scripted
+bsf file. Both define a sweep through the defintion of parameter setters. These setters may be constant
+setters such that the parameter value remains at its initial value, or the setters may define a list of values
+to sweep through, or lastly the setter may function as a numeric stepper that incrementally steps from an
+initial value through some ending value. These setters are organized in tree such that the sweep defined
+by a child is fully iterated through before the parent is incremented.</p></div>
+<div class="paragraph"><div class="title">Parameter XML file</div><p>Individual parameters are identified as parameter elements and have two required attributes: name
+and type.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;parameter name="parameter_1" type=["number", "list", "constant"] ... /&gt;</code></pre>
+</div></div>
+<div class="ulist"><ul>
+<li>
+<p>
+name is the name of the parameter. The current value of the parameter can be retrieved from the
+Parameters object using this name.
+</p>
+</li>
+<li>
+<p>
+type identifies the how the value of the parameter will be set over the course of subsequent batch
+runs. Depending on the type, the parameter element will have additional attributes.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><div class="title">Parameter Types</div><p>Currently 3 types of parameters are supported.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+number&#8201;&#8212;&#8201;the number type defines a parameter space with a starting, ending and step value. The
+sweep mechanism will sweep through the space defined by these values by incrementing the
+starting value with the step value until the ending value is reached. For example,
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;parameter name="num_1" type="number" start="1" end="4" step="1"/&gt;</code></pre>
+</div></div>
+<div class="paragraph"><p>will start with a value of 1 and increment by 1 until 4 is reached. The type of number (long, double,
+float and integer) is inferred from the start, end and step values. If any of the values ends with <em>f</em>,
+for example</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>4f or 3.21f</code></pre>
+</div></div>
+<div class="paragraph"><p>the parameter will be of the float type. Similarly, if any of the values end with <em>L</em>, the type will be a
+long. In the absence of a "f" suffix, if any of the numeric values contain a decimal point and one or
+more digits (e.g. 4.0) then the type will be a double. Otherwise, the type will be int.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+list&#8201;&#8212;&#8201;the list type defines a parameter space as a list.
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;parameter name="list_val" type="list" value_type=["string", "boolean", "double", "int",
+"long", "float"] values="x y z"/&gt;</code></pre>
+</div></div>
+<div class="paragraph"><p>The sweeper will iterate through the values in the list setting the parameter to that value.The
+value_type attribute defines the type of the list elements and can be one of string, boolean,
+double, int, long, float. Elements are delimited by a blank space. String elements can be surrounded
+by single quotes (') if they contain blank space. For example,</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;parameter name="list_val" type="list" value_type="string" values="'foo bar' 'bar' 'baz'"/&gt;
+defines 3 elements foo bar, bar and baz.</code></pre>
+</div></div>
+<div class="ulist"><ul>
+<li>
+<p>
+constant&#8201;&#8212;&#8201;constant types define a parameter space consisting of a single constant value.
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;parameter name="const_1" type="constant" constant_type=["number", "boolean", "string"]
+value="x"/&gt;</code></pre>
+</div></div>
+<div class="paragraph"><p>The sweeper will set the parameter to this constant value. The constant_type attribute defines the
+type of the constant value. A constant type of "number" works as its does above where the specified
+type of number (float and so forth) is derived from the value itself.</p></div>
+<div class="paragraph"><div class="title">Nesting Parameters</div><p>Parameters can be nested such that the space defined by the child or nested parameter will be swept
+before incrementing any values in the parent parameter at which point the child will be reset to its
+starting value. For example,</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;parameter name="numAgents" type="number" start="1000" end="2000" step="10"&gt;
+        &lt;parameter name="wealth" type="list" value_type="float" values="10.1 12.3 1234.23 23" /&gt;
+&lt;/parameter&gt;</code></pre>
+</div></div>
+<div class="paragraph"><p>In this case, the sweeper will do set numAgents to 1000 and then sweep through each of the the wealth
+values. Then it will increment numAgents to 1010, and sweep through all the wealth values. It will
+continue in this fashion until numAgents reaches its end value. In this way, the simulation is run such
+that all the combinations of numAgents and wealth values are explored.</p></div>
+<div class="paragraph"><div class="title">Random Seed Parameter</div><p>The default random seed (i.e. the seed for the default random stream) can be specified in a parameter
+file using a number type parameter with a name of "randomSeed". For example,</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;parameter name="randomSeed" type="number" start="1" end="4" step="1"/&gt;</code></pre>
+</div></div>
+<div class="paragraph"><p>If no such parameter exists, the batch mechanism will set the random seed to the current time in
+milliseconds.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/note.png" alt="Note" />
+</td>
+<td class="content">This seed will then be used for all the batch runs, that is, each batch run
+will use the same random seed.</td>
+</tr></table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_advanced_topics">5. Advanced Topics</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_adding_controller_actions">5.1. Adding Controller Actions</h3>
+<div class="paragraph"><p>Controller actions can be added and integrated into the controller tree via
+plugin extension points. The repast.simphony.core plugin defines the following:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;extension-point id="composite.action"&gt;
+        &lt;parameter-def id="creatorClass"/&gt;
+&lt;/extension-point&gt;
+&lt;extension-point id="component.action"&gt;
+        &lt;parameter-def id="actionIO"/&gt;
+&lt;/extension-point&gt;</code></pre>
+</div></div>
+<div class="ulist"><ul>
+<li>
+<p>
+"composite.action" is used to create a parent controller action, that is, a controller action that is
+composed of child controller actions. The value of the "creatorClass" parameter must be the name of
+a class that implements the CompositeControllerActionCreator interface.
+</p>
+</li>
+<li>
+<p>
+"component.action" is used to create child or component controller actions that are leaves in the
+controller action tree. The value of the "actionIO" parameter must the name of a class that
+implements the ControllerActionIO interface. This class is primarily responsible for serializing and
+deserializing (saving and loading) a specific type of controller action. For example, the
+CNDataLoaderControllerActionIO class is responsible for serializing and deserializing the class name
+data loader action.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The repast.simphony.gui plugin extends these two extension points with:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;extension-point id="composite.action" parent-plugin-id="repast.simphony.core" parent-point-id="composite.action"&gt;
+        &lt;parameter-def id="label"/&gt;
+&lt;/extension-point&gt;
+&lt;extension-point id="component.action" parent-plugin-id="repast.simphony.core" parent-point-id="component.action"&gt;
+        &lt;parameter-def id="editorCreator"/&gt;
+        &lt;parameter-def id="parentMenuItem" multiplicity="none-or-one"/&gt;
+        &lt;parameter-def id="parentID"/&gt;
+&lt;/extension-point&gt;</code></pre>
+</div></div>
+<div class="paragraph"><p>These extend the above by adding gui related parameters.
+* composite.action adds a label parameter the value of which will be the label for the parent action as
+it is displayed in the controller action tree.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+component.action adds 3 new parameters
+</p>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+editorCreator. The value of this parameter is a class that implements the ActionEditorCreator
+interface. The editor created by the class that implements this interface will be used to create a
+gui editor for editing this action.
+</p>
+</li>
+<li>
+<p>
+parentMenuItem. The value of this parameter is a class that implements the EditorMenuItem.
+This will create the item in the parent menu that allows actions of this type to be created.
+</p>
+</li>
+<li>
+<p>
+parentID. this is the id of the parent of this controller action.Default parent ids are defined in
+repast.plugin.ControllerActionConstants:
+</p>
+</li>
+</ol></div>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>String VIZ_ROOT = "repast.controller.action.viz";
+String DATA_LOADER_ROOT = "repast.controller.action.data_loaders";
+String SCHEDULE_ROOT = "repast.controller.action.schedule";
+String OUTPUTTER_ROOT = "repast.controller.action.outputters";
+String GRAPH_ROOT = "repast.controller.action.graphs";
+String REPORT_ROOT = "repast.controller.action.reports";
+String DATA_SET_ROOT = "repast.controller.action.data_sets";</code></pre>
+</div></div>
+<div class="paragraph"><p>All the controller actions in repast simphony are added via this mechanism so examining their plugin.xml
+files and related code is a good place to learn more.</p></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_agent_adaptation">6. Agent Adaptation</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>Section should be reviewed to make sure the example code is up to date.</p></div>
+</div></div>
+<div class="sect2">
+<h3 id="_genetic_algorithms">6.1. Genetic Algorithms</h3>
+<div class="paragraph"><p>Repast Simphony (Repast S) uses the Java Genetic Algorithms Package (JGAP) (<a href="http://jgap.sourceforge.net/">http://jgap.sourceforge.net/</a>) to implement genetic algorithms. JGAP can be used directly within agents or the Repast S genetic algorithms (GA) wrapper can be used. Directly using JGAP provides maximum flexibility but requires more complex programming. The Repast S GA wrapper simplifies the use of JGAP while preserving most options. It is recommended that Repast S users start with the Repast S wrapper and, only if needed, eventually move to directly use of JGAP. The Repast S regression wrapper is consistent with direct use of JGAP so this should relatively straightforward. Obviously, as with all machine learning tools, it is important to make sure that genetic algorithms, in general, and the chosen
 formulation, in particular, are appropriate for your application.</p></div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
-<img src="./images/icons/tip.png" alt="Tip" />
+<img src="./images/tip.png" alt="Tip" />
 </td>
 <td class="content">Documentation on how to use JGAP directly can be found on their web site, <a href="http://jgap.sourceforge.net/">http://jgap.sourceforge.net/</a> In particular, please see the following page: <a href="http://jgap.sourceforge.net/doc/tutorial.html">http://jgap.sourceforge.net/doc/tutorial.html</a></td>
 </tr></table>
 </div>
-<div class="paragraph"><p>To use the Repast S GA wrapper in the visual editor simply follow these steps:
-1.) Add a property of type "Genetic Algorithm" to an agent. "evaluate" is the name of the fitness function
+<div class="ulist"><div class="title">To use the Repast S GA wrapper in the visual editor simply follow these steps:</div><ul>
+<li>
+<p>
+Add a property of type "Genetic Algorithm" to an agent. "evaluate" is the name of the fitness function
 that needs to be created as described in step two. "populationSize" is the count of the members in the GA
 population. The "Gene" array gives the set of genes, either "IntegerGene" or "DoubleGene," to be used.
 The parameters to the constructors (e.g., "min1" and "max1") are the optional lower and upper bounds
 for that gene. The template is as follows:
-new RepastGA(this, "evaluate", populationSize, new Gene[]{ new IntegerGene(min1, max1) new
-DoubleGene(min2, max2)})
-2.) Add a behavior that takes a double precision array (i.e., "double[]"), returns an positive integer
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>new RepastGA(this, "evaluate", populationSize,
+        new Gene[]{ new IntegerGene(min1, max1) new DoubleGene(min2, max2)})</code></pre>
+</div></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Add a behavior that takes a double precision array (i.e., "double[]"), returns an positive integer
 result, and that uses the fitness function name given above (e.g., "evaluate"). The double array is the
 current population member to be evaluated. The genes are in the same order as the template given in
 step one. Higher fitness result values mean greater fitness levels. The exact range does not matter as
 long as the numbers are positive.
-3.) Using the Wizard dialog, chose "Advanced Adaptation," "Use a Genetic Algorithm," "Get the Best
+</p>
+</li>
+<li>
+<p>
+Using the Wizard dialog, chose "Advanced Adaptation," "Use a Genetic Algorithm," "Get the Best
 Solution from a Genetic Algorithm," and then fill in the form to get a solution. The returned double array
 is the current best solution. The genes are in the same order as the template given in step one.
-4.) If the population needs to be reset, perhaps due to a plateau, using the Wizard dialog, chose
+</p>
+</li>
+<li>
+<p>
+If the population needs to be reset, perhaps due to a plateau, using the Wizard dialog, chose
 "Advanced Adaptation," "Use a Genetic Algorithm," "Reset the Population of a Genetic Algorithm," and
 then fill in the form.
-To use the Repast S GA wrapper in the Java or Groovy simply follow these steps:
-1.) Add an agent class field of type RepastGA and create an instance following this template:
-new RepastGA(this, "evaluate", populationSize, new Gene[]{ new IntegerGene(min1, max1) new DoubleGene(min2, max2)})
-"evaluate" is the name of the fitness function that needs to be created as described in step two.
+</p>
+</li>
+</ul></div>
+<div class="ulist"><div class="title">To use the Repast S GA wrapper in the Java or Groovy simply follow these steps:</div><ul>
+<li>
+<p>
+Add an agent class field of type RepastGA and create an instance following this template:
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>new RepastGA(this, "evaluate", populationSize,
+        new Gene[]{ new IntegerGene(min1, max1) new DoubleGene(min2, max2)})</code></pre>
+</div></div>
+<div class="paragraph"><p>"evaluate" is the name of the fitness function that needs to be created as described in step two.
 "populationSize" is the count of the members in the GA population. The "Gene" array gives the set of
 genes, either "IntegerGene" or "DoubleGene," to be used. The parameters to the constructors (e.g.,
-"min1" and "max1") are the optional lower and upper bounds for that gene.
-2.) Add a class method behavior that takes a double precision array (i.e., "double[]"), returns an positive
+"min1" and "max1") are the optional lower and upper bounds for that gene.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Add a class method behavior that takes a double precision array (i.e., "double[]"), returns an positive
 integer result, and that uses the fitness function name given above (e.g., "evaluate"). The double array is
 the current population member to be evaluated. The genes are in the same order as the template given
 in step one. Higher fitness result values mean greater fitness levels. The exact range does not matter as
 long as the numbers are positive. For higher performance, advanced users can implement
 org.jgap.FitnessFunction in place of just the creating the simple "int evaluate(double[])" method.
-3.) Use the following method template to get a solution:
-double[] solution = model.getBestSolution(cycles)
-"cycles" is the number of evolutionary steps to use to compute the requested solution. The returned
+</p>
+</li>
+<li>
+<p>
+Use the following method template to get a solution:
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>double[] solution = model.getBestSolution(cycles)</code></pre>
+</div></div>
+<div class="paragraph"><p>"cycles" is the number of evolutionary steps to use to compute the requested solution. The returned
 double array is the current best solution. The genes are in the same order as the template given in step
-one.
-4.) If the population needs to be reset, use the following method template:
-model.reset()</p></div>
+one.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+If the population needs to be reset, use the following method template:
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>model.reset()</code></pre>
+</div></div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_adding_agent_adaptation_using_neural_networks">2. Adding Agent Adaptation Using Neural Networks</h2>
-<div class="sectionbody">
-<div class="paragraph"><p>This page last changed on Aug 25, 2008 by north.
-Repast Simphony (Repast S) uses the Java Object Oriented Neural Engine (Joone)
+<div class="sect2">
+<h3 id="_neural_networks">6.2. Neural Networks</h3>
+<div class="paragraph"><p>Repast Simphony (Repast S) uses the Java Object Oriented Neural Engine (Joone)
 (<a href="http://www.jooneworld.com/">http://www.jooneworld.com/</a>) library to implement neural networks. Joone can be used directly within
 agents or the Repast S neural network wrapper can be used. Directly using Joone provides maximum
 flexibility but requires more complex programming. The Repast S wrapper simplifies the use of Joone
@@ -287,47 +1401,173 @@ while preserving most options. It is recommended that Repast S users start with 
 and, only if needed, eventually move to directly use of Joone. The Repast S wrapper is consistent with
 direct use of Joone so this should relatively straightforward. Obviously, as with all machine learning tools,
 it is important to make sure that neural networks, in general, and the chosen network design, in
-particular, are appropriate for your application.
-Documentation on how to use Joone directly can be found on their web site, <a href="http://www.jooneworld.com/">http://www.jooneworld.com/</a>
-To use the Repast S neural network wrapper in the visual editor simply follow these steps:
-1.) Add a property of type "Linear Neural Network," "Logistic Neural Network," or "Softmax Neural
+particular, are appropriate for your application.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/tip.png" alt="Tip" />
+</td>
+<td class="content">Documentation on how to use Joone directly can be found on their web site, <a href="http://www.jooneworld.com/">http://www.jooneworld.com/</a></td>
+</tr></table>
+</div>
+<div class="ulist"><div class="title">To use the Repast S neural network wrapper in the visual editor simply follow these steps:</div><ul>
+<li>
+<p>
+Add a property of type "Linear Neural Network," "Logistic Neural Network," or "Softmax Neural
 Network" to an agent to produce the corresponding type of neural network. Replace the integer (i.e., int)
 array elements with a description of the layers for your application. The first number in the array is the
 count of input neurons, the last number is the count of output neurons, and the intermediate numbers
 are the interstitial layers. You can have as many interstitial layers as you would like (i.e., zero or more).
-2.) Using the Wizard dialog, chose "Advanced Adaptation," "Use a Neural Network," "Train a Neural
+</p>
+</li>
+<li>
+<p>
+Using the Wizard dialog, chose "Advanced Adaptation," "Use a Neural Network," "Train a Neural
 Network Model," and then fill in the form to store data for fitting. The input data array is indexed by the
 number of training examples and the number of input neurons. The output data array is indexed by the
 number of training examples and the number of output neurons.
-3.) Using the Wizard dialog, chose "Advanced Adaptation," "Use a Neural Network," "Forecast from a
+</p>
+</li>
+<li>
+<p>
+Using the Wizard dialog, chose "Advanced Adaptation," "Use a Neural Network," "Forecast from a
 Neural Network," and then fill in the form to get a forecast. The input data array is indexed by the
 number of input neurons. The output data array is indexed by the number of output neurons.
 To use the Repast S regression wrapper in the Java or Groovy simply follow these steps:
-1.) Add an agent class field of type NeuralNet and create an linear, logistic, or softmax instance as
+</p>
+</li>
+<li>
+<p>
+Add an agent class field of type NeuralNet and create an linear, logistic, or softmax instance as
 follows:
-JooneTools.create_standard(new int[]{inputNeurons intermediateLayer1 intermediateLayer2
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>JooneTools.create_standard(new int[]{inputNeurons intermediateLayer1 intermediateLayer2
 intermediateLayerN outputNeurons}, JooneTools.LINEAR)).
+
 JooneTools.create_standard(new int[]{inputNeurons intermediateLayer1 intermediateLayer2
 intermediateLayerN outputNeurons}, JooneTools.LOGISTIC)).
+
 JooneTools.create_standard(new int[]{inputNeurons intermediateLayer1 intermediateLayer2
-intermediateLayerN outputNeurons}, JooneTools. SOFTMAX)).
-2.) Use the following method to store data for fitting where "model" is the new field name:
-JooneTools.train(model, inputDataArray, targetOutputDataArray, epochs, convergenceLimit, 0, null);
-The input data array is indexed by the number of training examples and the number of input neurons.
+intermediateLayerN outputNeurons}, JooneTools. SOFTMAX)).</code></pre>
+</div></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Use the following method to store data for fitting where "model" is the new field name:
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>JooneTools.train(model, inputDataArray, targetOutputDataArray, epochs, convergenceLimit, 0, null);</code></pre>
+</div></div>
+<div class="paragraph"><p>The input data array is indexed by the number of training examples and the number of input neurons.
 The output data array is indexed by the number of training examples and the number of output neurons.
 The model will be trained until "epochs" cycles are completed or the "convergenceLimit" of root mean
-square error is achieved, whichever comes first.
-3.) Use the following method to get a forecast where "model" is the new field name:
-double outputData[] = JooneTools.interrogate(model, inputData)
-The input data array is indexed by the number of input neurons. The output data array is indexed by the
+square error is achieved, whichever comes first.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Use the following method to get a forecast where "model" is the new field name:
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>double outputData[] = JooneTools.interrogate(model, inputData)</code></pre>
+</div></div>
+<div class="paragraph"><p>The input data array is indexed by the number of input neurons. The output data array is indexed by the
 number of output neurons.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_regression">6.3. Regression</h3>
+<div class="paragraph"><p>Repast Simphony (Repast S) uses the OpenForecast (<a href="http://openforecast.sourceforge.net/">http://openforecast.sourceforge.net/</a>) library to
+implement regression. OpenForecast can be used directly within agents or the Repast S regression
+wrapper can be used. Directly using OpenForecast provides maximum flexibility but requires more
+complex programming. The Repast S regression wrapper simplifies the use of OpenForecast while
+preserving most options. It is recommended that Repast S users start with the Repast S wrapper and,
+only if needed, eventually move to directly use of OpenForecast. The Repast S regression wrapper is
+consistent with direct use of OpenForecast so this should relatively straightforward. Obviously, as with all
+statistical tools, it is important to make sure that regression, in general, and the chosen regression fit, in
+particular, are appropriate for your application. The method "getForecastType()" can be used to find a
+text description of the selected equation for both types of regression. It is recommended that this be
+checked for appropriateness.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/tip.png" alt="Tip" />
+</td>
+<td class="content">Documentation on how to use OpenForecast directly can be found on their web site,
+<a href="http://openforecast.sourceforge.net/">http://openforecast.sourceforge.net/</a></td>
+</tr></table>
+</div>
+<div class="ulist"><div class="title">To use the Repast S regression wrapper in the visual editor simply follow these steps:</div><ul>
+<li>
+<p>
+Add a property of type "Multilinear Regression Model" or "Best Fit Regression Model" to an agent
+"Multilinear Regression Model" always fits input data sets using a linear equation for one input variable or
+multilinear equation for multiple input variables. "Best Fit Regression Model" causes OpenForecast to
+consider a range of different equation families and then find the best fitting member of the best fitting
+equation family. This includes linear and multilinear equations as well as other families as defined in the
+OpenForecast documentation.
+</p>
+</li>
+<li>
+<p>
+Using the Wizard dialog, chose "Advanced Adaptation," "Use a Regression Model," "Store Data for a
+Regression Model," and then fill in the form to store data for fitting.
+</p>
+</li>
+<li>
+<p>
+Using the Wizard dialog, chose "Advanced Adaptation," "Use a Regression Model," "Forecast from a
+Regression Model," and then fill in the form to get a forecast. Please note that it generally is necessary to
+return default forecasts for several steps before enough example data is available for a good quality
+forecast.
+</p>
+</li>
+</ul></div>
+<div class="ulist"><div class="title">To use the Repast S regression wrapper in the Java or Groovy simply follow these steps:</div><ul>
+<li>
+<p>
+Add an agent class field of type RepastRegressionModel and create an instance (i.e., new
+RepastRegressionModel(false)). Set the constructor parameter to "false" for "Multilinear Regression
+Model" or "true" for "Best Fit Regression Model." "Multilinear Regression Model" always fits input data sets
+using a linear equation for one input variable or multilinear equation for multiple input variables. "Best Fit
+Regression Model" causes OpenForecast to consider a range of different equation families and then find
+the best fitting member of the best fitting equation family. This includes linear and multilinear equations
+as well as other families as defined in the OpenForecast documentation. Obviously, as with all statistical
+tools, it is important to make sure that the chosen functions, both multilinear and best fit, are appropriate
+for your application. The method "getForecastType()" can be used to find a text description of the
+selected equation for both types of regression. It is recommended that this be checked for
+appropriateness.
+</p>
+</li>
+<li>
+<p>
+Use the new field&#8217;s "add(&#8230;) method to store data for fitting (i.e., model.add(y, x1, x2, x3)).
+</p>
+</li>
+<li>
+<p>
+Use the new field&#8217;s "forecast(&#8230;)" method to get a forecast (i.e., double x = model.forecast(y1, y2,
+y3)). Please note that it generally is necessary to return default forecasts for several steps before enough
+example data is available for a good quality forecast.
+</p>
+</li>
+</ul></div>
+</div>
 </div>
 </div>
 </div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-09-28 21:05:59 Central Daylight Time
+Last updated 2017-09-29 14:08:22 Central Daylight Time
 </div>
 </div>
 </body>
