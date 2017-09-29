@@ -792,8 +792,424 @@ asciidoc.install(2);
 click on the project and select Repast Simphony &#8594; Add Repast Simphony to this Project.
 This will add the Repast libraries to the project class path so that you can reference Repast classes and
 run simulations from your project without needing to manually add all of the Repast libraries and
-dependencies.
-Document</p></div>
+dependencies.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_model_configuration_files">2.4. Model Configuration Files</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>Needs updating</p></div>
+</div></div>
+<div class="listingblock">
+<div class="title">user_path.xml</div>
+<div class="content">
+<pre><code>&lt;model name="Model Name"&gt;
+        &lt;classpath&gt;
+                &lt;entry path="..." annotations="[true|false]" /&gt;
+                &lt;agents path="..." filter="..." /&gt;
+                &lt;builtin fullname="..." /&gt;
+        &lt;/classpath&gt;
+&lt;/model&gt;</code></pre>
+</div></div>
+<div class="ulist"><ul>
+<li>
+<p>
+path is path statement to a directory or jar file. If the directory contains jars then all those jars are
+added to the classpath. If the directory or its children contain .class files then the directory is added
+to the classpath. More than one path can be specified. Multiple paths should be "," separated. For
+.class files, the path functions as a classpath and so it must be the directory immediately above the
+directories corresponding to the class packages. For example, given the class
+repast.simphony.MyClass and the directory structure X/bin/repast/simphony/MyClass.class, the path
+should be X/bin. This applies to path in both entry and agents elements.
+</p>
+</li>
+<li>
+<p>
+annotations specified whether or not any classes found in the specified path(s) should be processed
+for annotations. The default is false.
+</p>
+</li>
+<li>
+<p>
+agents specifies the path where agent classes can be found. These are automatically processed for
+annotations.
+</p>
+</li>
+<li>
+<p>
+filter specifies a class filter on the agents path(s). For example a filter of "anl.gov.Agent" will filter
+out all classes but anl.gov.Agent as agent classes. Filters can contain the wildcard "*". So for
+example, "anl.gov.*Agent" will include any class in the package anl.gov whose class name ends with
+Agent.
+</p>
+</li>
+<li>
+<p>
+the builtin element is for the case when a user needs to add an agent class existing in one of the
+repast plugins. The user specifies the canonical class name as the fullname.
+</p>
+</li>
+</ul></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/note.png" alt="Note" />
+</td>
+<td class="content">For the builtins, since the class can be in any one of the repast plugins, without hard coding the
+path, it is difficult to use the filter mechanism on all the plugins. This means that unless we can figure out
+a way to figure out the path of a resource containing a package, we must specify each individual class
+that we&#8217;d like to be considered an agent class. The good news is that this is not a common usage.</td>
+</tr></table>
+</div>
+<div class="paragraph"><div class="title">context.xml</div><p>context.xml contains the context heirarchy information.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;context id="..." class="..."&gt;
+        &lt;attribute id="..." value="..." type="[int|long|double|float|boolean|string|...]"
+                display_name="..." converter="..."/&gt;
+        &lt;projection id="..." type="[network|grid|continuous space|geography|value layer]"&gt;
+                &lt;attribute id="..." .../&gt;
+        &lt;/projection&gt;
+
+        &lt;context id="..." class="..."&gt;
+                ...
+        &lt;/context&gt;
+&lt;/context&gt;</code></pre>
+</div></div>
+<div class="tableblock">
+<table rules="all"
+width="60%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<caption class="title">Table 1. Context Element</caption>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+<thead>
+<tr>
+<th align="left" valign="top">Attribute Name </th>
+<th align="left" valign="top">Description </th>
+<th align="left" valign="top">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">id</p></td>
+<td align="left" valign="top"><p class="table">Unique identifer for the context</p></td>
+<td align="left" valign="top"><p class="table">YES</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">class</p></td>
+<td align="left" valign="top"><p class="table">Fully qualitifed name of a Context implementation. If this
+is present this context will be used instead of the default</p></td>
+<td align="left" valign="top"><p class="table">NO</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tableblock">
+<table rules="all"
+width="60%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<caption class="title">Table 2. Attribute Element</caption>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+<thead>
+<tr>
+<th align="left" valign="top">Attribute Name </th>
+<th align="left" valign="top">Description </th>
+<th align="left" valign="top">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">id</p></td>
+<td align="left" valign="top"><p class="table">Unique identifer for the attribute</p></td>
+<td align="left" valign="top"><p class="table">YES</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">value</p></td>
+<td align="left" valign="top"><p class="table">Default value of the attribute</p></td>
+<td align="left" valign="top"><p class="table">YES</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">type</p></td>
+<td align="left" valign="top"><p class="table">The primitive or class type of the attribute</p></td>
+<td align="left" valign="top"><p class="table">YES</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">display_name</p></td>
+<td align="left" valign="top"><p class="table">Optional name used to display the attribute when it is used as a model parameter</p></td>
+<td align="left" valign="top"><p class="table">NO</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">converter</p></td>
+<td align="left" valign="top"><p class="table">Optional implementation of StringConverter used to convert the attribute to and from a string representation</p></td>
+<td align="left" valign="top"><p class="table">NO</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><p>For example:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;context id="MyContext"&gt;
+        &lt;attribute id="numAgents" value="20" type="int" display_name="Initial Number of Agents"/&gt;
+&lt;/context&gt;</code></pre>
+</div></div>
+<div class="tableblock">
+<table rules="all"
+width="60%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<caption class="title">Table 3. Projection Element</caption>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+<thead>
+<tr>
+<th align="left" valign="top">Attribute Name </th>
+<th align="left" valign="top">Description </th>
+<th align="left" valign="top">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">id</p></td>
+<td align="left" valign="top"><p class="table">Unique identifer for the projection</p></td>
+<td align="left" valign="top"><p class="table">YES</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">type</p></td>
+<td align="left" valign="top"><p class="table">The projection type (network, grid, geography, continuous space, value layer)</p></td>
+<td align="left" valign="top"><p class="table">YES</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><div class="title">Special Attributes</div><p>If certain special attributes are present, then the context.xml file can be used to instantiate the actual
+context hierarchy. The attributes are defined in the repast.simphony.dataLoader.engine.AutoBuilderConstants.</p></div>
+<div class="tableblock">
+<table rules="all"
+width="60%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<caption class="title">Table 4. Context Attributes</caption>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<thead>
+<tr>
+<th align="left" valign="top">Attribute Id </th>
+<th align="left" valign="top">Description </th>
+<th align="left" valign="top">Allowed values </th>
+<th align="left" valign="top">type </th>
+<th align="left" valign="top">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">_timeUnits_</p></td>
+<td align="left" valign="top"><p class="table">The tick unit type</p></td>
+<td align="left" valign="top"><p class="table">Any string that can be parsed by Amount.valueOf</p></td>
+<td align="left" valign="top"><p class="table">string</p></td>
+<td align="left" valign="top"><p class="table">NO</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tableblock">
+<table rules="all"
+width="60%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<caption class="title">Table 5. Grid Attributes</caption>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<thead>
+<tr>
+<th align="left" valign="top">Attribute Id </th>
+<th align="left" valign="top">Description </th>
+<th align="left" valign="top">Allowed values </th>
+<th align="left" valign="top">type </th>
+<th align="left" valign="top">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">Any attribute of int type</p></td>
+<td align="left" valign="top"><p class="table">Any int attributes
+will be used as the dimensions of the
+grid. These will be processed in order
+such that the first becomes the width
+(x) dimensions, the next the height
+(y) and so on.</p></td>
+<td align="left" valign="top"><p class="table">Any int</p></td>
+<td align="left" valign="top"><p class="table">int</p></td>
+<td align="left" valign="top"><p class="table">YES</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">border rule</p></td>
+<td align="left" valign="top"><p class="table">Specifies the behavior of agents
+when moving over a grid&#8217;s borders.</p></td>
+<td align="left" valign="top"><p class="table">bouncy, sticky, strict, or periodic</p></td>
+<td align="left" valign="top"><p class="table">string</p></td>
+<td align="left" valign="top"><p class="table">YES</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">allows multi</p></td>
+<td align="left" valign="top"><p class="table">whether or not the grid allows multiple agents in
+each cell</p></td>
+<td align="left" valign="top"><p class="table">true or false (default is false)</p></td>
+<td align="left" valign="top"><p class="table">boolean</p></td>
+<td align="left" valign="top"><p class="table">NO</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><p>For example:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;context id="MyContext"&gt;
+        &lt;projection id="MyGrid" type="grid"&gt;
+                &lt;attribute id="width" type="int" value="200"/&gt;
+                &lt;attribute id="height" type="int" value="100"/&gt;
+                &lt;attribute id="border rule" type="string" value="periodic" /&gt;
+                &lt;attribute id="allows multi" type="boolean" value="true"/&gt;
+        &lt;/projection&gt;
+&lt;/context&gt;</code></pre>
+</div></div>
+<div class="paragraph"><p>will create a 200x100 grid with an id of "MyGrid." The border rule for the grid is "periodic" so the grid
+will wrap, forming a torus. The grid will also allow multiple agents in each cell.</p></div>
+<div class="tableblock">
+<table rules="all"
+width="60%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<caption class="title">Table 6. Continuous Space Attributes</caption>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<thead>
+<tr>
+<th align="left" valign="top">Attribute Id </th>
+<th align="left" valign="top">Description </th>
+<th align="left" valign="top">Allowed values </th>
+<th align="left" valign="top">type </th>
+<th align="left" valign="top">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">Any attribute of int or double type</p></td>
+<td align="left" valign="top"><p class="table">Any int or double
+attributes will be used as the dimensions of the grid. These will be
+processed in order such that the first becomes the width (x) dimensions,
+the next the height (y) and so on.</p></td>
+<td align="left" valign="top"><p class="table">Any int or double</p></td>
+<td align="left" valign="top"><p class="table">int or double</p></td>
+<td align="left" valign="top"><p class="table">YES</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">border rule</p></td>
+<td align="left" valign="top"><p class="table">Specifies the behavior of agents when moving over
+a space&#8217;s borders.</p></td>
+<td align="left" valign="top"><p class="table">bouncy, sticky, strict, or periodic</p></td>
+<td align="left" valign="top"><p class="table">string</p></td>
+<td align="left" valign="top"><p class="table">YES</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><p>For example:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;context id="MyContext"&gt;
+        &lt;projection id="MySpace" type="continuous space"&gt;
+                &lt;attribute id="width" type="int" value="200"/&gt;
+                &lt;attribute id="height" type="int" value="100"/&gt;
+                &lt;attribute id="border rule" type="string" value="strict" /&gt;
+        &lt;/projection&gt;
+&lt;/context&gt;</code></pre>
+</div></div>
+<div class="paragraph"><p>will create a 200x100 continuous space with an id of "MySpce." The border rule for the grid is "strict"
+so any movement across the border will cause an error.</p></div>
+<div class="tableblock">
+<table rules="all"
+width="60%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<caption class="title">Table 7. Network Attributes</caption>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<thead>
+<tr>
+<th align="left" valign="top">Attribute Id </th>
+<th align="left" valign="top">Description </th>
+<th align="left" valign="top">Allowed values </th>
+<th align="left" valign="top">type </th>
+<th align="left" valign="top">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">directed</p></td>
+<td align="left" valign="top"><p class="table">Whether or not the network is directed</p></td>
+<td align="left" valign="top"><p class="table">true or false. Default is false</p></td>
+<td align="left" valign="top"><p class="table">boolean</p></td>
+<td align="left" valign="top"><p class="table">NO</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">edge class</p></td>
+<td align="left" valign="top"><p class="table">The fully qualified name of a class that
+extends RepastEdge. Any edges created by the network will be
+of this type.</p></td>
+<td align="left" valign="top"><p class="table">Any properly formatted class name extending RepastEdge</p></td>
+<td align="left" valign="top"><p class="table">string</p></td>
+<td align="left" valign="top"><p class="table">NO</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><p>For example:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;context id="MyContext"&gt;
+        &lt;projection id="MyNetwork" type="network"&gt;
+                &lt;attribute id="directed" type="boolean" value="true"/&gt;
+        &lt;/projection&gt;
+&lt;/context&gt;</code></pre>
+</div></div>
+<div class="paragraph"><p>will create a network with an id of "MyNetwork." The network will be directed and use the default
+RepastEdge as the edge type.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_distributing_your_model">2.5. Distributing Your Model</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>Needs updating</p></div>
+</div></div>
+<div class="paragraph"><p>Models created with Repast Simphony may easily be distributed with the provided Install Builder tool.
+This tool builds a distributable installer that anyone may use to install the model to their computer. The
+only requirement for those to who the model is distributed is the target system to have a current Java
+Runtime Environment (version 5 or later).</p></div>
+<div class="paragraph"><p>To start the Install Builder, select Build Installer in the run menu</p></div>
+<div class="paragraph"><p>The builder make take a few minutes to complete the installer. Once this process is complete, a
+message BUILD SUCCESSFUL should be visible in the Console window.</p></div>
 </div>
 </div>
 </div>
@@ -1049,10 +1465,473 @@ yourself. This is more complicated than it sounds, and functions simply like:</p
 }</code></pre>
 </div></div>
 </div>
+<div class="sect2">
+<h3 id="_scheduling">3.6. Scheduling</h3>
+<div class="paragraph"><p>There are basically three ways to work with the Repast Simphony Scheduler. No one is better than the
+other and they each have their specified purpose.</p></div>
+<div class="paragraph"><div class="title">Directly Schedule an action</div><p>This is similar to the way that actions have always been scheduled in repast with a slight twist. In this
+scenario, you get a schedule and tell it the when and what to run. An example of adding an item to the
+schedule this way is as follows:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>//Specify that the action should start at tick 1 and execute every other tick
+ScheduleParameters params = ScheduleParameters.createRepeating(1, 2);
+//Schedule my agent to execute the move method given the specified schedule parameters.&amp;nbsp;
+schedule.schedule(params, myAgent, "move");</code></pre>
+</div></div>
+<div class="paragraph"><p>The biggest change here is that instead of using one of the numerous methods to set up the parameters
+for the action like you would in repast 3, you just use an instance of ScheduleParameters.
+ScheduleParameters can be created using one of several convient factory methods if desired. A slight
+alteration of this is:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>//Specify that the action should start at tick 1 and execute every other tick
+ScheduleParameters params = ScheduleParameters.createRepeating(1, 2);
+//Schedule my agent to execute the move method given the specified schedule parameters.
+schedule.schedule(params, myAgent, "move", "Forward", 4);</code></pre>
+</div></div>
+<div class="paragraph"><p>This example schedules the same action with the same parameters, but passes arguments to the method
+that is to be called. The "Forward" and 4 will be passed as arguments to the method move. The
+assumption is that the signature for move looks like this:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>public void move(String direction, int distance)</code></pre>
+</div></div>
+<div class="paragraph"><div class="title">Schedule with Annotations</div><p>Java 5 introduced several new and exciting features (some of which are used above), but one of the
+most useful is Annotation support. Annotations, in java, are bits of metadata which can be attached to
+classes, methods or fields that are available at runtime to give the system more information. Notable
+uses outside repast includes the EJB3 spec which allows you to create ejbs using annotations without
+requiring such complex descriptors. For repast, we thought annotations were a perfect match for tying
+certain types of scheduling information to the methods that should be scheduled. The typical case where
+you would use annotations is where you have actions whose schedule is know at compile time. So for
+example, if you know that you want to have the paper delivered every morning, it would be logical to
+schedule the deliverPaper() method using annotations. Without going into extensive documentation
+about how annotations work (if you want that look at Java 5 Annotations), here is how you would
+schedule an action using annotations:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>@ScheduledMethod(start=1 , interval=2)
+public void deliverPaper()</code></pre>
+</div></div>
+<div class="paragraph"><p>The arguments of the annotation are similar to the properties for the ScheduleParameters object. One
+particularly nice feature of using annotations for scheduling is that you get keep the schedule information
+right next to the method that is scheduled, so it is easy to keep track of what is executing when.
+Most of the time, objects with annotations will automatically be added to the schedule, however, if you
+create a new object while your simulation is running, this may not be the case. Fortunately, the schedule
+object makes it very easy to schedule objects with annoations.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>//Add the annotated methods from the agent to the schedule.
+schedule.schedule(myAgent);</code></pre>
+</div></div>
+<div class="paragraph"><p>The schedule will search the object for any methods which have annotations and add those methods to
+the schedule. This type of scheduling is not designed to handle dynamic scheduling, but only scheduling, where the
+actions are well defined at compile time.</p></div>
+<div class="paragraph"><div class="title">Schedule with Watcher</div><p>Scheduling using watchers is the most radical of the new scheduling approaches. Watchers are designed
+to be used for dynamic scheduling where a typical workflow is well understood by the model designer.
+Basically, a watcher allows an agent to be notified of a state change in another agent and schedule an
+event to occur as a result. The watcher is set up using an annotation (like above), but instead of using
+static times for the schedule parameters, the user specifies a query defining whom to watch and a query
+defining a trigger condition that must be met to execute the action. That&#8217;s a bit of a mouthfull, so let&#8217;s
+take a look at an example to hopefully clarify how this works. (this code is from the SimpleHappyAgent
+model which ships with Repast Simphony)</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>@Watch(watcheeClassName = "repast.demo.simple.SimpleHappyAgent", watcheeFieldName =
+        "happiness", query = "linked_from",
+        whenToTrigger = WatcherTriggerSchedule.LATER, scheduleTriggerDelta = 1,
+        scheduleTriggerPriority = 0)
+public void friendChanged(SimpleHappyAgent friend) {
+        if (Math.random() &gt; .25) {
+        this.setHappiness(friend.getHappiness());
+        } else {
+                this.setHappiness(Random.uniform.nextDouble());
+        }
+        System.out.println("Happiness Changed");
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>There is a fair amount going on in this, so we&#8217;ll parse it out piece by piece (for a more detailed techical
+explanation, see <a id="fill in link"></a>).
+First, note that there is a @Watch annotation before the method. This tells the Repast Simphony system
+that this is going to be watching other objects in order to schedule the friendChanged() method. The first
+parameter of the annotation is the watcheeClassName. This defines the type of agents that this object
+will be watching. The second argument, watcheeFieldName, defines what field we are interested in monitoring.
+This means that there is a variable in the class SimpleHappyAgent, that we want to monitor
+for changes. When it changes, this object will be notified. The query argument defines which instances
+of SimpleHappyAgent we want to monitor. In this case we are monitoring agents to whom we are
+linked. For more documentation on arguments for this query can be found at: Watcher Queries. The
+whenToTrigger argument specifies whether to execute the action immediately (before the other actions at
+this time are executed) or to wait until the next tick. The scheduleTriggerDelta defines how long to wait
+before scheduling the action (in ticks). Finally the scheduleTriggerPriority allows you to help define the
+order in which this action is executed at it&#8217;s scheduled time.</p></div>
+<div class="paragraph"><p>Let me give a practical example of how this would be used. Let&#8217;s say you are modelling electrical
+networks. You may want to say that if a transformer shuts down, at some time in the future a plant will
+shut down. So you make the plant a watcher of the transformer. The plant could watch a variable called
+status on the transformers to which it is connected, and when the transformer&#8217;s status changes to OFF,
+then the plant can schedule to shut down in the future. All done with a single annotation. It could look
+like this:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>@Watch(watcheeClassName = "infr.Transformer", watcheeFieldName = "status", query =
+        "linked_from", whenToTrigger = WatcherTriggerSchedule.LATER, scheduleTriggerDelta = 1)
+public void shutDown(){
+        operational = false;
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>Obviously that is a simple example, but it should give you an idea of how to work with scheduling this
+way.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_watcher_queries">3.7. Watcher Queries</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>Provide code examples</p></div>
+</div></div>
+<div class="paragraph"><p>Watcher queries are boolean expressions that evaluate the watcher and the watchee with respect to each
+other and some projection or context. The context is the context where the watcher resides and the
+projections are those contained by that context. In the following "[arg]" indicates that the arg is optional.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+colocated - true if the watcher and the watchee are in the same context.
+</p>
+</li>
+<li>
+<p>
+linked_to [<em>network name</em>] - true if the watcher is linked to the watchee in any network, or
+optionally in the named network
+</p>
+</li>
+<li>
+<p>
+linked_from [<em>network name</em>] - true if the watcher is linked from the watchee in any network, or
+optionally in the named network
+</p>
+</li>
+<li>
+<p>
+within X [<em>network name</em>] - true if the path from the watcher to the watchee is less than or equal to
+X where X is a double precision number. This is either for any network in the context or in the
+named network.
+</p>
+</li>
+<li>
+<p>
+within_vn X [<em>grid name</em>] - true if the watchee is in the watcher&#8217;s von neumann neighborhood in any
+grid projection or in the named grid. X is the extent of the neighborhood in the x, y, [z] dimensions.
+</p>
+</li>
+<li>
+<p>
+within_moore X [<em>grid name</em>] - true if the watchee is in the watcher&#8217;s moore neighborhood in any
+grid projection or in the named grid. X is the extent of the neighborhood in the x, y, [z] dimensions.
+</p>
+</li>
+<li>
+<p>
+within X [<em>geography name</em>] true if the orthodromic distance from the watcher to the watchee is
+less than or equal to X meters, otherwise false.
+Watcher queries can be combined using the keywords not and and as well as ( to establish precedence.
+For example
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>within 2 'family' and not linked_to 'business'</code></pre>
+</div></div>
+<div class="paragraph"><p>The queries are tested in WatcherQueryTests and defined as annotations in MyWatcher.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_gui_parameters_and_probes">3.8. GUI Parameters and Probes</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="ulist"><ul>
+<li>
+<p>
+GUI Parameters and Probes (remove extended parameters bit, add the custom probe registration stuff and update the annotations that can be used on agent properties, e.g., the statecharts agent property annotation)
+</p>
+</li>
+</ul></div>
+</div></div>
+<div class="paragraph"><div class="title">GUI Parameters</div><p>GUI Parameters are the simulation parameters that appear in the parameters view in the application GUI.
+These parameters are automatically created from the parameters XML file or from any
+@Parameters method annotations that are used in a Context. At the moment, these two options only
+allow for the creation of unconstrained numeric, boolean and String parameters. However, constrained
+parameters of more complicated types can be defined using an xml based format. This section describes how
+to save, load and "set as default" parameters using the parameters tools menu, and the last section looks
+at the parameters returned from agent probes.</p></div>
+<div class="paragraph"><div class="title">Convertors and custom parameter types</div><p>Repast Simphony can internally handle the conversion of numeric and boolean types to and from the
+Strings in the gui display and the parameter file. However, if you wish to use a type other than these,
+then you must provide a converter that will convert an Object to and from a String representation. A
+converter is class that implements StringConverter and is used to create the appropriate Object from a
+string representation when reading the xml file and taking input from the gui. The converter also converts
+the object to a string representation. This string is then used when writing the object out and displaying
+the parameter&#8217;s value in the gui.</p></div>
+<div class="paragraph"><p>For example, supposing you wish use the following Name class as a Parameter.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>package repast.test.viz;public class Name {
+        private String first, last;
+        private int hashCode;
+
+        public Name(String first, String last) {
+                this.first = first;
+                this.last = last;
+                hashCode = 17;
+                hashCode = 37 * hashCode + first.hashCode();
+                hashCode = 37 * hashCode + last.hashCode();
+        }
+
+        public String getFirst() {
+                return first;
+        }
+
+        public String getLast() {
+                return last;
+        }
+
+        public int hashCode() {
+                return hashCode;
+        }
+
+        public boolean equals(Object obj) {
+                if (obj instanceof Name) {
+                        Name other = (Name) obj;
+                        return other.first.equals(this.first) &amp;&amp; other.last.equals(this.last);
+                }
+                return false;
+        }
+
+        public String toString() {
+                return "Name(" + first + ", " + last + ")";
+        }
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>Your parameter XML then would look something like:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;parameters&gt; ...
+        &lt;parameter name="name" displayName="Full Name" type="repast.test.viz.Name"
+                defaultValue="Joe Smith" converter="repast.test.viz.NameConverter" /&gt;
+&lt;/parameters&gt;</code></pre>
+</div></div>
+<div class="paragraph"><p>The type is the fully qualified name of the parameter type (in this case "Name") and the converter is the
+fully qualified name of the converter class. The converter must implement the StringConverter interface.
+StringConverter has two methods for converting to and from a String representation.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>package repast.parameter;
+
+/**
+* Converts an Object to and from a String representation. Subclasses
+* are specialized for specified objects.
+*
+* @author Nick Collier
+*/
+public interface StringConverter&lt;T&gt; {
+
+        /**
+        * Converts the specified object to a String representation and
+        * returns that representation. The representation should be such
+        * that &lt;code&gt;fromString&lt;/code&gt; can recreate the Object.
+        *
+        * @param obj the Object to convert.
+        *
+        * @return a String representation of the Object.
+        */
+        String toString(T obj);
+
+        /**
+        * Creates an Object from a String representation.
+        *
+        * @param strRep the string representation
+        * @return the created Object.
+        */
+        T fromString(String strRep);
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>The NameConverter then looks like:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>package repast.test.viz;
+import repast.parameter.*;
+public class NameConverter implements StringConverter&lt;Name&gt; {
+
+        /**
+        * Converts the specified object to a String representation and
+        * returns that representation. The representation should be such
+        * that &lt;code&gt;fromString&lt;/code&gt; can recreate the Object.
+        *
+        * @param obj the Object to convert.
+        * @return a String representation of the Object.
+        */
+        public String toString(Name obj) {
+                return obj.getFirst() + " " + obj.getLast();
+        }
+
+        /**
+        * Creates an Object from a String representation.
+        *
+        * @param strRep the string representation
+        * @return the created Object.
+        */
+        public Name fromString(String strRep) {
+                int index = strRep.indexOf(" ");
+                String first = strRep.substring(0, index);
+                String last = strRep.substring(index + 1, strRep.length());
+                return new Name(first, last);
+        }
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>It is also possible to use the values attribute to constrain the possible values of a converted parameter.
+For example:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;parameters&gt; ...
+        &lt;parameter name="name" displayName="Full Name" type="repast.test.viz.Name"
+                defaultValue="Joe Smith" converter="repast.test.viz.NameConverter"
+                values="'Joe Smith' 'Mary Smith' 'Granny Smith'"/&gt;
+&lt;/parameters&gt;</code></pre>
+</div></div>
+<div class="paragraph"><p>When constraining a converted parameter, the elements in the values list must be Strings that can be
+converted using the converter. If you do constrain a converted parameter in this way, you must override
+equals (and hashCode) in your custom type. If not, then the constraint validation will most likely fail.</p></div>
+<div class="paragraph"><div class="title">Parameters Panel Tools</div><p>The menu on the parameters panels allows the user to save and load parameter values, and set the
+current parameter values as the default.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Saving - clicking the save menu item will prompt for a file name and then save the current
+parameter values into that file.
+</p>
+</li>
+<li>
+<p>
+Loading - clicking the load menu item will prompt for a file name and then load the parameter
+values from that file into the current parameters. This assumes that the current parameters
+are compatible with those being loaded, that is, that the names and types of parameters
+in the file match the current parameters.
+</p>
+</li>
+<li>
+<p>
+Set as Default - this allows the user to set current parameter values as defaults such that these
+values will be used when the simulation is reset. Clicking this menu item prompts for which
+parameters to set as defaults and then sets those as the new defaults.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><div class="title">Agent Probes</div><p>An agent can be probed by clicking on its visual representation in the gui. The agent&#8217;s parameters will
+then be displayed in a probe panel. By default, the displayed parameters are derived from an agent&#8217;s
+Java bean properties which are themselves derived from get / set accessor method pairs. For example,</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>public class VizAgent {
+        ...
+        public double getWealth() {
+                ...
+        }
+
+        public void setWealth(double val) {
+                ...
+        }
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>This creates a "wealth" parameter. The probe panel will display an entry for "wealth" whose value is the
+result of the "getWealth" call. When the user enters a new value in the "wealth" text field then the
+setWealth method will passed this new value. Read-only parameters can be created by specifying only a
+get-style method. The label for this field will be the simple java bean properties name.
+Which properties are treated as parameters, and how to display them can be further refined by adding an
+@Parameter annotation to either the getter or setter of a property method pair. (The information in the
+annotation applies equally to both methods.) Using a Parameter annotation, a more descriptive display
+name can be specified. For example:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>public class VizAgent {
+        ...
+        @Parameter(usageName="wealth", displayName="Agent Wealth (in Euros)")
+        public double getWealth() {
+                ...
+        }
+
+        public void setWealth(double val) {
+                ...
+        }
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>The usageName should correspond to the java bean property which is typically the method name minus
+the get/set with the first character lower-cased. The displayName specifies the gui label for this
+parameter in the probe window.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/note.png" alt="Note" />
+</td>
+<td class="content">If any method is annotated with @Parameter, then only @Parameter annotated methods will
+be displayed in the probe panel.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>Using the @Parameter annotation, you can also specify the name of a converter to convert to and from a
+displayable String. By specifying a converter, any type of object contained by the agent can be displayed
+as a parameter. This converter is identical that described above in the extended parameters section. See
+the convertors and custom parameter types section above for more details. For example,</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>public class VizAgent {
+        ...
+        @Parameter(usageName="wealth", displayName="Agent Wealth (in Euros)",
+                converter="repast.demo.MoneyConverter")
+        public Money getWealth() {
+                ...
+        }
+
+        public void setWealth(Money val) {
+                ...
+        }
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>In this case, the agent&#8217;s wealth is represented by a Money class and a MoneyConverter is used to convert
+to and from a String value.
+Lastly, by default the probe&#8217;s title will be the result of calling "toString()" on the probed object (e.g.
+<a href="mailto:VizAgent@55927f">VizAgent@55927f</a>, in the above screen shot). A more appropriate title can be specified either by
+overriding toString() and returning the desired value, or annotating any method that returns the desired
+title with @ProbeID. For example:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>public class VizAgent {
+        ...
+        @ProbeID
+        public String name() { return name;}
+
+        @Parameter(usageName="wealth", displayName="Agent Wealth (in Euros)",
+                converter="repast.demo.MoneyConverter")
+        public Money getWealth() {
+                ...
+        }
+
+        public void setWealth(Money val) {
+                ...
+        }
+}</code></pre>
+</div></div>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_batch_runs">4. Batch Runs</h2>
+<h2 id="_agent_adaptation">4. Agent Adaptation</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>Section should be reviewed to make sure the example code is up to date.</p></div>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_batch_runs">5. Batch Runs</h2>
 <div class="sectionbody">
 <div class="sidebarblock">
 <div class="content">
@@ -1060,11 +1939,11 @@ yourself. This is more complicated than it sounds, and functions simply like:</p
 <div class="paragraph"><p>Brief explanation or see Batch guide.</p></div>
 </div></div>
 <div class="sect2">
-<h3 id="_batch_parameters">4.1. Batch Parameters</h3>
+<h3 id="_batch_parameters">5.1. Batch Parameters</h3>
 <div class="sidebarblock">
 <div class="content">
 <div class="title">TODO</div>
-<div class="paragraph"><p>Needs updating</p></div>
+<div class="paragraph"><p>Needs updating. check if this is described in Batch Guide</p></div>
 </div></div>
 <div class="paragraph"><p>Repast Simphony supports the creation of a parameter sweep through an xml file or through a scripted
 bsf file. Both define a sweep through the defintion of parameter setters. These setters may be constant
@@ -1186,10 +2065,10 @@ will use the same random seed.</td>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_advanced_topics">5. Advanced Topics</h2>
+<h2 id="_advanced_topics">6. Advanced Topics</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_adding_controller_actions">5.1. Adding Controller Actions</h3>
+<h3 id="_adding_controller_actions">6.1. Adding Controller Actions</h3>
 <div class="paragraph"><p>Controller actions can be added and integrated into the controller tree via
 plugin extension points. The repast.simphony.core plugin defines the following:</p></div>
 <div class="listingblock">
@@ -1276,18 +2155,8 @@ String DATA_SET_ROOT = "repast.controller.action.data_sets";</code></pre>
 <div class="paragraph"><p>All the controller actions in repast simphony are added via this mechanism so examining their plugin.xml
 files and related code is a good place to learn more.</p></div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_agent_adaptation">6. Agent Adaptation</h2>
-<div class="sectionbody">
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>Section should be reviewed to make sure the example code is up to date.</p></div>
-</div></div>
 <div class="sect2">
-<h3 id="_genetic_algorithms">6.1. Genetic Algorithms</h3>
+<h3 id="_genetic_algorithms">6.2. Genetic Algorithms</h3>
 <div class="paragraph"><p>Repast Simphony (Repast S) uses the Java Genetic Algorithms Package (JGAP) (<a href="http://jgap.sourceforge.net/">http://jgap.sourceforge.net/</a>) to implement genetic algorithms. JGAP can be used directly within agents or the Repast S genetic algorithms (GA) wrapper can be used. Directly using JGAP provides maximum flexibility but requires more complex programming. The Repast S GA wrapper simplifies the use of JGAP while preserving most options. It is recommended that Repast S users start with the Repast S wrapper and, only if needed, eventually move to directly use of JGAP. The Repast S regression wrapper is consistent with direct use of JGAP so this should relatively straightforward. Obviously, as with all machine learning tools, it is important to make sure that genetic algorithms, in general, and the chosen
 formulation, in particular, are appropriate for your application.</p></div>
 <div class="admonitionblock">
@@ -1392,7 +2261,7 @@ If the population needs to be reset, use the following method template:
 </div></div>
 </div>
 <div class="sect2">
-<h3 id="_neural_networks">6.2. Neural Networks</h3>
+<h3 id="_neural_networks">6.3. Neural Networks</h3>
 <div class="paragraph"><p>Repast Simphony (Repast S) uses the Java Object Oriented Neural Engine (Joone)
 (<a href="http://www.jooneworld.com/">http://www.jooneworld.com/</a>) library to implement neural networks. Joone can be used directly within
 agents or the Repast S neural network wrapper can be used. Directly using Joone provides maximum
@@ -1484,7 +2353,7 @@ Use the following method to get a forecast where "model" is the new field name:
 number of output neurons.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_regression">6.3. Regression</h3>
+<h3 id="_regression">6.4. Regression</h3>
 <div class="paragraph"><p>Repast Simphony (Repast S) uses the OpenForecast (<a href="http://openforecast.sourceforge.net/">http://openforecast.sourceforge.net/</a>) library to
 implement regression. OpenForecast can be used directly within agents or the Repast S regression
 wrapper can be used. Directly using OpenForecast provides maximum flexibility but requires more
@@ -1567,7 +2436,7 @@ example data is available for a good quality forecast.
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-09-29 14:08:22 Central Daylight Time
+Last updated 2017-09-29 17:27:36 Central Daylight Time
 </div>
 </div>
 </body>
