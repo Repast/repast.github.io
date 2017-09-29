@@ -1,3 +1,9 @@
+<script src="jquery.js"></script> 
+<script> 
+    $(function(){
+      $("#includedContent").load("asciidoc/RepastReference.html"); 
+    });
+</script> 
 ---
 layout: site
 ---
@@ -20,7 +26,7 @@ layout: site
 <div class="post-bgtop">
 <div class="post-bgbtm">
 
-<!--#include virtual="asciidoc/RepastReference.html" --> 
+<div id="includedContent"></div>
 
 </div>
 </div>
