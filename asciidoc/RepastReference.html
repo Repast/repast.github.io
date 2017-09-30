@@ -788,11 +788,12 @@ asciidoc.install(2);
 <div class="title">TODO</div>
 <div class="paragraph"><p>Needs updating</p></div>
 </div></div>
-<div class="paragraph"><p>If you have an existing Java project in which you would like to reference Repast classes, you can right
-click on the project and select Repast Simphony &#8594; Add Repast Simphony to this Project.
-This will add the Repast libraries to the project class path so that you can reference Repast classes and
-run simulations from your project without needing to manually add all of the Repast libraries and
-dependencies.</p></div>
+<div class="paragraph"><p>If you have an existing Java project in which you would like to reference Repast
+classes, you can right click on the project and select Repast Simphony &#8594; Add
+Repast Simphony to this Project. This will add the Repast libraries to the
+project class path so that you can reference Repast classes and run simulations
+from your project without needing to manually add all of the Repast libraries
+and dependencies.</p></div>
 </div>
 <div class="sect2">
 <h3 id="_model_configuration_files">2.4. Model Configuration Files</h3>
@@ -815,39 +816,42 @@ dependencies.</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
-path is path statement to a directory or jar file. If the directory contains jars then all those jars are
-added to the classpath. If the directory or its children contain .class files then the directory is added
-to the classpath. More than one path can be specified. Multiple paths should be "," separated. For
-.class files, the path functions as a classpath and so it must be the directory immediately above the
-directories corresponding to the class packages. For example, given the class
-repast.simphony.MyClass and the directory structure X/bin/repast/simphony/MyClass.class, the path
-should be X/bin. This applies to path in both entry and agents elements.
+path is path statement to a directory or jar file. If the directory contains
+jars then all those jars are added to the classpath. If the directory or its
+children contain .class files then the directory is added to the classpath. More
+than one path can be specified. Multiple paths should be "," separated. For .class
+files, the path functions as a classpath and so it must be the directory
+immediately above the directories corresponding to the class packages. For
+example, given the class repast.simphony.MyClass and the directory structure
+X/bin/repast/simphony/MyClass.class, the path should be X/bin. This applies to
+path in both entry and agents elements.
 </p>
 </li>
 <li>
 <p>
-annotations specified whether or not any classes found in the specified path(s) should be processed
-for annotations. The default is false.
+annotations specified whether or not any classes found in the specified
+path(s) should be processed for annotations. The default is false.
 </p>
 </li>
 <li>
 <p>
-agents specifies the path where agent classes can be found. These are automatically processed for
-annotations.
+agents specifies the path where agent classes can be found. These are
+automatically processed for annotations.
 </p>
 </li>
 <li>
 <p>
-filter specifies a class filter on the agents path(s). For example a filter of "anl.gov.Agent" will filter
-out all classes but anl.gov.Agent as agent classes. Filters can contain the wildcard "*". So for
-example, "anl.gov.*Agent" will include any class in the package anl.gov whose class name ends with
-Agent.
+filter specifies a class filter on the agents path(s). For example a filter
+of "anl.gov.Agent" will filter out all classes but anl.gov.Agent as agent
+classes. Filters can contain the wildcard "*". So for example, "anl.gov.*Agent"
+will include any class in the package anl.gov whose class name ends with Agent.
 </p>
 </li>
 <li>
 <p>
-the builtin element is for the case when a user needs to add an agent class existing in one of the
-repast plugins. The user specifies the canonical class name as the fullname.
+the builtin element is for the case when a user needs to add an agent class
+existing in one of the repast plugins. The user specifies the canonical class
+name as the fullname.
 </p>
 </li>
 </ul></div>
@@ -856,10 +860,12 @@ repast plugins. The user specifies the canonical class name as the fullname.
 <td class="icon">
 <img src="./images/note.png" alt="Note" />
 </td>
-<td class="content">For the builtins, since the class can be in any one of the repast plugins, without hard coding the
-path, it is difficult to use the filter mechanism on all the plugins. This means that unless we can figure out
-a way to figure out the path of a resource containing a package, we must specify each individual class
-that we&#8217;d like to be considered an agent class. The good news is that this is not a common usage.</td>
+<td class="content">For the builtins, since the class can be in any one of the repast plugins,
+without hard coding the path, it is difficult to use the filter mechanism on all
+the plugins. This means that unless we can figure out a way to figure out the
+path of a resource containing a package, we must specify each individual class
+that we&#8217;d like to be considered an agent class. The good news is that this is
+not a common usage.</td>
 </tr></table>
 </div>
 <div class="paragraph"><div class="title">context.xml</div><p>context.xml contains the context heirarchy information.</p></div>
@@ -868,6 +874,7 @@ that we&#8217;d like to be considered an agent class. The good news is that this
 <pre><code>&lt;context id="..." class="..."&gt;
         &lt;attribute id="..." value="..." type="[int|long|double|float|boolean|string|...]"
                 display_name="..." converter="..."/&gt;
+
         &lt;projection id="..." type="[network|grid|continuous space|geography|value layer]"&gt;
                 &lt;attribute id="..." .../&gt;
         &lt;/projection&gt;
@@ -942,12 +949,14 @@ cellspacing="0" cellpadding="4">
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table">display_name</p></td>
-<td align="left" valign="top"><p class="table">Optional name used to display the attribute when it is used as a model parameter</p></td>
+<td align="left" valign="top"><p class="table">Optional name used to display the attribute when it is used as a
+model parameter</p></td>
 <td align="left" valign="top"><p class="table">NO</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table">converter</p></td>
-<td align="left" valign="top"><p class="table">Optional implementation of StringConverter used to convert the attribute to and from a string representation</p></td>
+<td align="left" valign="top"><p class="table">Optional implementation of StringConverter used
+to convert the attribute to and from a string representation</p></td>
 <td align="left" valign="top"><p class="table">NO</p></td>
 </tr>
 </tbody>
@@ -990,8 +999,8 @@ cellspacing="0" cellpadding="4">
 </tbody>
 </table>
 </div>
-<div class="paragraph"><div class="title">Special Attributes</div><p>If certain special attributes are present, then the context.xml file can be used to instantiate the actual
-context hierarchy. The attributes are defined in the repast.simphony.dataLoader.engine.AutoBuilderConstants.</p></div>
+<div class="paragraph"><div class="title">Special Attributes</div><p>If certain special attributes are present, then the context.xml file can be used
+to instantiate the actual context hierarchy. The attributes are defined in the repast.simphony.dataLoader.engine.AutoBuilderConstants.</p></div>
 <div class="tableblock">
 <table rules="all"
 width="60%"
@@ -1087,8 +1096,9 @@ each cell</p></td>
         &lt;/projection&gt;
 &lt;/context&gt;</code></pre>
 </div></div>
-<div class="paragraph"><p>will create a 200x100 grid with an id of "MyGrid." The border rule for the grid is "periodic" so the grid
-will wrap, forming a torus. The grid will also allow multiple agents in each cell.</p></div>
+<div class="paragraph"><p>will create a 200x100 grid with an id of "MyGrid." The border rule for the grid
+is "periodic" so the grid will wrap, forming a torus. The grid will also allow
+multiple agents in each cell.</p></div>
 <div class="tableblock">
 <table rules="all"
 width="60%"
@@ -1142,8 +1152,8 @@ a space&#8217;s borders.</p></td>
         &lt;/projection&gt;
 &lt;/context&gt;</code></pre>
 </div></div>
-<div class="paragraph"><p>will create a 200x100 continuous space with an id of "MySpce." The border rule for the grid is "strict"
-so any movement across the border will cause an error.</p></div>
+<div class="paragraph"><p>will create a 200x100 continuous space with an id of "MySpace." The border rule
+for the grid is "strict" so any movement across the border will cause an error.</p></div>
 <div class="tableblock">
 <table rules="all"
 width="60%"
@@ -1193,8 +1203,8 @@ of this type.</p></td>
         &lt;/projection&gt;
 &lt;/context&gt;</code></pre>
 </div></div>
-<div class="paragraph"><p>will create a network with an id of "MyNetwork." The network will be directed and use the default
-RepastEdge as the edge type.</p></div>
+<div class="paragraph"><p>will create a network with an id of "MyNetwork." The network will be directed
+and use the default RepastEdge as the edge type.</p></div>
 </div>
 <div class="sect2">
 <h3 id="_distributing_your_model">2.5. Distributing Your Model</h3>
@@ -1203,13 +1213,15 @@ RepastEdge as the edge type.</p></div>
 <div class="title">TODO</div>
 <div class="paragraph"><p>Needs updating</p></div>
 </div></div>
-<div class="paragraph"><p>Models created with Repast Simphony may easily be distributed with the provided Install Builder tool.
-This tool builds a distributable installer that anyone may use to install the model to their computer. The
-only requirement for those to who the model is distributed is the target system to have a current Java
-Runtime Environment (version 5 or later).</p></div>
+<div class="paragraph"><p>Models created with Repast Simphony may easily be distributed with the provided
+Install Builder tool. This tool builds a distributable installer that anyone may
+use to install the model to their computer. The only requirement for those to
+who the model is distributed is the target system to have a current Java Runtime
+Environment.</p></div>
 <div class="paragraph"><p>To start the Install Builder, select Build Installer in the run menu</p></div>
-<div class="paragraph"><p>The builder make take a few minutes to complete the installer. Once this process is complete, a
-message BUILD SUCCESSFUL should be visible in the Console window.</p></div>
+<div class="paragraph"><p>The builder make take a few minutes to complete the installer. Once this process
+is complete, a message "BUILD SUCCESSFUL" should be visible in the Console
+window.</p></div>
 </div>
 </div>
 </div>
@@ -1223,42 +1235,53 @@ message BUILD SUCCESSFUL should be visible in the Console window.</p></div>
 </div></div>
 <div class="sect2">
 <h3 id="_contexts">3.1. Contexts</h3>
-<div class="paragraph"><p>The Context is the core concept and object in Repast Simphony. It provides a data structure to organize
-your agents from both a modelling perspective as well as a software perspective. Fundamentally, a
-context is just a bucket full of agents, but they provide more richness.</p></div>
-<div class="paragraph"><p>Contexts are hierarchically nested named containers that hold model components. The model
-components can be any type of POJO, including other contexts, but are often expected to be agent
-objects. Each model component can be present in as many contexts as the modeler desires. The
-hierarchical nesting means that a model component that is present in a context is also present in all of
-that context&#8217;s parent contexts. Of course, the converse is not true in the general case. The hierarchical
-nesting structure itself can be declaratively or imperatively specified by the modeler. Context
-membership and structure is completely dynamic and agents can be in any number or combination of
-contexts at any time. Furthermore, agents can themselves contain any number of contexts and even be
-contexts. In addition, the contents of components within contexts (e.g., agent properties) can be
-declaratively logged at runtime.</p></div>
-<div class="paragraph"><p>In addition to supporting hierarchical nesting, contexts support projections. Repast projections are
-named sets of relationships defined over the members of a context. For example, a Repast S network
-projection stores a network or graph relationship between the members of its context. The members of
-this context can then ask who they are linked to and who is linked to them. Similarly, the Repast S grid
-projection stores a set of Cartesian coordinates for each member of the context. The members of this
-context can ask where they are. For more details on projections, see Details on Projections. Each context
-can support any mixture of projections. Also, projections can be declaratively visualized at runtime.
-Contexts also support data layers. Data layers represent numerical data that can be accessed using a set
-of coordinates. Data layers allow model designers to provide numerical values with which their agents
-can interact. The data layers for a given context are separate from the layers for other contexts, allowing
-the agents to orient themselves with respect to a set of data depending on which context they are using.
-Within a context, data layers can be connected to:</p></div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>add ValueLayer and GIS information</p></div>
+</div></div>
+<div class="paragraph"><p>The Context is the core concept and object in Repast Simphony. It provides a
+data structure to organize your agents from both a modelling perspective as well
+as a software perspective. Fundamentally, a context is just a bucket full of
+agents, but they provide more richness.</p></div>
+<div class="paragraph"><p>Contexts are hierarchically nested named containers that hold model components.
+The model components can be any type of POJO, including other contexts, but are
+often expected to be agent objects. Each model component can be present in as
+many contexts as the modeler desires. The hierarchical nesting means that a
+model component that is present in a context is also present in all of that
+context&#8217;s parent contexts. Of course, the converse is not true in the general
+case. The hierarchical nesting structure itself can be declaratively or
+imperatively specified by the modeler. Context membership and structure is
+completely dynamic and agents can be in any number or combination of contexts at
+any time. Furthermore, agents can themselves contain any number of contexts and
+even be contexts. In addition, the contents of components within contexts (e.g.
+agent properties) can be declaratively logged at runtime.</p></div>
+<div class="paragraph"><p>In addition to supporting hierarchical nesting, contexts support projections.
+Repast projections are named sets of relationships defined over the members of a
+context. For example, a Repast S network projection stores a network or graph
+relationship between the members of its context. The members of this context can
+then ask who they are linked to and who is linked to them. Similarly, the Repast
+S grid projection stores a set of Cartesian coordinates for each member of the
+context. The members of this context can ask where they are. For more details on
+projections, see Details on Projections. Each context can support any mixture of
+projections. Also, projections can be declaratively visualized at runtime.
+Contexts also support data layers. Data layers represent numerical data that can
+be accessed using a set of coordinates. Data layers allow model designers to
+provide numerical values with which their agents can interact. The data layers
+for a given context are separate from the layers for other contexts, allowing
+the agents to orient themselves with respect to a set of data depending on which
+context they are using. Within a context, data layers can be connected to:</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
-a particular projection (e.g., each cell in a two-dimensional grid may have some data associated
-with it),
+a particular projection (e.g., each cell in a two-dimensional grid may have
+some data associated with it),
 </p>
 </li>
 <li>
 <p>
-multiple projections (e.g., a value at a particular set of coordinates might depend on both a grid and
-a set of network relations), or
+multiple projections (e.g., a value at a particular set of coordinates might
+depend on both a grid and a set of network relations), or
 </p>
 </li>
 <li>
@@ -1270,28 +1293,31 @@ no projections (e.g., the data is stored in an abstract matrix).
 </div>
 <div class="sect2">
 <h3 id="_projections">3.2. Projections</h3>
-<div class="paragraph"><p>While Contexts create a bucket to hold your agents, Projections impose a structure upon those agents.
-Simply using Contexts, you could never write a model that provided more than a simple "soup" for the
-agents. The only way to grab other agents would be randomly. Projections allow you to create a
-structure that defines relationships, whether they be spatial, network, or something else. A projection os
-attached to a particular Context and applies to all of the agents in that Context. This raises an important
-point. An object must exist in a Context before it can be used in a projection. So, if you try to work with
-an agent in a projection before you have added it to the Context, it will fail. For example, if you have a
-network, and you try to create a link between agents where at least one of the agents does not yet exist
-in the context, then the operation will fail. This is to maintain the integrity of the context which is used in
-many place throughout the repast system.</p></div>
-<div class="paragraph"><p>You can apply as many projections to a context as you want, so you could have a context that contains, a
-grid, a gis space and 4 networks if you felt so inclined. This provides a great deal of flexibility to design
-your model.</p></div>
-<div class="paragraph"><p>Your agents can get a reference to various projections through their enclosing context. An agent could
-do the following where "this" refers to the agent:</p></div>
+<div class="paragraph"><p>While Contexts create a bucket to hold your agents, Projections impose a
+structure upon those agents. Simply using Contexts, you could never write a
+model that provided more than a simple "soup" for the agents. The only way to
+grab other agents would be randomly. Projections allow you to create a structure
+that defines relationships, whether they be spatial, network, or something else.
+A projection os attached to a particular Context and applies to all of the
+agents in that Context. This raises an important point. An object must exist in
+a Context before it can be used in a projection. So, if you try to work with an
+agent in a projection before you have added it to the Context, it will fail.
+For example, if you have a network, and you try to create a link between agents
+where at least one of the agents does not yet exist in the context, then the
+operation will fail. This is to maintain the integrity of the context which is
+used in many place throughout the repast system.</p></div>
+<div class="paragraph"><p>You can apply as many projections to a context as you want, so you could have a
+context that contains, a grid, a gis space and 4 networks if you felt so
+inclined. This provides a great deal of flexibility to design your model.</p></div>
+<div class="paragraph"><p>Your agents can get a reference to various projections through their enclosing
+context. An agent could do the following where "this" refers to the agent:</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><code>Context context = ContextUtils.getContext (this)
 Projection projection = context.getProjection("friendshipNetwork");</code></pre>
 </div></div>
-<div class="paragraph"><p>That projection wouldn&#8217;t be that useful unless you cast the projection to something more specific. You
-could also do it like this:</p></div>
+<div class="paragraph"><p>That projection wouldn&#8217;t be that useful unless you cast the projection to
+something more specific. You could also do it like this:</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><code>Context context = ContextUtils.getContext(this);
@@ -1299,8 +1325,105 @@ Network network = context.getProjection(Network.class, "friendshipNetwork");</co
 </div></div>
 </div>
 <div class="sect2">
-<h3 id="_creating_projections">3.3. Creating Projections</h3>
-<div class="paragraph"><p>In general, projections are created using a factory mechanism in the following way.</p></div>
+<h3 id="_context_loading">3.3. Context Loading</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>needs updating</p></div>
+</div></div>
+<div class="paragraph"><p>Context creation and loading is where your model is built. In some cases,
+simphony will automatically create and load a context for you. Is this is
+typically the case if you use the visual editor to create your agents etc., or
+you load your model from a freezedryed instance. However, in many other cases,
+you&#8217;d like to control the model creation process and for this you need to
+implement a ContextBuilder.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>/**
+* Interface for classes that build a Context by adding projections,
+* agents and so forth.
+*
+*/
+        public interface ContextBuilder&lt;T&gt; {
+        /**
+        * Builds and returns a context. Building a context consists of filling it with
+        * agents, adding projects and so forth. The returned context does not necessarily
+        * have to be the passed in context.
+        *
+        * @param context
+        * @return the built context.
+        */
+        Context build(Context&lt;T&gt; context);
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>Once you&#8217;ve implemented such, you can then use the data loader wizard to specify your custom
+ContextBuilder as the "Specific Java Class" to use to load your model. If you are creating the master
+context this way, you can just use the Context that simphony passees in to the build method.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/note.png" alt="Note" />
+</td>
+<td class="content">If your ContextBuilder implements Context (i.e extends DefaultContext) then Simphony will in
+fact pass your ContextBuilder to an instance of itself in the build method. Having your ContextBuilder
+extend DefaultContext is useful in that you can then use @ScheduledMethod on methods in your
+ContextBuilder to schedule model behaviors at something other than the individual agent level.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>Whenever possible, the runtime will try to create the Context and pass it to the ContextBuilder. This will
+occur under the following situations:
+. model.score file SContext implementation class implements ContextBuilder (but not Context). In
+this case, the runtime will create a DefaultContext and pass that to the ContextBuilder specified in
+the .score file.</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+model.score file SContext implementation class implements ContextBuilder and Context. In this
+case, the runtime will pass this class to itself as it is both a Context and a ContextBuilder.
+</p>
+</li>
+<li>
+<p>
+model.score file SContext implementation class implements Context (but not ContextBuilder). In
+this case, the runtime will create that Context and pass it to whatever ContextBuilder has been
+specifed externally (e.g. added through the gui).
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>The context returned from the ContextBuilder doesn&#8217;t necessarily have to be the one passed in. In the
+case of a subcontext, if the passed in context is different from the returned one, the runtime removes the
+old context and adds this new one as a subcontext to the appropriate parent.</p></div>
+<div class="paragraph"><div class="title">Context and SubContexts</div><p>SubContexts can be created, added to parent contexts, and built in the following ways:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Do everything in the parent ContextBuilder. So, when the parent context is built, subcontexts are
+created, added to the parent and loaded with projections, agents, etc. In this case, an SContext
+Implementation entry for the subcontext in the model.score file is not required.
+</p>
+</li>
+<li>
+<p>
+Subcontexts have their own SContext Implementation class that implements ContextBuilder or
+Context (see above). In this the subcontexts are passed to their own ContextBuilder for building.
+The actual creation of the subcontext (e.g new DefaultContext("svabhava")) can happen either in
+the parent context&#8217;s ContextBuilder or the runtime will create the subcontexts and add them to their
+parent. In this latter case, for example, if after a context has been created and built, it has no
+subcontexts but the .score file defines subcontexts for that context then those subcontexts will be
+created and added to that context. This assumes of course that the subcontexts have their own
+ContextBuilder defined so that they too can be built.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>All this provides flexibility, but it can be confusing. Unless there is a compelling reason not to, its
+probably easiest to just do everything in the master context ContextBuilder&#8201;&#8212;&#8201;creating subcontexts,
+building them and so forth. This applies to creating ContextBuilders by hand. The situation using
+codegen will probably be different.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_creating_projections">3.4. Creating Projections</h3>
+<div class="paragraph"><p>In general, projections are created using a factory mechanism in the following
+way.</p></div>
 <div class="olist arabic"><ol class="arabic">
 <li>
 <p>
@@ -1330,19 +1453,200 @@ Context&lt;SimpleHappyAgent&gt; context = Contexts.createContext(SimpleHappyAgen
 <pre><code>ContinuousSpaceFactory factory = ContinuousSpaceFactoryFinder.createContinuousSpaceFactory(new HashMap());
 ContinuousSpace space = factory.createContinuousSpace("Simple Space", context, ...);</code></pre>
 </div></div>
-<div class="paragraph"><p>Each factory creates a projection of a specific type and requires the context that the projection is
-associated with and the projections name as well as additional arguments particular to the projection
-type. These additional arguments are marked above with "&#8230;" and are explicated on the individual pages
+<div class="paragraph"><p>Each factory creates a projection of a specific type and requires the context
+that the projection is associated with and the projections name as well as
+additional arguments particular to the projection type. These additional
+arguments are marked above with "&#8230;" and are explicated on the individual pages
 for that projection.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_continuous_space_projection">3.4. Continuous Space Projection</h3>
-<div class="paragraph"><p>A continuous (real valued) space projection is a space in which an agents location is represented by
-floating point coordinates. For example, one agent may be at the point 2.133, 0 and another may be at
-21.1, 234. This contrasts with the discrete integer valued grid projections. However, much of the
-behavior of a continuous space like that of the grid, so it maybe worthwhile reading those Grid
-Projections pages first.</p></div>
-<div class="paragraph"><p>Repast Simphony provides a rich set of tools to work with grids of all kinds. Specifically, it supports</p></div>
+<h3 id="_grid_projections">3.5. Grid Projections</h3>
+<div class="paragraph"><p>Grids are a mainstay of agent based simulation. Many of the earliest simulation such as Schelling&#8217;s
+Dynamic Models of Segregation, heatbugs, and sugarscape were originally built on grids. Basically a grid,
+for our purposes, are a 1 or more dimensional data structure that is divided up into a number of cells.
+These cells can be referenced by their integer coordinates. In other words, a grid is an n-dimensional
+matrix. Even though grids have been used in agent based simulation since it&#8217;s inception (and before),
+they still have value today. These data structures are very efficient and provide a number of different
+ways to define neighborhoods. While they don&#8217;t offer the flexibility of an abstract network or the realism
+of a continuous or GIS space, the grid can be used to simulate spaces and to create highly structured
+relationships between agents. While most people think of grids to represent space, there is no reason
+why a grid couldn&#8217;t be used define more abstract kinds of relationships. No matter how you look at it,
+grids are still a powerful tool in an overall agent based toolkit.</p></div>
+<div class="paragraph"><div class="title">Repast Simphony&#8217;s Grid support</div><p>Repast Simphony provides a rich set of tools to work with grids of all kinds. Specifically, it supports
+* 2D, 3D and ND grids,
+* querying for Von Neumann and Moore neighborhoods,
+* Toroidal, Reflective and Fixed Border conditions.</p></div>
+<div class="paragraph"><div class="title">Creating A Grid</div><p>Creating a grid in Repast Simphony is similar to creating the other projections. Your agents must exist in
+the context in order to exist in the grid, and you want to create the grid using a factory to make sure that
+it is initialized properly.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>GridFactory factory = GridFactoryFinder.createGridFactory(new HashMap());
+Grid grid = factory.createGrid("My Grid", context, gridBuilderParameters);</code></pre>
+</div></div>
+<div class="paragraph"><p>So, most of that is pretty straight forward, eh? Pass the method a name (so that you can look up your
+grid later) and the context that will back the grid. But what is that last argument? The
+gridBuilderParameters. GridBuilderParameters are used to specify the properties of the grid itself, such
+as its dimensions, its border behavior, and how agents are initially added to the grid.</p></div>
+<div class="paragraph"><div class="title">GridBuilderParameters</div><p>The GridBuilderParameters class contains a variety of static methods for creating specific types of
+GridBuilderParameters. For example,</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>GridBuilderParameters params = GridBuilderParameters.singleOccupancy2DTorus(
+                new SimpleAdder&lt;Agent&gt;(), 10, 10);</code></pre>
+</div></div>
+<div class="paragraph"><p>will create parameters for a 10x10 torus where each cell can only have a single occupant. Other static
+methods (see the javadocs) allow you to create other types of grids. In general though, youwill always
+have to specify a GridAdder and perhaps a GridPointTranslator when creating GridBuilderParameters. You
+will also have to specify the dimensions. These will be the last arguments to the method.</p></div>
+<div class="paragraph"><div class="title">Adders</div><p>Like most projections, an object doesn&#8217;t exist in the projection until it is added to the context, and once it
+is added to the context, it is automatically added to the projection. But where do we put it in the grid?
+That&#8217;s where the GridAdder interface comes in. The adder allows you to specify where to place an object
+once it has been added to the context. It has a simple method:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>public void add(Grid destination, U object);</code></pre>
+</div></div>
+<div class="paragraph"><p>More generics fun, eh? Well, it&#8217;s not so bad. In this case, the destination is the type of projection to
+which we are adding our object (a grid). Object is the object we want to add to that projection. So, &lt;U&gt;
+is whatever we&#8217;re adding. Basically, to implement this interface, you just take in an object and do
+something with it in the supplied projection. Ok, let&#8217;s get a bit more concrete. Let&#8217;s say that we have a
+Grid and when an object is added to the grid, we want to locate it randomly. Here is the implementation
+for that:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>public void add(Grid&lt;T&gt; space, T obj) {
+        Dimensions dims = space.getDimensions();
+        int[] location = new int[dims.size()];
+        findLocation(location, dims);
+        while (!space.moveTo(obj, location)) {
+                findLocation(location, dims);
+        }
+}
+
+private void findLocation(int[]location, Dimensions dims) {
+        for (int i = 0; i &lt; location.length; i++) {
+                location[i] = RandomHelper.getDefault().nextIntFromTo(0, dims.getDimension(i) -1);
+        }
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>The add method randomly generates locations and puts the objects into that location (assuming the grid
+allows the object to be there). This little bit of code sets up a random space for you as you add agents.
+Not surprisingly, this is the code for the RandomGridAdder which comes with Repast Simphony. This
+behaviour may not be what you want. The most basic Adder we provide is the SimpleAdder; This Adder
+doesn&#8217;t actually locate the object anywhere in the grid. It just allows the object to be used in the grid.
+The object won&#8217;t appear to have a location until you call</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>grid.moveTo(object, x, y);</code></pre>
+</div></div>
+<div class="paragraph"><p>This is a very useful adder because you don&#8217;t have to know where the agent is supposed to be located in
+advance. Let&#8217;s look at one example of writing your own Adder. In this case, let&#8217;s assume that our agents have
+their grid coordinates stored. The adder just needs to use those coordinates to locate the agents
+properly. We&#8217;ll call the Interface Located:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>public interface Located{
+        public int getX();
+        public int getY();
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>Pretty simple, eh? Let&#8217;s write an adder that know how to work with this:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>public class LocatedAdder&lt;Located&gt; implements GridAdder&lt;Located&gt; {
+        public void add(Grid&lt;Located&gt; grid, Located object){
+                grid.moveTo(object, object.getX(), object.getY());
+        }
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>This will add the object to the grid at the location specified by the agent itself. This doesn&#8217;t handle any
+errors or anything, but it should give you an idea of how to create your own adder.</p></div>
+<div class="paragraph"><div class="title">GridPointTranslators</div><p>A GridPointTranslator determines the border behavior of a grid. The border behavior is what happens
+when an agents moves past the border of a grid. Five kinds of border behavior classes are described
+below together with a description of how the behave in response to a Grid&#8217;s moveTo and moveBy (the
+moveBy methods are moveByDisplacement and moveByVector) methods.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+StrictBorders&#8201;&#8212;&#8201;defines a strict boundary that cannot be crossed without throwing a
+SpatialException. Consequently, any moveTo or moveBy across the border will throw an exception.
+</p>
+</li>
+<li>
+<p>
+StickyBorders&#8201;&#8212;&#8201;defines a "sticky" border that to which an agent will "stick" in a moveBy. However,
+a moveTo across the border will still throw a SpatialException.
+</p>
+</li>
+<li>
+<p>
+InfiniteBorders&#8201;&#8212;&#8201;defines infinite borders that the agent will never cross.
+</p>
+</li>
+<li>
+<p>
+BouncyBorders&#8201;&#8212;&#8201;defines a bouncy border that the agent will bounce off at the appropriate angle in
+a moveBy. However, a moveTo across the border will still throw a SpatialException.
+</p>
+</li>
+<li>
+<p>
+WrapAroundBorders&#8201;&#8212;&#8201;defines borders that wrap around to their opposite borders. This mean
+moveTo and moveBy across the border will cross the border and enter the opposite side. A 2D grid
+with WrapAroundBorders is a torus.
+In general then, moveTo will throw a SpatialException when crossing the border and moveBy will invoke
+the border behavior.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><div class="title">Moving on a Grid</div><p>Movement on the grid is accomplished with 3 methods.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>moveTo(T object, int... newLocation)</code></pre>
+</div></div>
+<div class="paragraph"><p>This specifies the object to move and the new location to move to. It will return true if the move
+succeeds, for example, if the location is unoccupied an single occupancy grid and the new location doesn&#8217;t
+violate any border behaviors. This method can be used to introduce objects into the grid if they do not yet have a grid location. This will throw a SpatialException if the object is not already in the space, if the
+number of dimensions in the location does not agree with the number in the space, or if the object is
+moved outside the grid dimensions.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>GridPoint moveByDisplacement(T object, int... displacement)</code></pre>
+</div></div>
+<div class="paragraph"><p>Moves the specified object from its current location by the specifiedamount. For example,
+moveByDisplacement(object, 3, -2, 1) will move the object by 3 along the x-axis, -2 along the y and 1
+alongthe z. The displacement argument can be less than the number of dimensions in the space in which
+case the remaining argument will beset to 0. For example, moveByDisplacement(object, 3) will move the
+object 3 along the x-axis and 0 along the y and z axes, assuming a 3D grid. This will return the new
+location as a GridPoint if the move was successful, otherwise it will return null. Like moveTo it will throw a
+SpatialException if the object is not already in the space or if the number of dimensions in the
+displacement is greater than the number of grid dimensions.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>GridPoint moveByVector(T object, double distance, double... anglesInRadians)</code></pre>
+</div></div>
+<div class="paragraph"><p>Moves the specifed object the specified distance from its current position along the specified angle. For
+example, moveByVector(object, 1, Direction.NORTH) will move the object 1 unit "north" up the y-axis,
+assuming a 2D grid. Similarly, grid.moveByVector(object, 2, 0, Math.toRadians(90), 0) will rotate 90
+egrees around the y-axis, thus moving the object 2 units along the z-axis. Note that the radians /
+degrees are incremented in a anti-clockwise fashion, such that 0 degrees is "east", 90 degrees is "north",
+180 is "west" and 270 is "south." This will return the new location as a GridPoint if the move was
+successful, otherwise it will return null. Like moveTo it will throw a SpatialException if the object is not
+already in the space or if the number of dimensions in the displacement is greater than the number of
+grid dimensions.
+Document</p></div>
+</div>
+<div class="sect2">
+<h3 id="_continuous_space_projection">3.6. Continuous Space Projection</h3>
+<div class="paragraph"><p>A continuous (real valued) space projection is a space in which an agents
+location is represented by floating point coordinates. For example, one agent
+may be at the point 2.133, 0 and another may be at 21.1, 234. This contrasts
+with the discrete integer valued grid projections. However, much of the behavior
+of a continuous space like that of the grid, so it maybe worthwhile reading
+those Grid Projections pages first.</p></div>
+<div class="paragraph"><p>Repast Simphony provides a rich set of tools to work with grids of all kinds.
+Specifically, it supports</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
@@ -1355,42 +1659,504 @@ Toroidal, Reflective and Fixed Border conditions.
 </p>
 </li>
 </ul></div>
+<div class="paragraph"><div class="title">Creating A Continuous Space</div><p>Creating a continuous space in Repast Simphony is similar to creating the other
+projections. Your agents must exist in the context in order to exist in the
+continuous space, and you want to create the continuous spaceusing a factory to
+make sure that it is initialized properly.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>ContinuousSpace factory = ContinuousSpaceFactoryFinder.createGridFactory(new HashMap());
+ContinuousSpace space = factory.createContinuousSpace("My Space", context,
+        continuousAdder, pointTranslator, 10, 10);</code></pre>
+</div></div>
+<div class="paragraph"><p>So, most of that is pretty straight forward, eh? Pass the method a name (so that you can look up your
+grid later) and the context that will back the continuous space. But what of these additional arguments.
+Like the Grid, an Adder must be specified as well as a PointTranslator and the dimensions of the grid.</p></div>
+<div class="paragraph"><div class="title">Adders</div><p>Like most projections, an object doesn&#8217;t exist in the projection until it is added to the context, and once it
+is added to the context, it is automatically added to the projection. But where do we put it in the
+continuous space? That&#8217;s where the ContinuousSpaceAdder interface comes in. The adder allows you to
+specify where to place an object once it has been added to the context. It has a simple method:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>public void add(ContinuousSpace destination, U object);</code></pre>
+</div></div>
+<div class="paragraph"><p>More generics fun, eh? Well, it&#8217;s not so bad. In this case, the destination is the projection to which we
+are adding our object (ContinuousSpace). Object is the object we want to add to that projection. So,
+&lt;U&gt; is whatever we&#8217;re adding. Basically, to implement this interface, you just take in an object and do
+something with it in the supplied projection. Ok, let&#8217;s get a bit more concrete. Let&#8217;s say that we have a
+ContinuousSpace and when an object is added to the continuous space, we want to locate it randomly.
+Here is the implementation for that:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>public void add(ContinuousSpace&lt;T&gt; space, T obj) {
+        Dimensions dims = space.getDimensions();
+        double[] location = new double[dims.size()];
+        findLocation(location, dims);
+        while (!space.moveTo(obj, location)) {
+                findLocation(location, dims);
+        }
+}
+private void findLocation(double[] location, Dimensions dims) {
+        for (int i = 0; i &lt; location.length; i++) {
+                location[i] = RandomHelper.getDefault().nextDoubleFromTo(0,dims.getDimension(i) - 1);
+        }
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>The add method randomly generates locations and puts the objects into that location (assuming the grid
+allows the object to be there). This little bit of code sets up a random space for you as you add agents.
+Not surprisingly, this is the code for the RandomCartesianAdder which comes with Repast Simphony.
+This behaviour may not be what you want. The most basic Adder we provide is the
+SimpleCartesianAdder. This Adder doesn&#8217;t actually locate the object anywhere in the grid. It just allows
+the object to be used in the grid. The object won&#8217;t appear to have a location until you call</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>continuousSpace.moveTo(object, x, y);</code></pre>
+</div></div>
+<div class="paragraph"><p>This is a very useful adder because you don&#8217;t have to know where the agent is supposed to be located in
+advance.</p></div>
+<div class="paragraph"><p>Let&#8217;s look at one example of writing your own Adder. In this case, let&#8217;s assume that our agents have
+their continuous space coordinates stored. The adder just needs to use those coordinates to locate the
+agents properly. We&#8217;ll call the Interface Located:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>public interface Located{
+        public int getX();
+        public int getY();
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>Pretty simple, eh? Let&#8217;s write an adder that know how to work with this:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>public class LocatedAdder&lt;Located&gt; implements ContinuousAdder&lt;Located&gt; {
+        public void add(ContinuousSpace&lt;Located&gt; grid, Located object){
+                grid.moveTo(object, object.getX(), object.getY());
+        }
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>This will add the object to the grid at the location specified by the agent itself. This doesn&#8217;t handle any
+errors or anything, but it should give you an idea of how to create your own adder.</p></div>
+<div class="paragraph"><div class="title">PointTranslators</div><p>Just like the GridPointTranlator described on the Grid&#8217;s page, a PointTranslator determines the border
+behavior of a continuous space. The border behavior is what happens when an agents moves past the
+border of a continuous space. Five kinds of border behavior classes are described below together with a
+description of how they behave in response to a continuous space&#8217;s moveTo and moveBy* (the moveBy*
+methods are moveByDisplacement and moveByVector) methods.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+StrictBorders&#8201;&#8212;&#8201;defines a strict boundary that cannot be crossed without throwing a
+SpatialException. Consequently, any moveTo or moveBy across the border will throw an exception.
+</p>
+</li>
+<li>
+<p>
+StickyBorders&#8201;&#8212;&#8201;defines a "sticky" border that to which an agent will "stick" in a moveBy. However,
+a moveTo across the border will still throw a SpatialException.
+</p>
+</li>
+<li>
+<p>
+InfiniteBorders&#8201;&#8212;&#8201;defines infinite borders that the agent will never cross.
+</p>
+</li>
+<li>
+<p>
+BouncyBorders&#8201;&#8212;&#8201;defines a bouncy border that the agent will bounce off at the appropriate angle in
+a moveBy. However, a moveTo across the border will still throw a SpatialException.
+</p>
+</li>
+<li>
+<p>
+WrapAroundBorders&#8201;&#8212;&#8201;defines borders that wrap around to their opposite borders. This mean
+moveTo and moveBy across the border will cross the border and enter the opposite side.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>In general then, moveTo will throw a SpatialException when crossing the border and moveBy* will invoke
+the border behavior.</p></div>
+<div class="paragraph"><div class="title">Moving in a Continuous Space</div><p>Movement on a continuous space is accomplished with 3 methods.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>moveTo(T object, double... newLocation)</code></pre>
+</div></div>
+<div class="paragraph"><p>This specifies the object to move and the new location to move to. It will return true if the move
+succeeds, for example, if the new location doesn&#8217;t violate any border behaviors. This method can be used
+to introduce objects into the grid if they do not yet have a grid location. This will throw a SpatialException
+if the object is not already in the space, if the number of dimensions in the location does not agree with
+the number in the space, or if the object is moved outside the continuous space&#8217;s dimensions.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>NdPoint moveByDisplacement(T object, double... displacement)</code></pre>
+</div></div>
+<div class="paragraph"><p>Moves the specified object from its current location by the specified amount. For example,
+moveByDisplacement(object, 3, -2, 1) will move the object by 3 along the x-axis, -2 along the y and 1
+along the z. The displacement argument can be less than the number of dimensions in the space in which
+case the remaining arguments will be set to 0. For example, moveByDisplacement(object, 3) will move
+the object 3 along the x-axis and 0 along the y and z axes, assuming a 3D continuous space. This will
+return the new location as a NdPoint if the move was successful, otherwise it will return null. Like moveTo
+it will throw a SpatialException if the object is not already in the space or if the number of dimensions in
+the displacement is greater than the number of continuous space dimensions.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>NdPoint moveByVector(T object, double distance, double... anglesInRadians)</code></pre>
+</div></div>
+<div class="paragraph"><p>Moves the specifed object the specified distance from its current position along the specified angle. For
+example, moveByVector(object, 1, Direction.NORTH) will move the object 1 unit "north" up the y-axis,
+assuming a 2D continuous space. Similarly, grid.moveByVector(object, 2, 0, Math.toRadians(90), 0) will
+rotate 90 egrees around the y-axis, thus moving the object 2 units along the z-axis. Note that the radians
+/ degrees are incremented in a anti-clockwise fashion, such that 0 degrees is "east", 90 degrees is
+"north", 180 is "west" and 270 is "south." This will return the new location as a NdPoint if the move was
+successful, otherwise it will return null. Like moveTo it will throw a SpatialException if the object is not
+already in the space or if the number of dimensions in the displacement is greater than the number of
+continuous space dimensions.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_random_numbers">3.5. Random Numbers</h3>
-<div class="paragraph"><div class="title">RandomRegistry</div><p>Like many of the other registries in Simphony, the RandomRegistry is available through the current
-RunState (through its getRandomRegistry() method). This interface provides the capability for storing
-named random distributions and retrieving them. It also can set and retrieve the seed that a stream will
-use (or is using) for streams it creates through its addStream(String, Class, &#8230;) methods.</p></div>
-<div class="paragraph"><div class="title">RandomHelper</div><p>The RandomRegistry by itself is somewhat difficult to work with, to simplify using it the RandomHelper
-class was created. This provides methods for creating the random streams that will be used, and for
-retrieving the streams after they have been created, when you do not have a reference to the current
-RunState.</p></div>
-<div class="paragraph"><p>Through its getStream, getUniform and getNormal methods, you can retrieve distributions from the
-current RandomRegistry. Through its numerous createXXX methods, you can create the distributions and
-store them to the current RandomRegistry.</p></div>
-<div class="paragraph"><p>The RandomHelper also handles creating and maintaining a default Uniform number stream. This stream
-is the one used by Repast when it needs a random number, and is no different then the other Uniform
-number streams, except that it will always exist when requested from the RandomHelper (when the
-simulation is running). If you wish to use a Uniform distribution for your random numbers, you can avoid
-some of the extra work that comes with the named streams (meaning, specifying the name of the
-stream, and possibly casting the stream) by simply using RandomHelpers' getDefault, nextInt, and
-nextDouble methods. You also can retrieve and/or set the seed for the default stream through the
-RandomHelper&#8217;s getSeed and setSeed methods.</p></div>
-<div class="paragraph"><p>Generally there are going to be two types of usage of the random functionality. The first would be when
-you just need random numbers of some sort. In this case you would just want to use RandomHelper&#8217;s
-default methods, meaning the getDefault(), nextInt and nextDouble methods.</p></div>
-<div class="paragraph"><p>The other case is when you want numbers from a non-Uniform distribution, or you want multiple random
-streams functioning at once. In this case you can use RandomHelper&#8217;s default methods for any uniform
-numbers, but for producing multiple streams or a non-Uniform stream you have to use the methods that
+<h3 id="_network_projections">3.7. Network Projections</h3>
+<div class="paragraph"><p>Many models use abstract relationships between agents using Networks or Graphs. These connections
+may represent social connections, physical infrastructure connections or some other abstract
+connections. Repast provides tools to work with Networks or Graphs easily as a Projection. The default
+support for networks is supplied by the excellent library JUNG.</p></div>
+<div class="paragraph"><div class="title">Building a Network</div><p>In many situations, you won&#8217;t need to build the network yourself. If you are using a persistent Data
+Loader to load the network from a freezedryed instance the networks will be generated for you.
+However, if you using your own ContextBuilder or you wish to create networks during your simulation,
+you will need to be able to build networks in code.</p></div>
+<div class="paragraph"><p>The first thing to remember when working with networks is that, like most projections, in order to
+participate in a network, and agent must already exist in the context. A side affect of this is that any
+agent in a context is automatically a member of any networks associated with that context. The agent
+might not have any edges, but they will be in the network for all intents and purposes.</p></div>
+<div class="paragraph"><div class="title">Network Builders</div><p>Networks are created using a NetworkBuilder. The NetworkBuilder class allows the user to tune the
+network creation to create specific kinds of networks. This "tuning" is done by calling various methods on
+the builder. If none of these methods are called then a simple "plain vanilla" network is created. For
+example,</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>NetworkBuilder builder = new NetworkBuilder("Network", context, true);
+Network network = builder.buildNetwork()</code></pre>
+</div></div>
+<div class="paragraph"><p>The first argument to the builder constructor is the name of the network, the second is the context which
+the network "projects" and the last is whether or not the network is directed. By default, the
+addEdge(source, target, &#8230;) methods of a network will create and use an instance of RepastEdge as the
+edge between the source and target. Using the builder, you can customize this edge creation process by
+specifying an EdgeCreator on the NetworkBuilder. The EdgeCreator interface looks like:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>/**
+* Factory class for creating edges.
+*
+* @author Nick Collier
+*/
+public interface EdgeCreator&lt;E extends RepastEdge, T&gt; {
+
+        /**
+        * Gets the edge type produced by this EdgeCreator.
+        *
+        * @return the edge type produced by this EdgeCreator.
+        */
+        Class getEdgeType();
+
+        /**
+        * Creates an Edge with the specified source, target, direction and weight.
+        *
+        * @param source the edge source
+        * @param target the edge target
+        * @param isDirected whether or not the edge is directed
+        * @param weight the weight of the edge
+        * @return the created edge.
+        */
+        E createEdge(T source, T target, boolean isDirected, double weight);
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>The intention is that the user implement the createEdge method to customize the edge creation process.
+All edges created on the network via addEdge(source, target, &#8230;) will forward edge creation to this
+method. Specifying the edge creator on the builder looks like:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>NetworkBuilder builder = new NetworkBuilder("Network", context, true);
+builder.setEdgeCreator(myEdgeCreator);
+Network network = builder.buildNetwork()</code></pre>
+</div></div>
+<div class="paragraph"><p>Any networks created using this builder will then use that EdgeCreator.</p></div>
+<div class="paragraph"><p>Networks can also be loaded from a file. Currently, the builder can load networks from UCINet&#8217;s dl format
+or from Excel. The relevant methods in the NetworkBuilder are:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>/**
+* Sets this NetworkBuilder to create the network from a file. This
+* will use the first network found in the file.
+*
+* @param fileName the name of the file to load from
+* @param format the format of the file
+* @param nodeCreator a node creator that will be used to create the agents / nodes
+* @return this NetworkBuilder
+* @throws IOException if there is a file related error
+*/
+public NetworkBuilder load(String fileName, NetworkFileFormat format,
+        NodeCreator nodeCreator) throws IOException
+
+/**
+* Sets this NetworkBuilder to create the network from a file. This
+* will use the first network found in the file.
+*
+* @param fileName the name of the file to load from
+* @param format the format of the file
+* @param nodeCreator a node creator that will be used to create the agents / nodes
+* @param matrixIndex the index of the matrix in the file to load. Starts with 0.
+* @return this NetworkBuilder
+* @throws IOException if there is a file related error
+*/
+public NetworkBuilder load(String fileName, NetworkFileFormat format,
+        NodeCreator nodeCreator, int matrixIndex) throws IOException</code></pre>
+</div></div>
+<div class="paragraph"><p>The NodeCreator in the above is used to perform the actual node / agent creation based on the
+information in the network file. These nodes are added to the context and edges between them are
+created using the link data from the file. The NetworkFileFormat is either NetworkFileFormat.DL or
+NetworkFileFormat.EXCEL, although more formats may be added in the future. The Excel file format is
+described below.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>The matrix is assumed to be square.
+
+Each worksheet is treated as a matrix, and any worksheets
+that do not contain matrices will cause an error. The worksheet name
+is treated as the matrix label unless the name begins with Sheet
+(Excel's generic worksheet name). The format for excel files is that
+imported and exported by UCINet. The first cell is empty, and the
+node labels begin on this first row in the second column. The column
+node labels begin in first column on the second row. The actual data
+begins in cell 2,2. For example,
+| first_label | second_label | ...
+-----------+-----------+--------------+----
+first_label | 0 | 1 | ...
+-----------+----------+---------------+----
+second_label | 1 | 0 | ...
+-------------+-------------+--------------+----
+... | ... | ... | ...
+If the matrix has no node labels, repast will expect the first row and
+column to be blank and as before, for the data to begin in cell 2,2.&lt;p&gt;</code></pre>
+</div></div>
+<div class="paragraph"><p>An example of the network builder loading a file:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>NetworkBuilder builder = new NetworkBuilder("Network", context, true);
+builder.load("./repast.simphony.core/test/repast/simphony/graph/matrices.xls",
+NetworkFileFormat.EXCEL, myNodeCreator);
+Network net = builder.buildNetwork();</code></pre>
+</div></div>
+<div class="paragraph"><p>Lastly, a NetworkGenerator can be set on the NetworkBuilder. NetworkGenerators typically assume that
+the context already contains the nodes / agents and the generator arranges them in the appropriate
+topography (e.g. a Small World). For example,</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>// make sure the agents are in the context before
+// creating the network with the generator
+for (int i = 0; i &lt; 25; i++) {
+        VizAgent agent = new VizAgent("Agent-" + i);
+        context.add(agent);
+}
+NetworkGenerator gen = new WattsBetaSmallWorldGenerator(.2, 2, false);
+NetworkBuilder builder = new NetworkBuilder("Electricity Network", context, true);
+builder.setGenerator(gen);
+Network net = builder.buildNetwor();</code></pre>
+</div></div>
+<div class="paragraph"><p>The arguments to the generator are the probability of rewiring the network, the local neighborhood size,
+and whether or not generated edges will be created symmetrically. We then create a NetworkFactory and
+use that to create the network, passing it the network name, the context, the generator, and whether or
+not the resulting network will be directed. In this case, the generator creates a small world type network
+using the agents in the context as nodes.</p></div>
+<div class="paragraph"><p>See the repast.simphony.context.space.graph package for more information on NetworkGenerators and
+what is available.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/note.png" alt="Note" />
+</td>
+<td class="content">Although the generators supplied by simphony do assume that the context already contains
+nodes / agents, the NetworkGenerator interface is flexible and can be used to implement any sort of
+custom network creation. For example, the network file loaders are actually implements as
+NetworkGenerators whose constructors take the necessary NodeCreator etc. information.</td>
+</tr></table>
+</div>
+<div class="paragraph"><div class="title">Working with a network</div><p>Once you have a network, you can always add Relationships, but that&#8217;s not really that useful until you
+can query based on the relationships. The Network library provides all of the methods you would expect
+to have to access the objects and relationships in it. The particular methods in which you will be
+interested are:
+* getAdjacent(agent) - Retrieves all of the objects that share a relationship with this agent
+* getPredecessors(agent) - Retrieves all of the objects that have a relationship to this agent
+* getSuccessors(agent) - Retrieves all of the objects that have a relationship from this agent
+* getEdges(agent) - Retrieves all of the edges which have this agent as an endpoint
+* getOutEdges(agent) - Retrieves all of the edges which have this agent as a source
+* getInEdges(agent) - Retrieves all of the edges which have this agent as a target
+* addEdge(agent, agent) - Adds an edge between the two agents
+* addEdge(agent, agent, weight) - Adds an edge of the specified weight between the two agents
+* addEdge(RepastEdge edge) - Adds the specified edge. Assumes that the source and target of the
+edge are part of the network
+* getEdge(agent, agent) - Get the edge, if any, between source and target agents</p></div>
+<div class="paragraph"><p>In addition to these, there are also many other methods. See the javadoc for Network for more info.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_gis_projections">3.8. GIS Projections</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>add GIS fundamentals such as feature type geometries and raster data</p></div>
+</div></div>
+<div class="paragraph"><p>Repast Simphony&#8217;s GIS support is based on the Geography projection. A Geography is essentially a space
+in which agents are associated with a spatial geometry (polygon, point, etc.. Agents are stored by type in
+layers within the Geography and agents of the same type must have the same geometry. The geography
+can be queried spatially to return all the agents within some particular area. When a geography is
+displayed the agents are displayed in typical GIS fashion and represented by their associated geometries.
+Repast Simphony uses Geotoolsand the Java Topology Suiteextensively for its GIS support.</p></div>
+<div class="paragraph"><div class="title">Creating a Geography</div><p>Creating a geography in repast simphony is similar to creating the other projections. Your agents must
+exist in the context in order to exist in the geography, and you want to create the geograhy using a
+factory to make sure that it is initialized properly.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>GeographyParameters&lt;Object&gt; params = new GeographyParameters&lt;Object&gt;();
+GeographyFactory factory = GeographyFactoryFinder.createGeographyFactory(null);
+Geography geography = factory.createGeography("GeograhpyName", context, params);</code></pre>
+</div></div>
+<div class="paragraph"><p>This should be fairly straightforward. We create a GeographyFactory and the create the Geography with
+that, passing the name of the Geography, the associated context, and the GeographyParameters.</p></div>
+<div class="paragraph"><div class="title">GeographyParameters</div><p>GeographyParameters can be used to set the "adder" and the CoordinateReferenceSystem for a
+Geography.</p></div>
+<div class="paragraph"><div class="title">Adders</div><p>The adder controls how any agent added to the context is added to the Geography. The default is a
+SimpleAdder which although it makes the Geography aware of the agent, it does not move the agent into
+the Geography by associating it with some Geometry. Custom adders can be created by implementing
+the GISAdder interface. A typical custom adder would call Geography.move to move an agent into the
+Geography and associate it with a Geometry in some model specific manner.</p></div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>paragraph on GeoTools axis order and Default WGS84</p></div>
+</div></div>
+<div class="paragraph"><p>Using GeographyParameters, you can define the CoordinateReferenceSystem for the created Geography.
+In the absence of any user supplied CRS, the default is WGS84 as defined by Geotools'
+DefaultGeographicCRS.WGS84. That CRS uses (longitude, latitude) coordinates with longitude
+values increasing East and latitude values increasing North. Angular units are degrees and
+prime meridian is Greenwich.</p></div>
+<div class="paragraph"><div class="title">Moving in a Geography</div><p>Moving a Geography is typically accomplished using the following method</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>move(T agent, Geometry geom)</code></pre>
+</div></div>
+<div class="paragraph"><p>The first time this is called for an agent that agent is moved into the Geography and associated with the
+specific geometry. The specific geometry establishes the agent&#8217;s location in the geographical space and
+subsequent queries of the Geography will make use of that Geometry. If this is the first time an agent of
+this Class has been move in the Geography that type of agent will become associated with that Geometry
+type. For example, if the agent&#8217;s type is the Java class anl.model.Truck, and the Geometry is a Point,
+then all Trucks are considered to be Points and any Truck moved in the Geography must have a Point
+geometry.</p></div>
+<div class="paragraph"><p>An agent&#8217;s current Geometry (i.e. its location) can be retrieved with:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>Geometry getGeometry(Object agent);</code></pre>
+</div></div>
+<div class="paragraph"><p>This returned Geometry can be used to move the agent without recreating a Geometry and passing that
+new Geometry to the move method. For example, where "this" refers to an agent,</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>Geometry geom = geography.getGeometry(this);
+Coordinate coord = geom.getCoordinate();
+coord.x += .005;
+coord.y += .005;
+geography.move(this, geom);</code></pre>
+</div></div>
+<div class="paragraph"><p>In this case, we know the Geometry is a Point and so it has a single coordinate whose x and y values we
+can change. Note that its important to call move here to register the move with the Geography.
+Geography has additional move methods that can move by displacement etc.:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>/**
+* Displaces the specified object by the specified lon and lat amount.
+*
+* @param object the object to move
+* @param lonShift the amount to move longitudinaly
+* @param latShift the amount to move latitudinaly
+* @return the new geometry of the object
+*/
+Geometry moveByDisplacement(T object, double lonShift, double latShift);
+
+/**
+* Moves the specified object the specified distance along the specified angle.
+*
+* @param object the object to move
+* @param distance the distance to move
+* @param unit the distance units. This must be convertable to meters
+* @param angleInRadians the angle along which to move
+*
+* @return the geometric location the object was moved to
+*/
+Geometry moveByVector(T object, double distance, Unit unit, double angleInRadians);
+
+/**
+* Moves the specified object the specified distance along the specified angle.
+*
+* @param object the object to move
+* @param distance the distance to move in meters
+* @param angleInRadians the angle along which to move
+*
+* @return the geometric location the object was moved to
+*/
+Geometry moveByVector(T object, double distance, double angleInRadians);</code></pre>
+</div></div>
+<div class="paragraph"><div class="title">Queries</div><p>A Geography can also be queried spatially to return the objects within a particular envelope.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>/**
+* Gets an iterable over all the objects within the specified envelope.
+*
+* @param envelope the bounding envelope
+* @return an iterable over all the objects within the specified location.
+*/
+Iterable&lt;T&gt; getObjectsWithin(Envelope envelope);</code></pre>
+</div></div>
+<div class="paragraph"><p>Additional queries are available for getting agents that intersect another agent or geometry, for getting
+the agents that touch another agent or geometry, and so on. See the classes in the
+repast.simphony.query.space.gis package for more information.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_random_numbers">3.9. Random Numbers</h3>
+<div class="paragraph"><div class="title">RandomRegistry</div><p>Like many of the other registries in Simphony, the RandomRegistry is available
+through the current RunState (through its getRandomRegistry() method). This
+interface provides the capability for storing named random distributions and
+retrieving them. It also can set and retrieve the seed that a stream will use
+(or is using) for streams it creates through its addStream(String, Class, &#8230;)
+methods.</p></div>
+<div class="paragraph"><div class="title">RandomHelper</div><p>The RandomRegistry by itself is somewhat difficult to work with, to simplify
+using it the RandomHelper class was created. This provides methods for creating
+the random streams that will be used, and for retrieving the streams after they
+have been created, when you do not have a reference to the current RunState.</p></div>
+<div class="paragraph"><p>Through its getStream, getUniform and getNormal methods, you can retrieve
+distributions from the current RandomRegistry. Through its numerous createXXX
+methods, you can create the distributions and store them to the current
+RandomRegistry.</p></div>
+<div class="paragraph"><p>The RandomHelper also handles creating and maintaining a default Uniform number
+stream. This stream is the one used by Repast when it needs a random number, and
+is no different then the other Uniform number streams, except that it will
+always exist when requested from the RandomHelper (when the simulation is
+running). If you wish to use a Uniform distribution for your random numbers, you
+can avoid some of the extra work that comes with the named streams (meaning,
+specifying the name of the stream, and possibly casting the stream) by simply
+using RandomHelpers' getDefault, nextInt, and nextDouble methods. You also can
+retrieve and/or set the seed for the default stream through the RandomHelper&#8217;s
+getSeed and setSeed methods.</p></div>
+<div class="paragraph"><p>Generally there are going to be two types of usage of the random functionality.
+The first would be when you just need random numbers of some sort. In this case
+you would just want to use RandomHelper&#8217;s default methods, meaning the
+getDefault(), nextInt and nextDouble methods.</p></div>
+<div class="paragraph"><p>The other case is when you want numbers from a non-Uniform distribution, or you
+want multiple random streams functioning at once. In this case you can use
+RandomHelper&#8217;s default methods for any uniform numbers, but for producing
+multiple streams or a non-Uniform stream you have to use the methods that
 take in a stream name. Each of these separate cases will be walked through next.</p></div>
-<div class="paragraph"><div class="title">Single Stream Default Use</div><p>When working with the default Uniform stream there is really only one thing you may want to look at
-manipulating, the default stream&#8217;s random seed. This is set through the RandomHelper&#8217;s setSeed(int)
-method. Setting the random seed should generally happen when the model is setting up. There are two
-ways you can do this. One way is in a ControllerAction, but if you wish to use the random numbers in
-setting up the model you will not have your seed set ahead of time. The other (correct) way is in a
-ParameterSetter.</p></div>
-<div class="paragraph"><p>In the ParameterSetter you are going to want to call RandomHelper&#8217;s setSeed method, as below:</p></div>
+<div class="paragraph"><div class="title">Single Stream Default Use</div><p>When working with the default Uniform stream there is really only one thing you
+may want to look at manipulating, the default stream&#8217;s random seed. This is set
+through the RandomHelper&#8217;s setSeed(int) method. Setting the random seed should
+generally happen when the model is setting up. There are two ways you can do
+this. One way is in a ControllerAction, but if you wish to use the random
+numbers in setting up the model you will not have your seed set ahead of time.
+The other (correct) way is in a ParameterSetter.</p></div>
+<div class="paragraph"><p>In the ParameterSetter you are going to want to call RandomHelper&#8217;s setSeed
+method, as below:</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><code>public class MySimpleSetter extends SimpleParameterSetter {
@@ -1399,10 +2165,11 @@ ParameterSetter.</p></div>
         }
 }</code></pre>
 </div></div>
-<div class="paragraph"><p>The above code will set the default uniform distribution&#8217;s seed to be the current time. Now that the time
-is set, the agents or controller actions (in their runInitialize methods) can use the default distribution and
-will recieve numbers based off of that seed. For example if you had an agent that wanted to move based
-on some random condition, that could look like:</p></div>
+<div class="paragraph"><p>The above code will set the default uniform distribution&#8217;s seed to be the
+current time. Now that the time is set, the agents or controller actions (in
+their runInitialize methods) can use the default distribution and will recieve
+numbers based off of that seed. For example if you had an agent that wanted to
+move based on some random condition, that could look like:</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><code>public void agentAction() {
@@ -1411,16 +2178,19 @@ on some random condition, that could look like:</p></div>
         }
 }</code></pre>
 </div></div>
-<div class="paragraph"><p>The above example compares the agent&#8217;s happiness to a random number between 0 and 1, in (0, 1), if
-the random number is greater than the agent&#8217;s happiness it will move.</p></div>
-<div class="paragraph"><div class="title">Multiple Stream / Non Uniform Stream Usage</div><p>As with the single streams, you generally are going to want to create your Random number streams
-when your model is initializing, primarily in a ParameterSetter, at the point the ParameterSetter will be
-executed the run&#8217;s RandomRegistry will be setup, and you can feel free to use the RandomHelper.</p></div>
-<div class="paragraph"><p>With these streams you are going to need to consistently use the same stream name(s) when working
-with the RandomHelper or the RandomRegistry. You will need to pass this name into the methods, so
-that that the helper/registry knows where to get the values from. For example, let&#8217;s say that you want 2
-random number streams; one a Poisson distribution, and one a Normal distribution. With both of these
-using a distinct random seed.</p></div>
+<div class="paragraph"><p>The above example compares the agent&#8217;s happiness to a random number between 0
+and 1, in (0, 1), if the random number is greater than the agent&#8217;s happiness it
+will move.</p></div>
+<div class="paragraph"><div class="title">Multiple Stream / Non Uniform Stream Usage</div><p>As with the single streams, you generally are going to want to create your
+Random number streams when your model is initializing, primarily in a
+ParameterSetter, at the point the ParameterSetter will be executed the run&#8217;s
+RandomRegistry will be setup, and you can feel free to use the RandomHelper.</p></div>
+<div class="paragraph"><p>With these streams you are going to need to consistently use the same stream
+name(s) when working with the RandomHelper or the RandomRegistry. You will need
+to pass this name into the methods, so that that the helper/registry knows where
+to get the values from. For example, let&#8217;s say that you want 2 random number
+streams; one a Poisson distribution, and one a Normal distribution. With both of
+these using a distinct random seed.</p></div>
 <div class="paragraph"><p>So an example initialization would look like:</p></div>
 <div class="listingblock">
 <div class="content">
@@ -1435,13 +2205,15 @@ using a distinct random seed.</p></div>
         }
 }</code></pre>
 </div></div>
-<div class="paragraph"><p>The above code created a normal distribution named "MyNormal" that has a mean of 0, a standard
-deviation of 1, and some seed (normalSeed). It then creates a poisson distribution named "MyPoisson"
-with a mean of 0 and some specified seed (poissonSeed). It is worth noticing however that unlike the
-default stream, if you do not setup these streams with the given name they will not be created for you.
-You must create them in some way (for instance like above) or you will not be able to use them.</p></div>
-<div class="paragraph"><p>You can then use these distributions from your code. If you wanted to do the same thing as the single
-stream example, but with the normal stream you would do:</p></div>
+<div class="paragraph"><p>The above code created a normal distribution named "MyNormal" that has a mean of
+0, a standard deviation of 1, and some seed (normalSeed). It then creates a
+poisson distribution named "MyPoisson" with a mean of 0 and some specified seed
+(poissonSeed). It is worth noticing however that unlike the default stream, if
+you do not setup these streams with the given name they will not be created for
+you. You must create them in some way (for instance like above) or you will not
+be able to use them.</p></div>
+<div class="paragraph"><p>You can then use these distributions from your code. If you wanted to do the
+same thing as the single stream example, but with the normal stream you would do:</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><code>public void agentAction() {
@@ -1450,9 +2222,10 @@ stream example, but with the normal stream you would do:</p></div>
         }
 }</code></pre>
 </div></div>
-<div class="paragraph"><p>The Poisson stream is slightly less straighforward to use, in that direct helper methods are not provided
-that will cast the stream to a Poisson distribution. For this distribution you must cast the stream
-yourself. This is more complicated than it sounds, and functions simply like:</p></div>
+<div class="paragraph"><p>The Poisson stream is slightly less straighforward to use, in that direct helper
+methods are not provided that will cast the stream to a Poisson distribution.
+For this distribution you must cast the stream yourself. This is more
+complicated than it sounds, and functions simply like:</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><code>public void agentAction() {
@@ -1466,79 +2239,91 @@ yourself. This is more complicated than it sounds, and functions simply like:</p
 </div></div>
 </div>
 <div class="sect2">
-<h3 id="_scheduling">3.6. Scheduling</h3>
-<div class="paragraph"><p>There are basically three ways to work with the Repast Simphony Scheduler. No one is better than the
-other and they each have their specified purpose.</p></div>
-<div class="paragraph"><div class="title">Directly Schedule an action</div><p>This is similar to the way that actions have always been scheduled in repast with a slight twist. In this
-scenario, you get a schedule and tell it the when and what to run. An example of adding an item to the
-schedule this way is as follows:</p></div>
+<h3 id="_scheduling">3.10. Scheduling</h3>
+<div class="paragraph"><p>There are basically three ways to work with the Repast Simphony Scheduler. No
+one is better than the other and they each have their specified purpose.</p></div>
+<div class="paragraph"><div class="title">Directly Schedule an action</div><p>This is similar to the way that actions have always been scheduled in repast
+with a slight twist. In this scenario, you get a schedule and tell it the when
+and what to run. An example of adding an item to the schedule this way is as
+follows:</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><code>//Specify that the action should start at tick 1 and execute every other tick
 ScheduleParameters params = ScheduleParameters.createRepeating(1, 2);
+
 //Schedule my agent to execute the move method given the specified schedule parameters.&amp;nbsp;
 schedule.schedule(params, myAgent, "move");</code></pre>
 </div></div>
-<div class="paragraph"><p>The biggest change here is that instead of using one of the numerous methods to set up the parameters
-for the action like you would in repast 3, you just use an instance of ScheduleParameters.
-ScheduleParameters can be created using one of several convient factory methods if desired. A slight
-alteration of this is:</p></div>
+<div class="paragraph"><p>The biggest change here is that instead of using one of the numerous methods to
+set up the parameters for the action like you would in repast 3, you just use
+an instance of ScheduleParameters. ScheduleParameters can be created using one
+of several convient factory methods if desired. A slight alteration of this is:</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><code>//Specify that the action should start at tick 1 and execute every other tick
 ScheduleParameters params = ScheduleParameters.createRepeating(1, 2);
+
 //Schedule my agent to execute the move method given the specified schedule parameters.
 schedule.schedule(params, myAgent, "move", "Forward", 4);</code></pre>
 </div></div>
-<div class="paragraph"><p>This example schedules the same action with the same parameters, but passes arguments to the method
-that is to be called. The "Forward" and 4 will be passed as arguments to the method move. The
-assumption is that the signature for move looks like this:</p></div>
+<div class="paragraph"><p>This example schedules the same action with the same parameters, but passes
+arguments to the method that is to be called. The "Forward" and 4 will be passed
+as arguments to the method move. The assumption is that the signature for move
+looks like this:</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><code>public void move(String direction, int distance)</code></pre>
 </div></div>
-<div class="paragraph"><div class="title">Schedule with Annotations</div><p>Java 5 introduced several new and exciting features (some of which are used above), but one of the
-most useful is Annotation support. Annotations, in java, are bits of metadata which can be attached to
-classes, methods or fields that are available at runtime to give the system more information. Notable
-uses outside repast includes the EJB3 spec which allows you to create ejbs using annotations without
-requiring such complex descriptors. For repast, we thought annotations were a perfect match for tying
-certain types of scheduling information to the methods that should be scheduled. The typical case where
-you would use annotations is where you have actions whose schedule is know at compile time. So for
-example, if you know that you want to have the paper delivered every morning, it would be logical to
-schedule the deliverPaper() method using annotations. Without going into extensive documentation
-about how annotations work (if you want that look at Java 5 Annotations), here is how you would
-schedule an action using annotations:</p></div>
+<div class="paragraph"><div class="title">Schedule with Annotations</div><p>Java 5 introduced several new and exciting features (some of which are used
+above), but one of the most useful is Annotation support. Annotations, in java,
+are bits of metadata which can be attached to classes, methods or fields that
+are available at runtime to give the system more information. Notable uses
+outside repast includes the EJB3 spec which allows you to create ejbs using
+annotations without requiring such complex descriptors. For repast, we thought
+annotations were a perfect match for tying certain types of scheduling
+information to the methods that should be scheduled. The typical case where you
+would use annotations is where you have actions whose schedule is know at
+compile time. So for example, if you know that you want to have the paper
+delivered every morning, it would be logical to schedule the deliverPaper()
+method using annotations. Without going into extensive documentation about how
+annotations work (if you want that look at Java 5 Annotations), here is how you
+would schedule an action using annotations:</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><code>@ScheduledMethod(start=1 , interval=2)
 public void deliverPaper()</code></pre>
 </div></div>
-<div class="paragraph"><p>The arguments of the annotation are similar to the properties for the ScheduleParameters object. One
-particularly nice feature of using annotations for scheduling is that you get keep the schedule information
-right next to the method that is scheduled, so it is easy to keep track of what is executing when.
-Most of the time, objects with annotations will automatically be added to the schedule, however, if you
-create a new object while your simulation is running, this may not be the case. Fortunately, the schedule
-object makes it very easy to schedule objects with annoations.</p></div>
+<div class="paragraph"><p>The arguments of the annotation are similar to the properties for the
+ScheduleParameters object. One particularly nice feature of using annotations
+for scheduling is that you get keep the schedule information right next to the
+method that is scheduled, so it is easy to keep track of what is executing when.
+Most of the time, objects with annotations will automatically be added to the
+schedule, however, if you create a new object while your simulation is running,
+this may not be the case. Fortunately, the schedule object makes it very easy to
+schedule objects with annoations.</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><code>//Add the annotated methods from the agent to the schedule.
 schedule.schedule(myAgent);</code></pre>
 </div></div>
-<div class="paragraph"><p>The schedule will search the object for any methods which have annotations and add those methods to
-the schedule. This type of scheduling is not designed to handle dynamic scheduling, but only scheduling, where the
-actions are well defined at compile time.</p></div>
-<div class="paragraph"><div class="title">Schedule with Watcher</div><p>Scheduling using watchers is the most radical of the new scheduling approaches. Watchers are designed
-to be used for dynamic scheduling where a typical workflow is well understood by the model designer.
-Basically, a watcher allows an agent to be notified of a state change in another agent and schedule an
-event to occur as a result. The watcher is set up using an annotation (like above), but instead of using
-static times for the schedule parameters, the user specifies a query defining whom to watch and a query
-defining a trigger condition that must be met to execute the action. That&#8217;s a bit of a mouthfull, so let&#8217;s
-take a look at an example to hopefully clarify how this works. (this code is from the SimpleHappyAgent
-model which ships with Repast Simphony)</p></div>
+<div class="paragraph"><p>The schedule will search the object for any methods which have annotations and
+add those methods to the schedule. This type of scheduling is not designed to
+handle dynamic scheduling, but only scheduling, where the actions are well
+defined at compile time.</p></div>
+<div class="paragraph"><div class="title">Schedule with Watcher</div><p>Scheduling using watchers is the most radical of the new scheduling approaches.
+Watchers are designed to be used for dynamic scheduling where a typical workflow
+is well understood by the model designer. Basically, a watcher allows an agent
+to be notified of a state change in another agent and schedule an event to occur
+as a result. The watcher is set up using an annotation (like above), but instead
+of using static times for the schedule parameters, the user specifies a query
+defining whom to watch and a query defining a trigger condition that must be met
+to execute the action. That&#8217;s a bit of a mouthfull, so let&#8217;s take a look at an
+example to hopefully clarify how this works. (this code is from the
+SimpleHappyAgent model which ships with Repast Simphony)</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><code>@Watch(watcheeClassName = "repast.demo.simple.SimpleHappyAgent", watcheeFieldName =
-        "happiness", query = "linked_from",
+<pre><code>@Watch(watcheeClassName = "repast.demo.simple.SimpleHappyAgent",
+        watcheeFieldName = "happiness", query = "linked_from",
         whenToTrigger = WatcherTriggerSchedule.LATER, scheduleTriggerDelta = 1,
         scheduleTriggerPriority = 0)
 public void friendChanged(SimpleHappyAgent friend) {
@@ -1550,26 +2335,30 @@ public void friendChanged(SimpleHappyAgent friend) {
         System.out.println("Happiness Changed");
 }</code></pre>
 </div></div>
-<div class="paragraph"><p>There is a fair amount going on in this, so we&#8217;ll parse it out piece by piece (for a more detailed techical
-explanation, see <a id="fill in link"></a>).
-First, note that there is a @Watch annotation before the method. This tells the Repast Simphony system
-that this is going to be watching other objects in order to schedule the friendChanged() method. The first
-parameter of the annotation is the watcheeClassName. This defines the type of agents that this object
-will be watching. The second argument, watcheeFieldName, defines what field we are interested in monitoring.
-This means that there is a variable in the class SimpleHappyAgent, that we want to monitor
-for changes. When it changes, this object will be notified. The query argument defines which instances
-of SimpleHappyAgent we want to monitor. In this case we are monitoring agents to whom we are
-linked. For more documentation on arguments for this query can be found at: Watcher Queries. The
-whenToTrigger argument specifies whether to execute the action immediately (before the other actions at
-this time are executed) or to wait until the next tick. The scheduleTriggerDelta defines how long to wait
-before scheduling the action (in ticks). Finally the scheduleTriggerPriority allows you to help define the
-order in which this action is executed at it&#8217;s scheduled time.</p></div>
-<div class="paragraph"><p>Let me give a practical example of how this would be used. Let&#8217;s say you are modelling electrical
-networks. You may want to say that if a transformer shuts down, at some time in the future a plant will
-shut down. So you make the plant a watcher of the transformer. The plant could watch a variable called
-status on the transformers to which it is connected, and when the transformer&#8217;s status changes to OFF,
-then the plant can schedule to shut down in the future. All done with a single annotation. It could look
-like this:</p></div>
+<div class="paragraph"><p>There is a fair amount going on in this, so we&#8217;ll parse it out piece by piece.
+First, note that there is a @Watch annotation before the method. This tells the
+Repast Simphony system that this is going to be watching other objects in order
+to schedule the friendChanged() method. The first parameter of the annotation is
+the watcheeClassName. This defines the type of agents that this object will be
+watching. The second argument, watcheeFieldName, defines what field we are
+interested in monitoring. This means that there is a variable in the class
+SimpleHappyAgent, that we want to monitor for changes. When it changes, this
+object will be notified. The query argument defines which instances of
+SimpleHappyAgent we want to monitor. In this case we are monitoring agents to
+whom we are linked. For more documentation on arguments for this query can be
+found at: Watcher Queries. The whenToTrigger argument specifies whether to
+execute the action immediately (before the other actions at this time are
+executed) or to wait until the next tick. The scheduleTriggerDelta defines how
+long to wait before scheduling the action (in ticks). Finally the
+scheduleTriggerPriority allows you to help define the order in which this action
+is executed at it&#8217;s scheduled time.</p></div>
+<div class="paragraph"><p>Let me give a practical example of how this would be used. Let&#8217;s say you are
+modelling electrical networks. You may want to say that if a transformer shuts
+down, at some time in the future a plant will shut down. So you make the plant a
+watcher of the transformer. The plant could watch a variable called status on
+the transformers to which it is connected, and when the transformer&#8217;s status
+changes to OFF, then the plant can schedule to shut down in the future. All done
+with a single annotation. It could look like this:</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><code>@Watch(watcheeClassName = "infr.Transformer", watcheeFieldName = "status", query =
@@ -1578,19 +2367,20 @@ public void shutDown(){
         operational = false;
 }</code></pre>
 </div></div>
-<div class="paragraph"><p>Obviously that is a simple example, but it should give you an idea of how to work with scheduling this
-way.</p></div>
+<div class="paragraph"><p>Obviously that is a simple example, but it should give you an idea of how to
+work with scheduling this way.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_watcher_queries">3.7. Watcher Queries</h3>
+<h3 id="_watcher_queries">3.11. Watcher Queries</h3>
 <div class="sidebarblock">
 <div class="content">
 <div class="title">TODO</div>
 <div class="paragraph"><p>Provide code examples</p></div>
 </div></div>
-<div class="paragraph"><p>Watcher queries are boolean expressions that evaluate the watcher and the watchee with respect to each
-other and some projection or context. The context is the context where the watcher resides and the
-projections are those contained by that context. In the following "[arg]" indicates that the arg is optional.</p></div>
+<div class="paragraph"><p>Watcher queries are boolean expressions that evaluate the watcher and the
+watchee with respect to each other and some projection or context. The context
+is the context where the watcher resides and the projections are those contained
+by that context. In the following "[arg]" indicates that the arg is optional.</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
@@ -1599,41 +2389,43 @@ colocated - true if the watcher and the watchee are in the same context.
 </li>
 <li>
 <p>
-linked_to [<em>network name</em>] - true if the watcher is linked to the watchee in any network, or
-optionally in the named network
+linked_to [<em>network name</em>] - true if the watcher is linked to the watchee in
+any network, or optionally in the named network
 </p>
 </li>
 <li>
 <p>
-linked_from [<em>network name</em>] - true if the watcher is linked from the watchee in any network, or
-optionally in the named network
+linked_from [<em>network name</em>] - true if the watcher is linked from the watchee
+in any network, or optionally in the named network
 </p>
 </li>
 <li>
 <p>
-within X [<em>network name</em>] - true if the path from the watcher to the watchee is less than or equal to
-X where X is a double precision number. This is either for any network in the context or in the
-named network.
+within X [<em>network name</em>] - true if the path from the watcher to the watchee
+is less than or equal to X where X is a double precision number. This is either
+for any network in the context or in the named network.
 </p>
 </li>
 <li>
 <p>
-within_vn X [<em>grid name</em>] - true if the watchee is in the watcher&#8217;s von neumann neighborhood in any
-grid projection or in the named grid. X is the extent of the neighborhood in the x, y, [z] dimensions.
+within_vn X [<em>grid name</em>] - true if the watchee is in the watcher&#8217;s von
+neumann neighborhood in any grid projection or in the named grid. X is the
+extent of the neighborhood in the x, y, [z] dimensions.
 </p>
 </li>
 <li>
 <p>
-within_moore X [<em>grid name</em>] - true if the watchee is in the watcher&#8217;s moore neighborhood in any
-grid projection or in the named grid. X is the extent of the neighborhood in the x, y, [z] dimensions.
+within_moore X [<em>grid name</em>] - true if the watchee is in the watcher&#8217;s moore
+neighborhood in any grid projection or in the named grid. X is the extent of the
+neighborhood in the x, y, [z] dimensions.
 </p>
 </li>
 <li>
 <p>
-within X [<em>geography name</em>] true if the orthodromic distance from the watcher to the watchee is
-less than or equal to X meters, otherwise false.
-Watcher queries can be combined using the keywords not and and as well as ( to establish precedence.
-For example
+within X [<em>geography name</em>] true if the orthodromic distance from the watcher
+to the watchee is less than or equal to X meters, otherwise false. Watcher
+queries can be combined using the keywords not and and as well as ( to establish
+precedence. For example
 </p>
 </li>
 </ul></div>
@@ -1641,10 +2433,11 @@ For example
 <div class="content">
 <pre><code>within 2 'family' and not linked_to 'business'</code></pre>
 </div></div>
-<div class="paragraph"><p>The queries are tested in WatcherQueryTests and defined as annotations in MyWatcher.</p></div>
+<div class="paragraph"><p>The queries are tested in WatcherQueryTests and defined as annotations in
+MyWatcher.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_gui_parameters_and_probes">3.8. GUI Parameters and Probes</h3>
+<h3 id="_gui_parameters_and_probes">3.12. GUI Parameters and Probes</h3>
 <div class="sidebarblock">
 <div class="content">
 <div class="title">TODO</div>
@@ -1656,20 +2449,24 @@ GUI Parameters and Probes (remove extended parameters bit, add the custom probe 
 </li>
 </ul></div>
 </div></div>
-<div class="paragraph"><div class="title">GUI Parameters</div><p>GUI Parameters are the simulation parameters that appear in the parameters view in the application GUI.
-These parameters are automatically created from the parameters XML file or from any
-@Parameters method annotations that are used in a Context. At the moment, these two options only
-allow for the creation of unconstrained numeric, boolean and String parameters. However, constrained
-parameters of more complicated types can be defined using an xml based format. This section describes how
-to save, load and "set as default" parameters using the parameters tools menu, and the last section looks
-at the parameters returned from agent probes.</p></div>
-<div class="paragraph"><div class="title">Convertors and custom parameter types</div><p>Repast Simphony can internally handle the conversion of numeric and boolean types to and from the
-Strings in the gui display and the parameter file. However, if you wish to use a type other than these,
-then you must provide a converter that will convert an Object to and from a String representation. A
-converter is class that implements StringConverter and is used to create the appropriate Object from a
-string representation when reading the xml file and taking input from the gui. The converter also converts
-the object to a string representation. This string is then used when writing the object out and displaying
-the parameter&#8217;s value in the gui.</p></div>
+<div class="paragraph"><div class="title">GUI Parameters</div><p>GUI Parameters are the simulation parameters that appear in the parameters view
+in the application GUI. These parameters are automatically created from the
+parameters XML file or from any @Parameters method annotations that are used in
+a Context. At the moment, these two options only allow for the creation of
+unconstrained numeric, boolean and String parameters. However, constrained
+parameters of more complicated types can be defined using an xml based format.
+This section describes how  to save, load and "set as default" parameters using
+the parameters tools menu, and the last section looks  at the parameters
+returned from agent probes.</p></div>
+<div class="paragraph"><div class="title">Convertors and custom parameter types</div><p>Repast Simphony can internally handle the conversion of numeric and boolean
+types to and from the Strings in the gui display and the parameter file.
+However, if you wish to use a type other than these, then you must provide a
+converter that will convert an Object to and from a String representation. A
+converter is class that implements StringConverter and is used to create the
+appropriate Object from a string representation when reading the xml file and
+taking input from the gui. The converter also converts the object to a string
+representation. This string is then used when writing the object out and
+displaying the parameter&#8217;s value in the gui.</p></div>
 <div class="paragraph"><p>For example, supposing you wish use the following Name class as a Parameter.</p></div>
 <div class="listingblock">
 <div class="content">
@@ -1718,9 +2515,10 @@ the parameter&#8217;s value in the gui.</p></div>
                 defaultValue="Joe Smith" converter="repast.test.viz.NameConverter" /&gt;
 &lt;/parameters&gt;</code></pre>
 </div></div>
-<div class="paragraph"><p>The type is the fully qualified name of the parameter type (in this case "Name") and the converter is the
-fully qualified name of the converter class. The converter must implement the StringConverter interface.
-StringConverter has two methods for converting to and from a String representation.</p></div>
+<div class="paragraph"><p>The type is the fully qualified name of the parameter type (in this case "Name")
+and the converter is the fully qualified name of the converter class. The
+converter must implement the StringConverter interface. StringConverter has two
+methods for converting to and from a String representation.</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><code>package repast.parameter;
@@ -1786,8 +2584,8 @@ public class NameConverter implements StringConverter&lt;Name&gt; {
         }
 }</code></pre>
 </div></div>
-<div class="paragraph"><p>It is also possible to use the values attribute to constrain the possible values of a converted parameter.
-For example:</p></div>
+<div class="paragraph"><p>It is also possible to use the values attribute to constrain the possible values
+of a converted parameter. For example:</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><code>&lt;parameters&gt; ...
@@ -1796,37 +2594,41 @@ For example:</p></div>
                 values="'Joe Smith' 'Mary Smith' 'Granny Smith'"/&gt;
 &lt;/parameters&gt;</code></pre>
 </div></div>
-<div class="paragraph"><p>When constraining a converted parameter, the elements in the values list must be Strings that can be
-converted using the converter. If you do constrain a converted parameter in this way, you must override
-equals (and hashCode) in your custom type. If not, then the constraint validation will most likely fail.</p></div>
-<div class="paragraph"><div class="title">Parameters Panel Tools</div><p>The menu on the parameters panels allows the user to save and load parameter values, and set the
-current parameter values as the default.</p></div>
+<div class="paragraph"><p>When constraining a converted parameter, the elements in the values list must be
+Strings that can be converted using the converter. If you do constrain a
+converted parameter in this way, you must override equals (and hashCode) in your
+custom type. If not, then the constraint validation will most likely fail.</p></div>
+<div class="paragraph"><div class="title">Parameters Panel Tools</div><p>The menu on the parameters panels allows the user to save and load parameter
+values, and set the current parameter values as the default.</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
-Saving - clicking the save menu item will prompt for a file name and then save the current
-parameter values into that file.
+Saving - clicking the save menu item will prompt for a file name and then save
+the current parameter values into that file.
 </p>
 </li>
 <li>
 <p>
-Loading - clicking the load menu item will prompt for a file name and then load the parameter
-values from that file into the current parameters. This assumes that the current parameters
-are compatible with those being loaded, that is, that the names and types of parameters
-in the file match the current parameters.
+Loading - clicking the load menu item will prompt for a file name and then
+load the parameter values from that file into the current parameters. This
+assumes that the current parameters are compatible with those being loaded,
+that is, that the names and types of parameters in the file match the current
+parameters.
 </p>
 </li>
 <li>
 <p>
-Set as Default - this allows the user to set current parameter values as defaults such that these
-values will be used when the simulation is reset. Clicking this menu item prompts for which
-parameters to set as defaults and then sets those as the new defaults.
+Set as Default - this allows the user to set current parameter values as
+defaults such that these values will be used when the simulation is reset.
+Clicking this menu item prompts for which parameters to set as defaults and then
+sets those as the new defaults.
 </p>
 </li>
 </ul></div>
-<div class="paragraph"><div class="title">Agent Probes</div><p>An agent can be probed by clicking on its visual representation in the gui. The agent&#8217;s parameters will
-then be displayed in a probe panel. By default, the displayed parameters are derived from an agent&#8217;s
-Java bean properties which are themselves derived from get / set accessor method pairs. For example,</p></div>
+<div class="paragraph"><div class="title">Agent Probes</div><p>An agent can be probed by clicking on its visual representation in the gui. The
+agent&#8217;s parameters will then be displayed in a probe panel. By default, the
+displayed parameters are derived from an agent&#8217;s Java bean properties which are
+themselves derived from get / set accessor method pairs. For example,</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><code>public class VizAgent {
@@ -1840,14 +2642,16 @@ Java bean properties which are themselves derived from get / set accessor method
         }
 }</code></pre>
 </div></div>
-<div class="paragraph"><p>This creates a "wealth" parameter. The probe panel will display an entry for "wealth" whose value is the
-result of the "getWealth" call. When the user enters a new value in the "wealth" text field then the
-setWealth method will passed this new value. Read-only parameters can be created by specifying only a
-get-style method. The label for this field will be the simple java bean properties name.
-Which properties are treated as parameters, and how to display them can be further refined by adding an
-@Parameter annotation to either the getter or setter of a property method pair. (The information in the
-annotation applies equally to both methods.) Using a Parameter annotation, a more descriptive display
-name can be specified. For example:</p></div>
+<div class="paragraph"><p>This creates a "wealth" parameter. The probe panel will display an entry for
+"wealth" whose value is the result of the "getWealth" call. When the user enters
+a new value in the "wealth" text field then the setWealth method will passed
+this new value. Read-only parameters can be created by specifying only a
+get-style method. The label for this field will be the simple java bean
+properties name. Which properties are treated as parameters, and how to display
+them can be further refined by adding an @Parameter annotation to either the
+getter or setter of a property method pair. (The information in the annotation
+applies equally to both methods.) Using a Parameter annotation, a more
+descriptive display name can be specified. For example:</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><code>public class VizAgent {
@@ -1862,22 +2666,24 @@ name can be specified. For example:</p></div>
         }
 }</code></pre>
 </div></div>
-<div class="paragraph"><p>The usageName should correspond to the java bean property which is typically the method name minus
-the get/set with the first character lower-cased. The displayName specifies the gui label for this
-parameter in the probe window.</p></div>
+<div class="paragraph"><p>The usageName should correspond to the java bean property which is typically the
+method name minus the get/set with the first character lower-cased. The
+displayName specifies the gui label for this parameter in the probe window.</p></div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
 <img src="./images/note.png" alt="Note" />
 </td>
-<td class="content">If any method is annotated with @Parameter, then only @Parameter annotated methods will
-be displayed in the probe panel.</td>
+<td class="content">If any method is annotated with @Parameter, then only @Parameter annotated
+methods will be displayed in the probe panel.</td>
 </tr></table>
 </div>
-<div class="paragraph"><p>Using the @Parameter annotation, you can also specify the name of a converter to convert to and from a
-displayable String. By specifying a converter, any type of object contained by the agent can be displayed
-as a parameter. This converter is identical that described above in the extended parameters section. See
-the convertors and custom parameter types section above for more details. For example,</p></div>
+<div class="paragraph"><p>Using the @Parameter annotation, you can also specify the name of a converter to
+convert to and from a displayable String. By specifying a converter, any type of
+object contained by the agent can be displayed as a parameter. This converter is
+identical that described above in the extended parameters section. See the
+convertors and custom parameter types section above for more details. For
+example,</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><code>public class VizAgent {
@@ -1893,12 +2699,13 @@ the convertors and custom parameter types section above for more details. For ex
         }
 }</code></pre>
 </div></div>
-<div class="paragraph"><p>In this case, the agent&#8217;s wealth is represented by a Money class and a MoneyConverter is used to convert
-to and from a String value.
-Lastly, by default the probe&#8217;s title will be the result of calling "toString()" on the probed object (e.g.
-<a href="mailto:VizAgent@55927f">VizAgent@55927f</a>, in the above screen shot). A more appropriate title can be specified either by
-overriding toString() and returning the desired value, or annotating any method that returns the desired
-title with @ProbeID. For example:</p></div>
+<div class="paragraph"><p>In this case, the agent&#8217;s wealth is represented by a Money class and a
+MoneyConverter is used to convert to and from a String value. Lastly, by default
+the probe&#8217;s title will be the result of calling "toString()" on the probed
+object (e.g. <a href="mailto:VizAgent@55927f">VizAgent@55927f</a>, in the above screen shot). A more appropriate
+title can be specified either by overriding toString() and returning the desired
+value, or annotating any method that returns the desired title with @ProbeID.
+For example:</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><code>public class VizAgent {
@@ -1921,17 +2728,7 @@ title with @ProbeID. For example:</p></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_agent_adaptation">4. Agent Adaptation</h2>
-<div class="sectionbody">
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>Section should be reviewed to make sure the example code is up to date.</p></div>
-</div></div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_batch_runs">5. Batch Runs</h2>
+<h2 id="_batch_runs">4. Batch Runs</h2>
 <div class="sectionbody">
 <div class="sidebarblock">
 <div class="content">
@@ -1939,7 +2736,7 @@ title with @ProbeID. For example:</p></div>
 <div class="paragraph"><p>Brief explanation or see Batch guide.</p></div>
 </div></div>
 <div class="sect2">
-<h3 id="_batch_parameters">5.1. Batch Parameters</h3>
+<h3 id="_batch_parameters">4.1. Batch Parameters</h3>
 <div class="sidebarblock">
 <div class="content">
 <div class="title">TODO</div>
@@ -2065,6 +2862,324 @@ will use the same random seed.</td>
 </div>
 </div>
 <div class="sect1">
+<h2 id="_agent_adaptation">5. Agent Adaptation</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>This section depends on the Flowchart editor and is therefore completely out of
+data with the 2.5 release.  Needs updating with actual code examples.  We should
+probably provide demo models for each.</p></div>
+</div></div>
+<div class="sect2">
+<h3 id="_genetic_algorithms">5.1. Genetic Algorithms</h3>
+<div class="paragraph"><p>Repast Simphony (Repast S) uses the Java Genetic Algorithms Package (JGAP)
+(<a href="http://jgap.sourceforge.net/">http://jgap.sourceforge.net/</a>) to implement genetic algorithms. JGAP can be used
+directly within agents or the Repast S genetic algorithms (GA) wrapper can be
+used. Directly using JGAP provides maximum flexibility but requires more complex
+programming. The Repast S GA wrapper simplifies the use of JGAP while preserving
+most options. It is recommended that Repast S users start with the Repast S
+wrapper and, only if needed, eventually move to directly use of JGAP. The Repast
+S regression wrapper is consistent with direct use of JGAP so this should
+relatively straightforward. Obviously, as with all machine learning tools, it is
+important to make sure that genetic algorithms, in general, and the chosen
+formulation, in particular, are appropriate for your application.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/tip.png" alt="Tip" />
+</td>
+<td class="content">Documentation on how to use JGAP directly can be found on their web site,
+<a href="http://jgap.sourceforge.net/">http://jgap.sourceforge.net/</a> In particular, please see the following page: <a href="http://jgap.sourceforge.net/doc/tutorial.html">http://jgap.sourceforge.net/doc/tutorial.html</a></td>
+</tr></table>
+</div>
+<div class="ulist"><div class="title">To use the Repast S GA wrapper in the visual editor simply follow these steps:</div><ul>
+<li>
+<p>
+Add a property of type "Genetic Algorithm" to an agent. "evaluate" is the name
+of the fitness function that needs to be created as described in step two.
+"populationSize" is the count of the members in the GA population. The "Gene"
+array gives the set of genes, either "IntegerGene" or "DoubleGene," to be used.
+The parameters to the constructors (e.g., "min1" and "max1") are the optional
+lower and upper bounds for that gene. The template is as follows:
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>new RepastGA(this, "evaluate", populationSize,
+        new Gene[]{ new IntegerGene(min1, max1) new DoubleGene(min2, max2)})</code></pre>
+</div></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Add a behavior that takes a double precision array (i.e., "double[]"), returns
+an positive integer result, and that uses the fitness function name given above
+(e.g., "evaluate"). The double array is the current population member to be
+evaluated. The genes are in the same order as the template given in step one.
+Higher fitness result values mean greater fitness levels. The exact range does
+not matter as long as the numbers are positive.
+</p>
+</li>
+<li>
+<p>
+Using the Wizard dialog, chose "Advanced Adaptation," "Use a Genetic
+Algorithm," "Get the Best Solution from a Genetic Algorithm," and then fill in
+the form to get a solution. The returned double array is the current best
+solution. The genes are in the same order as the template given in step one.
+</p>
+</li>
+<li>
+<p>
+If the population needs to be reset, perhaps due to a plateau, using the
+Wizard dialog, chose "Advanced Adaptation," "Use a Genetic Algorithm," "Reset
+the Population of a Genetic Algorithm," and then fill in the form.
+</p>
+</li>
+</ul></div>
+<div class="ulist"><div class="title">To use the Repast S GA wrapper in the Java or Groovy simply follow these steps:</div><ul>
+<li>
+<p>
+Add an agent class field of type RepastGA and create an instance following
+this template:
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>new RepastGA(this, "evaluate", populationSize,
+        new Gene[]{ new IntegerGene(min1, max1) new DoubleGene(min2, max2)})</code></pre>
+</div></div>
+<div class="paragraph"><p>"evaluate" is the name of the fitness function that needs to be created as
+described in step two. "populationSize" is the count of the members in the GA
+population. The "Gene" array gives the set of genes, either "IntegerGene" or
+"DoubleGene," to be used. The parameters to the constructors (e.g., "min1" and
+"max1") are the optional lower and upper bounds for that gene.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Add a class method behavior that takes a double precision array (i.e.,
+"double[]"), returns an positive integer result, and that uses the fitness
+function name given above (e.g., "evaluate"). The double array is the current
+population member to be evaluated. The genes are in the same order as the
+template given in step one. Higher fitness result values mean greater fitness
+levels. The exact range does not matter as long as the numbers are positive. For
+higher performance, advanced users can implement org.jgap.FitnessFunction in
+place of just the creating the simple "int evaluate(double[])" method.
+</p>
+</li>
+<li>
+<p>
+Use the following method template to get a solution:
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>double[] solution = model.getBestSolution(cycles)</code></pre>
+</div></div>
+<div class="paragraph"><p>"cycles" is the number of evolutionary steps to use to compute the requested
+solution. The returned double array is the current best solution. The genes are
+in the same order as the template given in step one.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+If the population needs to be reset, use the following method template:
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>model.reset()</code></pre>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_neural_networks">5.2. Neural Networks</h3>
+<div class="paragraph"><p>Repast Simphony (Repast S) uses the Java Object Oriented Neural Engine (Joone)
+(<a href="http://www.jooneworld.com/">http://www.jooneworld.com/</a>) library to implement neural networks. Joone can be
+used directly within agents or the Repast S neural network wrapper can be used.
+Directly using Joone provides maximum flexibility but requires more complex
+programming. The Repast S wrapper simplifies the use of Joone while preserving
+most options. It is recommended that Repast S users start with the Repast S
+wrapper and, only if needed, eventually move to directly use of Joone. The
+Repast S wrapper is consistent with direct use of Joone so this should
+relatively straightforward. Obviously, as with all machine learning tools, it is
+important to make sure that neural networks, in general, and the chosen network
+design, in particular, are appropriate for your application.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/tip.png" alt="Tip" />
+</td>
+<td class="content">Documentation on how to use Joone directly can be found on their web site,
+<a href="http://www.jooneworld.com/">http://www.jooneworld.com/</a></td>
+</tr></table>
+</div>
+<div class="paragraph"><div class="title">To use the Repast S neural network wrapper in the visual editor simply follow</div><p>these steps:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Add a property of type "Linear Neural Network," "Logistic Neural Network," or
+"Softmax Neural Network" to an agent to produce the corresponding type of neural
+network. Replace the integer (i.e., int) array elements with a description of
+the layers for your application. The first number in the array is the count of
+input neurons, the last number is the count of output neurons, and the
+intermediate numbers are the interstitial layers. You can have as many
+interstitial layers as you would like (i.e., zero or more).
+</p>
+</li>
+<li>
+<p>
+Using the Wizard dialog, chose "Advanced Adaptation," "Use a Neural Network,"
+"Train a Neural Network Model," and then fill in the form to store data for
+fitting. The input data array is indexed by the number of training examples and
+the number of input neurons. The output data array is indexed by the number of
+training examples and the number of output neurons.
+</p>
+</li>
+<li>
+<p>
+Using the Wizard dialog, chose "Advanced Adaptation," "Use a Neural Network,"
+"Forecast from a Neural Network," and then fill in the form to get a forecast.
+The input data array is indexed by the number of input neurons. The output data
+array is indexed by the number of output neurons. To use the Repast S regression
+wrapper in the Java or Groovy simply follow these steps:
+</p>
+</li>
+<li>
+<p>
+Add an agent class field of type NeuralNet and create an linear, logistic, or
+softmax instance as follows:
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>JooneTools.create_standard(new int[]{inputNeurons intermediateLayer1 intermediateLayer2
+intermediateLayerN outputNeurons}, JooneTools.LINEAR)).
+
+JooneTools.create_standard(new int[]{inputNeurons intermediateLayer1 intermediateLayer2
+intermediateLayerN outputNeurons}, JooneTools.LOGISTIC)).
+
+JooneTools.create_standard(new int[]{inputNeurons intermediateLayer1 intermediateLayer2
+intermediateLayerN outputNeurons}, JooneTools. SOFTMAX)).</code></pre>
+</div></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Use the following method to store data for fitting where "model" is the new
+field name:
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>JooneTools.train(model, inputDataArray, targetOutputDataArray, epochs, convergenceLimit, 0, null);</code></pre>
+</div></div>
+<div class="paragraph"><p>The input data array is indexed by the number of training examples and the
+number of input neurons. The output data array is indexed by the number of
+training examples and the number of output neurons. The model will be trained
+until "epochs" cycles are completed or the "convergenceLimit" of root mean square
+error is achieved, whichever comes first.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Use the following method to get a forecast where "model" is the new field name:
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>double outputData[] = JooneTools.interrogate(model, inputData)</code></pre>
+</div></div>
+<div class="paragraph"><p>The input data array is indexed by the number of input neurons. The output data
+array is indexed by the number of output neurons.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_regression">5.3. Regression</h3>
+<div class="paragraph"><p>Repast Simphony (Repast S) uses the OpenForecast
+(<a href="http://openforecast.sourceforge.net/">http://openforecast.sourceforge.net/</a>) library to implement regression.
+OpenForecast can be used directly within agents or the Repast S regression
+wrapper can be used. Directly using OpenForecast provides maximum flexibility
+but requires more complex programming. The Repast S regression wrapper
+simplifies the use of OpenForecast while preserving most options. It is
+recommended that Repast S users start with the Repast S wrapper and, only if
+needed, eventually move to directly use of OpenForecast. The Repast S regression
+wrapper is consistent with direct use of OpenForecast so this should relatively
+straightforward. Obviously, as with all statistical tools, it is important to
+make sure that regression, in general, and the chosen regression fit, in
+particular, are appropriate for your application. The method "getForecastType()"
+can be used to find a text description of the selected equation for both types
+of regression. It is recommended that this be checked for appropriateness.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/tip.png" alt="Tip" />
+</td>
+<td class="content">Documentation on how to use OpenForecast directly can be found on their web
+site, <a href="http://openforecast.sourceforge.net/">http://openforecast.sourceforge.net/</a></td>
+</tr></table>
+</div>
+<div class="paragraph"><div class="title">To use the Repast S regression wrapper in the visual editor simply follow these</div><p>steps:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Add a property of type "Multilinear Regression Model" or "Best Fit Regression Model" to an agent
+"Multilinear Regression Model" always fits input data sets using a linear equation for one input variable or
+multilinear equation for multiple input variables. "Best Fit Regression Model" causes OpenForecast to
+consider a range of different equation families and then find the best fitting member of the best fitting
+equation family. This includes linear and multilinear equations as well as other families as defined in the
+OpenForecast documentation.
+</p>
+</li>
+<li>
+<p>
+Using the Wizard dialog, chose "Advanced Adaptation," "Use a Regression Model," "Store Data for a
+Regression Model," and then fill in the form to store data for fitting.
+</p>
+</li>
+<li>
+<p>
+Using the Wizard dialog, chose "Advanced Adaptation," "Use a Regression Model," "Forecast from a
+Regression Model," and then fill in the form to get a forecast. Please note that it generally is necessary to
+return default forecasts for several steps before enough example data is available for a good quality
+forecast.
+</p>
+</li>
+</ul></div>
+<div class="ulist"><div class="title">To use the Repast S regression wrapper in the Java or Groovy simply follow these steps:</div><ul>
+<li>
+<p>
+Add an agent class field of type RepastRegressionModel and create an instance (i.e., new
+RepastRegressionModel(false)). Set the constructor parameter to "false" for "Multilinear Regression
+Model" or "true" for "Best Fit Regression Model." "Multilinear Regression Model" always fits input data sets
+using a linear equation for one input variable or multilinear equation for multiple input variables. "Best Fit
+Regression Model" causes OpenForecast to consider a range of different equation families and then find
+the best fitting member of the best fitting equation family. This includes linear and multilinear equations
+as well as other families as defined in the OpenForecast documentation. Obviously, as with all statistical
+tools, it is important to make sure that the chosen functions, both multilinear and best fit, are appropriate
+for your application. The method "getForecastType()" can be used to find a text description of the
+selected equation for both types of regression. It is recommended that this be checked for
+appropriateness.
+</p>
+</li>
+<li>
+<p>
+Use the new field&#8217;s "add(&#8230;) method to store data for fitting (i.e., model.add(y, x1, x2, x3)).
+</p>
+</li>
+<li>
+<p>
+Use the new field&#8217;s "forecast(&#8230;)" method to get a forecast (i.e., double x = model.forecast(y1, y2,
+y3)). Please note that it generally is necessary to return default forecasts for several steps before enough
+example data is available for a good quality forecast.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_advanced_topics">6. Advanced Topics</h2>
 <div class="sectionbody">
 <div class="sect2">
@@ -2155,280 +3270,201 @@ String DATA_SET_ROOT = "repast.controller.action.data_sets";</code></pre>
 <div class="paragraph"><p>All the controller actions in repast simphony are added via this mechanism so examining their plugin.xml
 files and related code is a good place to learn more.</p></div>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_developer_topics">7. Developer Topics</h2>
+<div class="sectionbody">
 <div class="sect2">
-<h3 id="_genetic_algorithms">6.2. Genetic Algorithms</h3>
-<div class="paragraph"><p>Repast Simphony (Repast S) uses the Java Genetic Algorithms Package (JGAP) (<a href="http://jgap.sourceforge.net/">http://jgap.sourceforge.net/</a>) to implement genetic algorithms. JGAP can be used directly within agents or the Repast S genetic algorithms (GA) wrapper can be used. Directly using JGAP provides maximum flexibility but requires more complex programming. The Repast S GA wrapper simplifies the use of JGAP while preserving most options. It is recommended that Repast S users start with the Repast S wrapper and, only if needed, eventually move to directly use of JGAP. The Repast S regression wrapper is consistent with direct use of JGAP so this should relatively straightforward. Obviously, as with all machine learning tools, it is important to make sure that genetic algorithms, in general, and the chosen
-formulation, in particular, are appropriate for your application.</p></div>
-<div class="admonitionblock">
-<table><tr>
-<td class="icon">
-<img src="./images/tip.png" alt="Tip" />
-</td>
-<td class="content">Documentation on how to use JGAP directly can be found on their web site, <a href="http://jgap.sourceforge.net/">http://jgap.sourceforge.net/</a> In particular, please see the following page: <a href="http://jgap.sourceforge.net/doc/tutorial.html">http://jgap.sourceforge.net/doc/tutorial.html</a></td>
-</tr></table>
-</div>
-<div class="ulist"><div class="title">To use the Repast S GA wrapper in the visual editor simply follow these steps:</div><ul>
-<li>
-<p>
-Add a property of type "Genetic Algorithm" to an agent. "evaluate" is the name of the fitness function
-that needs to be created as described in step two. "populationSize" is the count of the members in the GA
-population. The "Gene" array gives the set of genes, either "IntegerGene" or "DoubleGene," to be used.
-The parameters to the constructors (e.g., "min1" and "max1") are the optional lower and upper bounds
-for that gene. The template is as follows:
-</p>
-</li>
-</ul></div>
+<h3 id="_creating_a_dynamic_wizard">7.1. Creating a Dynamic Wizard</h3>
+<div class="paragraph"><p>I&#8217;ve made a wizard framework that dynamically loads its options based on
+"options" specified in plugin.xmls. I&#8217;ve used it in enough places that I&#8217;ve gone
+ahead and generalized it. If you wish to use this setup I made it fairly
+straightforward. The classes used in this are in the repast.simphony.plugin.util
+plugin and in the repast.simphony.plugin.wizard package. These classes are
+WizardOption and WizardPluginUtil, DynamicWizard, and some related to the
+wizard&#8217;s model (DynamicWizardModel, WizardModelFactory).</p></div>
+<div class="paragraph"><div class="title">WizardOption</div><p>WizardOption represents an option that will be taken in a wizard. It contains a SimplePath (the GUI steps
+the wizard will take) and some description methods (for grabbing the title and description of the option).
+Generally someone will subclass/subinterface this interface with their own type (say MyWizardOption) and
+add any extra methods to it.
+Implementations of WizardOption (or MyWizardOption) would generally specify their description (to be in
+tooltips or a description field in the wizard option selection) and a title (for the option&#8217;s title in a "Choose
+type" list), and then fill in the other methods as needed.
+The implementation would also build the steps it needs (say select file name or select agent class steps)
+in getWizardPath and return them.</p></div>
+<div class="paragraph"><div class="title">WizardPluginUtil</div><p>The only method in WizardPluginUtil is the only one needed to dynamically load up the wizard options.
+This takes in the plugin id, the extension point id where wizard options would be registered, the specific
+WizardOption class the options should be an instance of, a PluginManager that the extension points would
+be grabbed from, and finally a boolean parameter that specifies whether or not to register the options
+with the DynamicWizard (this is important for using the DynamicWizard, and generally should be true).
+This assumes the extension point will have a class field specified in it, so it could look like so:</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><code>new RepastGA(this, "evaluate", populationSize,
-        new Gene[]{ new IntegerGene(min1, max1) new DoubleGene(min2, max2)})</code></pre>
+<pre><code>&lt;extension-point id="repast.simphony.data.mappingwizard.options"&gt;
+        &lt;parameter-def id="class"/&gt;
+&lt;/extension-point&gt;</code></pre>
 </div></div>
-<div class="ulist"><ul>
-<li>
-<p>
-Add a behavior that takes a double precision array (i.e., "double[]"), returns an positive integer
-result, and that uses the fitness function name given above (e.g., "evaluate"). The double array is the
-current population member to be evaluated. The genes are in the same order as the template given in
-step one. Higher fitness result values mean greater fitness levels. The exact range does not matter as
-long as the numbers are positive.
-</p>
-</li>
-<li>
-<p>
-Using the Wizard dialog, chose "Advanced Adaptation," "Use a Genetic Algorithm," "Get the Best
-Solution from a Genetic Algorithm," and then fill in the form to get a solution. The returned double array
-is the current best solution. The genes are in the same order as the template given in step one.
-</p>
-</li>
-<li>
-<p>
-If the population needs to be reset, perhaps due to a plateau, using the Wizard dialog, chose
-"Advanced Adaptation," "Use a Genetic Algorithm," "Reset the Population of a Genetic Algorithm," and
-then fill in the form.
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">To use the Repast S GA wrapper in the Java or Groovy simply follow these steps:</div><ul>
-<li>
-<p>
-Add an agent class field of type RepastGA and create an instance following this template:
-</p>
-</li>
-</ul></div>
+<div class="paragraph"><p>Or alternatively, you can just create a new extension point inherting its properties off the default one:</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><code>new RepastGA(this, "evaluate", populationSize,
-        new Gene[]{ new IntegerGene(min1, max1) new DoubleGene(min2, max2)})</code></pre>
+<pre><code>&lt;extension-point id="wizard.options" parent-plugin-id="repast.simphony.plugin.util"
+        parent-point-id="wizard.options"&gt;
+&lt;/extension-point&gt;</code></pre>
 </div></div>
-<div class="paragraph"><p>"evaluate" is the name of the fitness function that needs to be created as described in step two.
-"populationSize" is the count of the members in the GA population. The "Gene" array gives the set of
-genes, either "IntegerGene" or "DoubleGene," to be used. The parameters to the constructors (e.g.,
-"min1" and "max1") are the optional lower and upper bounds for that gene.</p></div>
-<div class="ulist"><ul>
-<li>
-<p>
-Add a class method behavior that takes a double precision array (i.e., "double[]"), returns an positive
-integer result, and that uses the fitness function name given above (e.g., "evaluate"). The double array is
-the current population member to be evaluated. The genes are in the same order as the template given
-in step one. Higher fitness result values mean greater fitness levels. The exact range does not matter as
-long as the numbers are positive. For higher performance, advanced users can implement
-org.jgap.FitnessFunction in place of just the creating the simple "int evaluate(double[])" method.
-</p>
-</li>
-<li>
-<p>
-Use the following method template to get a solution:
-</p>
-</li>
-</ul></div>
+<div class="paragraph"><p>And extensions would then look like (assuming the plugin id is repast.simphony.data)</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><code>double[] solution = model.getBestSolution(cycles)</code></pre>
+<pre><code>&lt;extension plugin-id="repast.simphony.data"
+        point-id="repast.simphony.data.mappingwizard.options" id="data.bsf.basicoption"&gt;
+        &lt;parameter id="class" value="repast.data.bsf.gui.BasicScriptOption"/&gt;
+&lt;/extension&gt;</code></pre>
 </div></div>
-<div class="paragraph"><p>"cycles" is the number of evolutionary steps to use to compute the requested solution. The returned
-double array is the current best solution. The genes are in the same order as the template given in step
-one.</p></div>
-<div class="ulist"><ul>
-<li>
-<p>
-If the population needs to be reset, use the following method template:
-</p>
-</li>
-</ul></div>
+<div class="paragraph"><div class="title">Loading the options</div><p>To load these options you have to call the WizardPluginUtil method from some point where you have
+access to the PluginManager. For now the best way to do this is from a menu or other item action
+creator. Hopefully at some point a more generic method will exist. You then can store the loaded options
+somewhere so that you can have direct access to them if you desire. So for instance this could look like</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><code>model.reset()</code></pre>
-</div></div>
-</div>
-<div class="sect2">
-<h3 id="_neural_networks">6.3. Neural Networks</h3>
-<div class="paragraph"><p>Repast Simphony (Repast S) uses the Java Object Oriented Neural Engine (Joone)
-(<a href="http://www.jooneworld.com/">http://www.jooneworld.com/</a>) library to implement neural networks. Joone can be used directly within
-agents or the Repast S neural network wrapper can be used. Directly using Joone provides maximum
-flexibility but requires more complex programming. The Repast S wrapper simplifies the use of Joone
-while preserving most options. It is recommended that Repast S users start with the Repast S wrapper
-and, only if needed, eventually move to directly use of Joone. The Repast S wrapper is consistent with
-direct use of Joone so this should relatively straightforward. Obviously, as with all machine learning tools,
-it is important to make sure that neural networks, in general, and the chosen network design, in
-particular, are appropriate for your application.</p></div>
-<div class="admonitionblock">
-<table><tr>
-<td class="icon">
-<img src="./images/tip.png" alt="Tip" />
-</td>
-<td class="content">Documentation on how to use Joone directly can be found on their web site, <a href="http://www.jooneworld.com/">http://www.jooneworld.com/</a></td>
-</tr></table>
-</div>
-<div class="ulist"><div class="title">To use the Repast S neural network wrapper in the visual editor simply follow these steps:</div><ul>
-<li>
-<p>
-Add a property of type "Linear Neural Network," "Logistic Neural Network," or "Softmax Neural
-Network" to an agent to produce the corresponding type of neural network. Replace the integer (i.e., int)
-array elements with a description of the layers for your application. The first number in the array is the
-count of input neurons, the last number is the count of output neurons, and the intermediate numbers
-are the interstitial layers. You can have as many interstitial layers as you would like (i.e., zero or more).
-</p>
-</li>
-<li>
-<p>
-Using the Wizard dialog, chose "Advanced Adaptation," "Use a Neural Network," "Train a Neural
-Network Model," and then fill in the form to store data for fitting. The input data array is indexed by the
-number of training examples and the number of input neurons. The output data array is indexed by the
-number of training examples and the number of output neurons.
-</p>
-</li>
-<li>
-<p>
-Using the Wizard dialog, chose "Advanced Adaptation," "Use a Neural Network," "Forecast from a
-Neural Network," and then fill in the form to get a forecast. The input data array is indexed by the
-number of input neurons. The output data array is indexed by the number of output neurons.
-To use the Repast S regression wrapper in the Java or Groovy simply follow these steps:
-</p>
-</li>
-<li>
-<p>
-Add an agent class field of type NeuralNet and create an linear, logistic, or softmax instance as
-follows:
-</p>
-</li>
-</ul></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>JooneTools.create_standard(new int[]{inputNeurons intermediateLayer1 intermediateLayer2
-intermediateLayerN outputNeurons}, JooneTools.LINEAR)).
+<pre><code>public void init(PluginManager manager) {
+        // grab all the available wizard options
+        List&lt;DataLoaderWizardOption&gt; options = WizardPluginUtil.loadWizardOptions(manager,
+                DataLoaderWizardOption.class, PACKAGE_ID, WIZARD_OPTIONS_ID, true);
 
-JooneTools.create_standard(new int[]{inputNeurons intermediateLayer1 intermediateLayer2
-intermediateLayerN outputNeurons}, JooneTools.LOGISTIC)).
-
-JooneTools.create_standard(new int[]{inputNeurons intermediateLayer1 intermediateLayer2
-intermediateLayerN outputNeurons}, JooneTools. SOFTMAX)).</code></pre>
+        // store them for later
+        staticOptions = options;
+}</code></pre>
 </div></div>
+<div class="paragraph"><div class="title">Creating the wizard</div><p>Finally, to actually display a wizard that uses these options you use DynamicWizard. There are a lot of
+arguments in the DynamicWizard as of now, so it is best to wrap the creation of the wizards in some
+other static method. So an example method could look like:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>public static DynamicWizard create(Scenario scenario, Object contextID) {
+        return new DynamicWizard(WIZARD_OPTIONS_ID, scenario, contextID, "Select Data Source
+                Type", "Choose a type for your data source.", new WizardFinishStep(),
+                new WizardModelFactory() {
+                        public DynamicWizardModel create(BranchingPath path, Scenario scenario, Object contextID) {
+                                return new ChartWizardModel(path, scenario, contextID);
+                        }
+                }
+        );
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>This will create a wizard that has its options stored with the key WIZARD_OPTIONS_ID, scenario and
+contextID (just general properties), the specified title for the wizard&#8217;s select an option step, and specified
+prompt for that same step, a final "wizard has completed" step, and a factory for generating the model
+used by the wizard (in this case a ChartWizardModel).</p></div>
+<div class="paragraph"><p>Each of these properties plays their own role in the wizard process. Explicitly, the important ones and
+their function (from this example):</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
-Use the following method to store data for fitting where "model" is the new field name:
+the wizard id (WIZARD_OPTIONS_ID) - a String that is the extension point id that the wizard
+options would have been registered under. This in general is just the wizard&#8217;s ID, meaning, the id
+the wizard options would have been registered to WizardPluginUtil&#8217;s methods, but if you set the
+register flag to true when using loadWizardOptions, it will store the options with the extension point
+id as the wizard id.
 </p>
 </li>
-</ul></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>JooneTools.train(model, inputDataArray, targetOutputDataArray, epochs, convergenceLimit, 0, null);</code></pre>
-</div></div>
-<div class="paragraph"><p>The input data array is indexed by the number of training examples and the number of input neurons.
-The output data array is indexed by the number of training examples and the number of output neurons.
-The model will be trained until "epochs" cycles are completed or the "convergenceLimit" of root mean
-square error is achieved, whichever comes first.</p></div>
-<div class="ulist"><ul>
 <li>
 <p>
-Use the following method to get a forecast where "model" is the new field name:
+the wizard model factory - This should build the wizard model that the wizard will pass along to each
+of the steps. In general this model should be where each step stores their final information. So if
+one step is in charge of specifying the directory some action will point to, it should when its done (in
+its applyState method) set this directory on the model. The model itself can be grabbed during the
+step&#8217;s init(WizardModel) call, which occurs when the step is displayed. This model is important so
+that when the wizard has completed you can load the settings that were specified in the wizard
+steps (as needed).
 </p>
 </li>
 </ul></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>double outputData[] = JooneTools.interrogate(model, inputData)</code></pre>
-</div></div>
-<div class="paragraph"><p>The input data array is indexed by the number of input neurons. The output data array is indexed by the
-number of output neurons.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_regression">6.4. Regression</h3>
-<div class="paragraph"><p>Repast Simphony (Repast S) uses the OpenForecast (<a href="http://openforecast.sourceforge.net/">http://openforecast.sourceforge.net/</a>) library to
-implement regression. OpenForecast can be used directly within agents or the Repast S regression
-wrapper can be used. Directly using OpenForecast provides maximum flexibility but requires more
-complex programming. The Repast S regression wrapper simplifies the use of OpenForecast while
-preserving most options. It is recommended that Repast S users start with the Repast S wrapper and,
-only if needed, eventually move to directly use of OpenForecast. The Repast S regression wrapper is
-consistent with direct use of OpenForecast so this should relatively straightforward. Obviously, as with all
-statistical tools, it is important to make sure that regression, in general, and the chosen regression fit, in
-particular, are appropriate for your application. The method "getForecastType()" can be used to find a
-text description of the selected equation for both types of regression. It is recommended that this be
-checked for appropriateness.</p></div>
-<div class="admonitionblock">
-<table><tr>
-<td class="icon">
-<img src="./images/tip.png" alt="Tip" />
-</td>
-<td class="content">Documentation on how to use OpenForecast directly can be found on their web site,
-<a href="http://openforecast.sourceforge.net/">http://openforecast.sourceforge.net/</a></td>
-</tr></table>
-</div>
-<div class="ulist"><div class="title">To use the Repast S regression wrapper in the visual editor simply follow these steps:</div><ul>
+<h3 id="_enabling_freezedrying_of_custom_projections">7.2. Enabling FreezeDrying of Custom Projections</h3>
+<div class="paragraph"><p>When building a new Projection, some things should be done if it is to be integrated into the whole
+system. In particular, if it is to be freeze dryable, some special considerations may need to be made.
+Since the freeze dryer generally just writes out all the fields of an object, this may or may not function
+properly for a given Projection.
+For a projection to be properly freeze dryed one of the following has to happen:</p></div>
+<div class="ulist"><ul>
 <li>
 <p>
-Add a property of type "Multilinear Regression Model" or "Best Fit Regression Model" to an agent
-"Multilinear Regression Model" always fits input data sets using a linear equation for one input variable or
-multilinear equation for multiple input variables. "Best Fit Regression Model" causes OpenForecast to
-consider a range of different equation families and then find the best fitting member of the best fitting
-equation family. This includes linear and multilinear equations as well as other families as defined in the
-OpenForecast documentation.
+The Projection and all the objects it contains should have a default constructor, or all of its
+constructors should be able to support taking in dummy (or null) values. In general, this means the
+Projection should be able to be written out and read in with the default freeze dryer
+(DefaultFreezeDryer).
 </p>
 </li>
 <li>
 <p>
-Using the Wizard dialog, chose "Advanced Adaptation," "Use a Regression Model," "Store Data for a
-Regression Model," and then fill in the form to store data for fitting.
+A custom FreezeDryer should be written that will handle the given projection class. This freeze dryer
+should be able to read and write the default implementation of your projection, and if reasonable,
+other implementations.
 </p>
 </li>
 <li>
 <p>
-Using the Wizard dialog, chose "Advanced Adaptation," "Use a Regression Model," "Forecast from a
-Regression Model," and then fill in the form to get a forecast. Please note that it generally is necessary to
-return default forecasts for several steps before enough example data is available for a good quality
-forecast.
+A ProjectionDryer should be created. This is not a FreezeDryer, but is an interface used by the
+Context FreezeDryer. Building one of these is discussed below.
 </p>
 </li>
 </ul></div>
-<div class="ulist"><div class="title">To use the Repast S regression wrapper in the Java or Groovy simply follow these steps:</div><ul>
-<li>
-<p>
-Add an agent class field of type RepastRegressionModel and create an instance (i.e., new
-RepastRegressionModel(false)). Set the constructor parameter to "false" for "Multilinear Regression
-Model" or "true" for "Best Fit Regression Model." "Multilinear Regression Model" always fits input data sets
-using a linear equation for one input variable or multilinear equation for multiple input variables. "Best Fit
-Regression Model" causes OpenForecast to consider a range of different equation families and then find
-the best fitting member of the best fitting equation family. This includes linear and multilinear equations
-as well as other families as defined in the OpenForecast documentation. Obviously, as with all statistical
-tools, it is important to make sure that the chosen functions, both multilinear and best fit, are appropriate
-for your application. The method "getForecastType()" can be used to find a text description of the
-selected equation for both types of regression. It is recommended that this be checked for
-appropriateness.
-</p>
-</li>
-<li>
-<p>
-Use the new field&#8217;s "add(&#8230;) method to store data for fitting (i.e., model.add(y, x1, x2, x3)).
-</p>
-</li>
-<li>
-<p>
-Use the new field&#8217;s "forecast(&#8230;)" method to get a forecast (i.e., double x = model.forecast(y1, y2,
-y3)). Please note that it generally is necessary to return default forecasts for several steps before enough
-example data is available for a good quality forecast.
-</p>
-</li>
-</ul></div>
+<div class="paragraph"><div class="title">Building a ProjectionDryer</div><p>All a ProjectionDryer does is store the settings from a custom Projection into a map, and later rebuild a
+projection from a map (with the same settings). Implementations store properties in the addProperties
+method, rebuild the projection in instantiate, and restore properties in the loadProperties methods.</p></div>
+<div class="paragraph"><div class="title">addProperties</div><p>The addProperties method should add implementation specific properties to the passed in Map. For
+instance, in a Network these properties could be a list of edges in the network. This would be something
+of the form "edges"&#8594;node1. So it would be
+implemented by:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>protected void addProperties(Context context, MyNetwork net, Map&lt;String, Object&gt; properties) {
+        super.addProperties(context, net, properties);
+        ArrayList list = new ArrayList();
+        for (Edge edge : net.getEdges()) {
+                list.add(new Object[] { edge.getSource(), edge.getTarget(), edge.getWeight()});
+        }
+        properties.put("edges", list);
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>The super call lets the class&#8217;s superclass (assuming it is not ProjectionDryer) add any neccessary
+properties. It then builds a list of the edges, storing the properties in an array. Finally it stores to the
+properties map the list of edges.</p></div>
+<div class="paragraph"><div class="title">instantiate and loadProperties</div><p>At some later point the context will be rehydrated and the projection will need to be rehydrated. First the
+projection will need to be instantiated, and accordingly, the instantiate method would be called. For our
+MyNetwork class this may be something like this:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>protected T instantiate(Context&lt;?&gt; context, Map&lt;String, Object&gt; properties) {
+        String name = (String) properties.get(NAME_KEY);
+        return new MyNetwork(name);
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>This simply fetches the projection&#8217;s name (which will be stored in ProjectionDryer&#8217;s loadProperties method
+- another reason why it&#8217;s important to call the super&#8217;s method!) and then creates the network with that
+name. Next the network&#8217;s properties need to be loaded, which, according to our addProperties method
+will be like so:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>protected void loadProperties(Context&lt;?&gt; context, MyNetwork net, Map&lt;String, Object&gt;
+properties) {
+super.loadProperties(context, proj, properties);
+ArrayList&lt;Object[]&gt; edges = (ArrayList&lt;Object[]&gt;) properties.get("edges");
+for (Object[] edgeProperties : edges) {
+net.addEdge(edgeProperties[0], edgeProperties[1], (Double) edgeProperties[2]);
+}
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>In this method we first are calling the super&#8217;s load properties method (so that things like listeners and
+any other settings will be loaded), then we fetch the edge information from the properties map (the
+ArrayList&#8230; = line), and finally we add the edges into the given network. Note that we may have to cast
+the properties if the network requires specific types in its methods (for instance if the weight is a Double
+or double as in this example). Now the Projection will be added into the context and the rehydration process will continue on.</p></div>
+<div class="paragraph"><div class="title">Registering the new dryer</div><p>The different kind of dryers need to be registered in different kinds of ways. If you create a custom
+FreezeDryer, you must register that dryer to any FreezeDryer instance you create. If you have created a
+custom ProjectionDryer, you must register it to the ProjectionDryer class by calling its addProjectionDryer
+method.</p></div>
 </div>
 </div>
 </div>
@@ -2436,7 +3472,7 @@ example data is available for a good quality forecast.
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-09-29 17:27:36 Central Daylight Time
+Last updated 2017-09-30 18:00:32 Central Daylight Time
 </div>
 </div>
 </body>
