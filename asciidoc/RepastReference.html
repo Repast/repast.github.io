@@ -535,6 +535,40 @@ body.manpage div.sectionbody {
 }
 
 
+@media screen {
+  body {
+    max-width: 50em; /* approximately 80 characters wide */
+    margin-left: 16em;
+  }
+
+  #toc {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 13em;
+    padding: 0.5em;
+    padding-bottom: 1.5em;
+    margin: 0;
+    overflow: auto;
+    border-right: 3px solid #f8f8f8;
+    background-color: white;
+  }
+
+  #toc .toclevel1 {
+    margin-top: 0.5em;
+  }
+
+  #toc .toclevel2 {
+    margin-top: 0.25em;
+    display: list-item;
+    color: #aaaaaa;
+  }
+
+  #toctitle {
+    margin-top: 0.5em;
+  }
+}
 </style>
 <script type="text/javascript">
 /*<![CDATA[*/
@@ -731,7 +765,7 @@ asciidoc.install(2);
 /*]]>*/
 </script>
 </head>
-<body class="article">
+<body class="article" style="max-width:55em">
 <div id="header">
 <h1>Repast Simphony Documentation</h1>
 <span id="author">Version 2.5 October 2017</span><br />
@@ -744,21 +778,85 @@ asciidoc.install(2);
 <div class="sect1">
 <h2 id="_introduction">1. Introduction</h2>
 <div class="sectionbody">
+<div class="paragraph"><p>Repast Simphony is a tightly integrated, richly interactive, cross platform
+Java-based modeling system that runs under Microsoft Windows, Apple Mac OS X,
+and Linux. Repast supports the development of extremely flexible models of
+interacting agents for use on workstations and computing clusters. Repast
+Simphony models can be developed in several different forms including the ReLogo
+dialect of Logo, point-and-click statecharts, Groovy, or Java, all of which can
+be fluidly interleaved.</p></div>
+<div class="paragraph"><p>This "cookbook style" reference manual provides background and code examples for
+many aspects of the Repast Simphony API but does not show how to build a
+complete working model from scratch. It is recommended that new users first
+review the introductory tutorial documents included with the Repast installer
+and available at the Repast online documentation page:
+<a href="https://repast.github.io/docs.html">https://repast.github.io/docs.html</a></p></div>
 <div class="sect2">
-<h3 id="_about_repast_simphony">1.1. About Repast Simphony</h3>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>Needs updating</p></div>
-</div></div>
+<h3 id="_support">1.1. Support</h3>
+<div class="paragraph"><p>The primary means of obtaining help with Repast is the
+<a href="http://lists.sourceforge.net/lists/listinfo/repast-interest">Repast Interest</a>
+mailing list and the accumulated
+<a href="https://sourceforge.net/p/repast/mailman/repast-interest">list archives</a>.
+To post a technical question about any  edition of Repast to all of the list
+members, please send an email message to <a href="mailto:repast-interest@lists.sourceforge.net">repast-interest@lists.sourceforge.net</a>.
+(Due to spam, the repast-interest list now limits postings to subscribed users.
+While questions are welcome and usually answered quickly, please check
+the list archives before sending a message as your question may already have
+been answered.</p></div>
+<div class="paragraph"><p>For those interested in regularly hearing about Repast and learning from other&#8217;s
+technical questions, please consider subscribing to the Repast Interest mailing
+list.</p></div>
 </div>
 <div class="sect2">
 <h3 id="_installation">1.2. Installation</h3>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>Needs updating</p></div>
-</div></div>
+<div class="paragraph"><p>Current software releases are available from
+<a href="https://github.com/Repast/repast.simphony/releases/">https://github.com/Repast/repast.simphony/releases/</a>.</p></div>
+<div class="paragraph"><div class="title">Microsoft Windows</div><p><a href="https://www.java.com">Java</a> must be installed prior to running Repast Simphony.
+We reccommend using both the 64-bit version of Java and Repast, which is
+available as a 32-bit or 64-bit installer for Windows.  If you have 32-bit Java
+installed you must use the 32-bit Repast installer, and likewise if you have the
+64-bit version of Java installed, you must use the 64-bit Repast installer.</p></div>
+<div class="paragraph"><div class="title">OS X</div><p>Mac OS X users should download the Mac OS X Disk Image, double click on the
+resulting file and follow the installation instructions that appear. You may
+need to alter your Security &amp; Privacy settings in System Preferences to allow
+you to open Repast Simphony. Alternatively, right clicking on the Repast
+Simphony application and selecting Open will allow you to authenticate and open
+it.</p></div>
+<div class="paragraph"><div class="title">Linux</div><p>Linux users and Unix-related system users should download
+<a href="http://www.eclipse.org/downloads/packages/eclipse-ide-eclipse-committers/oxygen1">
+Eclipse IDE for Eclipse Committers Oxygen</a> then use the Eclipse Update Manager
+(under Help &#8594; Install New Software) to install Repast from its update site:
+<a href="https://repocafe.cels.anl.gov/repos/repast/">https://repocafe.cels.anl.gov/repos/repast/</a>. Repast when installed via the
+update site has the following additional requirement that can be installed using
+Eclipse&#8217;s Update Manager.</p></div>
+<div class="paragraph"><p>From the Groovy Update Site (<a href="http://dist.springsource.org/snapshot/GRECLIPSE/e4.6/">http://dist.springsource.org/snapshot/GRECLIPSE/e4.6/</a>):</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Extra Groovy Compilers
+</p>
+</li>
+<li>
+<p>
+Groovy-Eclipse
+</p>
+</li>
+<li>
+<p>
+Uncategorized
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Once you have downloaded eclipse and installed the plugins, the groovy compiler
+version must be set to anything in the 2.0. version line. Anything else will
+prevent Repast Simphony and especially ReLogo from working correctly. You can
+set the groovy compiler preferences in either the workspace or project
+preferences pane via the "Groovy Compiler" page.</p></div>
+<div class="paragraph"><p>The demonstration models are not provided via the update site, but they can be
+downloaded from the GitHub repository:
+<a href="https://github.com/Repast/repast.simphony.models/">https://github.com/Repast/repast.simphony.models/</a>. Once downloaded, start
+Eclipse and switch to your chosen workspace. Right click in the package panel,
+and choose import, General, Archive File and follow the wizard from there.</p></div>
 </div>
 </div>
 </div>
@@ -1228,121 +1326,384 @@ window.</p></div>
 <div class="sect1">
 <h2 id="_repast_model_design_fundamental_concepts">3. Repast Model Design Fundamental Concepts</h2>
 <div class="sectionbody">
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>This was probably copied from one of our papers, but maybe there is a nicer version.</p></div>
-</div></div>
+<div class="paragraph"><p>Repast Simphony has an architectural design based on central principles
+important to agent-based modeling. These principles combine findings from many
+years of ABMS toolkit development and from experience applying the ABMS toolkits
+to specific applications. There are a variety of design goals for Repast S
+including the following:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+There should be a strict separation between models, data storage, and
+visualization.
+</p>
+</li>
+<li>
+<p>
+Most toolkit functions should be available without having to implement
+interfaces, extend classes, or manage proxies.
+</p>
+</li>
+<li>
+<p>
+User model components should be ‘plain old Java objects’ (POJOs) that are
+accessible to and replaceable with external software (e.g., legacy models and
+enterprise information systems).
+</p>
+</li>
+<li>
+<p>
+Common tasks should be automated when possible.
+</p>
+</li>
+<li>
+<p>
+Imperative ‘boilerplate’ code should be eliminated or replaced with
+declarative runtime configuration settings when possible.
+</p>
+</li>
+<li>
+<p>
+Idiomatic code expressions (i.e., repeatedly used blocks of code such as loops
+that scan lists of agents) should be simple and direct.
+</p>
+</li>
+</ul></div>
 <div class="sect2">
 <h3 id="_contexts">3.1. Contexts</h3>
 <div class="sidebarblock">
 <div class="content">
 <div class="title">TODO</div>
-<div class="paragraph"><p>add ValueLayer and GIS information</p></div>
+<div class="paragraph"><p>Perhaps rearrange this section so that the theory is discussed in each subsection.</p></div>
 </div></div>
-<div class="paragraph"><p>The Context is the core concept and object in Repast Simphony. It provides a
+<div class="paragraph"><div class="title">Contexts and Projections</div><p>The Context is the core concept and object in Repast Simphony. It provides a
 data structure to organize your agents from both a modelling perspective as well
 as a software perspective. Fundamentally, a context is just a bucket full of
 agents, but they provide more richness.</p></div>
-<div class="paragraph"><p>Contexts are hierarchically nested named containers that hold model components.
-The model components can be any type of POJO, including other contexts, but are
-often expected to be agent objects. Each model component can be present in as
-many contexts as the modeler desires. The hierarchical nesting means that a
-model component that is present in a context is also present in all of that
-context&#8217;s parent contexts. Of course, the converse is not true in the general
-case. The hierarchical nesting structure itself can be declaratively or
-imperatively specified by the modeler. Context membership and structure is
-completely dynamic and agents can be in any number or combination of contexts at
-any time. Furthermore, agents can themselves contain any number of contexts and
-even be contexts. In addition, the contents of components within contexts (e.g.
-agent properties) can be declaratively logged at runtime.</p></div>
-<div class="paragraph"><p>In addition to supporting hierarchical nesting, contexts support projections.
-Repast projections are named sets of relationships defined over the members of a
-context. For example, a Repast S network projection stores a network or graph
-relationship between the members of its context. The members of this context can
-then ask who they are linked to and who is linked to them. Similarly, the Repast
-S grid projection stores a set of Cartesian coordinates for each member of the
-context. The members of this context can ask where they are. For more details on
-projections, see Details on Projections. Each context can support any mixture of
-projections. Also, projections can be declaratively visualized at runtime.
-Contexts also support data layers. Data layers represent numerical data that can
-be accessed using a set of coordinates. Data layers allow model designers to
-provide numerical values with which their agents can interact. The data layers
-for a given context are separate from the layers for other contexts, allowing
-the agents to orient themselves with respect to a set of data depending on which
-context they are using. Within a context, data layers can be connected to:</p></div>
+<div class="paragraph"><p>The core data structure in Repast S is called a Context. The Context is a simple
+container based on set semantics. Any type of object can be put into a Context
+with the simple caveat that only one instance of any given object can be
+contained by the Context. From a modeling perspective, the Context represents an
+abstract population. The objects in a Context are the population of a model. For
+simplicity, we refer to these objects as proto-agents. However, the Context does
+not inherently provide any mechanism for interaction between proto-agents. One
+could say that a Context represents a "soup" where the agents have no concept of
+space or relation, but the Context is actually more of a proto-space. The Context
+provides the basic infrastructure to define a population and the interactions of
+that population without actually providing the implementations. As a proto-space,
+the Context holds proto-agents that have idealized behaviors, but the behaviors
+themselves cannot actually be realized until a structure is imposed on them.</p></div>
+<div class="paragraph"><p>Repast S Contexts can be hierarchically nested to form a tree of parent Contexts
+and their sub-Contexts. Contexts are containers for agents and projections.
+Agents can join or leave Contexts at any time and can simultaneously exist in
+multiple Contexts and sub-Contexts. Projections specify the relationship between
+the agents in a given context. Projections include:</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
-a particular projection (e.g., each cell in a two-dimensional grid may have
-some data associated with it),
+multidimensional discrete grids
 </p>
 </li>
 <li>
 <p>
-multiple projections (e.g., a value at a particular set of coordinates might
-depend on both a grid and a set of network relations), or
+multidimensional continuous spaces
 </p>
 </li>
 <li>
 <p>
-no projections (e.g., the data is stored in an abstract matrix).
+networks
+</p>
+</li>
+<li>
+<p>
+geographical information systems (GIS) spaces.
 </p>
 </li>
 </ul></div>
+<div class="paragraph"><p>Each Context can contain as many projections as needed for a given model. Each
+Projection in each Context defines a set of relationships between each the agent
+in that context. For example, a Three Dimensional Continuous Space Projection in
+a given Context defines the spatial relationship (i.e., Euclidean distance)
+between each agent. A Network Projection containing social relationships in the
+same Context might define friendship relations between the agents. A second
+Network Projection in the given Context might define family relationships
+between the agents.</p></div>
+<div class="paragraph"><div class="title">Queries</div><p>Repast S provides a mechanism to query a model&#8217;s Context hierarchy and the
+associated Projections and agents. This mechanism provides methods to find
+agents with specific types, agents with selected individual properties, and
+agents with given Projections properties (e.g., agents at a given location in a
+grid or agents with given kinds of links to other agents).</p></div>
+<div class="paragraph"><p>Queries are defined using the following conceptual predicates:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Equals</strong>: This predicate determines whether the object is equal to a given
+object.
+</p>
+</li>
+<li>
+<p>
+<strong>Property equals</strong>: This predicate determines whether a property in the object
+is equal to a given value.
+</p>
+</li>
+<li>
+<p>
+<strong>Property less than</strong>: This predicate determines whether a property in the
+object is less than a given value.
+</p>
+</li>
+<li>
+<p>
+<strong>Property greater than</strong>: This predicate determines whether a property in the
+object is greater than a given value.
+</p>
+</li>
+<li>
+<p>
+<strong>Network adjacent</strong>: This predicate determines whether the object is linked to
+a given object in a specified network.
+</p>
+</li>
+<li>
+<p>
+<strong>Network successor</strong>: This predicate determines whether the object has an
+inbound edge from a given object in a specified network.
+</p>
+</li>
+<li>
+<p>
+<strong>Network predecessor</strong>: This predicate determines whether the object has an
+outbound edge to a given object in a specified network.
+</p>
+</li>
+<li>
+<p>
+<strong>Touches</strong>: This GIS predicate determines whether the object touches a given
+object in space.
+</p>
+</li>
+<li>
+<p>
+<strong>Contained by</strong>: This GIS predicate determines whether the object is contained
+by a given object in space.
+</p>
+</li>
+<li>
+<p>
+<strong>In envelope</strong>: This GIS predicate determines whether the object is within a
+given envelope (bounding box) in space.
+</p>
+</li>
+<li>
+<p>
+<strong>And</strong>: This predicate implements intersection.
+</p>
+</li>
+<li>
+<p>
+<strong>Or</strong>: This predicate implements union.
+</p>
+</li>
+<li>
+<p>
+<strong>Not</strong>: This predicate implements negation.
+</p>
+</li>
+<li>
+<p>
+<strong>Von Neumann</strong>: This predicate determines whether an object is within the Von
+Neumann neighborhood of a given object in a grid.
+</p>
+</li>
+<li>
+<p>
+<strong>Moore</strong>: This predicate determines whether an object is within the Moore
+Neighborhood of a given object in a grid.
+</p>
+</li>
+<li>
+<p>
+<strong>Within distance</strong>: This GIS and non-GIS predicate determines whether the
+object is within a given distance of a specified object in a GIS space, a
+non-GIS grid or continuous space, or within a given path length in a network.
+Concrete subclasses implement specific functions for each projection type.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Searches that utilize these conceptual predicates can also be performed
+imperatively using Java syntax or declaratively using watcher syntax. Both of
+these approaches are discussed later in this section. Groovy uses the same
+syntax as Java for the predicates. When used in an imperative mode, queries
+normally return a list scanning object or Iterator. These iterators can be used
+in programmed agent behaviors to operate on and react to members of the list.</p></div>
+<div class="paragraph"><div class="title">Watches</div><p>The Repast S Watcher mechanism builds on the Context hierarchy and query system
+to provide behavioral triggers. Watchers allow modelers to easily:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Define queries to find other agents to monitor
+</p>
+</li>
+<li>
+<p>
+Define properties of other agents to be monitored
+</p>
+</li>
+<li>
+<p>
+Define activation conditions of the monitored properties and other properties
+</p>
+</li>
+<li>
+<p>
+Specify the time for a response if the activation conditions are triggered
+</p>
+</li>
+<li>
+<p>
+Specify the behavior to invoke when the activation conditions are triggered
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The Repast Watchers are efficiently implemented using dynamic code generation
+that instruments the monitored agents with the needed behavioral activation
+checks.</p></div>
+<div class="paragraph"><p>Repast Simphony&#8217;s combination of Contexts, Projections, Queries, and Watchers
+provides a powerful and flexible environment for ABMS implementation.</p></div>
+<div class="sect3">
+<h4 id="_finding_contexts">3.1.1. Finding Contexts</h4>
+<div class="paragraph"><p>The Repast <em>ContextUtils</em> class provides a number of utility functions for finding
+Context instances from the model code.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/tip.png" alt="Tip" />
+</td>
+<td class="content">Generally there is no need to store local references to Contexts (say
+within an agent) since the Context in which an agent resides can always be
+referenced.</td>
+</tr></table>
 </div>
-<div class="sect2">
-<h3 id="_projections">3.2. Projections</h3>
-<div class="paragraph"><p>While Contexts create a bucket to hold your agents, Projections impose a
-structure upon those agents. Simply using Contexts, you could never write a
-model that provided more than a simple "soup" for the agents. The only way to
-grab other agents would be randomly. Projections allow you to create a structure
-that defines relationships, whether they be spatial, network, or something else.
-A projection os attached to a particular Context and applies to all of the
-agents in that Context. This raises an important point. An object must exist in
-a Context before it can be used in a projection. So, if you try to work with an
-agent in a projection before you have added it to the Context, it will fail.
-For example, if you have a network, and you try to create a link between agents
-where at least one of the agents does not yet exist in the context, then the
-operation will fail. This is to maintain the integrity of the context which is
-used in many place throughout the repast system.</p></div>
-<div class="paragraph"><p>You can apply as many projections to a context as you want, so you could have a
-context that contains, a grid, a gis space and 4 networks if you felt so
-inclined. This provides a great deal of flexibility to design your model.</p></div>
-<div class="paragraph"><p>Your agents can get a reference to various projections through their enclosing
-context. An agent could do the following where "this" refers to the agent:</p></div>
+<div class="paragraph"><p>To reference the current context of an agent:</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><code>Context context = ContextUtils.getContext (this)
-Projection projection = context.getProjection("friendshipNetwork");</code></pre>
+<pre><code>Context context = ContextUtils.getContext (agent)</code></pre>
 </div></div>
-<div class="paragraph"><p>That projection wouldn&#8217;t be that useful unless you cast the projection to
-something more specific. You could also do it like this:</p></div>
+<div class="paragraph"><p>The context&#8217;s parent context (if exists) can similarly be found using:</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><code>Context context = ContextUtils.getContext(this);
-Network network = context.getProjection(Network.class, "friendshipNetwork");</code></pre>
+<pre><code>Context parentContext = ContextUtils.getParentContext (context)</code></pre>
 </div></div>
 </div>
-<div class="sect2">
-<h3 id="_context_loading">3.3. Context Loading</h3>
-<div class="sidebarblock">
+<div class="sect3">
+<h4 id="_adding_and_removing_objects_in_contexts">3.1.2. Adding and Removing Objects in Contexts</h4>
+<div class="paragraph"><p>The Repast <em>Context</em> interface extends the standard Java <em>Collection</em> so that
+objects can be added or removed to or from contexts similar to how one would
+perform such operations with Java collections such as lists.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+To add an object to a context:
+</p>
+<div class="listingblock">
 <div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>needs updating</p></div>
+<pre><code>context.add(object);</code></pre>
 </div></div>
-<div class="paragraph"><p>Context creation and loading is where your model is built. In some cases,
-simphony will automatically create and load a context for you. Is this is
-typically the case if you use the visual editor to create your agents etc., or
-you load your model from a freezedryed instance. However, in many other cases,
-you&#8217;d like to control the model creation process and for this you need to
-implement a ContextBuilder.</p></div>
+</li>
+<li>
+<p>
+To remove an object from a context:
+</p>
+<div class="listingblock">
+<div class="content">
+<pre><code>context.remove(object);</code></pre>
+</div></div>
+</li>
+<li>
+<p>
+Similarly, to add a context that is a subcontext:
+</p>
+<div class="listingblock">
+<div class="content">
+<pre><code>context.addSubContext(subContext);</code></pre>
+</div></div>
+</li>
+<li>
+<p>
+To remove a context that is a subcontext:
+</p>
+<div class="listingblock">
+<div class="content">
+<pre><code>context.removeSubContext(subContext);</code></pre>
+</div></div>
+</li>
+</ul></div>
+</div>
+<div class="sect3">
+<h4 id="_finding_objects_in_contexts">3.1.3. Finding Objects in Contexts</h4>
+<div class="paragraph"><p>Objects (typically agents) contained in a context can be referenced in several
+ways.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+To get a single random object from a reference:
+</p>
+<div class="listingblock">
+<div class="content">
+<pre><code>Object o = context.getRandomObject();</code></pre>
+</div></div>
+</li>
+<li>
+<p>
+To get a random iterable collection of some (count) objects of a specific
+class:
+</p>
+<div class="listingblock">
+<div class="content">
+<pre><code>Iterable collection = context.getRandomObjects(MyClass.class, count);</code></pre>
+</div></div>
+</li>
+<li>
+<p>
+To get a random iterable collection of all objects of a specific class:
+</p>
+<div class="listingblock">
+<div class="content">
+<pre><code>IndexedIterable collection = context.getObjects(MyClass.class);</code></pre>
+</div></div>
+</li>
+</ul></div>
+<div class="paragraph"><p>The typical way to access the objects in the returned iterable collections is:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>for (Object o : collection){
+        // do something with o here.
+}</code></pre>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_implementing_custom_contexts">3.1.4. Implementing Custom Contexts</h4>
+<div class="paragraph"><p>User models can implement their own custom Context implementations, either by
+creating a complete <em>Context</em> interface implementation from scratch, or by
+extending the Repast <em>DefaultContext</em> class.  Extending <em>DefaultContext</em> is the
+recommended route since the default implementation contains all of the working
+implementations for the <em>Context</em> interface.  User context imlplementations can
+be used in model code in exactly the same way as the default Repast Context.</p></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_context_loading">3.2. Context Loading</h3>
+<div class="paragraph"><p>Context loading is the process of populating the root model context with agents,
+projections, and sub-contexts and occurs when a model run is initialized, and
+may be thought of as the model&#8217;s "main" function that assembles the model
+components.  The Repast <em>ContextBuilder</em> interface is used for model
+implementations that perform context loading:</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><code>/**
 * Interface for classes that build a Context by adding projections,
 * agents and so forth.
-*
 */
         public interface ContextBuilder&lt;T&gt; {
         /**
@@ -1356,69 +1717,59 @@ implement a ContextBuilder.</p></div>
         Context build(Context&lt;T&gt; context);
 }</code></pre>
 </div></div>
-<div class="paragraph"><p>Once you&#8217;ve implemented such, you can then use the data loader wizard to specify your custom
-ContextBuilder as the "Specific Java Class" to use to load your model. If you are creating the master
-context this way, you can just use the Context that simphony passees in to the build method.</p></div>
+<div class="paragraph"><p>Models should include a single <em>ContextBuilder</em> implementation.  The context
+argument in the <code>build()</code> method is an instance of the Repast DefaultContext
+that can be populated and returned.  A custom user-defined Context
+implementation could be created and returned instead of the default provided
+context.</p></div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
-<img src="./images/note.png" alt="Note" />
+<img src="./images/tip.png" alt="Tip" />
 </td>
-<td class="content">If your ContextBuilder implements Context (i.e extends DefaultContext) then Simphony will in
-fact pass your ContextBuilder to an instance of itself in the build method. Having your ContextBuilder
-extend DefaultContext is useful in that you can then use @ScheduledMethod on methods in your
-ContextBuilder to schedule model behaviors at something other than the individual agent level.</td>
+<td class="content">All of the Repast Simphony models implemented in Java use a ContextBuilder to
+create the main context and populate it with agents.</td>
 </tr></table>
 </div>
-<div class="paragraph"><p>Whenever possible, the runtime will try to create the Context and pass it to the ContextBuilder. This will
-occur under the following situations:
-. model.score file SContext implementation class implements ContextBuilder (but not Context). In
-this case, the runtime will create a DefaultContext and pass that to the ContextBuilder specified in
-the .score file.</p></div>
-<div class="olist arabic"><ol class="arabic">
-<li>
-<p>
-model.score file SContext implementation class implements ContextBuilder and Context. In this
-case, the runtime will pass this class to itself as it is both a Context and a ContextBuilder.
-</p>
-</li>
-<li>
-<p>
-model.score file SContext implementation class implements Context (but not ContextBuilder). In
-this case, the runtime will create that Context and pass it to whatever ContextBuilder has been
-specifed externally (e.g. added through the gui).
-</p>
-</li>
-</ol></div>
-<div class="paragraph"><p>The context returned from the ContextBuilder doesn&#8217;t necessarily have to be the one passed in. In the
-case of a subcontext, if the passed in context is different from the returned one, the runtime removes the
-old context and adds this new one as a subcontext to the appropriate parent.</p></div>
-<div class="paragraph"><div class="title">Context and SubContexts</div><p>SubContexts can be created, added to parent contexts, and built in the following ways:</p></div>
-<div class="ulist"><ul>
-<li>
-<p>
-Do everything in the parent ContextBuilder. So, when the parent context is built, subcontexts are
-created, added to the parent and loaded with projections, agents, etc. In this case, an SContext
-Implementation entry for the subcontext in the model.score file is not required.
-</p>
-</li>
-<li>
-<p>
-Subcontexts have their own SContext Implementation class that implements ContextBuilder or
-Context (see above). In this the subcontexts are passed to their own ContextBuilder for building.
-The actual creation of the subcontext (e.g new DefaultContext("svabhava")) can happen either in
-the parent context&#8217;s ContextBuilder or the runtime will create the subcontexts and add them to their
-parent. In this latter case, for example, if after a context has been created and built, it has no
-subcontexts but the .score file defines subcontexts for that context then those subcontexts will be
-created and added to that context. This assumes of course that the subcontexts have their own
-ContextBuilder defined so that they too can be built.
-</p>
-</li>
-</ul></div>
-<div class="paragraph"><p>All this provides flexibility, but it can be confusing. Unless there is a compelling reason not to, its
-probably easiest to just do everything in the master context ContextBuilder&#8201;&#8212;&#8201;creating subcontexts,
-building them and so forth. This applies to creating ContextBuilders by hand. The situation using
-codegen will probably be different.</p></div>
+<div class="paragraph"><p>The ContxtBuilder is called by the Repast runtime at initialization, but the
+implementing user model class (e.g. MyContextBuilder) is not specified in the
+scenario.xml file until it is set via the runtime menu option.  To specify the
+user-defined ContextBuilder, see the section on <a href="#DataLoaders">Data Loaders</a>.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_projections">3.3. Projections</h3>
+<div class="paragraph"><p>While Contexts create a container to hold your agents, Projections impose a
+structure upon those agents. Simply using Contexts, one could never write a
+model that provided more than a simple "soup" for the agents. The only way to
+reference other agents would be randomly. Projections allow the modeller to
+create a structure that defines relationships, whether they be spatial, network,
+or something else. A projection os attached to a particular Context and applies
+to all of the agents in that Context. This raises an important point:</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/important.png" alt="Important" />
+</td>
+<td class="content">An object (agent) must exist in a Context before it can be used in a
+projection.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>Multiple projections can be addeded to the same context therefore it is possible,
+for example, for a context to contain a grid, a geography, and a network.</p></div>
+<div class="paragraph"><p>Agents may reference projections through their containing context by specifying
+the name of the projections, e.g. "mynetwork":</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>Context context = ContextUtils.getContext (this)
+Projection projection = context.getProjection("mynetwork");</code></pre>
+</div></div>
+<div class="paragraph"><p>The returned Projection object will have limited value unless is is cast to the
+specific type (e.g. Network or Grid):</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>Context context = ContextUtils.getContext (this)
+Network network = (Network)context.getProjection("mynetwork");</code></pre>
+</div></div>
 </div>
 <div class="sect2">
 <h3 id="_creating_projections">3.4. Creating Projections</h3>
@@ -2728,7 +3079,60 @@ For example:</p></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_batch_runs">4. Batch Runs</h2>
+<h2 id="_runtime_gui">4. Runtime GUI</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_charts">4.1. Charts</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>needs updating</p></div>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_data_loaders">4.2. Data Loaders</h3>
+<div class="paragraph"><p><a id="DataLoaders"></a>
+Data Loaders&#8230;</p></div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>needs updating</p></div>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_data_sets">4.3. Data Sets</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>needs updating</p></div>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_displays">4.4. Displays</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>needs updating</p></div>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_text_sinks">4.5. Text Sinks</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>needs updating</p></div>
+</div></div>
+<div class="paragraph"><p>User Panel
+<sub>~</sub>~<sub>~</sub>~~~.TODO</p></div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph"><p>needs updating</p></div>
+</div></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_batch_runs">5. Batch Runs</h2>
 <div class="sectionbody">
 <div class="sidebarblock">
 <div class="content">
@@ -2736,7 +3140,7 @@ For example:</p></div>
 <div class="paragraph"><p>Brief explanation or see Batch guide.</p></div>
 </div></div>
 <div class="sect2">
-<h3 id="_batch_parameters">4.1. Batch Parameters</h3>
+<h3 id="_batch_parameters">5.1. Batch Parameters</h3>
 <div class="sidebarblock">
 <div class="content">
 <div class="title">TODO</div>
@@ -2858,324 +3262,6 @@ milliseconds.</p></div>
 will use the same random seed.</td>
 </tr></table>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_agent_adaptation">5. Agent Adaptation</h2>
-<div class="sectionbody">
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>This section depends on the Flowchart editor and is therefore completely out of
-data with the 2.5 release.  Needs updating with actual code examples.  We should
-probably provide demo models for each.</p></div>
-</div></div>
-<div class="sect2">
-<h3 id="_genetic_algorithms">5.1. Genetic Algorithms</h3>
-<div class="paragraph"><p>Repast Simphony (Repast S) uses the Java Genetic Algorithms Package (JGAP)
-(<a href="http://jgap.sourceforge.net/">http://jgap.sourceforge.net/</a>) to implement genetic algorithms. JGAP can be used
-directly within agents or the Repast S genetic algorithms (GA) wrapper can be
-used. Directly using JGAP provides maximum flexibility but requires more complex
-programming. The Repast S GA wrapper simplifies the use of JGAP while preserving
-most options. It is recommended that Repast S users start with the Repast S
-wrapper and, only if needed, eventually move to directly use of JGAP. The Repast
-S regression wrapper is consistent with direct use of JGAP so this should
-relatively straightforward. Obviously, as with all machine learning tools, it is
-important to make sure that genetic algorithms, in general, and the chosen
-formulation, in particular, are appropriate for your application.</p></div>
-<div class="admonitionblock">
-<table><tr>
-<td class="icon">
-<img src="./images/tip.png" alt="Tip" />
-</td>
-<td class="content">Documentation on how to use JGAP directly can be found on their web site,
-<a href="http://jgap.sourceforge.net/">http://jgap.sourceforge.net/</a> In particular, please see the following page: <a href="http://jgap.sourceforge.net/doc/tutorial.html">http://jgap.sourceforge.net/doc/tutorial.html</a></td>
-</tr></table>
-</div>
-<div class="ulist"><div class="title">To use the Repast S GA wrapper in the visual editor simply follow these steps:</div><ul>
-<li>
-<p>
-Add a property of type "Genetic Algorithm" to an agent. "evaluate" is the name
-of the fitness function that needs to be created as described in step two.
-"populationSize" is the count of the members in the GA population. The "Gene"
-array gives the set of genes, either "IntegerGene" or "DoubleGene," to be used.
-The parameters to the constructors (e.g., "min1" and "max1") are the optional
-lower and upper bounds for that gene. The template is as follows:
-</p>
-</li>
-</ul></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>new RepastGA(this, "evaluate", populationSize,
-        new Gene[]{ new IntegerGene(min1, max1) new DoubleGene(min2, max2)})</code></pre>
-</div></div>
-<div class="ulist"><ul>
-<li>
-<p>
-Add a behavior that takes a double precision array (i.e., "double[]"), returns
-an positive integer result, and that uses the fitness function name given above
-(e.g., "evaluate"). The double array is the current population member to be
-evaluated. The genes are in the same order as the template given in step one.
-Higher fitness result values mean greater fitness levels. The exact range does
-not matter as long as the numbers are positive.
-</p>
-</li>
-<li>
-<p>
-Using the Wizard dialog, chose "Advanced Adaptation," "Use a Genetic
-Algorithm," "Get the Best Solution from a Genetic Algorithm," and then fill in
-the form to get a solution. The returned double array is the current best
-solution. The genes are in the same order as the template given in step one.
-</p>
-</li>
-<li>
-<p>
-If the population needs to be reset, perhaps due to a plateau, using the
-Wizard dialog, chose "Advanced Adaptation," "Use a Genetic Algorithm," "Reset
-the Population of a Genetic Algorithm," and then fill in the form.
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">To use the Repast S GA wrapper in the Java or Groovy simply follow these steps:</div><ul>
-<li>
-<p>
-Add an agent class field of type RepastGA and create an instance following
-this template:
-</p>
-</li>
-</ul></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>new RepastGA(this, "evaluate", populationSize,
-        new Gene[]{ new IntegerGene(min1, max1) new DoubleGene(min2, max2)})</code></pre>
-</div></div>
-<div class="paragraph"><p>"evaluate" is the name of the fitness function that needs to be created as
-described in step two. "populationSize" is the count of the members in the GA
-population. The "Gene" array gives the set of genes, either "IntegerGene" or
-"DoubleGene," to be used. The parameters to the constructors (e.g., "min1" and
-"max1") are the optional lower and upper bounds for that gene.</p></div>
-<div class="ulist"><ul>
-<li>
-<p>
-Add a class method behavior that takes a double precision array (i.e.,
-"double[]"), returns an positive integer result, and that uses the fitness
-function name given above (e.g., "evaluate"). The double array is the current
-population member to be evaluated. The genes are in the same order as the
-template given in step one. Higher fitness result values mean greater fitness
-levels. The exact range does not matter as long as the numbers are positive. For
-higher performance, advanced users can implement org.jgap.FitnessFunction in
-place of just the creating the simple "int evaluate(double[])" method.
-</p>
-</li>
-<li>
-<p>
-Use the following method template to get a solution:
-</p>
-</li>
-</ul></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>double[] solution = model.getBestSolution(cycles)</code></pre>
-</div></div>
-<div class="paragraph"><p>"cycles" is the number of evolutionary steps to use to compute the requested
-solution. The returned double array is the current best solution. The genes are
-in the same order as the template given in step one.</p></div>
-<div class="ulist"><ul>
-<li>
-<p>
-If the population needs to be reset, use the following method template:
-</p>
-</li>
-</ul></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>model.reset()</code></pre>
-</div></div>
-</div>
-<div class="sect2">
-<h3 id="_neural_networks">5.2. Neural Networks</h3>
-<div class="paragraph"><p>Repast Simphony (Repast S) uses the Java Object Oriented Neural Engine (Joone)
-(<a href="http://www.jooneworld.com/">http://www.jooneworld.com/</a>) library to implement neural networks. Joone can be
-used directly within agents or the Repast S neural network wrapper can be used.
-Directly using Joone provides maximum flexibility but requires more complex
-programming. The Repast S wrapper simplifies the use of Joone while preserving
-most options. It is recommended that Repast S users start with the Repast S
-wrapper and, only if needed, eventually move to directly use of Joone. The
-Repast S wrapper is consistent with direct use of Joone so this should
-relatively straightforward. Obviously, as with all machine learning tools, it is
-important to make sure that neural networks, in general, and the chosen network
-design, in particular, are appropriate for your application.</p></div>
-<div class="admonitionblock">
-<table><tr>
-<td class="icon">
-<img src="./images/tip.png" alt="Tip" />
-</td>
-<td class="content">Documentation on how to use Joone directly can be found on their web site,
-<a href="http://www.jooneworld.com/">http://www.jooneworld.com/</a></td>
-</tr></table>
-</div>
-<div class="paragraph"><div class="title">To use the Repast S neural network wrapper in the visual editor simply follow</div><p>these steps:</p></div>
-<div class="ulist"><ul>
-<li>
-<p>
-Add a property of type "Linear Neural Network," "Logistic Neural Network," or
-"Softmax Neural Network" to an agent to produce the corresponding type of neural
-network. Replace the integer (i.e., int) array elements with a description of
-the layers for your application. The first number in the array is the count of
-input neurons, the last number is the count of output neurons, and the
-intermediate numbers are the interstitial layers. You can have as many
-interstitial layers as you would like (i.e., zero or more).
-</p>
-</li>
-<li>
-<p>
-Using the Wizard dialog, chose "Advanced Adaptation," "Use a Neural Network,"
-"Train a Neural Network Model," and then fill in the form to store data for
-fitting. The input data array is indexed by the number of training examples and
-the number of input neurons. The output data array is indexed by the number of
-training examples and the number of output neurons.
-</p>
-</li>
-<li>
-<p>
-Using the Wizard dialog, chose "Advanced Adaptation," "Use a Neural Network,"
-"Forecast from a Neural Network," and then fill in the form to get a forecast.
-The input data array is indexed by the number of input neurons. The output data
-array is indexed by the number of output neurons. To use the Repast S regression
-wrapper in the Java or Groovy simply follow these steps:
-</p>
-</li>
-<li>
-<p>
-Add an agent class field of type NeuralNet and create an linear, logistic, or
-softmax instance as follows:
-</p>
-</li>
-</ul></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>JooneTools.create_standard(new int[]{inputNeurons intermediateLayer1 intermediateLayer2
-intermediateLayerN outputNeurons}, JooneTools.LINEAR)).
-
-JooneTools.create_standard(new int[]{inputNeurons intermediateLayer1 intermediateLayer2
-intermediateLayerN outputNeurons}, JooneTools.LOGISTIC)).
-
-JooneTools.create_standard(new int[]{inputNeurons intermediateLayer1 intermediateLayer2
-intermediateLayerN outputNeurons}, JooneTools. SOFTMAX)).</code></pre>
-</div></div>
-<div class="ulist"><ul>
-<li>
-<p>
-Use the following method to store data for fitting where "model" is the new
-field name:
-</p>
-</li>
-</ul></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>JooneTools.train(model, inputDataArray, targetOutputDataArray, epochs, convergenceLimit, 0, null);</code></pre>
-</div></div>
-<div class="paragraph"><p>The input data array is indexed by the number of training examples and the
-number of input neurons. The output data array is indexed by the number of
-training examples and the number of output neurons. The model will be trained
-until "epochs" cycles are completed or the "convergenceLimit" of root mean square
-error is achieved, whichever comes first.</p></div>
-<div class="ulist"><ul>
-<li>
-<p>
-Use the following method to get a forecast where "model" is the new field name:
-</p>
-</li>
-</ul></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>double outputData[] = JooneTools.interrogate(model, inputData)</code></pre>
-</div></div>
-<div class="paragraph"><p>The input data array is indexed by the number of input neurons. The output data
-array is indexed by the number of output neurons.</p></div>
-</div>
-<div class="sect2">
-<h3 id="_regression">5.3. Regression</h3>
-<div class="paragraph"><p>Repast Simphony (Repast S) uses the OpenForecast
-(<a href="http://openforecast.sourceforge.net/">http://openforecast.sourceforge.net/</a>) library to implement regression.
-OpenForecast can be used directly within agents or the Repast S regression
-wrapper can be used. Directly using OpenForecast provides maximum flexibility
-but requires more complex programming. The Repast S regression wrapper
-simplifies the use of OpenForecast while preserving most options. It is
-recommended that Repast S users start with the Repast S wrapper and, only if
-needed, eventually move to directly use of OpenForecast. The Repast S regression
-wrapper is consistent with direct use of OpenForecast so this should relatively
-straightforward. Obviously, as with all statistical tools, it is important to
-make sure that regression, in general, and the chosen regression fit, in
-particular, are appropriate for your application. The method "getForecastType()"
-can be used to find a text description of the selected equation for both types
-of regression. It is recommended that this be checked for appropriateness.</p></div>
-<div class="admonitionblock">
-<table><tr>
-<td class="icon">
-<img src="./images/tip.png" alt="Tip" />
-</td>
-<td class="content">Documentation on how to use OpenForecast directly can be found on their web
-site, <a href="http://openforecast.sourceforge.net/">http://openforecast.sourceforge.net/</a></td>
-</tr></table>
-</div>
-<div class="paragraph"><div class="title">To use the Repast S regression wrapper in the visual editor simply follow these</div><p>steps:</p></div>
-<div class="ulist"><ul>
-<li>
-<p>
-Add a property of type "Multilinear Regression Model" or "Best Fit Regression Model" to an agent
-"Multilinear Regression Model" always fits input data sets using a linear equation for one input variable or
-multilinear equation for multiple input variables. "Best Fit Regression Model" causes OpenForecast to
-consider a range of different equation families and then find the best fitting member of the best fitting
-equation family. This includes linear and multilinear equations as well as other families as defined in the
-OpenForecast documentation.
-</p>
-</li>
-<li>
-<p>
-Using the Wizard dialog, chose "Advanced Adaptation," "Use a Regression Model," "Store Data for a
-Regression Model," and then fill in the form to store data for fitting.
-</p>
-</li>
-<li>
-<p>
-Using the Wizard dialog, chose "Advanced Adaptation," "Use a Regression Model," "Forecast from a
-Regression Model," and then fill in the form to get a forecast. Please note that it generally is necessary to
-return default forecasts for several steps before enough example data is available for a good quality
-forecast.
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">To use the Repast S regression wrapper in the Java or Groovy simply follow these steps:</div><ul>
-<li>
-<p>
-Add an agent class field of type RepastRegressionModel and create an instance (i.e., new
-RepastRegressionModel(false)). Set the constructor parameter to "false" for "Multilinear Regression
-Model" or "true" for "Best Fit Regression Model." "Multilinear Regression Model" always fits input data sets
-using a linear equation for one input variable or multilinear equation for multiple input variables. "Best Fit
-Regression Model" causes OpenForecast to consider a range of different equation families and then find
-the best fitting member of the best fitting equation family. This includes linear and multilinear equations
-as well as other families as defined in the OpenForecast documentation. Obviously, as with all statistical
-tools, it is important to make sure that the chosen functions, both multilinear and best fit, are appropriate
-for your application. The method "getForecastType()" can be used to find a text description of the
-selected equation for both types of regression. It is recommended that this be checked for
-appropriateness.
-</p>
-</li>
-<li>
-<p>
-Use the new field&#8217;s "add(&#8230;) method to store data for fitting (i.e., model.add(y, x1, x2, x3)).
-</p>
-</li>
-<li>
-<p>
-Use the new field&#8217;s "forecast(&#8230;)" method to get a forecast (i.e., double x = model.forecast(y1, y2,
-y3)). Please note that it generally is necessary to return default forecasts for several steps before enough
-example data is available for a good quality forecast.
-</p>
-</li>
-</ul></div>
 </div>
 </div>
 </div>
@@ -3472,7 +3558,7 @@ method.</p></div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-09-30 18:00:32 Central Daylight Time
+Last updated 2017-10-02 17:20:36 Central Daylight Time
 </div>
 </div>
 </body>
