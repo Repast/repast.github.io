@@ -22,8 +22,8 @@ url: "http://repast.github.io" # the base hostname & protocol for your site
 github_username:  Repast
 
 exclude: 
-	-scripts
-	-RepastReference
+ - scripts
+ - RepastReference
 
 simphony_version: 2.4.0
 simphony_release_date: 30 September 2016
