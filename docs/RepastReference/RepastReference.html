@@ -816,7 +816,7 @@ We reccommend using both the 64-bit version of Java and Repast, which is
 available as a 32-bit or 64-bit installer for Windows.  If you have 32-bit Java
 installed you must use the 32-bit Repast installer, and likewise if you have the
 64-bit version of Java installed, you must use the 64-bit Repast installer.</p></div>
-<div class="paragraph"><div class="title">macOS</div><p>macOS users should download the macOS Disk Image, double click on the
+<div class="paragraph"><div class="title">macOS</div><p>macOS users should download the macOS X Disk Image, double click on the
 resulting file and follow the installation instructions that appear. You may
 need to alter your Security &amp; Privacy settings in System Preferences to allow
 you to open Repast Simphony. Alternatively, right clicking on the Repast
@@ -829,7 +829,7 @@ Eclipse IDE for Eclipse Committers Oxygen</a> then use the Eclipse Update Manage
 <a href="https://repocafe.cels.anl.gov/repos/repast/">https://repocafe.cels.anl.gov/repos/repast/</a>. Repast when installed via the
 update site has the following additional requirement that can be installed using
 Eclipse&#8217;s Update Manager.</p></div>
-<div class="paragraph"><p>From the Groovy Update Site (<a href="http://dist.springsource.org/snapshot/GRECLIPSE/e4.6/">http://dist.springsource.org/snapshot/GRECLIPSE/e4.6/</a>):</p></div>
+<div class="paragraph"><p>From the Groovy Update Site (<a href="http://dist.springsource.org/snapshot/GRECLIPSE/e4.7/">http://dist.springsource.org/snapshot/GRECLIPSE/e4.7/</a>):</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
@@ -863,43 +863,14 @@ and choose import, General, Archive File and follow the wizard from there.</p></
 <div class="sect1">
 <h2 id="_project_configuration">2. Project Configuration</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_creating_a_new_repast_project">2.1. Creating a New Repast Project</h3>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>Needs updating</p></div>
-</div></div>
-</div>
-<div class="sect2">
-<h3 id="_updating_an_existing_repast_project">2.2. Updating an Existing Repast Project</h3>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>Needs updating</p></div>
-</div></div>
-</div>
-<div class="sect2">
-<h3 id="_adding_repast_to_an_existing_project">2.3. Adding Repast to an Existing Project</h3>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>Needs updating</p></div>
-</div></div>
 <div class="paragraph"><p>If you have an existing Java project in which you would like to reference Repast
 classes, you can right click on the project and select Repast Simphony &#8594; Add
 Repast Simphony to this Project. This will add the Repast libraries to the
 project class path so that you can reference Repast classes and run simulations
 from your project without needing to manually add all of the Repast libraries
 and dependencies.</p></div>
-</div>
 <div class="sect2">
-<h3 id="_model_configuration_files">2.4. Model Configuration Files</h3>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>Needs updating</p></div>
-</div></div>
+<h3 id="_model_configuration_files">2.1. Model Configuration Files</h3>
 <div class="listingblock">
 <div class="title">user_path.xml</div>
 <div class="content">
@@ -1305,12 +1276,7 @@ of this type.</p></td>
 and use the default RepastEdge as the edge type.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_distributing_your_model">2.5. Distributing Your Model</h3>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>Needs updating</p></div>
-</div></div>
+<h3 id="_distributing_your_model">2.2. Distributing Your Model</h3>
 <div class="paragraph"><p>Models created with Repast Simphony may easily be distributed with the provided
 Install Builder tool. This tool builds a distributable installer that anyone may
 use to install the model to their computer. The only requirement for those to
@@ -1371,11 +1337,6 @@ that scan lists of agents) should be simple and direct.
 </ul></div>
 <div class="sect2">
 <h3 id="_contexts">3.1. Contexts</h3>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>Perhaps rearrange this section so that the theory is discussed in each subsection.</p></div>
-</div></div>
 <div class="paragraph"><div class="title">Contexts and Projections</div><p>The Context is the core concept and object in Repast Simphony. It provides a
 data structure to organize your agents from both a modelling perspective as well
 as a software perspective. Fundamentally, a context is just a bucket full of
@@ -1787,11 +1748,6 @@ Use the factory to create the projection
 </p>
 </li>
 </ol></div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>Use complete examples or merge with the following sections</p></div>
-</div></div>
 <div class="listingblock">
 <div class="content">
 <pre><code>Context&lt;SimpleHappyAgent&gt; context = Contexts.createContext(SimpleHappyAgent.class, "my context");
@@ -2345,11 +2301,6 @@ edge are part of the network
 </div>
 <div class="sect2">
 <h3 id="_gis_projections">3.8. GIS Projections</h3>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>add GIS fundamentals such as feature type geometries and raster data</p></div>
-</div></div>
 <div class="paragraph"><p>Repast Simphony&#8217;s GIS support is based on the Geography projection. A Geography is essentially a space
 in which agents are associated with a spatial geometry (polygon, point, etc.. Agents are stored by type in
 layers within the Geography and agents of the same type must have the same geometry. The geography
@@ -2374,12 +2325,7 @@ SimpleAdder which although it makes the Geography aware of the agent, it does no
 the Geography by associating it with some Geometry. Custom adders can be created by implementing
 the GISAdder interface. A typical custom adder would call Geography.move to move an agent into the
 Geography and associate it with a Geometry in some model specific manner.</p></div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>paragraph on GeoTools axis order and Default WGS84</p></div>
-</div></div>
-<div class="paragraph"><p>Using GeographyParameters, you can define the CoordinateReferenceSystem for the created Geography.
+<div class="paragraph"><div class="title">CoordinateReferenceSystem</div><p>Using GeographyParameters, you can define the CoordinateReferenceSystem for the created Geography.
 In the absence of any user supplied CRS, the default is WGS84 as defined by Geotools'
 DefaultGeographicCRS.WGS84. That CRS uses (longitude, latitude) coordinates with longitude
 values increasing East and latitude values increasing North. Angular units are degrees and
@@ -2723,11 +2669,6 @@ work with scheduling this way.</p></div>
 </div>
 <div class="sect2">
 <h3 id="_watcher_queries">3.11. Watcher Queries</h3>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>Provide code examples</p></div>
-</div></div>
 <div class="paragraph"><p>Watcher queries are boolean expressions that evaluate the watcher and the
 watchee with respect to each other and some projection or context. The context
 is the context where the watcher resides and the projections are those contained
@@ -2789,17 +2730,6 @@ MyWatcher.</p></div>
 </div>
 <div class="sect2">
 <h3 id="_gui_parameters_and_probes">3.12. GUI Parameters and Probes</h3>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="ulist"><ul>
-<li>
-<p>
-GUI Parameters and Probes (remove extended parameters bit, add the custom probe registration stuff and update the annotations that can be used on agent properties, e.g., the statecharts agent property annotation)
-</p>
-</li>
-</ul></div>
-</div></div>
 <div class="paragraph"><div class="title">GUI Parameters</div><p>GUI Parameters are the simulation parameters that appear in the parameters view
 in the application GUI. These parameters are automatically created from the
 parameters XML file or from any @Parameters method annotations that are used in
@@ -3079,73 +3009,10 @@ For example:</p></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_runtime_gui">4. Runtime GUI</h2>
+<h2 id="_batch_runs">4. Batch Runs</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_charts">4.1. Charts</h3>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>needs updating</p></div>
-</div></div>
-</div>
-<div class="sect2">
-<h3 id="_data_loaders">4.2. Data Loaders</h3>
-<div class="paragraph"><p><a id="DataLoaders"></a>
-Data Loaders&#8230;</p></div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>needs updating</p></div>
-</div></div>
-</div>
-<div class="sect2">
-<h3 id="_data_sets">4.3. Data Sets</h3>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>needs updating</p></div>
-</div></div>
-</div>
-<div class="sect2">
-<h3 id="_displays">4.4. Displays</h3>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>needs updating</p></div>
-</div></div>
-</div>
-<div class="sect2">
-<h3 id="_text_sinks">4.5. Text Sinks</h3>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>needs updating</p></div>
-</div></div>
-<div class="paragraph"><p>User Panel
-<sub>~</sub>~<sub>~</sub>~~~.TODO</p></div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph"><p>needs updating</p></div>
-</div></div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_batch_runs">5. Batch Runs</h2>
-<div class="sectionbody">
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>Brief explanation or see Batch guide.</p></div>
-</div></div>
-<div class="sect2">
-<h3 id="_batch_parameters">5.1. Batch Parameters</h3>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>Needs updating. check if this is described in Batch Guide</p></div>
-</div></div>
+<h3 id="_batch_parameters">4.1. Batch Parameters</h3>
 <div class="paragraph"><p>Repast Simphony supports the creation of a parameter sweep through an xml file or through a scripted
 bsf file. Both define a sweep through the defintion of parameter setters. These setters may be constant
 setters such that the parameter value remains at its initial value, or the setters may define a list of values
@@ -3266,10 +3133,10 @@ will use the same random seed.</td>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_advanced_topics">6. Advanced Topics</h2>
+<h2 id="_advanced_topics">5. Advanced Topics</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_adding_controller_actions">6.1. Adding Controller Actions</h3>
+<h3 id="_adding_controller_actions">5.1. Adding Controller Actions</h3>
 <div class="paragraph"><p>Controller actions can be added and integrated into the controller tree via
 plugin extension points. The repast.simphony.core plugin defines the following:</p></div>
 <div class="listingblock">
@@ -3359,10 +3226,10 @@ files and related code is a good place to learn more.</p></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_developer_topics">7. Developer Topics</h2>
+<h2 id="_developer_topics">6. Developer Topics</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_creating_a_dynamic_wizard">7.1. Creating a Dynamic Wizard</h3>
+<h3 id="_creating_a_dynamic_wizard">6.1. Creating a Dynamic Wizard</h3>
 <div class="paragraph"><p>I&#8217;ve made a wizard framework that dynamically loads its options based on
 "options" specified in plugin.xmls. I&#8217;ve used it in enough places that I&#8217;ve gone
 ahead and generalized it. If you wish to use this setup I made it fairly
@@ -3467,7 +3334,7 @@ steps (as needed).
 </ul></div>
 </div>
 <div class="sect2">
-<h3 id="_enabling_freezedrying_of_custom_projections">7.2. Enabling FreezeDrying of Custom Projections</h3>
+<h3 id="_enabling_freezedrying_of_custom_projections">6.2. Enabling FreezeDrying of Custom Projections</h3>
 <div class="paragraph"><p>When building a new Projection, some things should be done if it is to be integrated into the whole
 system. In particular, if it is to be freeze dryable, some special considerations may need to be made.
 Since the freeze dryer generally just writes out all the fields of an object, this may or may not function
@@ -3558,7 +3425,7 @@ method.</p></div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-02 17:20:36 Central Daylight Time
+Last updated 2017-10-23 15:41:36 Central Daylight Time
 </div>
 </div>
 </body>
