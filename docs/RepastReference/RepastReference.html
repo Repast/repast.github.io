@@ -2308,7 +2308,7 @@ in which agents are associated with a spatial geometry (polygon, point, or line)
 layers within the Geography and agents of the same type must have the same geometry. The geography
 can be queried spatially to return all the agents within some particular area. When a geography is
 displayed the agents are displayed in typical GIS fashion and represented by their associated geometries.
-Repast Simphony uses Geotools and the Java Topology Suiteextensively for its GIS support.  Geography
+Repast Simphony uses Geotools and the Java Topology Suite extensively for its GIS support.  Geography
 projections also support raster data (via GeoTools' GridCoverage) which can be loaded into models and accessed
 by agents or simply used as a background layers in the GIS displays.  Currently supported
 raster file types include GeoTIFF, ArcGrid, and World image files.</p></div>
@@ -2528,6 +2528,27 @@ WritableGridCoverage2D coverage2 = RepastCoverageFactory.createWritableByteIndex
 <pre><code>WritableGridCoverage2D coverage = RepastCoverageFactory.createWritableCoverageFromFile(
         File file, boolean forceLonLatAxisOrder)</code></pre>
 </div></div>
+<div class="paragraph"><div class="title">Network Projections in GIS</div><p>Repast Network projections can be displayed on a GIS display just like any other
+Repast Display type using the runtime Display wizards.  In this case no additional
+code is required since the GIS display will handle the layout of the network.  However,
+there are scenarios where a modeller might want the Geography projection to be "aware"
+of Network projection data and events, say in the case of performing an intersection
+query between a network line and an agent geometry.</p></div>
+<div class="paragraph"><p>Repast provides a utility class GISNetworkListener that couples a Geography and Network
+and updates the Geography when Network events occur.   The GISNetworkListener will
+create and move line geometries in a Geography Projection when changes occur in a Nework.
+GISNetworkListener is used as follows:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>new GISNetworkListener(context, geography, network);</code></pre>
+</div></div>
+<div class="paragraph"><p>GISNetworkListener does not need to be storred locally as it assigns itself as a projection
+listener on both the network and the geograhy.   GISNetworkListener should be called
+before any network or geography objects are added.   When agents move in a geograhy,
+the GISNetworkListener will automatically update the location of the network edge line
+geometries in the geograhy.  Additionaly, when network edges are created or destroyed,
+the GISNetworkListener will automatically create or destroy the associated line features
+in the geograhy.</p></div>
 </div>
 <div class="sect2">
 <h3 id="_random_numbers">3.9. Random Numbers</h3>
