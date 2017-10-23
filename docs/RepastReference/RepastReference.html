@@ -2304,11 +2304,14 @@ edge are part of the network
 <div class="sect2">
 <h3 id="_gis_projections">3.8. GIS Projections</h3>
 <div class="paragraph"><p>Repast Simphony&#8217;s GIS support is based on the Geography projection. A Geography is essentially a space
-in which agents are associated with a spatial geometry (polygon, point, etc.. Agents are stored by type in
+in which agents are associated with a spatial geometry (polygon, point, or line). Agents are stored by type in
 layers within the Geography and agents of the same type must have the same geometry. The geography
 can be queried spatially to return all the agents within some particular area. When a geography is
 displayed the agents are displayed in typical GIS fashion and represented by their associated geometries.
-Repast Simphony uses Geotoolsand the Java Topology Suiteextensively for its GIS support.</p></div>
+Repast Simphony uses Geotools and the Java Topology Suiteextensively for its GIS support.  Geography
+projections also support raster data (via GeoTools' GridCoverage) which can be loaded into models and accessed
+by agents or simply used as a background layers in the GIS displays.  Currently supported
+raster file types include GeoTIFF, ArcGrid, and World image files.</p></div>
 <div class="paragraph"><div class="title">Creating a Geography</div><p>Creating a geography in repast simphony is similar to creating the other projections. Your agents must
 exist in the context in order to exist in the geography, and you want to create the geograhy using a
 factory to make sure that it is initialized properly.</p></div>
@@ -2411,6 +2414,120 @@ Iterable&lt;T&gt; getObjectsWithin(Envelope envelope);</code></pre>
 <div class="paragraph"><p>Additional queries are available for getting agents that intersect another agent or geometry, for getting
 the agents that touch another agent or geometry, and so on. See the classes in the
 repast.simphony.query.space.gis package for more information.</p></div>
+<div class="paragraph"><div class="title">Loading agent data from Shapefiles</div><p>Agent geometry data can be loaded from standard ESRI shapefiles using the GeoToos API.
+An exmaple of creating a list of features from a shapefile filename string is provided
+below.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/tip.png" alt="Tip" />
+</td>
+<td class="content">The Repast Geography demo provides examples of loading agent shapes from shapefiles.</td>
+</tr></table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre><code>private List&lt;SimpleFeature&gt; loadFeaturesFromShapefile(String filename){
+        URL url = null;
+        try {
+                url = new File(filename).toURL();
+        } catch (MalformedURLException e1) {
+                e1.printStackTrace();
+        }
+
+        List&lt;SimpleFeature&gt; features = new ArrayList&lt;SimpleFeature&gt;();
+
+        // Try to load the shapefile
+        SimpleFeatureIterator fiter = null;
+        ShapefileDataStore store = null;
+        store = new ShapefileDataStore(url);
+
+        try {
+                fiter = store.getFeatureSource().getFeatures().features();
+
+                while(fiter.hasNext()){
+                        features.add(fiter.next());
+                }
+        } catch (IOException e) {
+                e.printStackTrace();
+        }
+        finally{
+                fiter.close();
+                store.dispose();
+        }
+
+        return features;
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>After the list of SimpleFeature objects is obtained, they can be assigned to the
+agent geometry in the Geography projection via:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>Geometry geom = (Geometry)feature.getDefaultGeometry();
+geography.move(agent, geom);</code></pre>
+</div></div>
+<div class="paragraph"><div class="title">Coverage Raster Layers</div><p>Repast Geography projections support geolocated 2D grid coverage layers that
+provide storage and reference of integer and floating point data.  Coverage layers
+can be stored in a Geography projection as a GeoTools GridCoverage2D via:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>geography.addCoverage("My coverage", coverage);</code></pre>
+</div></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/tip.png" alt="Tip" />
+</td>
+<td class="content">The Repast Geography demo provides examples of using coverage layers.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>The Geography.addCoverage(&#8230;) method assigns the provided coverage and name to the
+Geography and can be later referenced using:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>GridCoverage2D coverage = geography.getCoverage("My coverage");</code></pre>
+</div></div>
+<div class="paragraph"><p>Repast Geography supports any valid GridCoverage2D as described by the
+<a href="http://docs.geotools.org/latest/userguide/library/coverage/grid.html">GeoTools API</a>.</p></div>
+<div class="paragraph"><p>Instances of GridCoverage2D usually created through the GeoTools API from various
+file loaders are typically read-only and cannot be modified in memory.  The
+RepastCoverageFactory provides a number of static methods for creating writable coverages
+that can be both written to and read from using agent code.  For example, to create
+a 2D coverage of size 10x10 grid cells with float data and data range of 0-10:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>WritableGridCoverage2D coverage = RepastCoverageFactory.createWritableCoverageFloat(
+                                "My data", 10, 10, env, null, -1, 0, 10, -1);</code></pre>
+</div></div>
+<div class="paragraph"><p>The env argument is a Geotools ReferenceEnevelope that defines the lat/lon coordinates
+of the grid coverage, for example:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>ReferencedEnvelope env = new ReferencedEnvelope(-87.761278, -87.742395,
+                                41.778022, 41.791462, DefaultGeographicCRS.WGS84);</code></pre>
+</div></div>
+<div class="paragraph"><p>The float and double-precision coverage layers support any continuous data values up to the maximum
+allowed by the respective data types.  GIS raster data can also be (and is often) stored as discreete
+category type data using integer or byte data.  The RepastCoverageFactory provides the
+ability to create writable indexed coverages with user-defined category data.  For example:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>// Simple 3-category coverage with no-data
+Category[] categories   = new Category[] {
+         new Category("No data", Color.BLACK, 0),
+         new Category("Level 1", Color.GREEN, 1),
+         new Category("Level 2", Color.BLUE, 2),
+         new Category("Level 3", Color.RED, 3)
+};
+WritableGridCoverage2D coverage2 = RepastCoverageFactory.createWritableByteIndexedCoverage(
+                "My data indexed", 100, 200, env, categories, null, 0);</code></pre>
+</div></div>
+<div class="paragraph"><p>Finally, writable coverage layers can be loaded from raster data files using:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>WritableGridCoverage2D coverage = RepastCoverageFactory.createWritableCoverageFromFile(
+        File file, boolean forceLonLatAxisOrder)</code></pre>
+</div></div>
 </div>
 <div class="sect2">
 <h3 id="_random_numbers">3.9. Random Numbers</h3>
