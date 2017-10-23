@@ -1,6 +1,0 @@
-backend=html
-eclipse.preferences.version=1
-resourcesPath=src/main/doc-resources
-sourcesPath=src/main/asciidoc
-stylesheetPath=css/stylesheet.css
-targetPath=target/generated-docs
