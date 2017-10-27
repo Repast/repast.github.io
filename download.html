@@ -21,7 +21,7 @@ layout: site
 
 <div class="post-bgbtm">
 <a name="whichrepast"></a>
-<h1 class="title">Which Repast Edition Should You Download and Use?</h1>
+<h1 class="title">Which Repast Edition Should You Download?</h1>
 <p class="meta"></p>
 <div class="entry">
 There are two editions of Repast and several ways to write models in each edition because there are many different kinds of users,
@@ -49,42 +49,61 @@ Tutorials on each of these approaches are included in the Repast downloads avail
 <h1 class="title">Newest Repast Simphony Release</h1>
 <p class="meta"></p>
 <div class="entry">
-Everything you need for ReLogo, flowchart, Groovy, and Java-based development is included in the following Repast Simphony {{ site.simphony_version }} downloads
+Everything you need for ReLogo, Groovy, and Java-based development is included in the following Repast Simphony {{ site.simphony_version }} downloads
 released on {{ site.simphony_release_date }}:<p>
 <ul>
 <li><b>Windows users</b> should download the either the
-<a href="https://github.com/Repast/repast.simphony/releases/download/v2.4.0/Repast-Simphony-2.4-win32.exe">Windows 32-bit Installer</a> or
-the <a href="https://github.com/Repast/repast.simphony/releases/download/v2.4.0/Repast-Simphony-2.4-win64.exe">Windows 64-bit Installer</a>.
+<a href="https://github.com/Repast/repast.simphony/releases/download/v2.5.0/Repast-Simphony-2.4-win32.exe">Windows 32-bit Installer</a> or
+the <a href="https://github.com/Repast/repast.simphony/releases/download/v2.5.0/Repast-Simphony-2.4-win64.exe">Windows 64-bit Installer</a>.
 Double click
 on the resulting executable installer file, follow the installation wizard's prompts, and then complete the <a href="docs.html">chosen tutorial</a>.
 
-<li><b>Mac OS X users</b> should download the
-<a href="https://github.com/Repast/repast.simphony/releases/download/v2.4.0/Repast.Simphony.2.4.0.dmg">Mac OS X Disk Image</a>,
+<li><b>macOS users</b> should download the
+<a href="https://github.com/Repast/repast.simphony/releases/download/v2.5.0/Repast.Simphony.2.4.0.dmg">macOS Disk Image</a>,
 double click on the resulting file, follow the installation instructions that
 appear, and then complete the <a href="docs.html">chosen tutorial</a>. Note that you may You may need to alter your Security & Privacy
 settings in System Preferences to allow you to open Repast Simphony. Alternatively, right clicking on the Repast Simphony
 application and selecting Open will allow you to authenticate and open it.
 
 <li><b>Linux users</b> and <b>Unix-related system users</b> should download
-<a href="http://www.eclipse.org/downloads/packages/eclipse-ide-eclipse-committers/neon1">Eclipse IDE for Eclipse Committers Neon 1</a>; then use
-the Eclipse Update Manager (under Help -> Install New Software) to install Repast from its update
-site (<a href="https://repocafe.cels.anl.gov/repos/repast/">https://repocafe.cels.anl.gov/repos/repast/</a>).
-Repast when installed via the update site has the following additional requirement that can be installed
-using Eclipse's Update Manager.
-<ul>
-<li>From the Groovy Update Site (http://dist.springsource.org/snapshot/GRECLIPSE/e4.6/):
-<ul>
-<li>Extra Groovy Compilers</li>
-<li>Groovy-Eclipse</li>
-<li>Uncategorized</li>
-</ul>
-</ul>
+<a href="http://www.eclipse.org/downloads/packages/eclipse-ide-eclipse-committers/oxygen1a">
+Eclipse IDE for Eclipse Committers Oxygen 1a</a>; then use the Eclipse Update 
+Manager (under Help -> Install New Software) to install Repast and required dependencies
+from their respective update sites.
+<ol>
+	<li>Repast requires some update site components that are not available on the Oxygen
+	update site.  Please first add the Neon update site to the list of available Eclipse
+	update sites.  This is done by simply adding Neon in the Eclipse "Install New Software"
+	wizard:
+		<ul>
+			<li>Neon - http://download.eclipse.org/releases/neon</li>
+		</ul>
+	</li>
+
+	<li>Install Groovy Eclipse from the update site:
+		<ul>
+			<li>http://dist.springsource.org/snapshot/GRECLIPSE/e4.7</li>
+			<li>Extra Groovy Compilers</li>
+			<li>Groovy-Eclipse</li>
+			<li>Uncategorized</li>
+		</ul>
+	</li>
+	
+	<li>Install Repast from the update site:
+		<ul>
+			<li>https://repocafe.cels.anl.gov/repos/repast/</li>
+		</ul>
+	</li>
+
+</ol>
+
+
 Once you have downloaded eclipse and installed the plugins, the groovy compiler version must be set to anything in the 2.0. version line. Anything else
 will prevent Repast Simphony and especially ReLogo from working correctly. You can set the groovy compiler preferences in either the workspace or project preferences
 pane via the "Groovy Compiler" page.<p><p>
 
 The demonstration models are not provided via the update site, but they can be downloaded
-<a href="https://github.com/Repast/repast.simphony.models/archive/v2.4.0.zip">here</a>.
+<a href="https://github.com/Repast/repast.simphony.models/archive/v2.5.zip">here</a>.
 Once downloaded, start eclipse and switch to your chosen workspace. Right click in the package panel, and choose import, General, Archive File
 and follow the wizard from there.
 </ul>
@@ -134,15 +153,7 @@ and see the README and INSTALL.txt for additional information on using the virtu
 </div>
 </div>
 
-<div class="post-bgbtm">
-<a name="extras"></a>
-<h1 class="title">Extra Downloads</h1>
-<p class="meta"></p>
-<div class="entry">
-Information on supporting components including external analysis tools, and
-Repast Simphony platform development can be found <a href="download-extras.html">here</a>.
-</div>
-</div>
+
 
 </div>
 </div>

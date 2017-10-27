@@ -23,10 +23,9 @@ github_username:  Repast
 
 exclude: 
  - scripts/
-# - RepastReference/
 
-simphony_version: 2.4.0
-simphony_release_date: 30 September 2016
+simphony_version: 2.5
+simphony_release_date: 27 October 2017
 hpc_version: 2.2.0
 hpc_release_date: 30 September 2016
 
