@@ -25,7 +25,7 @@ exclude:
  - scripts/
 
 include:
-	- docs/api/hpc/repast_hpc/
+	- "docs/api/hpc/repast_hpc/_*"
 
 simphony_version: 2.5
 simphony_release_date: 27 October 2017
