@@ -24,6 +24,9 @@ github_username:  Repast
 exclude: 
  - scripts/
 
+include:
+  - _*.html
+
 simphony_version: 2.5
 simphony_release_date: 27 October 2017
 hpc_version: 2.2.0
