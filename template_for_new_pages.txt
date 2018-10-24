@@ -19,11 +19,11 @@ layout: site
 <div class="post">
 <div class="post-bgtop">
 <div class="post-bgbtm">
-<h1 class="title">Support</h1>
+<h1 class="title">Page Title</h1>
 <p class="meta"></p>
 <div class="entry">
 
-
+<!--- Content Goes Here --->
 
 
 </div>
