@@ -45,22 +45,23 @@ which can be optionally downloaded and installed separately:
 <p class="meta"></p>
 <div class="entry">
 Developers who wish to modify the Repast Simphony platform should download
-<a href="http://www.eclipse.org/downloads/packages/eclipse-ide-eclipse-committers/neon1">Eclipse IDE for Eclipse Committers Neon 1</a>.
-Please note that the Repast Simphony update site <i>requires</i> this feature-complete edition
+<a href="https://www.eclipse.org/downloads/packages/eclipse-ide-eclipse-committers/oxygen3a">Eclipse IDE for Eclipse Committers Oxygen</a>.
+Please note that Repast Simphony development <i>requires</i> this feature-complete edition
 and will not work with the limited Eclipse Java Edition.
-They should then use the Eclipse Update Manager to install the following components:
+Then use the Eclipse Update Manager to install the following components.
 <p>
 <ul>
-<li>From the default Neon update site (http://download.eclipse.org/releases/neon):
+<li>From the default <b>Neon</b> (note that Oxygen versions do not exist yet) update site
+  (http://download.eclipse.org/releases/neon).
 <ul>
 <li>GMF Tooling 3.3.1</li>
 <li>GMF Tooling Runtime Extensions 3.3.1</li>
+<li>GMF Tooling Xtend2 Support</li>
 <li>GMF Toolking SDK 3.3.1</li>
-<li>Eclipse XML Editors and Tools. Depending on your OS, you may or may not see this as an option.</li>
 <li>Xpand SDK 2.2.0</li>
 </ul>
 </li>
-<li>From the Groovy Update Site (http://dist.springsource.org/snapshot/GRECLIPSE/e4.6/):
+<li>From the Groovy Update Site (http://dist.springsource.org/release/GRECLIPSE/e4.7):
 <ul>
 <li>Extra Groovy Compilers</li>
 <li>Groovy-Eclipse</li>
@@ -72,7 +73,9 @@ They should then use the Eclipse Update Manager to install the following compone
 The repast repository can be cloned from the links provided at the
 <a href="https://github.com/Repast/repast.simphony">Simphony
 GitHub repository</a>. The master branch contains the code in a distribution, tagged with the
-distribution's version number, while all the work is done the development branch.
+distribution's version number, while all the work is done the development branch. Import all
+the projects into Eclipse. Note that you may need to Refresh (F5) and / or clean (Project -> Clean)
+some or all of the projects for an error-free compile.
 
 </ul>
 </div>
