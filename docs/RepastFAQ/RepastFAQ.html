@@ -1,0 +1,1633 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.9" />
+<title>Repast Simphony Frequently Asked Questions</title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+pre {
+  white-space: pre-wrap;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; vertical-align: text-bottom; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install(3);
+/*]]>*/
+</script>
+</head>
+<body class="article" style="max-width:55em">
+<div id="header">
+<h1>Repast Simphony Frequently Asked Questions</h1>
+<span id="author">November 2018</span><br />
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_general">1. General</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_what_is_repast_simphony">1.1. What is Repast Simphony?</h3>
+<div class="paragraph"><p>Repast Simphony is a free and open source agent-based modeling toolkit that offers
+users a rich variety of features including the following:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Repast Simphony models can be developed in several different forms including the
+ReLogo dialect of Logo, point-and-click statecharts, Groovy, or Java, all of
+which can be fluidly interleaved.
+</p>
+</li>
+<li>
+<p>
+A pure Java point-and-click model execution environment that includes
+built-in results logging and graphing tools as well as automated connections to
+a variety of optional external tools including such as R Studio.
+</p>
+</li>
+<li>
+<p>
+An extremely flexible hierarchically nested definition of space including the
+ability to do point-and-click and modeling and visualization of 2D environments,
+3D environments, networks including full integration with the JUNG network
+modeling library, and geographical spaces including full Geographical
+Information Systems (GIS) support.
+</p>
+</li>
+<li>
+<p>
+A range of data storage "freeze dryers" for model check pointing and restoration
+including text file and database storage.
+</p>
+</li>
+<li>
+<p>
+A fully concurrent multithreaded discrete event scheduler.
+</p>
+</li>
+<li>
+<p>
+Integrate support for random number generation, statistical distributions, and
+specialized mathematics.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_how_do_i_install_repast_simphony">1.2. How do I install Repast Simphony?</h3>
+<div class="paragraph"><p>Please see the current download and installation instructions here:
+<a href="https://repast.github.io/download.html">https://repast.github.io/download.html</a></p></div>
+</div>
+<div class="sect2">
+<h3 id="_how_do_i_get_started_using_repast_simphony">1.3. How do I get started using Repast Simphony?</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>TODO</p></div>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_what_software_platforms_work_with_repast_simphony">1.4. What software platforms work with Repast Simphony?</h3>
+<div class="paragraph"><p>Repast Simphony is a Java application that is compatible with Windows, macOS, and
+most linux variants.  As of Repast version 2.6, only 64-bit platforms are supported.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_what_version_of_java_is_required_to_run_repast_simphony">1.5. What version of Java is required to run Repast Simphony.</h3>
+<div class="paragraph"><p>Repast Simphony version 2.6 requires Java 8 or later, and is interchangeably compatible
+with Java 8 LTS or Java 11 LTS versions.  Please see the
+<a href="https://repast.github.io/requirements.html">Java Requirements</a> page for more details.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_which_version_of_repast_should_i_use">1.6. Which version of Repast should I use?</h3>
+<div class="paragraph"><p>There are two editions of Repast and several ways to write models in each edition
+because there are many different kinds of users, each of whom has unique needs:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+New users are strongly encouraged to begin by using ReLogo within Repast Simphony.
+</p>
+</li>
+<li>
+<p>
+Users with limited programming backgrounds are strongly encouraged to use
+ReLogo within Repast Simphony.
+</p>
+</li>
+<li>
+<p>
+Users desiring rapid prototyping are encouraged to use ReLogo within Repast Simphony.
+</p>
+</li>
+<li>
+<p>
+Users seeking visual model construction are encouraged to use ReLogo and
+Statecharts within Repast Simphony.
+</p>
+</li>
+<li>
+<p>
+Users with a workable knowledge of a Java-generating language such as Groovy
+and who want to use the features of that language should to use their chosen
+language along with the Java approach within Repast Simphony.
+</p>
+</li>
+<li>
+<p>
+Users with a workable knowledge of Java who want highly customized models should
+to use the Java approach within Repast Simphony.
+</p>
+</li>
+<li>
+<p>
+Users with a basic knowledge of C++ who need models that run on supercomputers
+should use the Logo-style C++ approach within Repast HPC.
+</p>
+</li>
+<li>
+<p>
+Users with a strong knowledge of C++ who need highly customized models that
+run on supercomputers should to use the standard C++ approach within Repast HPC.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_what_is_the_difference_between_repast_simphony_and_repastj">1.7. What is the difference between Repast Simphony and RepastJ?</h3>
+<div class="paragraph"><p>Repast Simphony is the current version of the Repast ABM toolkit and is actively
+maintained with regular release cycles.  RepastJ is the original version of Repast
+that was released in 1999, and is no longer maintained, although archive builds
+are available at <a href="https://sourceforge.net/projects/repast/files/Repast/">https://sourceforge.net/projects/repast/files/Repast/</a>.  Users
+wishing to develop ABMs should use Repast Simphony, and legacy RepastJ models can
+be easily updated to work with Repast Simphony.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_what_is_relogo">1.8. What is ReLogo?</h3>
+<div class="paragraph"><p>ReLogo is an agent-based modeling (ABM) domain specific language (DSL) for
+developing agent-based models in the free and open source Repast Suite of ABM tools;
+the Java based Repast Simphony ABM toolkit and the C++ high performance computing
+Repast HPC toolkit both incorporate ReLogo. ReLogo is geared towards a wide
+range of modeling and programming expertise, combining the sophisticated and
+powerful ABM infrastructure and capabilities in the Repast Suite with the ease of
+use of the <a href="https://en.wikipedia.org/wiki/Logo_(programming_language)">Logo programming language</a>
+and its associated programming idioms.  Repast projects may optionally include
+ReLogo laungauge components that seamlessly integrate with Java and Groovy agents.</p></div>
+<div class="paragraph"><p>For more information, please see:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>The ReLogo agent-based modeling language</strong>, J Ozik, NT Collier, JT Murphy,
+and MJ North, 2013 Winter Simulations Conference (WSC), Washington, DC, 2013, pp. 1560-1568.
+<a href="http://doi.org/10.1109/WSC.2013.6721539">http://doi.org/10.1109/WSC.2013.6721539</a>
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_what_are_statecharts">1.9. What are Statecharts?</h3>
+<div class="paragraph"><p>Statecharts are a software engineering design methodology and an explicit visual
+and logical representation of the
+<a href="https://en.wikipedia.org/wiki/State_diagram">states of system components and the transitions
+between those states</a>. Used in ABMS, they can clarify a model&#8217;s logic and allow
+for efficient software engineering of complex state-based models. In addition to
+agent state and behavioral logic representation, visual statecharts can also be
+useful for monitoring agent status during a simulation, quickly conveying the
+underlying dynamics of complex models as a simulation evolves over time.</p></div>
+<div class="paragraph"><p>The new statecharts framework in Repast Simphony, a subset of Harel&#8217;s statecharts,
+introduces software engineering practices through the use of statecharts that
+directly translate visual representations of agent states and behaviors into
+software implementations. By integrating an agent statecharts framework into
+Repast Simphony, we have made it easier for users at all levels to take advantage
+of this important modeling paradigm. Through the visual programming that
+statecharts afford, users can effectively create the software underlying agents
+and agent-based models.</p></div>
+<div class="paragraph"><p>For more information, please see:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Repast simphony statecharts</strong>, J Ozik, N Collier, T Combs, CM Macal, and M North,
+Journal of Artificial Societies and Social Simulation, 18 (3) 11, 2015.
+<a href="http://jasss.soc.surrey.ac.uk/18/3/11.html">http://jasss.soc.surrey.ac.uk/18/3/11.html</a>
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_what_is_the_difference_between_eclipse_and_repast_simphony">1.10. What is the difference between Eclipse and Repast Simphony?</h3>
+<div class="paragraph"><p><a href="http://eclipse.org">Eclipse</a> is a free and open-source integrated development environment (IDE) that
+supports software development in many different programming languages.  Eclipse
+provides a workspace in which users can create, edit, and run source code, and develop
+software of varying levels of complexity.  Repast Simphony is an Eclipse plug-in
+that provides agent-based software development tools that seamless integrate into
+the Eclipse IDE and allows modelers to develop agent-based models using the full
+capability of Eclipse.  Repast software installers for Windows and macOS include
+Eclipse that has already been configured with Repast Simphony.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_is_repast_simphony_available_for_android_or_ios">1.11. Is Repast Simphony available for Android or iOS?</h3>
+<div class="paragraph"><p>Repast Simphony is typically used with an IDE like Eclipse to build and run models
+on computer workstations or clusters. However, applications developed for
+platforms like Android may use some of the core Repast libraries as they are
+distributed as Java JAR files and can separately be compiled from source code.
+Advanced users</p></div>
+</div>
+<div class="sect2">
+<h3 id="_where_can_i_find_the_repast_simphony_source_code">1.12. Where can I find the Repast Simphony source code?</h3>
+<div class="paragraph"><p>All Repast source code is available on the public Git repository <a href="https://github.com/repast">https://github.com/repast</a>.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_is_repast_simphony_really_free_and_how_is_it_licensed">1.13. Is Repast Simphony really free? And how is it licensed?</h3>
+<div class="paragraph"><p>Repast Simphony is free and open source software licensed under the "New BSD"
+license, which means you are free to use, modify, and redistribute Repast and Repast
+models.  All third-party libraries used by Repast have been rigorously checked for
+license compatibility with the BSD license, and these third party libraries may
+also be freely re-distributed.  The current Repast Simphony license is located here:
+<a href="https://repast.github.io/license.html">https://repast.github.io/license.html</a></p></div>
+</div>
+<div class="sect2">
+<h3 id="_how_can_i_get_help_with_using_repast_simphony">1.14. How can I get help with using Repast Simphony?</h3>
+<div class="paragraph"><p>Support information is available here: <a href="https://repast.github.io/support.html">https://repast.github.io/support.html</a></p></div>
+</div>
+<div class="sect2">
+<h3 id="_how_can_i_create_an_agent_based_model_in_my_domain_of_interest">1.15. How can I create an agent-based model in my domain of interest?</h3>
+<div class="paragraph"><p>Agent-based models are not necessarily complicated or hard to make, but there is
+no single modeling approach that works for all domains. To get a better
+understanding of agent-based modeling and simulation (ABMS) and ABMS toolkits we
+suggest the following references:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Everything you need to know about agent-based modelling and simulation</strong>,
+CM Macal, Journal of Simulation, 10:2, 144-156, 2016.
+<a href="https://www.tandfonline.com/doi/full/10.1057/jos.2016.7">https://www.tandfonline.com/doi/full/10.1057/jos.2016.7</a>
+</p>
+</li>
+<li>
+<p>
+<strong>Complex adaptive systems modeling with Repast Simphony</strong>, MJ North, NT Collier,
+J Ozik, E Tatara, CM Macal, M Bragen, P Sydelko, Complex adaptive systems modeling 1 (1), 2013.
+<a href="https://link.springer.com/article/10.1186/2194-3206-1-3">https://link.springer.com/article/10.1186/2194-3206-1-3</a>
+</p>
+</li>
+<li>
+<p>
+<strong>Proceedings of the Agent 200X conference</strong> <a href="http://www.dis.anl.gov/agent20XY/">http://www.dis.anl.gov/agent20XY/</a>
+</p>
+</li>
+<li>
+<p>
+<strong>Managing Business Complexity: Discovering Strategic Solutions with Agent-Based Modeling and Simulation</strong>,
+Michael J. North and Charles M. Macal, Oxford University Press, 2007.
+<a href="http://www.oxfordscholarship.com/view/10.1093/acprof:oso/9780195172119.001.0001/acprof-9780195172119">http://www.oxfordscholarship.com/view/10.1093/acprof:oso/9780195172119.001.0001/acprof-9780195172119</a>
+</p>
+</li>
+<li>
+<p>
+<strong>Tutorial on agent-based modelling and simulation</strong>, CM Macal, MJ North, Journal of simulation 4 (3), 151-162, 2010.
+<a href="https://link.springer.com/article/10.1057/jos.2010.3">https://link.springer.com/article/10.1057/jos.2010.3</a>
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_how_do_i_cite_repast_in_scientific_publications">1.16. How do I cite Repast in scientific publications?</h3>
+<div class="paragraph"><p>If you publish a Repast Simphony-related paper, please considering citing the following paper:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+North, MJ, NT Collier, J Ozik, E Tatara, M Altaweel, CM Macal, M Bragen, and P Sydelko,
+"Complex Adaptive Systems Modeling with Repast Simphony", Complex Adaptive Systems Modeling,
+Springer, Heidelberg, FRG (2013). <a href="http://www.casmodeling.com/content/1/1/3">http://www.casmodeling.com/content/1/1/3</a>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>If you publish a Repast HPC-related paper, please considering citing the following paper:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Collier, N, &amp; North, M., Parallel agent-based simulation with Repast for High
+Performance Computing. SIMULATION, 89(10), 1215–1235, 2013. <a href="https://doi.org/10.1177/0037549712462620">https://doi.org/10.1177/0037549712462620</a>
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_programming_with_repast_simphony">2. Programming with Repast Simphony</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_where_can_i_find_example_models">2.1. Where can I find example models?</h3>
+<div class="paragraph"><p>A library of example Repast models is included with Repast.  Please see the
+Quick Start guide for instructions on using the example models.</p></div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>Include the link to quick start.</p></div>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_do_i_have_to_use_java_or_groovy_for_my_agents">2.2. Do I have to use Java or Groovy for my agents?</h3>
+<div class="paragraph"><p>Repast Simphony accepts both user-defned POJOs (Plain Old Java Objects) as well
+as POGOs (Plain Old Groovy Objects) as agents (or for defning other model components),
+making the use of Groovy completely optional. For those interested in learning more
+about Groovy, a dynamically typed programming language very well integrated with Java, there is the Groovy
+home page <a href="http://groovy.codehaus.org/">http://groovy.codehaus.org/</a> and the very informative book "Groovy in
+Action" by Dierk Koenig.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_how_do_i_create_a_new_repast_project">2.3. How do I create a new Repast project?</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>Include the link to quick start.</p></div>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_how_do_i_create_a_new_relogo_project">2.4. How do I create a new ReLogo project?</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>Include the link to quick start.</p></div>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_how_can_i_connect_my_model_results_to_software_tools_for_data_analysis">2.5. How can I connect my model results to software tools for data analysis</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>Discuss R, Excel Weka&#8230;</p></div>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_can_i_see_a_complete_listing_of_all_agents_in_a_model_at_a_specific_time">2.6. Can I see a complete listing of all agents in a model at a specific time?</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>Discuss agent table</p></div>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_how_do_i_log_data_for_model_output">2.7. How do I log data for model output?</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>Discuss data sets and file outputters &#8594; point to reference</p></div>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_how_can_i_sample_from_a_statistical_distribution">2.8. How can I sample from a statistical distribution?</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>TODO</p></div>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_how_can_i_create_a_model_in_which_agents_follow_a_road_network">2.9. How can I create a model in which Agents follow a road network?</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>TODO</p></div>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_scheduling">2.10. Scheduling</h3>
+<div class="sect3">
+<h4 id="_how_can_i_schedule_an_agent_behavior_to_execute_at_a_regular_tick_interval">2.10.1. How can I schedule an agent behavior to execute at a regular tick interval?</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>Discuss @ScheduledMethod &#8594; point to reference manual</p></div>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_how_do_i_schedule_a_global_behavior_a_behavior_above_the_individual_agent_level">2.10.2. How do I schedule a "global" behavior, a behavior above the individual agent level?</h4>
+<div class="paragraph"><p>There&#8217;s at least two ways to do this. Both assume that you create your model in
+your own ContextBuilder Java class.</p></div>
+<div class="paragraph"><p>The first way requires that you have your ContextBuilder extend DefaultContext.
+Once you&#8217;ve done this you can add @ScheduledMethods to this ContextBuilder to
+perform some global action.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>public class MyContextBuilder extends DefaultContext implements ContextBuilder {
+  /**
+  * Builds and returns a context. Building a context consists of filling
+  * it with agents, adding projects and so forth. The returned context
+  * does not necessarily have to be the passed in context.
+  *
+  * @param context
+  * @return the built context .
+  */
+  public Context build ( Context &lt;T&gt; context ) {
+  ...
+  }
+
+  @ScheduledMethod ( start = 1)
+  public void step () {
+    // my " global " behavior
+  }
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>The second way uses the RunEnvironment object to get a reference to the current
+Schedule with which can add your behavior. For example</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>public class MyContextBuilder implements ContextBuilder {
+  public Context build ( Context &lt;T&gt; context ) {
+
+    ISchedule schedule = RunEnviroment.getCurrentSchedule ();
+    ScheduleParameters params = ScheduleParameters.createOneTime(1);
+    schedule.schedule(params, this, " step ");
+  }
+
+  public void step () {
+    // my global behavior
+  }
+}</code></pre>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_how_can_i_dynamically_schedule_actions_based_on_events">2.10.3. How can I dynamically schedule actions based on events?</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>Discuss programmatic scheduling &#8594; point to reference</p></div>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_how_can_i_stop_or_pause_the_simulation_at_a_specific_time_or_event">2.10.4. How can I stop or pause the simulation at a specific time or event?</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>Discuss scheduling pause, stop RunEnvironment.getInstance().endAt(endTime);</p></div>
+</div></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_displays_and_gui">2.11. Displays and GUI</h3>
+<div class="sect3">
+<h4 id="_how_can_i_change_the_tick_format_in_the_runtime_gui">2.11.1. How can I change the tick format in the Runtime GUI?</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>TODO</p></div>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_how_do_i_add_a_background_image_to_a_display">2.11.2. How do I add a background image to a display?</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>Discuss adding background to 2D, GIS &#8594; point to reference manual</p></div>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_how_can_i_track_agent_movement_paths_in_a_display">2.11.3. How can I track agent movement paths in a display?</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>Discuss waypoints / network &#8594; point to reference manual</p></div>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_can_i_add_a_custom_display_or_controls_to_the_repast_runtime_gui">2.11.4. Can I add a custom display or controls to the Repast runtime GUI?</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>Discuss adding displays programmatically and the user panel customization</p></div>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_how_do_i_add_a_custom_listener_to_the_runtime_control_buttons">2.11.5. How do I add a custom listener to the runtime control buttons?</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>TODO</p></div>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_how_do_i_change_the_color_shape_or_size_of_agents_in_a_display">2.11.6. How do I change the color, shape, or size of agents in a display?</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>Discuss styles&#8230;</p></div>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_how_do_i_create_a_custom_display">2.11.7. How do I create a custom display?</h4>
+<div class="paragraph"><p>All simphony displays implement IDisplay. <a href="CustomDisplay.java">CustomDisplay.java</a>
+is an example that displays a panel with a simple label in it. Note that most of
+the methods are empty or return null. The important methods are render, update and
+getPanel(). When update is called the display should update its internal state to
+reflect the latest state of whatever its displaying. When render is called, the
+display should draw those updates. getPanel is called during initialization to
+put a panel into a display tab.</p></div>
+<div class="paragraph"><p>The next step then is to load this display during initialization. You do
+that with a ModelInitializer. The model initializer is run once just after your scenario is
+loaded. It can be used to add additional items to the scenario tree that&#8217;s displayed on the
+left hand side of the Repast runtime GUI. A model initializer then
+can add a custom action that initializes a custom display.
+<a href="TrapInitializer.java">TrapInitializer.java</a> does just
+that. The second added controller action is what sets up the custom display. Lastly, you
+need tell Simphony to run your ModelInitializer and you do that in the scenario.xml file
+located in your scenario directory (e.g. mousetrap.rs) by adding a model.initializer entry.</p></div>
+<div class="paragraph"><p>For example</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>model.initializer class="repast.simphony.demo.mousetrap.TrapInitializer"</code></pre>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_how_can_i_change_the_mouse_behavior_in_displays">2.11.8. How can I change the mouse behavior in displays?</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>Custom mouse listener from mail list &#8594; reference guide section</p></div>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_how_can_i_save_a_movie_or_image_of_my_repast_model_displays">2.11.9. How can I save a movie or image of my Repast model displays?</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>TODO</p></div>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_where_can_i_find_3d_models_to_use_in_displays">2.11.10. Where can I find 3D models to use in displays?</h4>
+<div class="paragraph"><p>There are many online sources for 3D model files that can be used in Repast 3D
+displays. The models available online generally are of one of the more popular formats such
+as Lightwave, Wavefront OBJ or AutoDesk 3DS. To display one of these models in a
+Repast 3D display, the file needs to be loaded as a
+<a href="https://download.java.net/media/java3d/javadoc/1.5.2-latest/com/sun/j3d/loaders/Loader.html">com.sun.j3d.loaders.Scene</a>
+object. The Scene object is then used to define the TaggedBranchGroup object that
+is provided by the user-defined 3D style class.</p></div>
+<div class="paragraph"><p>The J3D group provides an interface com.sun.j3d.loaders.Loader which returns the
+Scene object provided the model file. The default J3D Loader implentations handle
+models of type Wavefront OBJ, and Lightwave files. We have additionally included
+a Loader implementation that handles MilkShape (.ms3d) files.
+Milkshape <a href="http://www.milkshape3d.com/">http://www.milkshape3d.com/</a> a shareware 3D modeling tool
+that has the ability to import and convert many different types of 3D model files.
+Generally, if a 3D model is available online it may be opened with Milkshape
+and saved in the MS3D format.</p></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_geographic_gis_modeling">2.12. Geographic GIS Modeling</h3>
+<div class="sect3">
+<h4 id="_does_repast_support_geographic_projections_gis">2.12.1. Does Repast support geographic projections (GIS)?</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>TODO</p></div>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_how_can_i_import_a_gis_shapefile_or_raster_into_a_repast_model">2.12.2. How can I import a GIS shapefile or raster into a Repast model?</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>TODO</p></div>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_what_is_the_difference_between_the_gis_and_gis_3d_displays">2.12.3. What is the difference between the GIS and GIS 3D displays?</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>TODO</p></div>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_how_do_i_find_agents_in_a_geography_within_some_distance_from_a_specific_point">2.12.4. How do I find agents in a geography within some distance from a specific point?</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>TODO</p></div>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_how_do_i_find_the_straight_line_distance_between_points_in_a_geography">2.12.5. How do I find the straight line distance between points in a geography?</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>TODO</p></div>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_how_do_i_find_the_distance_between_a_point_and_a_polygon_in_a_geography">2.12.6. How do I find the distance between a point and a polygon in a geography?</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>TODO</p></div>
+</div></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_running_models">2.13. Running Models</h3>
+<div class="sect3">
+<h4 id="_how_can_i_run_repast_simphony_from_another_java_application">2.13.1. How can I run Repast Simphony from another Java application?</h4>
+<div class="paragraph"><p>Repast may be launched programmatically by directly calling the
+repast.simphony.runtime.RepastMain class. RepastMain takes two arguments, the
+first is the location of the model scenario directory and the second is an
+optional location of the repast runtime location.</p></div>
+<div class="paragraph"><p>Note that you need to have repast.simphony.runtime/bin and the jars in
+repast.simphony.runtime/lib on your classpath since the runtime needs these to start.</p></div>
+<div class="paragraph"><p>Also, you can put the repast runtime folders anywhere you like if you are calling
+the RepastMain from your own code. As long as you have repast.simphony.runtime/bin
+to your classpath, RepastMain will be able to find the runtime and start properly.</p></div>
+<div class="paragraph"><p>Here&#8217;s a simple class that will do this:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>public class UserMain {
+
+public UserMain(){};
+
+  public void start(){
+
+    String[] args = new String[]{"C:/myModel/scenario.rs"};
+
+    repast.simphony.runtime.RepastMain.main(args);
+  }
+
+  public static void main(String[] args) {
+
+    UserMain um = new UserMain();
+    um.start();
+  }
+}</code></pre>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_how_can_i_control_the_repast_simphony_schedule_from_another_java_application">2.13.2. How can I control the Repast Simphony schedule from another Java application?</h4>
+<div class="paragraph"><p>To run a simulation purely programmatically with fine control, you need to create
+a class that extends repast.simphony.engine.environment.AbstractRunner and modify
+it to suit your needs. The runner class can then be used to initialize, step, run,
+pause, stop and reset the model. This approach uses components from the GUI which
+is totally user driven and the Batch run which is completely self-contained with
+no user-interaction.</p></div>
+<div class="paragraph"><p>The example Java runner class <a href="TestRunner_2.java">TestRunner_2.java</a> and
+main class <a href="TestMain_2.java">TestMain_2.java</a> provide examples.
+In this case you won&#8217;t use either the RepastMain (GUI) or the BatchMain (batch mode),
+but use the runner class directly. Note that you will need to include the classes
+from repast.simphony.runtime and repast.simphony.Batch in your classpath to run.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_how_can_i_run_a_repast_model_from_the_command_line">2.13.3. How can I run a Repast model from the command line?</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>TODO</p></div>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_how_can_i_ensure_repeatability_across_runs">2.13.4. How can I ensure repeatability across runs?</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>Discuss using only Repast RandomHelper and not using Math.rand()&#8230;shuffle, iterating over map values</p></div>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_can_i_execute_multiple_model_runs_in_parallel">2.13.5. Can I execute multiple model runs in parallel?</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>TODO</p></div>
+</div></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_model_configuration">2.14. Model Configuration</h3>
+<div class="sect3">
+<h4 id="_how_can_i_convert_my_repast_simphony_1_0_1_1_or_1_2_model_to_run_in_repast_simphony_2_0_and_later">2.14.1. How can I convert my Repast Simphony 1.0, 1.1 or 1.2 model to run in Repast Simphony 2.0 and later?</h4>
+<div class="paragraph"><p>To upgrade scenarios simply do the following:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Right click on the scenario folder (usually "yourmodelname.rs").
+</p>
+</li>
+<li>
+<p>
+Choose "Convert Scenario" from the popup menu.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>This will create a <strong>user\_path.xml</strong> and a <strong>context.xml</strong> from your old Score file.
+It will also make backup copy of the scenario.xml file and then remove any displays
+from the scenario file. Removing the displays is necessary because old Piccolo
+2D displays will no longer load in version 2.0.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_how_can_i_convert_my_repast_j_model_to_run_in_repast_simphony">2.14.2. How can I convert my Repast J model to run in Repast Simphony?</h4>
+<div class="paragraph"><p>A quick summary of the process of converting to Repast J to Repast S:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Create a new Repast Simphony project or add the Repast nature to your existing project(see tutorial).
+</p>
+</li>
+<li>
+<p>
+Strip out all of the Repast J-specific visualization code from your agents (ie extends DefaultDrawableNode).
+</p>
+</li>
+<li>
+<p>
+Pick out the relative information such as scheduling and model parameters from the Repast J main class (ie SimpleModelImpl) and put this in the Repast S ContextBuilder or agent class constructors (where ever you see fit).
+</p>
+</li>
+<li>
+<p>
+Create a scenario/score model.
+</p>
+</li>
+<li>
+<p>
+Create displays, loggers, etc via the Repast S runtime interface.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Several of the demos (sugarscape and regression) included with Repast Simphony
+are direct ports from the Repast J models, so comparing these will provide some
+additional help on porting models.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_how_do_i_include_a_third_party_library_in_my_model">2.14.3. How do I include a third-party library in my model?</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>TODO</p></div>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_how_can_i_give_my_repast_model_to_someone_else">2.14.4. How can I give my Repast model to someone else?</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>TODO</p></div>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_how_do_i_open_a_repast_model_that_someone_else_gave_me">2.14.5. How do I open a Repast model that someone else gave me?</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>TODO</p></div>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_can_i_use_maven_with_a_repast_project_in_eclipse">2.14.6. Can I use Maven with a Repast project in Eclipse?</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">TODO</div>
+<div class="paragraph"><p>TODO</p></div>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_problems">3. Problems</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_my_project_does_not_show_up_on_eclipse_8217_s_run_launch_button">3.1. My project does not show up on Eclipse&#8217;s run (launch) button</h3>
+<div class="paragraph"><p>The project launch configuration has simply become hidden and needs to be manually
+added to the list of available programs to run.  Follow these steps:
+1. Choose "Organize Favorites" from the bottom of the Run menu
+2. Press the "Add" button on the upper left of the resulting "Organize Run Favorites" window.
+3. Select all of the items in the "Add Run Favorites" window.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_warning_an_illegal_reflective_access_operation_has_occurred">3.2. WARNING: An illegal reflective access operation has occurred</h3>
+<div class="paragraph"><p>The following warning message occurs when using Java 9 or later, and has no impact
+on the model code, performance, or reliability, and can be safely ignored:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by ...
+WARNING: Please consider reporting this to the maintainers of ...
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release</code></pre>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_severe_retrieval_returned_no_content_for_https_worldwind20_arc_nasa_gov_8230">3.3. SEVERE: Retrieval returned no content for https://worldwind20.arc.nasa.gov/&#8230;</h3>
+<div class="paragraph"><p>This is a benign warning that sometimes occurs in GIS displays because the online
+server for layers like satellite imagery is unreachable or offline.  The only impact
+of this error is that some GIS display imagery data may be unavailable.  Model behavior
+is not affected.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_warn_empty_or_non_existent_path">3.4. WARN "Empty or non-existent path"</h3>
+<div class="paragraph"><p>When launching a Repast model, the following errors may occur in the console:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>WARN  ... Warning while parsing classpath: Empty or non-existent path 'mypath'.
+WARN  ... While initializing watchers: Empty or non-existent path 'mypath'.
+WARN  ....While initializing classpath: Empty or non-existent path 'mypath'.</code></pre>
+</div></div>
+<div class="paragraph"><p>indicating that the model classpath has not been configured, or is empty.  Check
+that the <strong>user_path.xml</strong> agents entry points to the correct path for the model agents,
+usually by default this is "../bin".  This warning will also occur if no agent
+classes are defined within the "mypath" location.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_when_i_run_my_model_i_see_the_error_java_lang_classnotfoundexception_somepackage_someclass_at_8230">3.5. When I run my model I see the error "java.lang.ClassNotFoundException: somepackage.someclass at &#8230;"</h3>
+<div class="paragraph"><p>This is caused by a Java classpath configuration error such that the model cannot
+find the specified class "somepackage.someclass".  If the specified class refers to
+a user-created model file, please make sure that the <strong>user_path.xml</strong> agents path
+is pointing to the project "../bin" folder.  If the specified class is not a user-defined
+class, it is probably referenced from a third party library.  Make sure the library
+is included in the project /lib folder and that the <strong>user_path.xml</strong> specifies the /lib
+folder as a classpath entry.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_i_press_the_run_button_but_nothing_happens_or_the_tick_reads_1">3.6. I press the run button but nothing happens or the tick reads -1</h3>
+<div class="paragraph"><p>The tick counter will not increment if no behaviors have been scheduled.  Schedule
+agent behaviors in the agent classes using the @ScheduledMethod annotation.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_error_log4j_warn_no_appenders_could_be_found_for_logger_messagecenter_internal_repast_simphony_ui_rsuiplugin">3.7. Error "log4j:WARN No appenders could be found for logger (MessageCenter.INTERNAL.repast.simphony.ui.RSUIPlugin)"</h3>
+<div class="paragraph"><p>An issue sometimes occurs with the Repast message logging system that results in
+error messages like</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>log4j:WARN No appenders could be found for logger (MessageCenter.INTERNAL.repast.simphony.ui.RSApplication).
+log4j:WARN Please initialize the log4j system properly.</code></pre>
+</div></div>
+<div class="paragraph"><p>with some variability in the (MessageCenter&#8230;.) part. In almost all cases, this
+warning is NOT actually related to logging configuration errors, and more likely
+it is related to problems in the user_path.xml file like incorrect paths, or
+missing agent class files.</p></div>
+<div class="paragraph"><p>When you start a Repast model and you get the log4j message in the Eclipse console,
+you can usually find more information from the Repast runtime error log.
+The error log is available when the icon in the lower right corner of the Repast runtime is flashing.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_exception_in_thread_main_java_lang_outofmemoryerror_java_heap_space">3.8. Exception in thread "main" java.lang.OutOfMemoryError: Java heap space</h3>
+<div class="paragraph"><p>Java has attempted to use more memory that is available to the model.  With version
+of Java prior to version 9, it was usually necessary to specify the amount of memory
+needed by an application, because the default amount or "heap space" was very small.
+Java 9 and later generally have better memory management, however it is still possible
+to experience an OutOfMemoryError if a model uses an unusually large amount of memory.</p></div>
+<div class="paragraph"><p>To increase the amount of system memory available to Java, a "VM" argument may be
+specified in the Eclipse launch configuration for the model as shown in <a href="#vmargs_image">[vmargs_image]</a>.
+To increase the available memory (up to the physical system limit) use the -Xmx
+argument and provide a numerical value for the memory using the <em>M</em> or <em>G</em> qualifier
+to specify megabytes or gigabytes.  For example -Xmx4000M and -Xmx4G both specify
+a memory limit of 4 GB.</p></div>
+<div class="imageblock" id="vmargs_image">
+<div class="content">
+<img src="figures/vmargs.png" alt="figures/vmargs.png" />
+</div>
+<div class="title">Figure 1. Eclipse launch configuration dialog showing VM arguments options.</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_when_i_run_the_model_i_get_the_runtime_error_javax_media_opengl_glexception">3.9. When I run the model I get the runtime error javax.media.opengl.GLException</h3>
+<div class="paragraph"><p>When running a Repast model with displays an error similar to that shown below is
+seen and the displays do not show correctly in the Repast runtime GUI:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>javax.media.opengl.GLException: WindowsWGLDrawableFactory - Could not initialize shared resources...
+ERROR [AWT-EventQueue-0] 12:13:10,314 repast.simphony.visualizationOGL2D.DisplayOGL2D - Error initializing OGL 2D display. JOGL must be installed and computer must support open gl rendering
+javax.media.opengl.GLException: Profile GL2 is not available on null, but: [GLProfile[GL2ES2/GL4.hw], GLProfile[GL4/GL4.hw], GLProfile[GL3/GL3.hw], GLProfile[GL4/GL4.hw], GLProfile[GL2GL3/GL4.hw]]
+        at javax.media.opengl.GLProfile.get(GLProfile.java:806)</code></pre>
+</div></div>
+<div class="paragraph"><p>This is caused by the system&#8217;s graphics card drivers being out of date, or the
+system graphics hardware not supporting OpenGL.  The most common cause of this error
+is out of date graphics drivers.  The graphics drivers should be updated and are
+generally available from the computer manufaturer or directly from the GPU support
+sites of NVidia or ATI.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2018-11-09 18:10:39 Central Standard Time
+</div>
+</div>
+</body>
+</html>

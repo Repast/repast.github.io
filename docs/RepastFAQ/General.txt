@@ -1,0 +1,177 @@
+== General
+
+=== What is Repast Simphony?
+Repast Simphony is a free and open source agent-based modeling toolkit that offers 
+users a rich variety of features including the following:
+
+* Repast Simphony models can be developed in several different forms including the 
+ReLogo dialect of Logo, point-and-click statecharts, Groovy, or Java, all of 
+which can be fluidly interleaved.
+* A pure Java point-and-click model execution environment that includes 
+built-in results logging and graphing tools as well as automated connections to 
+a variety of optional external tools including such as R Studio.
+* An extremely flexible hierarchically nested definition of space including the 
+ability to do point-and-click and modeling and visualization of 2D environments, 
+3D environments, networks including full integration with the JUNG network 
+modeling library, and geographical spaces including full Geographical 
+Information Systems (GIS) support.
+* A range of data storage "freeze dryers" for model check pointing and restoration 
+including text file and database storage.
+* A fully concurrent multithreaded discrete event scheduler. 
+* Integrate support for random number generation, statistical distributions, and 
+specialized mathematics.
+
+=== How do I install Repast Simphony?
+Please see the current download and installation instructions here: 
+https://repast.github.io/download.html
+
+=== How do I get started using Repast Simphony?
+.TODO
+*****
+TODO
+*****
+
+=== What software platforms work with Repast Simphony?
+Repast Simphony is a Java application that is compatible with Windows, macOS, and 
+most linux variants.  As of Repast version 2.6, only 64-bit platforms are supported.
+
+=== What version of Java is required to run Repast Simphony.
+Repast Simphony version 2.6 requires Java 8 or later, and is interchangeably compatible
+with Java 8 LTS or Java 11 LTS versions.  Please see the 
+https://repast.github.io/requirements.html[Java Requirements] page for more details.
+
+=== Which version of Repast should I use?
+There are two editions of Repast and several ways to write models in each edition 
+because there are many different kinds of users, each of whom has unique needs:
+
+* New users are strongly encouraged to begin by using ReLogo within Repast Simphony.
+* Users with limited programming backgrounds are strongly encouraged to use 
+ReLogo within Repast Simphony.
+* Users desiring rapid prototyping are encouraged to use ReLogo within Repast Simphony.
+* Users seeking visual model construction are encouraged to use ReLogo and 
+Statecharts within Repast Simphony.
+* Users with a workable knowledge of a Java-generating language such as Groovy 
+and who want to use the features of that language should to use their chosen 
+language along with the Java approach within Repast Simphony.
+* Users with a workable knowledge of Java who want highly customized models should 
+to use the Java approach within Repast Simphony.
+* Users with a basic knowledge of C\++ who need models that run on supercomputers 
+should use the Logo-style C++ approach within Repast HPC.
+* Users with a strong knowledge of C\++ who need highly customized models that 
+run on supercomputers should to use the standard C++ approach within Repast HPC. 
+
+=== What is the difference between Repast Simphony and RepastJ?
+Repast Simphony is the current version of the Repast ABM toolkit and is actively 
+maintained with regular release cycles.  RepastJ is the original version of Repast
+that was released in 1999, and is no longer maintained, although archive builds
+are available at https://sourceforge.net/projects/repast/files/Repast/.  Users
+wishing to develop ABMs should use Repast Simphony, and legacy RepastJ models can
+be easily updated to work with Repast Simphony.
+
+=== What is ReLogo?
+ReLogo is an agent-based modeling (ABM) domain specific language (DSL) for 
+developing agent-based models in the free and open source Repast Suite of ABM tools; 
+the Java based Repast Simphony ABM toolkit and the C++ high performance computing 
+Repast HPC toolkit both incorporate ReLogo. ReLogo is geared towards a wide 
+range of modeling and programming expertise, combining the sophisticated and 
+powerful ABM infrastructure and capabilities in the Repast Suite with the ease of 
+use of the https://en.wikipedia.org/wiki/Logo_(programming_language)[Logo programming language] 
+and its associated programming idioms.  Repast projects may optionally include
+ReLogo laungauge components that seamlessly integrate with Java and Groovy agents.
+
+For more information, please see:
+
+*  *The ReLogo agent-based modeling language*, J Ozik, NT Collier, JT Murphy, 
+and MJ North, 2013 Winter Simulations Conference (WSC), Washington, DC, 2013, pp. 1560-1568.
+http://doi.org/10.1109/WSC.2013.6721539
+
+=== What are Statecharts?
+Statecharts are a software engineering design methodology and an explicit visual 
+and logical representation of the 
+https://en.wikipedia.org/wiki/State_diagram[states of system components and the transitions 
+between those states]. Used in ABMS, they can clarify a model's logic and allow 
+for efficient software engineering of complex state-based models. In addition to 
+agent state and behavioral logic representation, visual statecharts can also be 
+useful for monitoring agent status during a simulation, quickly conveying the 
+underlying dynamics of complex models as a simulation evolves over time. 
+
+The new statecharts framework in Repast Simphony, a subset of Harel's statecharts, 
+introduces software engineering practices through the use of statecharts that 
+directly translate visual representations of agent states and behaviors into 
+software implementations. By integrating an agent statecharts framework into 
+Repast Simphony, we have made it easier for users at all levels to take advantage 
+of this important modeling paradigm. Through the visual programming that 
+statecharts afford, users can effectively create the software underlying agents 
+and agent-based models.
+
+For more information, please see:
+
+* *Repast simphony statecharts*, J Ozik, N Collier, T Combs, CM Macal, and M North,
+Journal of Artificial Societies and Social Simulation, 18 (3) 11, 2015.
+http://jasss.soc.surrey.ac.uk/18/3/11.html
+
+=== What is the difference between Eclipse and Repast Simphony?
+http://eclipse.org[Eclipse] is a free and open-source integrated development environment (IDE) that
+supports software development in many different programming languages.  Eclipse
+provides a workspace in which users can create, edit, and run source code, and develop 
+software of varying levels of complexity.  Repast Simphony is an Eclipse plug-in 
+that provides agent-based software development tools that seamless integrate into
+the Eclipse IDE and allows modelers to develop agent-based models using the full
+capability of Eclipse.  Repast software installers for Windows and macOS include
+Eclipse that has already been configured with Repast Simphony.
+
+=== Is Repast Simphony available for Android or iOS?
+Repast Simphony is typically used with an IDE like Eclipse to build and run models 
+on computer workstations or clusters. However, applications developed for 
+platforms like Android may use some of the core Repast libraries as they are 
+distributed as Java JAR files and can separately be compiled from source code.  
+Advanced users 
+
+=== Where can I find the Repast Simphony source code?
+All Repast source code is available on the public Git repository https://github.com/repast.
+
+=== Is Repast Simphony really free? And how is it licensed?
+Repast Simphony is free and open source software licensed under the "New BSD"
+license, which means you are free to use, modify, and redistribute Repast and Repast
+models.  All third-party libraries used by Repast have been rigorously checked for
+license compatibility with the BSD license, and these third party libraries may
+also be freely re-distributed.  The current Repast Simphony license is located here: 
+https://repast.github.io/license.html
+
+=== How can I get help with using Repast Simphony?
+Support information is available here: https://repast.github.io/support.html
+
+=== How can I create an agent-based model in my domain of interest?
+Agent-based models are not necessarily complicated or hard to make, but there is 
+no single modeling approach that works for all domains. To get a better 
+understanding of agent-based modeling and simulation (ABMS) and ABMS toolkits we 
+suggest the following references:
+
+* *Everything you need to know about agent-based modelling and simulation*, 
+CM Macal, Journal of Simulation, 10:2, 144-156, 2016. 
+https://www.tandfonline.com/doi/full/10.1057/jos.2016.7
+
+* *Complex adaptive systems modeling with Repast Simphony*, MJ North, NT Collier, 
+J Ozik, E Tatara, CM Macal, M Bragen, P Sydelko, Complex adaptive systems modeling 1 (1), 2013. 
+https://link.springer.com/article/10.1186/2194-3206-1-3
+ 
+* *Proceedings of the Agent 200X conference* http://www.dis.anl.gov/agent20XY/
+
+* *Managing Business Complexity: Discovering Strategic Solutions with Agent-Based Modeling and Simulation*, 
+Michael J. North and Charles M. Macal, Oxford University Press, 2007.
+http://www.oxfordscholarship.com/view/10.1093/acprof:oso/9780195172119.001.0001/acprof-9780195172119
+
+* *Tutorial on agent-based modelling and simulation*, CM Macal, MJ North, Journal of simulation 4 (3), 151-162, 2010.
+https://link.springer.com/article/10.1057/jos.2010.3
+
+=== How do I cite Repast in scientific publications?
+If you publish a Repast Simphony-related paper, please considering citing the following paper:
+
+* North, MJ, NT Collier, J Ozik, E Tatara, M Altaweel, CM Macal, M Bragen, and P Sydelko, 
+"Complex Adaptive Systems Modeling with Repast Simphony", Complex Adaptive Systems Modeling, 
+Springer, Heidelberg, FRG (2013). http://www.casmodeling.com/content/1/1/3
+
+If you publish a Repast HPC-related paper, please considering citing the following paper:
+
+* Collier, N, & North, M., Parallel agent-based simulation with Repast for High 
+Performance Computing. SIMULATION, 89(10), 1215–1235, 2013. https://doi.org/10.1177/0037549712462620
