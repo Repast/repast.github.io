@@ -780,7 +780,7 @@ including text file and database storage.
 </li>
 <li>
 <p>
-A fully concurrent multithreaded discrete event scheduler.
+A fully concurrent multi-threaded discrete event scheduler.
 </p>
 </li>
 <li>
@@ -797,26 +797,28 @@ specialized mathematics.
 <a href="https://repast.github.io/download.html">https://repast.github.io/download.html</a></p></div>
 </div>
 <div class="sect2">
-<h3 id="_how_do_i_get_started_using_repast_simphony">1.3. How do I get started using Repast Simphony?</h3>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>TODO</p></div>
-</div></div>
+<h3 id="_can_i_install_different_versions_of_repast_simphony_at_the_same_time">1.3. Can I install different versions of Repast Simphony at the same time?</h3>
+<div class="paragraph"><p>Yes, as long as each version is installed to a different folder, each installed
+copy of Repast Simphony is fully self=contained and will not interfere with other
+versions of the software.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_what_software_platforms_work_with_repast_simphony">1.4. What software platforms work with Repast Simphony?</h3>
+<h3 id="_how_do_i_get_started_using_repast_simphony">1.4. How do I get started using Repast Simphony?</h3>
+<div class="paragraph"><p>Please see the Repast Quick Start guide: <a href="https://repast.github.io/quick_start.html">https://repast.github.io/quick_start.html</a></p></div>
+</div>
+<div class="sect2">
+<h3 id="_what_software_platforms_work_with_repast_simphony">1.5. What software platforms work with Repast Simphony?</h3>
 <div class="paragraph"><p>Repast Simphony is a Java application that is compatible with Windows, macOS, and
 most linux variants.  As of Repast version 2.6, only 64-bit platforms are supported.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_what_version_of_java_is_required_to_run_repast_simphony">1.5. What version of Java is required to run Repast Simphony.</h3>
+<h3 id="_what_version_of_java_is_required_to_run_repast_simphony">1.6. What version of Java is required to run Repast Simphony.</h3>
 <div class="paragraph"><p>Repast Simphony version 2.6 requires Java 8 or later, and is interchangeably compatible
 with Java 8 LTS or Java 11 LTS versions.  Please see the
 <a href="https://repast.github.io/requirements.html">Java Requirements</a> page for more details.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_which_version_of_repast_should_i_use">1.6. Which version of Repast should I use?</h3>
+<h3 id="_which_version_of_repast_should_i_use">1.7. Which version of Repast should I use?</h3>
 <div class="paragraph"><p>There are two editions of Repast and several ways to write models in each edition
 because there are many different kinds of users, each of whom has unique needs:</p></div>
 <div class="ulist"><ul>
@@ -870,7 +872,7 @@ run on supercomputers should to use the standard C++ approach within Repast HPC.
 </ul></div>
 </div>
 <div class="sect2">
-<h3 id="_what_is_the_difference_between_repast_simphony_and_repastj">1.7. What is the difference between Repast Simphony and RepastJ?</h3>
+<h3 id="_what_is_the_difference_between_repast_simphony_and_repastj">1.8. What is the difference between Repast Simphony and RepastJ?</h3>
 <div class="paragraph"><p>Repast Simphony is the current version of the Repast ABM toolkit and is actively
 maintained with regular release cycles.  RepastJ is the original version of Repast
 that was released in 1999, and is no longer maintained, although archive builds
@@ -879,7 +881,7 @@ wishing to develop ABMs should use Repast Simphony, and legacy RepastJ models ca
 be easily updated to work with Repast Simphony.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_what_is_relogo">1.8. What is ReLogo?</h3>
+<h3 id="_what_is_relogo">1.9. What is ReLogo?</h3>
 <div class="paragraph"><p>ReLogo is an agent-based modeling (ABM) domain specific language (DSL) for
 developing agent-based models in the free and open source Repast Suite of ABM tools;
 the Java based Repast Simphony ABM toolkit and the C++ high performance computing
@@ -888,7 +890,7 @@ range of modeling and programming expertise, combining the sophisticated and
 powerful ABM infrastructure and capabilities in the Repast Suite with the ease of
 use of the <a href="https://en.wikipedia.org/wiki/Logo_(programming_language)">Logo programming language</a>
 and its associated programming idioms.  Repast projects may optionally include
-ReLogo laungauge components that seamlessly integrate with Java and Groovy agents.</p></div>
+ReLogo language components that seamlessly integrate with Java and Groovy agents.</p></div>
 <div class="paragraph"><p>For more information, please see:</p></div>
 <div class="ulist"><ul>
 <li>
@@ -901,7 +903,21 @@ and MJ North, 2013 Winter Simulations Conference (WSC), Washington, DC, 2013, pp
 </ul></div>
 </div>
 <div class="sect2">
-<h3 id="_what_are_statecharts">1.9. What are Statecharts?</h3>
+<h3 id="_what_is_groovy">1.10. What is groovy?</h3>
+<div class="paragraph"><p>Repast Simphony ReLogo is based on the Groovy dynamic language. Groovy itself is
+a widely used, free, and open source Java Virtual Machine (JVM) language that both
+compiles to Java bytecode and tightly integrates with Java. Thanks to its Groovy
+foundations, ReLogo freely interoperates with Groovy and Java.  A Repast model
+developer can use Groovy classes in both Repast and ReLogo projects and can use
+any Java or Groovy library without special syntax. They can also write  Groovy
+and most Java code fluidly at any point in a ReLogo file to gain access to the
+advanced features of either language.</p></div>
+<div class="paragraph"><p>For those interested in learning more about Groovy, please see the Groovy home
+page <a href="http://groovy-lang.org/">http://groovy-lang.org/</a> and the very informative book "Groovy in Action"
+by Dierk Koenig. <a href="https://www.manning.com/books/groovy-in-action">https://www.manning.com/books/groovy-in-action</a></p></div>
+</div>
+<div class="sect2">
+<h3 id="_what_are_statecharts">1.11. What are Statecharts?</h3>
 <div class="paragraph"><p>Statecharts are a software engineering design methodology and an explicit visual
 and logical representation of the
 <a href="https://en.wikipedia.org/wiki/State_diagram">states of system components and the transitions
@@ -922,7 +938,7 @@ and agent-based models.</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
-<strong>Repast simphony statecharts</strong>, J Ozik, N Collier, T Combs, CM Macal, and M North,
+<strong>Repast Simphony statecharts</strong>, J Ozik, N Collier, T Combs, CM Macal, and M North,
 Journal of Artificial Societies and Social Simulation, 18 (3) 11, 2015.
 <a href="http://jasss.soc.surrey.ac.uk/18/3/11.html">http://jasss.soc.surrey.ac.uk/18/3/11.html</a>
 </p>
@@ -930,7 +946,7 @@ Journal of Artificial Societies and Social Simulation, 18 (3) 11, 2015.
 </ul></div>
 </div>
 <div class="sect2">
-<h3 id="_what_is_the_difference_between_eclipse_and_repast_simphony">1.10. What is the difference between Eclipse and Repast Simphony?</h3>
+<h3 id="_what_is_the_difference_between_eclipse_and_repast_simphony">1.12. What is the difference between Eclipse and Repast Simphony?</h3>
 <div class="paragraph"><p><a href="http://eclipse.org">Eclipse</a> is a free and open-source integrated development environment (IDE) that
 supports software development in many different programming languages.  Eclipse
 provides a workspace in which users can create, edit, and run source code, and develop
@@ -941,7 +957,7 @@ capability of Eclipse.  Repast software installers for Windows and macOS include
 Eclipse that has already been configured with Repast Simphony.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_is_repast_simphony_available_for_android_or_ios">1.11. Is Repast Simphony available for Android or iOS?</h3>
+<h3 id="_is_repast_simphony_available_for_android_or_ios">1.13. Is Repast Simphony available for Android or iOS?</h3>
 <div class="paragraph"><p>Repast Simphony is typically used with an IDE like Eclipse to build and run models
 on computer workstations or clusters. However, applications developed for
 platforms like Android may use some of the core Repast libraries as they are
@@ -949,11 +965,11 @@ distributed as Java JAR files and can separately be compiled from source code.
 Advanced users</p></div>
 </div>
 <div class="sect2">
-<h3 id="_where_can_i_find_the_repast_simphony_source_code">1.12. Where can I find the Repast Simphony source code?</h3>
+<h3 id="_where_can_i_find_the_repast_simphony_source_code">1.14. Where can I find the Repast Simphony source code?</h3>
 <div class="paragraph"><p>All Repast source code is available on the public Git repository <a href="https://github.com/repast">https://github.com/repast</a>.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_is_repast_simphony_really_free_and_how_is_it_licensed">1.13. Is Repast Simphony really free? And how is it licensed?</h3>
+<h3 id="_is_repast_simphony_really_free_and_how_is_it_licensed">1.15. Is Repast Simphony really free? And how is it licensed?</h3>
 <div class="paragraph"><p>Repast Simphony is free and open source software licensed under the "New BSD"
 license, which means you are free to use, modify, and redistribute Repast and Repast
 models.  All third-party libraries used by Repast have been rigorously checked for
@@ -962,11 +978,16 @@ also be freely re-distributed.  The current Repast Simphony license is located h
 <a href="https://repast.github.io/license.html">https://repast.github.io/license.html</a></p></div>
 </div>
 <div class="sect2">
-<h3 id="_how_can_i_get_help_with_using_repast_simphony">1.14. How can I get help with using Repast Simphony?</h3>
+<h3 id="_how_can_i_get_help_with_using_repast_simphony">1.16. How can I get help with using Repast Simphony?</h3>
 <div class="paragraph"><p>Support information is available here: <a href="https://repast.github.io/support.html">https://repast.github.io/support.html</a></p></div>
 </div>
 <div class="sect2">
-<h3 id="_how_can_i_create_an_agent_based_model_in_my_domain_of_interest">1.15. How can I create an agent-based model in my domain of interest?</h3>
+<h3 id="_how_can_i_report_a_problem_or_bug_with_repast_simphony">1.17. How can I report a problem or bug with Repast Simphony?</h3>
+<div class="paragraph"><p>The Repast team maintains a public issue tracker on Github and welcomes all comments
+and suggestions on how to improve the software: <a href="https://github.com/Repast/repast.simphony/issues">https://github.com/Repast/repast.simphony/issues</a></p></div>
+</div>
+<div class="sect2">
+<h3 id="_how_can_i_create_an_agent_based_model_in_my_domain_of_interest">1.18. How can I create an agent-based model in my domain of interest?</h3>
 <div class="paragraph"><p>Agent-based models are not necessarily complicated or hard to make, but there is
 no single modeling approach that works for all domains. To get a better
 understanding of agent-based modeling and simulation (ABMS) and ABMS toolkits we
@@ -976,14 +997,22 @@ suggest the following references:</p></div>
 <p>
 <strong>Everything you need to know about agent-based modelling and simulation</strong>,
 CM Macal, Journal of Simulation, 10:2, 144-156, 2016.
-<a href="https://www.tandfonline.com/doi/full/10.1057/jos.2016.7">https://www.tandfonline.com/doi/full/10.1057/jos.2016.7</a>
+<a href="https://doi.org/10.1057/jos.2016.7">https://doi.org/10.1057/jos.2016.7</a>
+</p>
+</li>
+<li>
+<p>
+<strong>Hammer or Tongs: How Best to Build Agent-Based Models?</strong>, North M.J.,
+In Advances in Practical Applications of Agents, Multi-Agent Systems, and
+Complexity: The PAAMS Collection. PAAMS 2018. Lecture Notes in Computer Science,
+vol 10978. Springer.  <a href="https://doi.org/10.1007/978-3-319-94580-4_1">https://doi.org/10.1007/978-3-319-94580-4_1</a>
 </p>
 </li>
 <li>
 <p>
 <strong>Complex adaptive systems modeling with Repast Simphony</strong>, MJ North, NT Collier,
 J Ozik, E Tatara, CM Macal, M Bragen, P Sydelko, Complex adaptive systems modeling 1 (1), 2013.
-<a href="https://link.springer.com/article/10.1186/2194-3206-1-3">https://link.springer.com/article/10.1186/2194-3206-1-3</a>
+<a href="https://doi.org/10.1186/2194-3206-1-3">https://doi.org/10.1186/2194-3206-1-3</a>
 </p>
 </li>
 <li>
@@ -995,26 +1024,41 @@ J Ozik, E Tatara, CM Macal, M Bragen, P Sydelko, Complex adaptive systems modeli
 <p>
 <strong>Managing Business Complexity: Discovering Strategic Solutions with Agent-Based Modeling and Simulation</strong>,
 Michael J. North and Charles M. Macal, Oxford University Press, 2007.
-<a href="http://www.oxfordscholarship.com/view/10.1093/acprof:oso/9780195172119.001.0001/acprof-9780195172119">http://www.oxfordscholarship.com/view/10.1093/acprof:oso/9780195172119.001.0001/acprof-9780195172119</a>
+<a href="http://doi.org/10.1093/acprof:oso/9780195172119.001.0001">http://doi.org/10.1093/acprof:oso/9780195172119.001.0001</a>
 </p>
 </li>
 <li>
 <p>
 <strong>Tutorial on agent-based modelling and simulation</strong>, CM Macal, MJ North, Journal of simulation 4 (3), 151-162, 2010.
-<a href="https://link.springer.com/article/10.1057/jos.2010.3">https://link.springer.com/article/10.1057/jos.2010.3</a>
+<a href="https://doi.org/10.1057/jos.2010.3">https://doi.org/10.1057/jos.2010.3</a>
 </p>
 </li>
 </ul></div>
 </div>
 <div class="sect2">
-<h3 id="_how_do_i_cite_repast_in_scientific_publications">1.16. How do I cite Repast in scientific publications?</h3>
+<h3 id="_how_do_i_perform_verification_and_validation_of_my_model">1.19. How do I perform verification and validation of my model?</h3>
+<div class="paragraph"><p>Please see the Repast Model Testing Guide documentation.  The following reference
+provides a review of ABM validation and verification literature:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Hammer or Tongs: How Best to Build Agent-Based Models?</strong>, North M.J.,
+In Advances in Practical Applications of Agents, Multi-Agent Systems, and
+Complexity: The PAAMS Collection. PAAMS 2018. Lecture Notes in Computer Science,
+vol 10978. Springer.  <a href="https://doi.org/10.1007/978-3-319-94580-4_1">https://doi.org/10.1007/978-3-319-94580-4_1</a>
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_how_do_i_cite_repast_in_scientific_publications">1.20. How do I cite Repast in scientific publications?</h3>
 <div class="paragraph"><p>If you publish a Repast Simphony-related paper, please considering citing the following paper:</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
 North, MJ, NT Collier, J Ozik, E Tatara, M Altaweel, CM Macal, M Bragen, and P Sydelko,
 "Complex Adaptive Systems Modeling with Repast Simphony", Complex Adaptive Systems Modeling,
-Springer, Heidelberg, FRG (2013). <a href="http://www.casmodeling.com/content/1/1/3">http://www.casmodeling.com/content/1/1/3</a>
+Springer, Heidelberg, FRG (2013). <a href="https://doi.org/10.1186/2194-3206-1-3">https://doi.org/10.1186/2194-3206-1-3</a>
 </p>
 </li>
 </ul></div>
@@ -1046,11 +1090,11 @@ Quick Start guide for instructions on using the example models.</p></div>
 <div class="sect2">
 <h3 id="_do_i_have_to_use_java_or_groovy_for_my_agents">2.2. Do I have to use Java or Groovy for my agents?</h3>
 <div class="paragraph"><p>Repast Simphony accepts both user-defned POJOs (Plain Old Java Objects) as well
-as POGOs (Plain Old Groovy Objects) as agents (or for defning other model components),
+as POGOs (Plain Old Groovy Objects) as agents (or for defining other model components),
 making the use of Groovy completely optional. For those interested in learning more
-about Groovy, a dynamically typed programming language very well integrated with Java, there is the Groovy
-home page <a href="http://groovy.codehaus.org/">http://groovy.codehaus.org/</a> and the very informative book "Groovy in
-Action" by Dierk Koenig.</p></div>
+about Groovy, a dynamically typed programming language very well integrated with
+Java, please see the Groovy home page <a href="http://groovy-lang.org/">http://groovy-lang.org/</a> and the very
+informative book "Groovy in Action" by Dierk Koenig. <a href="https://www.manning.com/books/groovy-in-action">https://www.manning.com/books/groovy-in-action</a></p></div>
 </div>
 <div class="sect2">
 <h3 id="_how_do_i_create_a_new_repast_project">2.3. How do I create a new Repast project?</h3>
@@ -1233,7 +1277,7 @@ Schedule with which can add your behavior. For example</p></div>
 </div>
 <div class="sect3">
 <h4 id="_how_do_i_create_a_custom_display">2.11.7. How do I create a custom display?</h4>
-<div class="paragraph"><p>All simphony displays implement IDisplay. <a href="CustomDisplay.java">CustomDisplay.java</a>
+<div class="paragraph"><p>All Simphony displays implement IDisplay. <a href="CustomDisplay.java">CustomDisplay.java</a>
 is an example that displays a panel with a simple label in it. Note that most of
 the methods are empty or return null. The important methods are render, update and
 getPanel(). When update is called the display should update its internal state to
