@@ -1113,175 +1113,37 @@ Repast Reference manual section
 <a href="../RepastReference/RepastReference.html#_updating_an_existing_repast_project">Updating an Existing Repast Project</a>.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_how_can_i_connect_my_model_results_to_software_tools_for_data_analysis">2.6. How can I connect my model results to software tools for data analysis</h3>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>Discuss R, Excel Weka&#8230;</p></div>
-</div></div>
-</div>
-<div class="sect2">
-<h3 id="_can_i_see_a_complete_listing_of_all_agents_in_a_model_at_a_specific_time">2.7. Can I see a complete listing of all agents in a model at a specific time?</h3>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>Discuss agent table</p></div>
-</div></div>
-</div>
-<div class="sect2">
-<h3 id="_how_do_i_log_data_for_model_output">2.8. How do I log data for model output?</h3>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>Discuss data sets and file outputters &#8594; point to reference</p></div>
-</div></div>
-</div>
-<div class="sect2">
-<h3 id="_how_can_i_sample_from_a_statistical_distribution">2.9. How can I sample from a statistical distribution?</h3>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>TODO</p></div>
-</div></div>
-</div>
-<div class="sect2">
-<h3 id="_how_can_i_create_a_model_in_which_agents_follow_a_road_network">2.10. How can I create a model in which Agents follow a road network?</h3>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>TODO</p></div>
-</div></div>
-</div>
-<div class="sect2">
-<h3 id="_how_can_i_load_a_network_from_an_excel_file">2.11. How can I load a network from an Excel file?</h3>
+<h3 id="_how_can_i_load_a_network_from_an_excel_file">2.6. How can I load a network from an Excel file?</h3>
 <div class="paragraph"><p>See the Repast Reference manual section
-<a href="../RepastReference/RepastReference.html#_loading_networks_from_input_files">Loading Networks from input files</a>.</p></div>
+<a href="../RepastReference/RepastReference.html#network-excel">Loading Networks from input files</a>.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_scheduling">2.12. Scheduling</h3>
+<h3 id="_scheduling">2.7. Scheduling</h3>
 <div class="sect3">
-<h4 id="_how_can_i_schedule_an_agent_behavior_to_execute_at_a_regular_tick_interval">2.12.1. How can I schedule an agent behavior to execute at a regular tick interval?</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>Discuss @ScheduledMethod &#8594; point to reference manual</p></div>
-</div></div>
+<h4 id="_how_can_i_schedule_an_agent_behavior_to_execute_at_a_regular_tick_interval">2.7.1. How can I schedule an agent behavior to execute at a regular tick interval?</h4>
+<div class="paragraph"><p>See the Repast Reference manual section
+<a href="../RepastReference/RepastReference.html#schedule-annotation">Schedule with Annotations</a>.</p></div>
 </div>
 <div class="sect3">
-<h4 id="_how_do_i_schedule_a_global_behavior_a_behavior_above_the_individual_agent_level">2.12.2. How do I schedule a "global" behavior, a behavior above the individual agent level?</h4>
-<div class="paragraph"><p>There&#8217;s at least two ways to do this. Both assume that you create your model in
-your own ContextBuilder Java class.</p></div>
-<div class="paragraph"><p>The first way requires that you have your ContextBuilder extend DefaultContext.
-Once you&#8217;ve done this you can add @ScheduledMethods to this ContextBuilder to
-perform some global action.</p></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>public class MyContextBuilder extends DefaultContext implements ContextBuilder {
-  /**
-  * Builds and returns a context. Building a context consists of filling
-  * it with agents, adding projects and so forth. The returned context
-  * does not necessarily have to be the passed in context.
-  *
-  * @param context
-  * @return the built context .
-  */
-  public Context build ( Context &lt;T&gt; context ) {
-  ...
-  }
-
-  @ScheduledMethod ( start = 1)
-  public void step () {
-    // my " global " behavior
-  }
-}</code></pre>
-</div></div>
-<div class="paragraph"><p>The second way uses the RunEnvironment object to get a reference to the current
-Schedule with which can add your behavior. For example</p></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>public class MyContextBuilder implements ContextBuilder {
-  public Context build ( Context &lt;T&gt; context ) {
-
-    ISchedule schedule = RunEnviroment.getCurrentSchedule ();
-    ScheduleParameters params = ScheduleParameters.createOneTime(1);
-    schedule.schedule(params, this, " step ");
-  }
-
-  public void step () {
-    // my global behavior
-  }
-}</code></pre>
-</div></div>
+<h4 id="_how_do_i_schedule_a_global_behavior_a_behavior_above_the_individual_agent_level">2.7.2. How do I schedule a "global" behavior, a behavior above the individual agent level?</h4>
+<div class="paragraph"><p>See the Repast Reference manual section
+<a href="../RepastReference/RepastReference.html#schedule-global">Scheduling Global Behaviors</a>.</p></div>
 </div>
 <div class="sect3">
-<h4 id="_how_can_i_dynamically_schedule_actions_based_on_events">2.12.3. How can I dynamically schedule actions based on events?</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>Discuss programmatic scheduling &#8594; point to reference</p></div>
-</div></div>
+<h4 id="_how_can_i_dynamically_schedule_actions_based_on_events">2.7.3. How can I dynamically schedule actions based on events?</h4>
+<div class="paragraph"><p>See the Repast Reference manual section
+<a href="../RepastReference/RepastReference.html#schedule-direct">Directly Schedule an Action</a>.</p></div>
 </div>
 <div class="sect3">
-<h4 id="_how_can_i_stop_or_pause_the_simulation_at_a_specific_time_or_event">2.12.4. How can I stop or pause the simulation at a specific time or event?</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>Discuss scheduling pause, stop RunEnvironment.getInstance().endAt(endTime);</p></div>
-</div></div>
+<h4 id="_how_can_i_stop_or_pause_the_simulation_at_a_specific_time_or_event">2.7.4. How can I stop or pause the simulation at a specific time or event?</h4>
+<div class="paragraph"><p>See the Repast Reference manual section
+<a href="../RepastReference/RepastReference.html#schedule-stop">Stopping and Pausing the Model Using the Schedule</a>.</p></div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_displays_and_gui">2.13. Displays and GUI</h3>
+<h3 id="_displays_and_gui">2.8. Displays and GUI</h3>
 <div class="sect3">
-<h4 id="_how_can_i_change_the_tick_format_in_the_runtime_gui">2.13.1. How can I change the tick format in the Runtime GUI?</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>TODO</p></div>
-</div></div>
-</div>
-<div class="sect3">
-<h4 id="_how_do_i_add_a_background_image_to_a_display">2.13.2. How do I add a background image to a display?</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>Discuss adding background to 2D, GIS &#8594; point to reference manual</p></div>
-</div></div>
-</div>
-<div class="sect3">
-<h4 id="_how_can_i_track_agent_movement_paths_in_a_display">2.13.3. How can I track agent movement paths in a display?</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>Discuss waypoints / network &#8594; point to reference manual</p></div>
-</div></div>
-</div>
-<div class="sect3">
-<h4 id="_can_i_add_a_custom_display_or_controls_to_the_repast_runtime_gui">2.13.4. Can I add a custom display or controls to the Repast runtime GUI?</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>Discuss adding displays programmatically and the user panel customization</p></div>
-</div></div>
-</div>
-<div class="sect3">
-<h4 id="_how_do_i_add_a_custom_listener_to_the_runtime_control_buttons">2.13.5. How do I add a custom listener to the runtime control buttons?</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>TODO</p></div>
-</div></div>
-</div>
-<div class="sect3">
-<h4 id="_how_do_i_change_the_color_shape_or_size_of_agents_in_a_display">2.13.6. How do I change the color, shape, or size of agents in a display?</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>Discuss styles&#8230;</p></div>
-</div></div>
-</div>
-<div class="sect3">
-<h4 id="_how_do_i_create_a_custom_display">2.13.7. How do I create a custom display?</h4>
+<h4 id="_how_do_i_create_a_custom_display">2.8.1. How do I create a custom display?</h4>
 <div class="paragraph"><p>All Simphony displays implement IDisplay. <a href="CustomDisplay.java">CustomDisplay.java</a>
 is an example that displays a panel with a simple label in it. Note that most of
 the methods are empty or return null. The important methods are render, update and
@@ -1305,23 +1167,7 @@ located in your scenario directory (e.g. mousetrap.rs) by adding a model.initial
 </div></div>
 </div>
 <div class="sect3">
-<h4 id="_how_can_i_change_the_mouse_behavior_in_displays">2.13.8. How can I change the mouse behavior in displays?</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>Custom mouse listener from mail list &#8594; reference guide section</p></div>
-</div></div>
-</div>
-<div class="sect3">
-<h4 id="_how_can_i_save_a_movie_or_image_of_my_repast_model_displays">2.13.9. How can I save a movie or image of my Repast model displays?</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>TODO</p></div>
-</div></div>
-</div>
-<div class="sect3">
-<h4 id="_where_can_i_find_3d_models_to_use_in_displays">2.13.10. Where can I find 3D models to use in displays?</h4>
+<h4 id="_where_can_i_find_3d_models_to_use_in_displays">2.8.2. Where can I find 3D models to use in displays?</h4>
 <div class="paragraph"><p>There are many online sources for 3D model files that can be used in Repast 3D
 displays. The models available online generally are of one of the more popular formats such
 as Lightwave, Wavefront OBJ or AutoDesk 3DS. To display one of these models in a
@@ -1340,60 +1186,46 @@ and saved in the MS3D format.</p></div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_geographic_gis_modeling">2.14. Geographic GIS Modeling</h3>
+<h3 id="_geographic_gis_modeling">2.9. Geographic GIS Modeling</h3>
 <div class="sect3">
-<h4 id="_does_repast_support_geographic_projections_gis">2.14.1. Does Repast support geographic projections (GIS)?</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>TODO</p></div>
-</div></div>
+<h4 id="_does_repast_support_geographic_projections_gis">2.9.1. Does Repast support geographic projections (GIS)?</h4>
+<div class="paragraph"><p>Yes.  See the Repast Reference manual section
+<a href="../RepastReference/RepastReference.html#gis">GIS Projections</a>.</p></div>
 </div>
 <div class="sect3">
-<h4 id="_how_can_i_import_a_gis_shapefile_or_raster_into_a_repast_model">2.14.2. How can I import a GIS shapefile or raster into a Repast model?</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>TODO</p></div>
-</div></div>
+<h4 id="_how_can_i_import_a_gis_shapefile_or_raster_into_a_repast_model">2.9.2. How can I import a GIS shapefile or raster into a Repast model?</h4>
+<div class="paragraph"><p>See the Repast Reference manual section
+<a href="../RepastReference/RepastReference.html#gis-load-shapefile">Loading Agent Data from Shapefiles</a>.</p></div>
 </div>
 <div class="sect3">
-<h4 id="_what_is_the_difference_between_the_gis_and_gis_3d_displays">2.14.3. What is the difference between the GIS and GIS 3D displays?</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>TODO</p></div>
-</div></div>
+<h4 id="_can_i_load_or_create_gis_raster_layers_in_repast_model">2.9.3. Can I load or create GIS raster layers in Repast model?</h4>
+<div class="paragraph"><p>See the Repast Reference manual section
+<a href="../RepastReference/RepastReference.html#gis-raster">Coverage Raster Layers</a>.</p></div>
 </div>
 <div class="sect3">
-<h4 id="_how_do_i_find_agents_in_a_geography_within_some_distance_from_a_specific_point">2.14.4. How do I find agents in a geography within some distance from a specific point?</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>TODO</p></div>
-</div></div>
+<h4 id="_can_gis_and_network_projections_be_combined">2.9.4. Can GIS and Network projections be combined?</h4>
+<div class="paragraph"><p>Yes. See the Repast Reference manual section
+<a href="../RepastReference/RepastReference.html#gis-network">Network Projections in GIS</a>.</p></div>
 </div>
 <div class="sect3">
-<h4 id="_how_do_i_find_the_straight_line_distance_between_points_in_a_geography">2.14.5. How do I find the straight line distance between points in a geography?</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>TODO</p></div>
-</div></div>
-</div>
-<div class="sect3">
-<h4 id="_how_do_i_find_the_distance_between_a_point_and_a_polygon_in_a_geography">2.14.6. How do I find the distance between a point and a polygon in a geography?</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>TODO</p></div>
-</div></div>
+<h4 id="_what_is_the_difference_between_the_gis_and_gis_3d_displays">2.9.5. What is the difference between the GIS and GIS 3D displays?</h4>
+<div class="paragraph"><p>The GIS (legacy) displays are the original GIS displays from Repast version 1.0.
+These displays provide basic GIS functionality in a 2D projection with limited
+styles for polygon, line, and point features.  Current releases of Repast Simphony
+still support the original GIS displays.  The GIS 3D displays provide more
+advanced GIS display functionality and are based on
+<a href="https://worldwind.arc.nasa.gov/java/">NASA WorldWind Java</a>.  GIS 3D displays can
+produce shapes for polygon, line, and points, along with raster layers, and online
+GIS image data such as background satellite imagery and
+<a href="https://www.openstreetmap.org/#map=4/38.01/-95.84">OpenStreetMap</a> layers.  It is
+recommended to use the newer GIS 3D displays for Geography projections since the
+displays provide a much higher degree of customization over the legacy 2D diaplays.</p></div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_running_models">2.15. Running Models</h3>
+<h3 id="_running_models">2.10. Running Models</h3>
 <div class="sect3">
-<h4 id="_how_can_i_run_repast_simphony_from_another_java_application">2.15.1. How can I run Repast Simphony from another Java application?</h4>
+<h4 id="_how_can_i_run_repast_simphony_from_another_java_application">2.10.1. How can I run Repast Simphony from another Java application?</h4>
 <div class="paragraph"><p>Repast may be launched programmatically by directly calling the
 repast.simphony.runtime.RepastMain class. RepastMain takes two arguments, the
 first is the location of the model scenario directory and the second is an
@@ -1426,7 +1258,7 @@ public UserMain(){};
 </div></div>
 </div>
 <div class="sect3">
-<h4 id="_how_can_i_control_the_repast_simphony_schedule_from_another_java_application">2.15.2. How can I control the Repast Simphony schedule from another Java application?</h4>
+<h4 id="_how_can_i_control_the_repast_simphony_schedule_from_another_java_application">2.10.2. How can I control the Repast Simphony schedule from another Java application?</h4>
 <div class="paragraph"><p>To run a simulation purely programmatically with fine control, you need to create
 a class that extends repast.simphony.engine.environment.AbstractRunner and modify
 it to suit your needs. The runner class can then be used to initialize, step, run,
@@ -1439,35 +1271,11 @@ In this case you won&#8217;t use either the RepastMain (GUI) or the BatchMain (b
 but use the runner class directly. Note that you will need to include the classes
 from repast.simphony.runtime and repast.simphony.Batch in your classpath to run.</p></div>
 </div>
-<div class="sect3">
-<h4 id="_how_can_i_run_a_repast_model_from_the_command_line">2.15.3. How can I run a Repast model from the command line?</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>TODO</p></div>
-</div></div>
-</div>
-<div class="sect3">
-<h4 id="_how_can_i_ensure_repeatability_across_runs">2.15.4. How can I ensure repeatability across runs?</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>Discuss using only Repast RandomHelper and not using Math.rand()&#8230;shuffle, iterating over map values</p></div>
-</div></div>
-</div>
-<div class="sect3">
-<h4 id="_can_i_execute_multiple_model_runs_in_parallel">2.15.5. Can I execute multiple model runs in parallel?</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>TODO</p></div>
-</div></div>
-</div>
 </div>
 <div class="sect2">
-<h3 id="_model_configuration">2.16. Model Configuration</h3>
+<h3 id="_model_configuration">2.11. Model Configuration</h3>
 <div class="sect3">
-<h4 id="_how_can_i_convert_my_repast_simphony_1_0_1_1_or_1_2_model_to_run_in_repast_simphony_2_0_and_later">2.16.1. How can I convert my Repast Simphony 1.0, 1.1 or 1.2 model to run in Repast Simphony 2.0 and later?</h4>
+<h4 id="_how_can_i_convert_my_repast_simphony_1_0_1_1_or_1_2_model_to_run_in_repast_simphony_2_0_and_later">2.11.1. How can I convert my Repast Simphony 1.0, 1.1 or 1.2 model to run in Repast Simphony 2.0 and later?</h4>
 <div class="paragraph"><p>To upgrade scenarios simply do the following:</p></div>
 <div class="ulist"><ul>
 <li>
@@ -1487,7 +1295,7 @@ from the scenario file. Removing the displays is necessary because old Piccolo
 2D displays will no longer load in version 2.0.</p></div>
 </div>
 <div class="sect3">
-<h4 id="_how_can_i_convert_my_repast_j_model_to_run_in_repast_simphony">2.16.2. How can I convert my Repast J model to run in Repast Simphony?</h4>
+<h4 id="_how_can_i_convert_my_repast_j_model_to_run_in_repast_simphony">2.11.2. How can I convert my Repast J model to run in Repast Simphony?</h4>
 <div class="paragraph"><p>A quick summary of the process of converting to Repast J to Repast S:</p></div>
 <div class="ulist"><ul>
 <li>
@@ -1521,36 +1329,20 @@ are direct ports from the Repast J models, so comparing these will provide some
 additional help on porting models.</p></div>
 </div>
 <div class="sect3">
-<h4 id="_how_do_i_include_a_third_party_library_in_my_model">2.16.3. How do I include a third-party library in my model?</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>TODO</p></div>
-</div></div>
+<h4 id="_how_do_i_include_a_third_party_library_in_my_model">2.11.3. How do I include a third-party library in my model?</h4>
+<div class="paragraph"><p>Simply place the .jar files in the project /lib folder and the Repast runtime
+will automatically load them.  See the Repast Reference manual section
+<a href="../RepastReference/RepastReference.html#user-path">user_path</a> for more details.</p></div>
 </div>
 <div class="sect3">
-<h4 id="_how_can_i_give_my_repast_model_to_someone_else">2.16.4. How can I give my Repast model to someone else?</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>TODO</p></div>
-</div></div>
+<h4 id="_how_can_i_give_my_repast_model_to_someone_else">2.11.4. How can I give my Repast model to someone else?</h4>
+<div class="paragraph"><p>See the Repast Reference manual section
+<a href="../RepastReference/RepastReference.html#distribute-model">Distributing Your Model</a>.</p></div>
 </div>
 <div class="sect3">
-<h4 id="_how_do_i_open_a_repast_model_that_someone_else_gave_me">2.16.5. How do I open a Repast model that someone else gave me?</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>TODO</p></div>
-</div></div>
-</div>
-<div class="sect3">
-<h4 id="_can_i_use_maven_with_a_repast_project_in_eclipse">2.16.6. Can I use Maven with a Repast project in Eclipse?</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TODO</div>
-<div class="paragraph"><p>TODO</p></div>
-</div></div>
+<h4 id="_how_do_i_open_a_repast_model_that_someone_else_gave_me">2.11.5. How do I open a Repast model that someone else gave me?</h4>
+<div class="paragraph"><p>See the Repast Reference manual section
+<a href="../RepastReference/RepastReference.html#importing-model">Importing a Model</a>.</p></div>
 </div>
 </div>
 </div>
@@ -1580,14 +1372,33 @@ WARNING: All illegal access operations will be denied in a future release</code>
 </div></div>
 </div>
 <div class="sect2">
-<h3 id="_severe_retrieval_returned_no_content_for_https_worldwind20_arc_nasa_gov_8230">3.3. SEVERE: Retrieval returned no content for https://worldwind20.arc.nasa.gov/&#8230;</h3>
+<h3 id="_eclipse_an_out_of_memory_error_has_occurred">3.3. Eclipse: An out of memory error has occurred.</h3>
+<div class="paragraph"><p>Eclipse may exceed the specified maximum memory it can use when building large
+projects.  The memory allocated to Eclipse is specified in the
+<a href="https://wiki.eclipse.org/Eclipse.ini">eclipse.ini</a> file in the /eclipse folder and
+can be directly edited with a text editor.   The arguments -Xms and -Xmx may be
+updated to allocate more memory, for example</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>-Xms256m
+-Xmx2048m</code></pre>
+</div></div>
+<div class="paragraph"><p>will allocate 2GB maximum to Eclipse.  The default values for -Xmx is usually much
+smaller.  As of Repast version 2.6, the eclipse.ini included with the Repast installer
+omits the -Xms and -Xmx entirely, as the JVM is able to automatically re-allocate
+memory up to the system available maximum.  For users who download their own copy
+of Eclipse, or for Repast versions prior to 2.6, the -Xms and -Xmx values can be
+removed or updated as needed.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_severe_retrieval_returned_no_content_for_https_worldwind20_arc_nasa_gov_8230">3.4. SEVERE: Retrieval returned no content for https://worldwind20.arc.nasa.gov/&#8230;</h3>
 <div class="paragraph"><p>This is a benign warning that sometimes occurs in GIS displays because the online
 server for layers like satellite imagery is unreachable or offline.  The only impact
 of this error is that some GIS display imagery data may be unavailable.  Model behavior
 is not affected.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_warn_empty_or_non_existent_path">3.4. WARN "Empty or non-existent path"</h3>
+<h3 id="_warn_empty_or_non_existent_path">3.5. WARN "Empty or non-existent path"</h3>
 <div class="paragraph"><p>When launching a Repast model, the following errors may occur in the console:</p></div>
 <div class="listingblock">
 <div class="content">
@@ -1601,7 +1412,7 @@ usually by default this is "../bin".  This warning will also occur if no agent
 classes are defined within the "mypath" location.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_when_i_run_my_model_i_see_the_error_java_lang_classnotfoundexception_somepackage_someclass_at_8230">3.5. When I run my model I see the error "java.lang.ClassNotFoundException: somepackage.someclass at &#8230;"</h3>
+<h3 id="_when_i_run_my_model_i_see_the_error_java_lang_classnotfoundexception_somepackage_someclass_at_8230">3.6. When I run my model I see the error "java.lang.ClassNotFoundException: somepackage.someclass at &#8230;"</h3>
 <div class="paragraph"><p>This is caused by a Java classpath configuration error such that the model cannot
 find the specified class "somepackage.someclass".  If the specified class refers to
 a user-created model file, please make sure that the <strong>user_path.xml</strong> agents path
@@ -1611,12 +1422,12 @@ is included in the project /lib folder and that the <strong>user_path.xml</stron
 folder as a classpath entry.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_i_press_the_run_button_but_nothing_happens_or_the_tick_reads_1">3.6. I press the run button but nothing happens or the tick reads -1</h3>
+<h3 id="_i_press_the_run_button_but_nothing_happens_or_the_tick_reads_1">3.7. I press the run button but nothing happens or the tick reads -1</h3>
 <div class="paragraph"><p>The tick counter will not increment if no behaviors have been scheduled.  Schedule
 agent behaviors in the agent classes using the @ScheduledMethod annotation.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_error_log4j_warn_no_appenders_could_be_found_for_logger_messagecenter_internal_repast_simphony_ui_rsuiplugin">3.7. Error "log4j:WARN No appenders could be found for logger (MessageCenter.INTERNAL.repast.simphony.ui.RSUIPlugin)"</h3>
+<h3 id="_error_log4j_warn_no_appenders_could_be_found_for_logger_messagecenter_internal_repast_simphony_ui_rsuiplugin">3.8. Error "log4j:WARN No appenders could be found for logger (MessageCenter.INTERNAL.repast.simphony.ui.RSUIPlugin)"</h3>
 <div class="paragraph"><p>An issue sometimes occurs with the Repast message logging system that results in
 error messages like</p></div>
 <div class="listingblock">
@@ -1633,7 +1444,7 @@ you can usually find more information from the Repast runtime error log.
 The error log is available when the icon in the lower right corner of the Repast runtime is flashing.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_exception_in_thread_main_java_lang_outofmemoryerror_java_heap_space">3.8. Exception in thread "main" java.lang.OutOfMemoryError: Java heap space</h3>
+<h3 id="_exception_in_thread_main_java_lang_outofmemoryerror_java_heap_space">3.9. Exception in thread "main" java.lang.OutOfMemoryError: Java heap space</h3>
 <div class="paragraph"><p>Java has attempted to use more memory that is available to the model.  With version
 of Java prior to version 9, it was usually necessary to specify the amount of memory
 needed by an application, because the default amount or "heap space" was very small.
@@ -1653,7 +1464,7 @@ a memory limit of 4 GB.</p></div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_when_i_run_the_model_i_get_the_runtime_error_javax_media_opengl_glexception">3.9. When I run the model I get the runtime error javax.media.opengl.GLException</h3>
+<h3 id="_when_i_run_the_model_i_get_the_runtime_error_javax_media_opengl_glexception">3.10. When I run the model I get the runtime error javax.media.opengl.GLException</h3>
 <div class="paragraph"><p>When running a Repast model with displays an error similar to that shown below is
 seen and the displays do not show correctly in the Repast runtime GUI:</p></div>
 <div class="listingblock">
