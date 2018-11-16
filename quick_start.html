@@ -10,8 +10,30 @@ table {
 
 td, th {
     border: 1px solid #dddddd;
-    text-align: left;
     padding: 8px;
+}
+
+.collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+.active, .collapsible:hover {
+    background-color: #555;
+}
+
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
 }
 
 </style>
@@ -35,35 +57,39 @@ td, th {
 <div class="post-bgtop">
 <div class="post-bgbtm">
 <h1 class="title">Repast Quick Start Guide</h1>
+
 <p class="meta"></p>
-<div class="entry">
+	<div class="entry">
+		This guide is intended to provide a minimal set of instructions to
+		download, install, and run Repast Simphony and provide the user with a path
+		towards developing their own models.  The 
+		<a href="./docs/RepastFAQ/RepastFAQ.html">Repast FAQ</a>,
+		<a href="./download.html">Repast Downloads</a>, and
+		<a href="./docs.html">Repast Documentation</a> pages all
+		provide more detailed documentation.
 
-This guide is intended to provide a minimal set of instructions to
-download, install, and run Repast Simphony and provide the user with a path
-towards developing their own models.  The 
-<a href="./docs/RepastFAQ/RepastFAQ.html">Repast FAQ</a>,
-<a href="./download.html">Repast Downloads</a>, and
-<a href="./docs.html">Repast Documentation</a> pages all
-provide more detailed documentation.
+		To get started using Repast Simphony, please follow these steps:<br>
+</p>
 
-To get started using Repast Simphony, please follow these steps:
-
-<br>
-  </p>
-<ol>
-	<li><a href="./download.html">Download and install 
-	Repast Simphony</a>.</li>
-    
-	<li>Run Repast and import example models</li>
+<button class="collapsible">Step 1: Download and install Repast Simphony</button>
+<div class="content">
+	<p><a href="./download.html">Download and install Repast Simphony</a>.</p>
+</div>    
 	
-	<li>Select a Repast tutorial depending on your modeling needs and programming level:<br>
-	
+<button class="collapsible">Step 2: Run Repast and import example models</button>
+<div class="content">
+	<p>Run Repast and import example models</p>
+</div>	
+
+<button class="collapsible">Step 3: Select a Repast tutorial depending on your modeling needs and programming level</button>
+<div class="content">
+<p>
 		<table>
 			<col width="25%">
 			<col width="77%">
 			<tr>
-				<th>Guide</th>
-				<th>User Experience Level or Application</th>
+				<th align="center">Guide</th>
+				<th align="center">User Experience Level or Application</th>
 			</tr>
 			<tr>
 				<td><a href="./docs/ReLogoGettingStarted.pdf"><i>ReLogo Getting Started</i></a></td>
@@ -110,9 +136,8 @@ To get started using Repast Simphony, please follow these steps:
 				
 		</table>
 		
-	</ul>
-</ul>
-
+	</p>
+</div>
 
 </div>
 </div>
@@ -135,4 +160,22 @@ To get started using Repast Simphony, please follow these steps:
 </div>
 </div>
 </div>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+
 <!-- end #page -->
