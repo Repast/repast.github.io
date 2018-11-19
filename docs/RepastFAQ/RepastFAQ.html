@@ -29,10 +29,13 @@ body {
 
 a {
   color: blue;
-  text-decoration: underline;
+  text-decoration: none;
 }
 a:visited {
   color: fuchsia;
+}
+a:hover {
+    text-decoration: underline;
 }
 
 em {
@@ -1372,7 +1375,17 @@ WARNING: All illegal access operations will be denied in a future release</code>
 </div></div>
 </div>
 <div class="sect2">
-<h3 id="_eclipse_an_out_of_memory_error_has_occurred">3.3. Eclipse: An out of memory error has occurred.</h3>
+<h3 id="_warning_nswindow_drag_regions_should_only_be_invalidated_on_the_main_thread">3.3. WARNING: NSWindow drag regions should only be invalidated on the Main Thread!</h3>
+<div class="paragraph"><p>The following warning message occurs when using macOS Mojave, and has no impact
+on the model code, performance, or reliability, and can be safely ignored:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>WARNING: NSWindow drag regions should only be invalidated on the Main Thread! ...
+...</code></pre>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_eclipse_an_out_of_memory_error_has_occurred">3.4. Eclipse: An out of memory error has occurred.</h3>
 <div class="paragraph"><p>Eclipse may exceed the specified maximum memory it can use when building large
 projects.  The memory allocated to Eclipse is specified in the
 <a href="https://wiki.eclipse.org/Eclipse.ini">eclipse.ini</a> file in the /eclipse folder and
@@ -1391,14 +1404,14 @@ of Eclipse, or for Repast versions prior to 2.6, the -Xms and -Xmx values can be
 removed or updated as needed.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_severe_retrieval_returned_no_content_for_https_worldwind20_arc_nasa_gov_8230">3.4. SEVERE: Retrieval returned no content for https://worldwind20.arc.nasa.gov/&#8230;</h3>
+<h3 id="_severe_retrieval_returned_no_content_for_https_worldwind20_arc_nasa_gov_8230">3.5. SEVERE: Retrieval returned no content for https://worldwind20.arc.nasa.gov/&#8230;</h3>
 <div class="paragraph"><p>This is a benign warning that sometimes occurs in GIS displays because the online
 server for layers like satellite imagery is unreachable or offline.  The only impact
 of this error is that some GIS display imagery data may be unavailable.  Model behavior
 is not affected.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_warn_empty_or_non_existent_path">3.5. WARN "Empty or non-existent path"</h3>
+<h3 id="_warn_empty_or_non_existent_path">3.6. WARN "Empty or non-existent path"</h3>
 <div class="paragraph"><p>When launching a Repast model, the following errors may occur in the console:</p></div>
 <div class="listingblock">
 <div class="content">
@@ -1412,7 +1425,7 @@ usually by default this is "../bin".  This warning will also occur if no agent
 classes are defined within the "mypath" location.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_when_i_run_my_model_i_see_the_error_java_lang_classnotfoundexception_somepackage_someclass_at_8230">3.6. When I run my model I see the error "java.lang.ClassNotFoundException: somepackage.someclass at &#8230;"</h3>
+<h3 id="_when_i_run_my_model_i_see_the_error_java_lang_classnotfoundexception_somepackage_someclass_at_8230">3.7. When I run my model I see the error "java.lang.ClassNotFoundException: somepackage.someclass at &#8230;"</h3>
 <div class="paragraph"><p>This is caused by a Java classpath configuration error such that the model cannot
 find the specified class "somepackage.someclass".  If the specified class refers to
 a user-created model file, please make sure that the <strong>user_path.xml</strong> agents path
@@ -1422,12 +1435,12 @@ is included in the project /lib folder and that the <strong>user_path.xml</stron
 folder as a classpath entry.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_i_press_the_run_button_but_nothing_happens_or_the_tick_reads_1">3.7. I press the run button but nothing happens or the tick reads -1</h3>
+<h3 id="_i_press_the_run_button_but_nothing_happens_or_the_tick_reads_1">3.8. I press the run button but nothing happens or the tick reads -1</h3>
 <div class="paragraph"><p>The tick counter will not increment if no behaviors have been scheduled.  Schedule
 agent behaviors in the agent classes using the @ScheduledMethod annotation.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_error_log4j_warn_no_appenders_could_be_found_for_logger_messagecenter_internal_repast_simphony_ui_rsuiplugin">3.8. Error "log4j:WARN No appenders could be found for logger (MessageCenter.INTERNAL.repast.simphony.ui.RSUIPlugin)"</h3>
+<h3 id="_error_log4j_warn_no_appenders_could_be_found_for_logger_messagecenter_internal_repast_simphony_ui_rsuiplugin">3.9. Error "log4j:WARN No appenders could be found for logger (MessageCenter.INTERNAL.repast.simphony.ui.RSUIPlugin)"</h3>
 <div class="paragraph"><p>An issue sometimes occurs with the Repast message logging system that results in
 error messages like</p></div>
 <div class="listingblock">
@@ -1444,7 +1457,7 @@ you can usually find more information from the Repast runtime error log.
 The error log is available when the icon in the lower right corner of the Repast runtime is flashing.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_exception_in_thread_main_java_lang_outofmemoryerror_java_heap_space">3.9. Exception in thread "main" java.lang.OutOfMemoryError: Java heap space</h3>
+<h3 id="_exception_in_thread_main_java_lang_outofmemoryerror_java_heap_space">3.10. Exception in thread "main" java.lang.OutOfMemoryError: Java heap space</h3>
 <div class="paragraph"><p>Java has attempted to use more memory that is available to the model.  With version
 of Java prior to version 9, it was usually necessary to specify the amount of memory
 needed by an application, because the default amount or "heap space" was very small.
@@ -1464,7 +1477,7 @@ a memory limit of 4 GB.</p></div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_when_i_run_the_model_i_get_the_runtime_error_javax_media_opengl_glexception">3.10. When I run the model I get the runtime error javax.media.opengl.GLException</h3>
+<h3 id="_when_i_run_the_model_i_get_the_runtime_error_javax_media_opengl_glexception">3.11. When I run the model I get the runtime error javax.media.opengl.GLException</h3>
 <div class="paragraph"><p>When running a Repast model with displays an error similar to that shown below is
 seen and the displays do not show correctly in the Repast runtime GUI:</p></div>
 <div class="listingblock">
@@ -1479,6 +1492,114 @@ system graphics hardware not supporting OpenGL.  The most common cause of this e
 is out of date graphics drivers.  The graphics drivers should be updated and are
 generally available from the computer manufaturer or directly from the GPU support
 sites of NVidia or ATI.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_osx_macos_vecmath_jogl_java3d_related_exceptions">3.12. OSX/macOS vecmath / jogl/ java3d related exceptions</h3>
+<div class="paragraph"><p>Under OSX, Apple has installed older obsolete versions of the vecmath and
+Java3D libraries. These may be located in a variety of locations such as</p></div>
+<div class="paragraph"><p>/System/Library/Java/Extensions</p></div>
+<div class="paragraph"><p>/Library/Java/Extensions</p></div>
+<div class="paragraph"><p>or</p></div>
+<div class="paragraph"><p>&lt;User Home&gt;/Library/Java/Extensions</p></div>
+<div class="paragraph"><p>Remove all the vecmath, java3d and jogl related jars and vecmath, java3d,
+jogl, and jnilib files from those directories.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_problems_with_updating_older_repast_models">3.13. Problems with updating older Repast models</h3>
+<div class="sect3">
+<h4 id="_i_imported_a_previous_workspace_into_a_new_version_and_now_i_get_an_error_like_java_lang_unsupportedclassversionerror_8230_unsupported_major_minor_version_51_0">3.13.1. I imported a previous workspace into a new version and now I get an error like "java.lang.UnsupportedClassVersionError&#8230;.unsupported major.minor version 51.0"</h4>
+<div class="paragraph"><p>Older workspaces that previously worked with Simphony may be setup to use Java 1.6.
+The workspace preferences must be updated to use Java 1.8 or later. Go to the
+Preferences menu then select Java &#8594; Installed JREs and choose a Java JRE 8 or
+later that installed on your system.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_i_tried_the_batch_model_launcher_in_eclipse_and_i_get_class_not_found_errors_for_the_apache_cli_classes">3.13.2. I tried the batch model launcher in Eclipse and I get class not found errors for the apache CLI classes.</h4>
+<div class="paragraph"><p>The current version of the batch GUI require a different classpath and
+older versions of the .launch file do not have the correct classpath. To
+fix this, open the .launch file as text and replace the line:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;listEntry value="&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;
+standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#10;&amp;lt;runtimeClasspathEntry
+containerPath=&amp;quot;STAND_ALONE_BATCH_CLASSPATH&amp;quot;
+path=&amp;quot;3&amp;quot; type=&amp;quot;3&amp;quot;/&amp;gt;&amp;#10;"/&gt;</code></pre>
+</div></div>
+<div class="paragraph"><p>with:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;listEntry value="&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;
+standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#10;&amp;lt;runtimeClasspathEntry
+containerPath=&amp;quot;STAND_ALONE_BATCH_LAUNCHER&amp;quot;
+path=&amp;quot;3&amp;quot; type=&amp;quot;4&amp;quot;/&amp;gt;&amp;#10;"/&gt;</code></pre>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_when_building_the_model_installer_i_get_an_exception_java_com_izforge_izpack_compiler_compilerexception">3.13.3. When building the model installer I get an exception "[java] com.izforge.izpack.compiler.CompilerException"</h4>
+<div class="paragraph"><p>Models created with previous version of Repast should have their installer configuration
+files updated.  This can be done automatically.  If you created a Repast or ReLogo
+project using a previous version of Repast Simphony and would like to update the
+project files to a newer version of Repast, see the Repast Reference manual section
+<a href="../RepastReference/RepastReference.html#update-repast-project">Updating an Existing Repast Project</a>.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_my_repast_project_includes_junit_unit_tests_but_the_tests_won_8217_t_compile_e_g_the_imported_packages_won_8217_t_import_etc">3.13.4. My Repast project includes JUnit unit tests but the tests won&#8217;t compile (e.g. the imported packages won&#8217;t import etc.).</h4>
+<div class="paragraph"><p>Eclipse included with Repast Simphony changed the name of its JUnit library plugin.
+The project build path needs to be updated to this new JUnit library. To do this,
+right click on the project name in the package explorer then Build Path &#8594;
+Add Libraries. Choose JUnit from the list, then Next, then Finish. That will add
+Eclipse&#8217;s current JUnit to the project.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_i_imported_an_existing_2_0_project_into_2_1_2_2_and_created_a_statechart_the_statechart_code_in_my_agent_won_8217_t_compile">3.13.5. I imported an existing 2.0 project into 2.1 / 2.2 and created a statechart. The statechart code in my agent won&#8217;t compile.</h4>
+<div class="paragraph"><p>By default a 2.0 project is not set up to generate and compile code from
+a statechart. To enable this, the project must be upgraded to a new verison of Repast Simphony.
+To do that, right click on the project name, then choose Repast Simphony
+from the menu and then Update Repast Simphony Nature. Now when you save the
+statechart you should see a src-gen directory in into which the statechart
+code is generated.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_batch_run_gui_nullpointerexception">3.13.6. Batch run GUI NullPointerException</h4>
+<div class="paragraph"><p>When running the Repast batch run GUI with a model created with an older version
+of Repast, you may see an error like:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>Exception in thread "AWT-EventQueue-0" java.lang.NullPointerException
+at repast.simphony.batch.gui.BatchConfigMediator.&lt;init&gt;(BatchConfigMediator.java:80)
+at repast.simphony.batch.gui.BatchConfigMediator.&lt;init&gt;(BatchConfigMediator.java:72)
+at repast.simphony.batch.gui.MainPanel.&lt;init&gt;(MainPanel.java:27)
+...</code></pre>
+</div></div>
+<div class="paragraph"><p>The MessageCenter.log4j.properties file in the model root folder is out of date
+and needs to be updated.  Replace the current contents of that file with:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>log4j.rootLogger = error
+log4j.logger.org.java.plugin = warn, stdout
+log4j.logger.org.apache.commons= warn, stdout
+log4j.logger.repast.simphony.plugin = warn, stdout
+
+log4j.logger.MessageCenter.INTERNAL.repast = info, stdout, R
+log4j.logger.MessageCenter.INTERNAL.saf = info, stdout, R
+
+log4j.logger.repast.simphony.batch = info, stdout, R
+log4j.logger.repast.simphony.batch.ssh.SSHSessionFactory = warn, stdout, R
+
+log4j.appender.stdout = org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.layout = simphony.util.messages.MessageCenterLayout
+log4j.appender.stdout.layout.conversionPattern =%-5p [%t] %d{HH:mm:ss,SSS} %c - %m%n
+#log4j.appender.stdout.Threshold=debug
+
+log4j.appender.R=org.apache.log4j.RollingFileAppender
+log4j.appender.R.File=debug.log
+log4j.appender.R.MaxFileSize=100KB
+log4j.appender.R.MaxBackupIndex=1
+#log4j.appender.R.Threshold=info
+log4j.appender.R.layout=simphony.util.messages.MessageCenterLayout
+log4j.appender.R.layout.ConversionPattern=%-5p [%t] %d{ISO8601} %c - %m%n</code></pre>
+</div></div>
+</div>
 </div>
 </div>
 </div>
