@@ -15,14 +15,14 @@ body {
 	padding-left: 20px;
 	font-family:  Helvetica, Arial, sans-serif;
 	font-size: 17px;
-	line-height:100%;
+	line-height:120%;
 	color: #414141;
 }
 
 h1, h2, h3 {
 	margin: 0;
 	line-height: 100%;
-	padding: 0;
+	padding: 10px;
 	font-family: Helvetica, Arial, sans-serif;
 	font-weight: normal;
 	color: #534d3f;
@@ -42,7 +42,7 @@ h3 {
 
 p, ul, ol {
 	margin-top: 0;
-	line-height: 100%;
+	line-height: 120%;
 }
 
 ul, ol {
