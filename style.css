@@ -9,130 +9,64 @@ Released for free under a Creative Commons Attribution 2.5 License
 
 */
 
-
-
 body {
-
 	height: 100%;
-
 	margin: 0;
-
 	padding-left: 20px;
-
-	/*background: #f1f1f1 url(images/logo2.png) repeat-x left top;*/
-
 	font-family:  Arial, Helvetica, sans-serif;
-
-	font-size: 100%;
-
+	font-size: 15px;
 	line-height:100%;
-
 	color: #414141;
-
 }
-
-
 
 h1, h2, h3 {
-
 	margin: 0;
-
 	line-height: 100%;
-
 	padding: 0;
-
 	font-family:   Arial, Helvetica, sans-serif;
-
 	font-weight: normal;
-
 	color: #534d3f;
-
 }
-
-
 
 h1 {
-
 	font-size: 2em;
-
 }
-
-
 
 h2 {
-
 	font-size: 1.6em;
-
 }
-
-
 
 h3 {
-
 	font-size: 1.6em;
-
 }
-
-
 
 p, ul, ol {
-
 	margin-top: 0;
-
 	line-height: 100%;
-
 }
-
-
 
 ul, ol {
-
 }
-
-
 
 a {
-
 	text-decoration: none;
-
 	color: #2967c2;
-
 }
-
-
 
 a:hover {
-
 }
-
-
 
 #wrapper {
-
 	width: 968px;
-
 	margin: 0 auto;
-
 	padding: 0;
-
 }
 
-
-
-/* Header */
-
-
-
 #header {
-
 	width: 133%;
-
 	height: 100px;
-
 	margin:  0 auto;
-
 	margin-left: -170px;
-
 	margin-bottom:  20px;
 
 	/*background: url(images/img2.png) repeat; */
@@ -142,112 +76,54 @@ a:hover {
 
 }
 
-
-
-/* Logo */
-
-
-
 #logo {
-
 	float: left;
-
 	width: 968px;
-
 	margin-top: 5px;
-
 	margin-bottom: 40px;
-
 	margin-left: 220px;
-
 	height: 80px;
-
 	color: #616160;
-
 }
-
-
 
 #logo h1, #logo p {
-
 	margin: 0;
-
 	padding: 0;
-
 }
-
-
 
 #logo h1 {
-
 	float: left;
-
 	padding: 80px 0 0 80px;
-
 	letter-spacing: -1px;
-
 	text-transform: lowercase;
-
 	font-size: 2.6em;
-
 }
-
-
 
 #logo p {
-
 	float: left;
-
 	margin: 0;
-
 	padding: 90px 10px;
-
 	font: normal 14px   Arial, Helvetica, sans-serif;
-
 	font-style: italic;
-
 }
-
-
 
 #logo a {
-
 	border: none;
-
 	background: none;
-
 	text-decoration: none;
-
 	color: #616161;
-
 }
-
-
-
-/* Search */
-
-
 
 #search {
-
 	float: right;
-
 	width: 230px;
-
 	padding: 0;
-
 }
 
-
-
 #search form {
-
 	height: 41px;
-
 	margin: 0;
-
 	padding: 70px 0 0 0px;
-
 }
 
 
