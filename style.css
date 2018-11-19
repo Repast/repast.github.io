@@ -114,429 +114,68 @@ a:hover {
 	color: #616161;
 }
 
-#search {
-	float: right;
-	width: 230px;
-	padding: 0;
-}
-
-#search form {
-	height: 41px;
-	margin: 0;
-	padding: 70px 0 0 0px;
-}
-
-
-
-#search fieldset {
-
-	margin: 0;
-
-	padding: 0;
-
-	border: none;
-
-}
-
-
-
-#search-text {
-
-	width: 210px;
-
-	border: none;
-
-	text-transform: lowercase;
-
-	font: bold 1.2em Arial, Helvetica, sans-serif;
-
-	color: #FFFFFF;
-
-}
-
-
-
-#search-submit {
-
-	display: none;
-
-}
-
-
-
-/* Menu */
-
-
-
-#menu {
-
-	width: 968px;
-
-	height: 50px;
-
-	margin: 0 auto;
-
-	padding: 0;
-
-}
-
-
-
-#menu ul {
-
-	margin: 0;
-
-	padding: 0;
-
-	padding-left: 80px;
-
-	list-style: none;
-
-	line-height: normal;
-
-}
-
-
-
-#menu li {
-
-	float: left;
-
-	height: 50px;
-
-/*	background: url(images/img03.gif) no-repeat right top; */
-
-}
-
-
-
-#menu a {
-
-	display: block;
-
-	margin-top: 0px;
-
-	margin-right: 3px;
-
-	padding: 7px 10px 7px 10px;
-
-	text-decoration: none;
-
-	font-family: Arial, Helvetica, sans-serif;
-
-	font-size: 18px;
-
-	color: #273887;
-
-	border: none;
-
-}
-
-
-
-#menu a:hover, #menu .current_page_item a {
-
-}
-
-
-
-#menu a:hover {
-
-	text-decoration: underline;
-
-        color: #273887;
-
-
-}
-
-
-
-/* Page */
-
 
 #page {
-
 	width: 968px;
-
 	margin: 0 auto;
-
 	background: url(images/img5.png) repeat-y left top;
-
 }
 
 #page-bgtop {
-
 	background: url(images/img4.png) no-repeat left top;
-
 }
-
-
 
 #page-bgbtm {
-
 	background: url(images/img6.png) no-repeat left bottom;
-
 }
-
-
-/* Content */
-
-
 
 #content {
-
 	float: left;
-
 	width: 750px;
-
 	padding: 0px 60px 0 60px;
-
 }
 
-
-
 .post {
-
 	margin-bottom: 8px;
 
 	/*background: url(images/img09.jpg) repeat-y left top;*/
-
 }
-
-
 
 .post-bgtop {
-
 	/*background: url(images/img08.jpg) no-repeat left top;*/
-
 }
-
-
 
 .post-bgbtm {
-
 	/*background: url(images/img10.jpg) no-repeat left bottom;*/
-
 }
-
-
 
 .post .title {
-
 	padding-top: 0px;
-
 	padding-bottom: 00px;
-
 	padding-left: 20px;
-
 	color: #555555;
-
 }
-
-
 
 .post .title a {
-
 	color: #555555;
-
 	border: none;
-
 }
-
-
 
 .post .meta {
-
 	padding-left: 20px;
-
 	padding-bottom: 5px;
-
 	text-align: left;
-
 	font-family: Arial, Helvetica, sans-serif;
-
 	font-size: 11px;
-
 	font-style: italic;
-
 }
-
-
 
 .post .entry {
-
 	padding: 0px 20px 15px 20px;
-
 	text-align: normal;
-
 }
 
 
-
-/* Sidebar */
-
-
-
-#sidebar {
-
-	float: right;
-
-	width: 220px;
-
-	padding: 20px 20px 0px 0px;
-
-	color: #414141;
-
-}
-
-
-
-#sidebar ul {
-
-	margin: 0;
-
-	padding: 0 0 0 2px;
-
-	list-style: none;
-
-}
-
-
-
-#sidebar li {
-
-	margin: 0;
-
-	padding-top: 0;
-
-	font-family: Arial,  Helvetica,sans-serif;
-}
-
-
-
-#sidebar li ul {
-
-	padding-bottom: 30px;
-
-}
-
-
-
-#sidebar li li {
-
-	line-height: 35px;
-
-	border-bottom: 1px dashed #f0f0e8;
-
-}
-
-
-
-#sidebar li li span {
-
-	display: block;
-
-	margin-top: -20px;
-
-	padding: 0;
-
-	font-size: 11px;
-
-	font-style: italic;
-
-}
-
-
-
-#sidebar h2 {
-
-	height: 32px;
-
-	padding: 12px 30px 0px 00px;
-
-	background: url(images/img11.png) no-repeat left top;
-
-	letter-spacing: -.5px;
-
-	font-family: Arial,  Helvetica,sans-serif;
-
-	color: #273887;
-
-}
-
-
-
-#sidebar p {
-
-	padding-bottom: 20px;
-
-	text-align: justify;
-
-}
-
-
-
-#sidebar a {
-
-	color: #417FDA;
-
-	border: none;
-
-}
-
-
-
-#sidebar a:hover {
-
-	text-decoration: underline;
-
-	color: #414141;
-
-}
-
-
-
-/* Calendar */
-
-
-
-#calendar {
-
-}
-
-
-
-#calendar_wrap {
-
-	padding: 20px;
-
-}
-
-
-
-#calendar table {
-
-	width: 100%;
-
-}
-
-
-
-#calendar tbody td {
-
-	text-align: center;
-
-}
-
-
-
-#calendar #next {
-
-	text-align: right;
-
-}
-
-/* Menubox */
 
 #linksbox {
 
