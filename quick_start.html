@@ -16,94 +16,91 @@ table.quick_start td, th {
 </style>
 
 <div id="wrapper">
-<div id="header">
-<div id="logo">
-<a href="/"><img src="images/Repast_logo_100h.png"></a>
-</div>
-</div>
-<!-- end #header -->
-<!-- div id="menu">
-<?php include ("include/mainmenu.html"); ?>
-</div -->
-<!-- end #menu -->
-<div id="page">
-<div id="page-bgtop">
-<div id="page-bgbtm">
-<div id="content">
-<div class="post">
-<div class="post-bgtop">
-<div class="post-bgbtm">
-<h1 class="title">Repast Quick Start Guide</h1>
+	<div id="header">
+		<div id="logo">
+			<a href="/"><img src="images/Repast_logo_100h.png"></a>
+		</div>
+	</div>
 
-<p class="meta"></p>
+	<div id="page">
+	<div id="page-bgtop">
+	<div id="page-bgbtm">
+
+	<div id="content">
+	<div class="post">
+	<div class="post-bgtop">
+	<div class="post-bgbtm">
+
+	<h1 class="title">Repast Quick Start Guide</h1>
+	<p class="meta"></p>
 	<div class="entry">
-		This guide is intended to provide a minimal set of instructions to
-		download, install, and run Repast Simphony and provide the user with a path
-		towards developing their own models.  The
-		<a href="./docs/RepastFAQ/RepastFAQ.html">Repast FAQ</a>,
-		<a href="./download.html">Repast Downloads</a>, and
-		<a href="./docs.html">Repast Documentation</a> pages all
-		provide more detailed documentation.
+	This guide is intended to provide a minimal set of instructions to
+	download, install, and run Repast Simphony and provide the user with a path
+	towards developing their own models.  The
+	<a href="./docs/RepastFAQ/RepastFAQ.html">Repast FAQ</a>,
+	<a href="./download.html">Repast Downloads</a>, and
+	<a href="./docs.html">Repast Documentation</a> pages all
+	provide more detailed documentation.
 
-		To get started using Repast Simphony, please follow these steps:<br>
-</p>
+	To get started using Repast Simphony, please follow these steps:<br>
 
-<h3>Step 1: Download and install Repast Simphony</h3>
-<p>
-<ul>
-	<li><b>Download and install the latest version of Repast Simphony from the
-	<a href="./download.html">downloads page</a>.</b>
-</ul>
-</p>
+	<h3 class="title">Step 1: Download and install Repast Simphony</h3>
+	<div class="entry">
+	<ul>
+		<li><b>Download and install the latest version of Repast Simphony from the
+		<a href="./download.html">downloads page</a>.</b>
+	</ul>
+	</div>
+	
+	<h3 class="title>Step 2: Run Repast and import example models</h3>
+	<div class="entry">
+	<ul>
+		<li><b>After Repast is installed, run the "Repast Simphony" shortcut</b> for Windows or
+		macOS, or simply run Eclipse for Linux. A blank workspace is set to the ReLogo
+		perspective as shown below. Eclipse perspectives provide customized layouts
+		of the Eclipse window components depending on the type of activity the user
+		is doing. The ReLogo perspective provides a minimal view of development components.
+		<br><br>
+		<a href="./docs/RepastReference/figures/blank_workspace.png">
+			<img src="./docs/RepastReference/figures/blank_workspace.png" width="600">
+		</a>
+		<br>
+		<br>
+		<li><b>From the window menu, select File -> Import Repast Repast Examples</b>.
+		The model import dialog will appear with the list of available Repast models
+		if the Windows or macOS installer was used.  Linux users should download the
+		demo models separately (<a href="https://github.com/Repast/repast.simphony.models/archive/v.2.6.zip)">found here</a>) and browse to the saved location.<br>
+		Select the "Zombies_Demo" at the bottom of the list of available models and
+		click the Finish button.  This will import the Zombies demo that is described
+		in the <a href="./docs/ReLogoGettingStarted.pdf"><i>ReLogo Getting Started</i></a>
+		tutorial.<br><br>
+		<a href="./docs/RepastReference/figures/import_repast_demo.png">
+			<img src="./docs/RepastReference/figures/import_repast_demo.png" height="500">
+		</a>
+		<br>
+		<br>
+		<li><b>Run the ReLogo zombies demo model</b>.  Click the black Run selection
+		icon next to the Run button and select "Zombies_Demo Model" as shown in the
+		following figure.  The Repast runtime window will appear. (You may see warnings in the Eclipse console due to changes in Java 9 or later, but they have no impact on the model code, performance, or reliability, and can be safely ignored.)<br><br>
+		<a href="./docs/RepastReference/figures/run_zombies_launch.png">
+			<img src="./docs/RepastReference/figures/run_zombies_launch.png" width="600">
+		</a>
+		<br>
+		<br>
+		<li><b>Click the Initialize Run button to initialize the model</b>.  A number of
+		slider buttons will appear in the User Panel from which model parameters can be
+		adjusted.  Click the model Play button and the display will initialize and run
+		until the pre-determined stop time (when no humans are left), at which point the model run will finish.<br><br>
+		<a href="./docs/RepastReference/figures/relogo_zombies_run.png">
+			<img src="./docs/RepastReference/figures/relogo_zombies_run.png" width="600">
+		</a>
+		<br>
+		<br>
+	</ul>
+	</div>
 
-<h3>Step 2: Run Repast and import example models</h3>
-<p>
-<ul>
-	<li><b>After Repast is installed, run the "Repast Simphony" shortcut</b> for Windows or
-	macOS, or simply run Eclipse for Linux. A blank workspace is set to the ReLogo
-	perspective as shown below. Eclipse perspectives provide customized layouts
-	of the Eclipse window components depending on the type of activity the user
-	is doing. The ReLogo perspective provides a minimal view of development components.
-	<br><br>
-	<a href="./docs/RepastReference/figures/blank_workspace.png">
-		<img src="./docs/RepastReference/figures/blank_workspace.png" width="600">
-	</a>
-	<br>
-	<br>
-	<li><b>From the window menu, select File -> Import Repast Repast Examples</b>.
-	The model import dialog will appear with the list of available Repast models
-	if the Windows or macOS installer was used.  Linux users should download the
-	demo models separately (<a href="https://github.com/Repast/repast.simphony.models/archive/v.2.6.zip)">found here</a>) and browse to the saved location.<br>
-	Select the "Zombies_Demo" at the bottom of the list of available models and
-	click the Finish button.  This will import the Zombies demo that is described
-	in the <a href="./docs/ReLogoGettingStarted.pdf"><i>ReLogo Getting Started</i></a>
-	tutorial.<br><br>
-	<a href="./docs/RepastReference/figures/import_repast_demo.png">
-		<img src="./docs/RepastReference/figures/import_repast_demo.png" height="500">
-	</a>
-	<br>
-	<br>
-	<li><b>Run the ReLogo zombies demo model</b>.  Click the black Run selection
-	icon next to the Run button and select "Zombies_Demo Model" as shown in the
-	following figure.  The Repast runtime window will appear. (You may see warnings in the Eclipse console due to changes in Java 9 or later, but they have no impact on the model code, performance, or reliability, and can be safely ignored.)<br><br>
-	<a href="./docs/RepastReference/figures/run_zombies_launch.png">
-		<img src="./docs/RepastReference/figures/run_zombies_launch.png" width="600">
-	</a>
-	<br>
-	<br>
-	<li><b>Click the Initialize Run button to initialize the model</b>.  A number of
-	slider buttons will appear in the User Panel from which model parameters can be
-	adjusted.  Click the model Play button and the display will initialize and run
-	until the pre-determined stop time (when no humans are left), at which point the model run will finish.<br><br>
-	<a href="./docs/RepastReference/figures/relogo_zombies_run.png">
-		<img src="./docs/RepastReference/figures/relogo_zombies_run.png" width="600">
-	</a>
-	<br>
-	<br>
-</p>
-
-<h3>Step 3: Select a Repast tutorial depending on your modeling needs and programming level</h3>
-<p>
+	<h3 class="title">Step 3: Select a Repast tutorial depending on your modeling needs and programming level</h3>
+	<div class="entry">
 	<table class="quick_start">
 		<col width="25%">
 		<col width="77%">
@@ -151,28 +148,14 @@ table.quick_start td, th {
 			<td>A comprehensive reference manual and code cookbook for Repast Simphony.</td>
 		</tr>
 	</table>
-</p>
+	</div>
 
-</div>
-</div>
-</div>
-</div>
-
-<div style="clear: both;">&nbsp;</div>
-</div>
-<!-- end #content -->
-
-<!-- div id="sidebar">
-
-<h2>Links</h2>
-<?php include ("include/sidebarlinks.html"); ?>
-</div -->
-
-<!-- end #sidebar -->
-<div style="clear: both;">&nbsp;</div>
-
-</div>
-</div>
-</div>
-
-<!-- end #page -->
+	</div>
+	</div>
+    <div style="clear: both;">&nbsp;</div>
+    </div>
+    </div>
+	<div style="clear: both;">&nbsp;</div>
+    </div>
+	</div>
+	</div>
