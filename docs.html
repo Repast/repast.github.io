@@ -1,201 +1,177 @@
 ---
 layout: site
 ---
+<style>
+table.quick_start {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table.quick_start td, th {
+    border: 1px solid #dddddd;
+    padding: 8px;
+}
+</style>
+
 <div id="wrapper">
-<div id="header">
-  <div id="logo">
-    <a href="/">
-      <img src="images/Repast_logo_100h.png">
-      </a>
+	<div id="header">
+		<div id="logo">
+			<a href="/"><img src="images/Repast_logo_100h.png"></a>
+		</div>
+	</div>
+
+	<div id="page">
+	<div id="page-bgtop">
+	<div id="page-bgbtm">
+
+	<div id="content">
+	<div class="post">
+	<div class="post-bgtop">
+	<div class="post-bgbtm">
+
+	<h1 class="title">Repast Documentation</h1>
+	<p class="meta"></p>
+	<div class="entry">
+	This page provides a comprehensive list of all <a href="repast_simphony.html">Repast 
+	Simphony</a> and <a href="repast_hpc.html">Repast HPC</a>documentation.  Users 
+	should first read the <a href="./quick_start.html"> Repast Simphony quick start 
+	guide</a> before continuing with further documentation.
+
+	<h3>Repast Simphony Documents</h3>
+	<table class="quick_start">
+		<col width="25%">
+		<col width="77%">
+		<tr>
+			<th align="center">Guide</th>
+			<th align="center">User Experience Level or Application</th>
+		</tr>
+		<tr>
+			<td><a href="./docs/RepastFAQ/RepastFAQ.html"><i>Repast Simphony FAQ</i></a></td>
+			<td>Frequently Asked Questions (FAQ).  If you have a question on problem
+			it might be answered here!</td>
+		</tr>
+			
+		<tr>
+			<td><a href="./docs/ReLogoGettingStarted.pdf"><i>ReLogo Getting Started</i></a></td>
+			<td>If you are new to Repast <b>or</b> if your
+			programming background is limited. ReLogo is a computer language
+			designed to help you quickly create simpler agent-based models.</td>
+		</tr>
+
+		<tr>
+			<td><a href="./docs/RepastJavaGettingStarted.pdf"><i>Repast Java Getting Started</i></a></td>
+			<td>After you are acquainted with Repast <b>or</b> if you know the Java
+			computer language and you want to develop more complex Repast
+			Simphony models.</td>
+		</tr>
+
+		<tr>
+			<td><a href="./docs/Statecharts.pdf"><i>Repast Statecharts</i></a></td>
+			<td>After you are acquainted with Repast <b>and</b> you would like to
+			start developing more complex agent-behavior logic using a visual
+			programming editor instead of writing code.</td>
+		</tr>
+
+		<tr>
+			<td><a href="./docs/RepastBatchRunsGettingStarted.pdf"><i>Repast Batch Runs Getting Started</i></a></td>
+			<td>After you are acquainted with Repast <b>and</b> you would like
+			to start running multiple individual model runs at the same time
+			for parameter sweep and exploration.</td>
+		</tr>
+
+		<tr>
+			<td><a href="http://emews.org"><i>EMEWS</i></a></td>
+			<td>After you are acquainted with Repast <b>and</b> you would like
+			to use the Extreme-scale Model Exploration with Swift (EMEWS)
+			framework for large-scale experiments with agent-based models.</td>
+		</tr>
+
+		<tr>
+			<td><a href="./docs/RepastReference/RepastReference.html"><i>Repast Simphony Reference</i></a></td>
+			<td>A comprehensive reference manual and code cookbook for Repast Simphony.</td>
+		</tr>
+			
+		<tr>
+			<td><a href="./docs/api/repast_simphony/ReLogoPrimitives.html"><i>ReLogo Primitives Reference</i></a></td>
+			<td>Reference for ReLogo primitives, which are mainly special 
+			ReLogo methods for you to use with your models.</td>
+		</tr>
+			
+		<tr>
+			<td><a href="./docs/api/repast_simphony/index.html"><i>Repast Simphony Java API</i></a></td>
+			<td>The Repast Simphony Application Programming Interface (API) 
+			describes the classes and methods in Repast Simphony that you can 
+				use in your models.</td>
+		</tr>
+			
+		<tr>
+			<td><a href="./docs/DataCollection.pdf"><i>Data Collection for Repast Java and ReLogo</i></a></td>
+			<td>A guide that shows you how to collect and display data from your 
+			Repast Simphony simulation runs.</td>
+		</tr>
+			
+		<tr>
+			<td><a href="./docs/RepastModelTesting.pdf"><i>Repast Model Testing Guide</i></a></td>
+			<td>A guide that shows you how to implement test-driven development
+			for testing your models to make sure they run the way you design them.</td>
+		</tr>
+			
+		<tr>
+			<td><a href="http://sourceforge.net/projects/repast/files/Repast%20Simphony/Repast%20Simphony%202.3/RepastBatchHadoop.zip/download">
+			<i>Repast Batch Runs with Hadoop.</i></a></td> 
+			<td>A guide and example code for doing Repast Simphony Batch runs on 
+			a Hadoop cluster. This was kindly contributed by Michael Henry and 
+			Don Bennet of the MITRE corporation.</td>
+		</tr>
+	</table>
+
+	<h3>Repast HPC Documents</h3>
+	<table class="quick_start">
+		<col width="25%">
+		<col width="77%">
+		<tr>
+			<th align="center">Guide</th>
+			<th align="center">User Experience Level or Application</th>
+		</tr>
+		<tr>
+			<td><a href="./hpc_tutorial/TOC.html"><i>Repast HPC Tutorial.</i></a></td>
+			<td>A tutorial that shows you how to use Repast HPC.</td>
+		</tr>
+		
+		<tr>
+			<td><a href="./hpc_tutorial/SRC.tar.gz"><i>Repast HPC Tutorial Example Code</i></a></td>
+			<td>Repast HPC tutorial source code for example models.</td>
+		</tr>
+		
+		<tr>
+			<td><a href="./docs/repast_hpc.pdf"><i>Repast HPC Reference</i></a></td>
+			<td>Repast HPC tutorial source code for example models.</td>
+		</tr>
+		
+		<tr>
+			<td><a href="./docs/api/hpc/repast_hpc/index.html"><i>Repast HPC API</i></a></td>
+			<td>The Repast HPC Application Programming Interface (API), which 
+			describes the classes and methods in Repast HPC that you can use in your models.</td>
+		</tr>
+		
+		<tr>
+			<td><a href="./docs/MIGRATION.txt"><i>Migration from Repast HPC 1.0.1 to Repast HPC 2.0</i></a></td>
+			<td> A guide to help you migrate from version 1.0.1 to version 2.0.</td>
+		</tr>
+	
+	</table>
+	</div>
+    
+        
+          
+	</div>
+	</div>
+    <div style="clear: both;">&nbsp;</div>
     </div>
-  </div>
-  <!-- end #header -->
-  <!-- div id="menu">
-  <?php include ("include/mainmenu.html"); ?>
-</div -->
-<!-- end #menu -->
-<div id="page">
-<div id="page-bgtop">
-<div id="page-bgbtm">
-<div id="content">
-<div class="post">
-<div class="post-bgtop">
-<div class="post-bgbtm">
-<a name="documentation"></a>
-<h1 class="title">
-Repast Documentation
-</h1>
-<p class="meta">
-</p>
-<div class="entry">This page provides links to current Repast documentation, as well as links to other
-  books and papers about Repast that you may find helpful.<p>Because Repast users have a variety of needs,
-    Repast comes in two editions:  &lsquo;Repast Simphony&rsquo; and &lsquo;Repast HPC&rsquo;
-    (Repast for high-performance computing). For most purposes Repast Simphony is suitable, but when you need to run
-    large models on a supercomputer, Repast HPC is necessary. This page presents documentation for both Repast editions.</div>
-</div>
-<div class="post-bgbtm">
-<a name="first"></a>
-<h1 class="title">
-What should you read first?
-</h1>
-<p class="meta">
-</p>
-<div class="entry">
-<p>
-<ul>
-  <li>If you are new to agent-based modeling and simulation, start with the introductory paper <a href="http://www.informs-sim.org/wsc09papers/009.pdf">here</a>, or the book <a href="http://global.oup.com/academic/product/managing-business-complexity-9780195172119?cc=us&lang=en&">here</a>.<li>If you are new to Repast, if your programming background is limited, or if you want to use rapid prototyping to quickly develop an agent-based simulation model, start with the <a href="./docs/ReLogoGettingStarted.pdf">
-    <i>ReLogo Getting Started Guide.</i>
-  </a> &lsquo;ReLogo&rsquo; is a computer language designed to help you quickly create simpler agent-based models.<li>After you are acquainted with Repast, if you know the &lsquo;Java&rsquo; computer language and you want to develop more complex Repast Simphony models, read the <a href="./docs/RepastJavaGettingStarted.pdf">
-  <i>Repast Java Getting Started</i>
-</a> guide.<li>If you know the &lsquo;C++&rsquo; computer language and you want to develop a large model to run on a supercomputer,work through the <a href="./hpc_tutorial/TOC.html">
-<i>Repast HPC Web Tutorial</i>
-</a> or read the <a href="./docs/repast_hpc.pdf">
-<i>Repast HPC Manual</i>
-</a>. (If your knowledge of C++ is limited, to develop Repast HPC models you can also use an easier Logo-style C++ computer language, as described in Section 5 of the manual.)</ul>
-</div>
-</div>
-<a name="repast"></a>
-<h1 class="title">
-Repast Simphony Documentation
-</h1>
-<p class="meta">
-</p>
-<div class="entry">Following is the current Repast Simphony documentation for version {{ site.simphony_version }}:<p>
-<ul>
-  <li><a href="./docs/RepastJavaGettingStarted.pdf"><i>Repast Java Getting Started.</i></a>
-		A guide for developing Repast Simphony models with the Java computer language.
-
-  <li><a href="./docs/ReLogoGettingStarted.pdf"><i>ReLogo Getting Started Guide.</i></a>
-		A guide for developing Repast Simphony models with the ReLogo computer language.
-
-  <li><b>New - </b><a href="./docs/RepastReference/RepastReference.html"><i>Repast Simphony Reference.</i></a>
-		A comprehensive reference manual and code cookbook for Repast Simphony.
-
-	<li><a href="./docs/Upgrading_Troubleshooting_Repast_Simphony.txt">
-		<i>Troubleshooting and Upgrading Repast Simphony.</i></a>
-		Answers to common troubleshooting and upgrading questions.
-
-	<li><a href="./docs/api/repast_simphony/ReLogoPrimitives.html">
-		<i>ReLogo Primitives Quick Reference.</i></a> Online reference for ReLogo
-		&lsquo;primitives&rsquo;, which are mainly special ReLogo methods for you to use with your models.
-
-	<li><a href="./docs/RepastSimphonyFAQ.pdf"><i>Repast Simphony Frequently Asked Questions.</i></a>
-		Frequently asked questions about Repast Simphony. Among the answers to
-		frequently asked questions is one (Answer 2.1 on page 6) that shows you how
-		to import sample models from the library of Repast demonstration models.
-
-	<li><a href="./docs/api/repast_simphony/index.html"><i>Repast Simphony
-		{{ site.simphony_version }} API</i> (online).</a> The Repast Simphony Application
-		Programming Interface, which describes the classes and methods in Repast
-		Simphony that you can use in your models.
-
-	<li><a href="./docs/api/RepastSimphonyAPI.zip"><i>Repast Simphony
-		{{ site.simphony_version }} API</i> (zipped file for downloading).</a>
-
-	<li><a href="./docs/DataCollection.pdf"><i>Data Collection for Repast Java and ReLogo.</i></a>
-		A guide that shows you how to collect and display data from your Repast Simphony simulation runs.
-
-	<li><a href="./docs/RepastModelTesting.pdf"><i>Repast Model Testing Guide.</i></a>
-		A guide that shows you how to implement &lsquo;test-driven development&rsquo;
-		for testing your models to make sure they run the way you design them.
-
-	<li><a href="./docs/RepastBatchRunsGettingStarted.pdf"><i>Repast Simphony Batch
-		Runs Getting Started.</i></a> A guide to help you use Repast Simphony&#39;s
-		batch execution feature. This feature is particularly useful for obtaining
-		your model results with a variety of parameter combinations.
-
-	<li><a href="./docs/Statecharts.pdf"><i>Repast Statecharts Guide.</i></a> A
-		guide to help you incorporate point-and-click &lsquo;statecharts&rsquo;
-		(for modeling agent states and transitions between states) in your Repast Simphony models.
-
-<!--
-	<li><a href="./docs/RepastSystemDynamicsGettingStarted.pdf"><i>Repast System
-		Dynamics Getting Started.</i></a> A guide to help you develop &lsquo;system
-		dynamics&rsquo; models in Repast Simphony. System dynamics models examine
-		the impact of feedback loops, stocks, flows, and time delays within systems.
--->
-
-	<li><a href="http://sourceforge.net/projects/repast/files/Repast%20Simphony/Repast%20Simphony%202.3/RepastBatchHadoop.zip/download">
-			<i>Repast Batch Runs with Hadoop.</i></a> A guide and example code for doing
-			Repast Simphony Batch runs on a Hadoop cluster. This was kindly contributedby
-			Michael Henry and Don Bennet of the MITRE corporation.
-</ul>
-
-
-      </div>
-      <a name="hiperform"></a>
-      <h1 class="title">
-        Repast HPC Documentation
-      </h1>
-      <p class="meta">
-      </p>
-      <div class="entry">Following is the current Repast HPC documentation for version 2.0:<p>
-        <ul>
-          <li>
-            <a href="./docs/MIGRATION.txt">
-              <i>Migration from Repast HPC 1.0.1 to Repast HPC 2.0.</i>
-            </a> A guide to help you migrate from version 1.0.1 to version 2.0.<li>
-            <a href="./hpc_tutorial/TOC.html">
-              <i>Repast HPC Tutorial.</i>
-            </a> A tutorial that shows you how to use Repast HPC. To download the source code for the tutorial click <a href="./hpc_tutorial/SRC.tar.gz">here</a>.
-            <li>
-            <a href="./docs/repast_hpc.pdf">
-              <i>Repast HPC Manual.</i>
-              </a> A reference manual for Repast HPC.</li>
-              <li>
-                <a href="./docs/api/hpc/repast_hpc/index.html">
-                  <i>Repast HPC {{ site.hpc_version }} API (online).</i>
-                </a> The Repast HPC Application Programming Interface, which describes the classes and methods in Repast HPC that you can use in your models.
-              </li>
-                <li>
-                <a href="./docs/api/repast_hpc-{{ site.hpc_version }}_api.zip">
-                  <i>Repast HPC {{ site.hpc_version }} API (archived file for downloading).</i>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <a name="resources"></a>
-          <h1 class="title">
-            Other Resources
-          </h1>
-          <p class="meta">
-          </p>
-          <div class="entry">You may also find the following resources helpful:<p>
-            <ul>
-              <li>
-                <a href="http://www.informs-sim.org/wsc09papers/009.pdf">
-                  <i>Agent-based modeling and simulation.</i>
-                </a> A paper that introduces agent-based modeling and simulation.
-              </li>
-
-                <li>
-                <a href="http://global.oup.com/academic/product/managing-business-complexity-9780195172119?cc=us&lang=en&">
-                  <i>Managing business complexity.</i>
-                </a> A book about business-oriented agent-based modeling and simulation.
-
-                <li>
-                <a href="./docs/TowardTeachingABS.pdf">
-                  <i>Toward teaching agent-based simulation.</i>
-                  </a> A paper about teaching agent-based simulation.
-                </li>
-
-                <li>
-                <a href="http://www.mcs.anl.gov/~emews/tutorial/">
-                  <i>EMEWS.</i>
-                </a>A tutorial on the Extreme-scale Model Exploration with
-                Swift (EMEWS) framework for large-scale experiments with
-                agent-based modeling.
-              </li>
-                </ul>
-                </div>
-              </div>
-            </div>
-          <div style="clear: both;">&nbsp;</div>
-        </div>
-          </div>
-
-      <div style="clear: both;">&nbsp;</div>
     </div>
-  </div>
+	<div style="clear: both;">&nbsp;</div>
+    </div>
+	</div>
+	</div>
 </div>
-<!-- end #page -->
