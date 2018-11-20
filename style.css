@@ -46,7 +46,7 @@ p, ul, ol {
 }
 
  p.indent {  
-	text-indent: 2.0em;  
+	margin-left: 50px; 
 }  
 
 ul, ol {
