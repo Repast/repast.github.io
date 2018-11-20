@@ -10,6 +10,7 @@ Released for free under a Creative Commons Attribution 2.5 License
 */
 
 body {
+	width: 968px;
 	height: 100%;
 	margin: 0;
 	padding-left: 20px;
@@ -47,6 +48,7 @@ p, ul, ol {
 
  p.indent {
 	margin-left: 50px;
+	width: 350px;
 }
 
 ul, ol {
