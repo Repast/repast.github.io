@@ -114,7 +114,6 @@ a:hover {
 	color: #616161;
 }
 
-
 #page {
 	width: 968px;
 	margin: 0 auto;
@@ -176,193 +175,109 @@ a:hover {
 }
 
 
+/* Menu boxes are used on the index.html for the table based menu*/
 #linksbox {
-
         width: 100%;
-
         height: 50px;
-
         margin:  0 0 0 80px;
-
         background: url(images/img7.png) repeat;
 
 }
 
 #menubox {
-
         width: 1078px;
-
         height: 230px;
-
         margin:  0 auto;
-
         margin-left: -220px;
-
         margin-bottom:  0px;
 
         /*background: url(images/img3.png) repeat;*/
-
 }
-/* menuboxentry */
+
 #menuboxicon img {
-
         margin-top: 20px;
-
         margin-left: 720px;
-
         padding: 0px 0 0px 0;
-
 }
 #menuboxlabel {
-
 	margin-top: -70px;
-
-        padding: 0px 0 0px 830px;
-
-        font-family: Arial, Helvetica, sans-serif;
-
+    padding: 0px 0 0px 830px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 #menuboxlabel p {
-
 	font-size: 1.3em;
-
-        color: #f54d26;
-
+    color: #f54d26;
 }
-/* eng menuboxentry */
-/* menuboxentry */
+
 #menuboxentry {
-
-        padding: 0px 0 0px 830px;
-
-        font-family: Arial, Helvetica, sans-serif;
+    padding: 0px 0 0px 830px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 #menuboxentry p {
-
-        margin-top: -20px;
-
-        color: #202020;
+    margin-top: -20px;
+    color: #202020;
 }
-
-/* eng menuboxentry */
-/* end Menubox */
-
-/* Footer */
 
 
 #linkslabels {
-
-/*        height: 250px; */
-
-        margin: 0 auto;
-
-        padding: 0px 0 0px 0;
-
-        font-family: Arial, Helvetica, sans-serif;
-
-        color: #202020;
+    margin: 0 auto;
+    padding: 0px 0 0px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #202020;
 }
 
-
-
 #linkslabels p {
-
-        text-align: left;
-
-        font-size: 12px;
-
-        font-weight: bold;
-
-        line-height: 90%;
+    text-align: left;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 90%;
 }
 
 #footerlinkslabels {
-
-/*        height: 250px; */
-
-        margin: 0 auto;
-
-        padding: 0px 0 0px 0;
-
-        font-family: Arial, Helvetica, sans-serif;
-
-        color: #202020;
+    margin: 0 auto;
+    padding: 0px 0 0px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #202020;
 }
 
-
-
 #footerlinkslabels p {
-
-        text-align: left;
-
-        font-size: 10px;
-
-        font-weight: bold;
-
-        line-height: 70%;
+    text-align: left;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 70%;
 }
 
 #footerlinks {
-
-/*        height: 250px; */
-
-        margin: 0 auto;
-
-        padding: 0px 0 15px 0;
-
-        font-family: Arial, Helvetica, sans-serif;
-
-        color: #202020;
+    margin: 0 auto;
+    padding: 0px 0 15px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #202020;
 }
-
 
 #footerlinks p {
-
-        text-align: left;
-
-        font-size: 9px;
-
-        line-height: 50%;
+    text-align: left;
+    font-size: 9px;
+    line-height: 50%;
 }
 
-
-/* Footer */
-
-
-
 #footer {
-
 	height: 50px;
-
 	margin: 0 auto;
-
 	padding: 0px 0 15px 0;
-
 	font-family: Arial, Helvetica, sans-serif;
-
 	color: #717171;
-
 }
 
 
 
 #footer p {
-
 	margin: 0;
-
 	line-height: normal;
-
 	font-size: 9px;
-
 	text-transform: uppercase;
-
 	text-align: center;
-
 }
 
-
-
 #footer a {
-
 	color: #717171;
 }
