@@ -45,6 +45,10 @@ p, ul, ol {
 	line-height: 120%;
 }
 
+ p.indent {  
+	text-indent: 2.0em;  
+}  
+
 ul, ol {
 }
 
