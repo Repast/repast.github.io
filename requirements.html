@@ -23,28 +23,47 @@ layout: site
 	Instructions on downloading and installing Repast Simphony on various platforms
 	can be found in the <a href="https://repast.github.io/quick_start.html">Quick Start Guide</a>.
 	Repast Simphony is a Java application and requires either Java 8 or Java 11 to be installed. If you
-	do not have Java installed, you can:<br>
+	do not have Java installed, the following options are suggested:<br>
 	<br>
 	<ul>
-		<li>Windows: Choose to install a Java 11 Development Kit (JDK) during 
-		the Repast Simphony Windows install.</li>
+		<li>Windows users may choose to install the Java 11 Development Kit 
+		(JDK) included with the Repast Simphony Windows installer.  This will install
+		Java as a folder within the Repast installation location and will not 
+		interfere with existing Java or Repast installations.</li>
 		
-		<li>macOS: Download a Java 11 or Java 8 JDK from 
+		<br>
+		
+		<li>macOS, linux, and Windows users may download a Java 11 or Java 8 JDK from 
 		<a href="https://adoptopenjdk.net">Adopt Open JDK</a>. Select either
 		<i>OpenJDK 8 with Hotspot</i> or <i>OpenJDK 11 with Hotspot</i>. 
-		<b>Note that if you need 3D visualizations under macOS, then you must 
-		choose Java 8.</b> Untar the downloaded file and copy the package to 
-		<tt>/Library/Java/JavaVirtualMachines</tt>.</li>
-  
-		<li>Linux: Use your distributions package manager to download and install 
-		an appropriate JDK.</li>
-</ul>
-
-	Alternatively, if you want to manually download your own Java 8 or Java 11 JDK,
-	they can be downloaded from <a href="https://adoptopenjdk.net">Adopt Open JDK</a>. 
-	Select either <i>OpenJDK 8 with Hotspot</i> or <i>OpenJDK 11 with Hotspot</i>. 
+		<b>Note that if you need Repast 3D displays under macOS, then you must 
+		choose Java 8.</b> 
+		
+		<ul>
+			<li>macOS users should Untar the downloaded file and copy the package to 
+			<tt>/Library/Java/JavaVirtualMachines</tt>.</li>
+			
+			<li>Windows users should unzip the downloaded file and copy the folder
+			to any convenient location.  The OpenJDK installers no longer set the
+			system PATH or JAVA_HOME, so this needs to be done manually.
+			<a href="https://stackoverflow.com/questions/52511778/how-to-install-openjdk-11-on-windows">
+			This post on Stack Overflow</a> desribes how to configure OpenJDK for
+			Windows.</li>
+			
+			<li>Linux users may try the distributions package manager to download 
+			and install an appropriate JDK.  This approach should work for Java 8,
+			however many distributions still do not have JDK 11 available as an
+			option via the online package repositories.  The OpenJDK 11 tarball can be
+			extracted an manually installed on linux.  For example, the 
+			<a href="https://dzone.com/articles/installing-openjdk-11-on-ubuntu-1804-for-real">
+			Instructions for installing OpenJDK on Ubuntu</a>.</li>
+		</ul>
+	</ul>
 	</div>
 
+	<br>
+	<br>
+	
 	<h3 class="title">Why OpenJDK?</h3>
 	<div class="entry">
 	In the past users have typically downloaded a Java Development Kit (JDK) 
