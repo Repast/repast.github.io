@@ -251,6 +251,11 @@ a:hover {
     line-height: 70%;
 }
 
+#footerlinkslabels a {
+	color: #710909;
+	font-size: 140%;
+}
+
 #footerlinks {
     margin: 0 auto;
     padding: 0px 0 15px 0;
@@ -264,6 +269,11 @@ a:hover {
     line-height: 50%;
 }
 
+#footerlinks a {
+	color: #710909;
+	font-size: 140%;
+}
+
 #footer {
 	height: 50px;
 	margin: 0 auto;
@@ -272,17 +282,10 @@ a:hover {
 	color: #717171;
 }
 
-
-
 #footer p {
 	margin: 0;
 	line-height: normal;
 	font-size: 9px;
 	text-transform: uppercase;
 	text-align: center;
-}
-
-#footerlinks a {
-	color: #717171;
-	font-size: 240%;
 }
