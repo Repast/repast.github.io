@@ -48,6 +48,10 @@ p, ul, ol {
 ul, ol {
 }
 
+li{
+	margin: 10px 0;
+}
+
 a {
 	text-decoration: none;
 	color: #2967c2;
