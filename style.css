@@ -95,6 +95,8 @@ a:hover {
 	width: 968px;
 	margin-top: 5px;
 	margin-bottom: 40px;
+	margin-left: 0px;
+	margin-right: auto;
 /*	margin-left: 220px; */
 	height: 80px;
 	color: #616160;
