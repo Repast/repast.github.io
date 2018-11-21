@@ -92,13 +92,13 @@ a:hover {
 
 #logo {
 	float: left;
-	width: 968px;
+	width: 100%;
 	margin-top: 5px;
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 	margin-left: 0px;
 	margin-right: auto;
 /*	margin-left: 220px; */
-	height: 80px;
+/*	height: 80px; */
 	color: #616160;
 }
 
