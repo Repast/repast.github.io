@@ -80,7 +80,7 @@ a:hover {
 /*	width: 133%; */
 	height: 100px;
 	margin:  0 auto;
-	margin-left: -170px;
+	margin-left: -50px;
 	margin-bottom:  20px;
 
 	/*background: url(images/img2.png) repeat; */
@@ -95,7 +95,7 @@ a:hover {
 	width: 968px;
 	margin-top: 5px;
 	margin-bottom: 40px;
-	margin-left: 220px;
+/*	margin-left: 220px; */
 	height: 80px;
 	color: #616160;
 }
