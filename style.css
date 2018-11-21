@@ -70,6 +70,12 @@ a {
 a:hover {
 }
 
+blockquote {
+    text-align:justify;
+    padding:10px;    
+}
+
+
 #wrapper {
 	width: 968px;
 	margin: 0 auto;
