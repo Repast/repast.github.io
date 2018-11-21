@@ -204,13 +204,7 @@ blockquote {
 }
 
 #menubox {
-/*        width: 1078px; */
-/*        height: 230px; */
-        padding: 0 20px 0 0;
-/*        margin-left: -220px; */
-/*        margin-bottom:  0px; */
-
-        /*background: url(images/img3.png) repeat;*/
+	margin: auto;
 }
 
 #menuboxicon img {
