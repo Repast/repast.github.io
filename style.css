@@ -193,11 +193,13 @@ a:hover {
 
 /* Menu boxes are used on the index.html for the table based menu*/
 #linksbox {
-        width: 100%;
+		width: 750px;
 		margin: auto;
 /*        height: 50px; */
 /*        margin:  0 0 0 80px; */
 /*		padding: 0 0 0 0px; */
+
+	padding: 0px 60px 0 60px;
 
  /*       background: url(images/img7.png) repeat; */
 
