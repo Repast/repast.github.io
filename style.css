@@ -204,7 +204,7 @@ blockquote {
 }
 
 #menubox {
-	margin: auto;
+	padding: 20px 20px 20px 20px;
 }
 
 #menuboxicon img {
