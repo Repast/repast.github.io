@@ -12,6 +12,7 @@ Released for free under a Creative Commons Attribution 2.5 License
 body {
 	height: 100%;
 	margin: auto;
+	max-width: 968px;
 	padding-left: 20px;
 	font-family:  Helvetica, Arial, sans-serif;
 	font-size: 17px;
