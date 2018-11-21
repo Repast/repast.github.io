@@ -11,6 +11,7 @@ Released for free under a Creative Commons Attribution 2.5 License
 
 html {
 	margin: auto;
+	max-width: 968px;
 }
 
 body {
