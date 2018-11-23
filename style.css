@@ -140,16 +140,30 @@ blockquote {
 
 .post {
 	margin-bottom: 8px;
-}}
+}
+
+.post .title {
+	padding-top: 0px;
+	padding-bottom: 00px;
+	padding-left: 20px;
+	color: #555555;
+}
+
+.post .title a {
+	color: #555555;
+	border: none;
+}
 
 .post .entry {
 	padding: 20px 20px 20px 20px;
 	text-align: normal;
 }
 
+
 /* Menu boxes are used on the index.html for the table based menu*/
 #linksbox {
 	padding: 20px 20px 20px 20px;
+
 }
 
 #menubox {
