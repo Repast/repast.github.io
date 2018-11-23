@@ -51,10 +51,6 @@ p, ul, ol {
 	line-height: 120%;
 }
 
- p.indent {
-	margin-left: 50px; 
-}
-
 ul, ol {
 }
 
@@ -65,9 +61,6 @@ li{
 a {
 	text-decoration: none;
 	color: #2967c2;
-}
-
-a:hover {
 }
 
 blockquote {
@@ -99,34 +92,6 @@ blockquote {
 	color: #616160;
 }
 
-#logo h1, #logo p {
-	margin: 0;
-	padding: 0;
-}
-
-#logo h1 {
-	float: left;
-	padding: 80px 0 0 80px;
-	letter-spacing: -1px;
-	text-transform: lowercase;
-	font-size: 2.6em;
-}
-
-#logo p {
-	float: left;
-	margin: 0;
-	padding: 90px 10px;
-	font: normal 14px   Arial, Helvetica, sans-serif;
-	font-style: italic;
-}
-
-#logo a {
-	border: none;
-	background: none;
-	text-decoration: none;
-	color: #616161;
-}
-
 #page {
 	width: 968px;
 	margin: 0 auto;
@@ -154,15 +119,6 @@ blockquote {
 	border: none;
 }
 
-.post .meta {
-	padding-left: 20px;
-	padding-bottom: 5px;
-	text-align: left;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 11px;
-	font-style: italic;
-}
-
 .post .entry {
 	padding: 20px 20px 20px 20px;
 	text-align: normal;
@@ -172,7 +128,6 @@ blockquote {
 /* Menu boxes are used on the index.html for the table based menu*/
 #linksbox {
 	padding: 20px 20px 20px 20px;
-
 }
 
 #menubox {
@@ -202,7 +157,6 @@ blockquote {
     margin-top: -20px;
     color: #202020;
 }
-
 
 #linkslabels {
     margin: 0 auto;
