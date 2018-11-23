@@ -83,17 +83,10 @@ blockquote {
 }
 
 #header {
-/*	width: 133%; */
 	height: 100px;
 	margin:  0 auto;
 	margin-left: 50px;
 	margin-bottom:  20px;
-
-	/*background: url(images/img2.png) repeat; */
-
-	/*background: url(images/img02.gif) no-repeat left top; */
-	/*background: url(images/Repast_logo_100h.png) no-repeat left center;*/
-
 }
 
 #logo {
@@ -103,8 +96,6 @@ blockquote {
 	margin-bottom: 20px;
 	margin-left: 0px;
 	margin-right: auto;
-/*	margin-left: 220px; */
-/*	height: 80px; */
 	color: #616160;
 }
 
@@ -139,15 +130,6 @@ blockquote {
 #page {
 	width: 968px;
 	margin: 0 auto;
-/*	background: url(images/img5.png) repeat-y left top; */
-}
-
-#page-bgtop {
-/*	background: url(images/img4.png) no-repeat left top; */
-}
-
-#page-bgbtm {
-/*	background: url(images/img6.png) no-repeat left bottom; */
 }
 
 #content {
@@ -158,49 +140,16 @@ blockquote {
 
 .post {
 	margin-bottom: 8px;
-
-	/*background: url(images/img09.jpg) repeat-y left top;*/
-}
-
-.post-bgtop {
-	/*background: url(images/img08.jpg) no-repeat left top;*/
-}
-
-.post-bgbtm {
-	/*background: url(images/img10.jpg) no-repeat left bottom;*/
-}
-
-.post .title {
-	padding-top: 0px;
-	padding-bottom: 00px;
-	padding-left: 20px;
-	color: #555555;
-}
-
-.post .title a {
-	color: #555555;
-	border: none;
-}
-
-.post .meta {
-	padding-left: 20px;
-	padding-bottom: 5px;
-	text-align: left;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 11px;
-	font-style: italic;
-}
+}}
 
 .post .entry {
 	padding: 20px 20px 20px 20px;
 	text-align: normal;
 }
 
-
 /* Menu boxes are used on the index.html for the table based menu*/
 #linksbox {
 	padding: 20px 20px 20px 20px;
-
 }
 
 #menubox {
