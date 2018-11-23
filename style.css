@@ -303,7 +303,10 @@ blockquote {
 
 /* --- Image gallery style start --- */
 div.gallery {
+    margin: 5px;
     border: 1px solid #ccc;
+    float: left;
+    width: 300px;
 }
 
 div.gallery:hover {
@@ -320,32 +323,4 @@ div.desc {
     text-align: center;
 }
 
-* {
-    box-sizing: border-box;
-}
-
-.responsive {
-    padding: 0 6px;
-    float: left;
-    width: 24.99999%;
-}
-
-@media only screen and (max-width: 1000px) {
-    .responsive {
-        width: 50%%;
-        margin: 6px 0;
-    }
-}
-
-@media only screen and (max-width: 500px) {
-    .responsive {
-        width: 100%;
-    }
-}
-
-.clearfix:after {
-    content: "";
-    display: table;
-    clear: both;
-}
 /* --- Image gallery style end --- */
