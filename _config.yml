@@ -21,7 +21,7 @@ url: "http://repast.github.io" # the base hostname & protocol for your site
 #twitter_username: jekyllrb
 github_username:  Repast
 
-exclude: 
+exclude:
  - scripts/
 
 include:
@@ -29,8 +29,8 @@ include:
 
 simphony_version: 2.6
 simphony_release_date: 20 November 2018
-hpc_version: 2.2.0
-hpc_release_date: 30 September 2016
+hpc_version: 2.3.0
+hpc_release_date: 26 November 2018
 
 # Build settings
 markdown: kramdown
