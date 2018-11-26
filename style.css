@@ -142,37 +142,29 @@ blockquote {
     color: #202020;
 }
 
-#footerlinkslabels {
-    margin: 0 auto;
-    padding: 0px 0 0px 0;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #202020;
-}
-
-#footerlinkslabels a {
-	color: #710909;
-	font-size: 180%;
-	font-weight: bold;
-}
-
 #footerlinks {
 	width: 750px;
 	padding: 0px 60px 0 60px;
-	
-    font-family: Arial, Helvetica, sans-serif;
-    color: #202020;
-}
-
-#footerlinks p {
-    text-align: left;
-    font-size: 9px;
-    line-height: 50%;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
 }
 
 #footerlinks a {
 	color: #710909;
-	font-size: 180%;
 }
+
+#footerlinks table{
+	border-collapse: collapse;
+}
+
+#footerlinks tr{
+	line-height: 0px;
+}
+
+#footerlinks td{
+	padding: 0 5px 0 5px;
+}
+
 
 #footer {
 	width: 750px;
