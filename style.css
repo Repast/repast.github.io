@@ -142,20 +142,6 @@ blockquote {
     color: #202020;
 }
 
-#linkslabels {
-    margin: 0 auto;
-    padding: 0px 0 0px 0;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #202020;
-}
-
-#linkslabels p {
-    text-align: left;
-    font-size: 12px;
-    font-weight: bold;
-    line-height: 90%;
-}
-
 #footerlinkslabels {
     margin: 0 auto;
     padding: 0px 0 0px 0;
@@ -163,16 +149,10 @@ blockquote {
     color: #202020;
 }
 
-#footerlinkslabels p {
-    text-align: left;
-    font-size: 10px;
-    font-weight: bold;
-    line-height: 70%;
-}
-
 #footerlinkslabels a {
 	color: #710909;
 	font-size: 180%;
+	font-weight: bold;
 }
 
 #footerlinks {
