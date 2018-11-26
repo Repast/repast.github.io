@@ -9,15 +9,9 @@ Released for free under a Creative Commons Attribution 2.5 License
 
 */
 
-html {
-	margin: auto;
-	max-width: 968px;
-}
+
 
 body {
-	height: 100%;
-	margin: auto;
-	max-width: 968px;
 	padding-left: 20px;
 	font-family:  Helvetica, Arial, sans-serif;
 	font-size: 17px;
@@ -27,10 +21,7 @@ body {
 
 h1, h2, h3 {
 	margin: 0;
-	line-height: 100%;
-	padding: 20px;
 	font-family: Helvetica, Arial, sans-serif;
-	font-weight: normal;
 	color: #534d3f;
 }
 
@@ -47,15 +38,14 @@ h3 {
 }
 
 p, ul, ol {
-	margin-top: 0;
-	line-height: 120%;
+/*	line-height: 120%; */
 }
 
 ul, ol {
 }
 
 li{
-	margin: 5px 0;
+	margin: 5px 0;  /* some space between list item lines*/
 }
 
 a {
@@ -71,13 +61,11 @@ blockquote {
 
 #wrapper {
 	width: 968px;
-	margin: 0 auto;
-	padding: 0;
+	margin: auto;
 }
 
 #header {
 	height: 100px;
-	margin:  0 auto;
 	margin-left: 50px;
 	margin-bottom:  20px;
 }
@@ -90,11 +78,6 @@ blockquote {
 	margin-left: 0px;
 	margin-right: auto;
 	color: #616160;
-}
-
-#page {
-	width: 968px;
-	margin: 0 auto;
 }
 
 #content {
