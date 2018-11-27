@@ -189,25 +189,29 @@ blockquote {
 }
 
 /* --- Image gallery style start --- */
+/* The image width and gallery width should be the same to ensure proper layout */
 div.gallery {
-    margin: 5px;
-    border: 1px solid #ccc;
-    float: left;
-    width: 300px;
+	margin: 5px;
+	border: 1px solid #ccc;
+	float: left;
+	width: 220px;
 }
 
 div.gallery:hover {
-    border: 1px solid #777;
+	border: 1px solid #777;
 }
 
 div.gallery img {
-    width: 100%;
-    height: auto;
+	width: 220px;
+	height: 180px;
+	
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 div.desc {
-    padding: 15px;
-    text-align: center;
+	padding: 15px;
+	text-align: center;
 }
-
 /* --- Image gallery style end --- */
