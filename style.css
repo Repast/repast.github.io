@@ -153,6 +153,10 @@ blockquote {
 	color: #710909;
 }
 
+#footerlinks p {
+	margin: 12px 20px;
+}
+
 #footerlinks table{
 	 width: 100%;
 	border-collapse: collapse;
