@@ -110,10 +110,6 @@ blockquote {
 
 
 /* Menu boxes are used on the index.html for the table based menu*/
-#linksbox {
-	padding: 20px 20px 20px 20px;
-}
-
 #menubox {
 	padding: 20px 20px 20px 20px;
 }
@@ -140,6 +136,10 @@ blockquote {
 #menuboxentry p {
     margin-top: -20px;
     color: #202020;
+}
+
+#linksbox {
+	padding: 0px 20px 20px 20px;
 }
 
 #footerlinks {
