@@ -27,8 +27,8 @@ exclude:
 include:
   - _*.html
 
-simphony_version: 2.6
-simphony_release_date: 20 November 2018
+simphony_version: 2.7
+simphony_release_date: 30 September 2019
 hpc_version: 2.3.0
 hpc_release_date: 26 November 2018
 
