@@ -29,13 +29,10 @@ body {
 
 a {
   color: blue;
-  text-decoration: none;
+  text-decoration: underline;
 }
 a:visited {
   color: fuchsia;
-}
-a:hover {
-    text-decoration: underline;
 }
 
 em {
@@ -349,6 +346,10 @@ div.colist td img {
 #toc {
   margin-bottom: 2.5em;
 }
+
+/* Only underline links on hover */
+#toc a:link {text-decoration: none; }
+#toc a:hover { text-decoration: underline; }
 
 #toctitle {
   color: #527bbd;
@@ -737,7 +738,7 @@ asciidoc.install(3);
 <body class="article" style="max-width:55em">
 <div id="header">
 <h1>Repast Simphony Frequently Asked Questions</h1>
-<span id="author">November 2018</span><br />
+<span id="author">October 2019</span><br />
 <div id="toc">
   <div id="toctitle">Table of Contents</div>
   <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
@@ -1464,14 +1465,14 @@ needed by an application, because the default amount or "heap space" was very sm
 Java 9 and later generally have better memory management, however it is still possible
 to experience an OutOfMemoryError if a model uses an unusually large amount of memory.</p></div>
 <div class="paragraph"><p>To increase the amount of system memory available to Java, a "VM" argument may be
-specified in the Eclipse launch configuration for the model as shown in <a href="#vmargs_image">[vmargs_image]</a>.
+specified in the <a href="#vmargs_image">Eclipse launch configuration for the model.</a>
 To increase the available memory (up to the physical system limit) use the -Xmx
 argument and provide a numerical value for the memory using the <em>M</em> or <em>G</em> qualifier
 to specify megabytes or gigabytes.  For example -Xmx4000M and -Xmx4G both specify
 a memory limit of 4 GB.</p></div>
 <div class="imageblock" id="vmargs_image">
 <div class="content">
-<img src="figures/vmargs.png" alt="figures/vmargs.png" />
+<img src="figures/vmargs_sm.png" alt="figures/vmargs_sm.png" />
 </div>
 <div class="title">Figure 1. Eclipse launch configuration dialog showing VM arguments options.</div>
 </div>
@@ -1607,7 +1608,7 @@ log4j.appender.R.layout.ConversionPattern=%-5p [%t] %d{ISO8601} %c - %m%n</code>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-11-09 18:10:39 Central Standard Time
+Last updated 2019-09-24 10:55:11 Central Daylight Time
 </div>
 </div>
 </body>

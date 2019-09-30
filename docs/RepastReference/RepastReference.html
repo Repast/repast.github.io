@@ -347,6 +347,10 @@ div.colist td img {
   margin-bottom: 2.5em;
 }
 
+/* Only underline links on hover */
+#toc a:link {text-decoration: none; }
+#toc a:hover { text-decoration: underline; }
+
 #toctitle {
   color: #527bbd;
   font-size: 1.1em;
@@ -538,7 +542,8 @@ body.manpage div.sectionbody {
 @media screen {
   body {
     max-width: 50em; /* approximately 80 characters wide */
-/*    margin-left: 16em; */
+
+    /* increase the default margin size a bit for wider toc panel  */
     margin-left: 23em;
   }
 
@@ -547,11 +552,12 @@ body.manpage div.sectionbody {
     top: 0;
     left: 0;
     bottom: 0;
- /*   width: 13em; */
+    /* increase the default toc width a bit */
     width: 20em;
     padding: 0.5em;
     padding-bottom: 1.5em;
     margin: 0;
+    margin-bottom: 1.5em;
     overflow: auto;
     border-right: 3px solid #f8f8f8;
     background-color: white;
@@ -572,7 +578,7 @@ body.manpage div.sectionbody {
   }
 
 }
-
+/* Only underline links on hover */
 #toc a:link {text-decoration: none; }
 #toc a:hover { text-decoration: underline; }
 
@@ -3502,14 +3508,14 @@ complicated than it sounds, and functions simply like:</p></div>
 <h2 id="_runtime_gui">11. Runtime GUI</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_scneario_tree">11.1. Scneario Tree</h3>
+<h3 id="_scenario_tree">11.1. Scenario Tree</h3>
 <div class="paragraph"><p>The <a href="#runtime_gui_scenario_tree">scenario tree</a> in the Repast runtime GUI provides access to wizards and menus
 for creating and modifying runtime components like charts, displays, and data
 logging.  The Repast runtime components reflect the state of the model simulation
 in various ways, like displaying the positions of the agents in space.  The Repast
 runtime components do not actually have an effect on model behavior, except for when
 the parameters or custom user panel components are adjusted.  In other words,
-creating a chart or a display, or an absence of these components will not affect
+creating a chart or a display, or an absence of these components, will not affect
 model behavior.</p></div>
 <div class="paragraph"><p>The scenario tree contains a fixed set of available runtime components including
 time series and histogram charts, data loaders, data sets, displays (2D, 3D, GIS),
@@ -3784,7 +3790,7 @@ to the type.</p></div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="parameter_convertors">11.3.4. Convertors and custom parameter types</h4>
+<h4 id="parameter_convertors">11.3.4. Converters and custom parameter types</h4>
 <div class="paragraph"><p>Repast Simphony can internally handle the conversion of numeric and boolean
 types to and from the Strings in the GUI display and the parameter XML file.
 However, if you wish to use a type other than these, then you must provide a
@@ -3797,7 +3803,8 @@ displaying the parameter&#8217;s value in the GUI.</p></div>
 <div class="paragraph"><p>For example, supposing you wish use the following Name class as a Parameter.</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><code>package repast.test.viz;public class Name {
+<pre><code>package repast.test.viz;
+public class Name {
         private String first, last;
         private int hashCode;
 
