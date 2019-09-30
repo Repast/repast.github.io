@@ -29,15 +29,11 @@ body {
 
 a {
   color: blue;
-  text-decoration: none;
+  text-decoration: underline;
 }
 a:visited {
   color: fuchsia;
 }
-a:hover {
-    text-decoration: underline;
-}
-
 
 em {
   font-style: italic;
@@ -542,7 +538,8 @@ body.manpage div.sectionbody {
 @media screen {
   body {
     max-width: 50em; /* approximately 80 characters wide */
-    margin-left: 16em;
+/*    margin-left: 16em; */
+    margin-left: 23em;
   }
 
   #toc {
@@ -550,7 +547,8 @@ body.manpage div.sectionbody {
     top: 0;
     left: 0;
     bottom: 0;
-    width: 13em;
+ /*   width: 13em; */
+    width: 20em;
     padding: 0.5em;
     padding-bottom: 1.5em;
     margin: 0;
@@ -572,7 +570,13 @@ body.manpage div.sectionbody {
   #toctitle {
     margin-top: 0.5em;
   }
+
 }
+
+#toc a:link {text-decoration: none; }
+#toc a:hover { text-decoration: underline; }
+
+
 </style>
 <script type="text/javascript">
 /*<![CDATA[*/
@@ -765,14 +769,14 @@ install: function(toclevels) {
 }
 
 }
-asciidoc.install(2);
+asciidoc.install(3);
 /*]]>*/
 </script>
 </head>
-<body class="article" style="max-width:55em">
+<body class="article" style="max-width:50em">
 <div id="header">
 <h1>Repast Simphony Reference Manual</h1>
-<span id="author">Version 2.6 November 2018</span><br />
+<span id="author">Version 2.7 October 2019</span><br />
 <div id="toc">
   <div id="toctitle">Table of Contents</div>
   <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
@@ -3495,26 +3499,301 @@ complicated than it sounds, and functions simply like:</p></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_gui_parameters_and_probes">11. GUI Parameters and Probes</h2>
+<h2 id="_runtime_gui">11. Runtime GUI</h2>
 <div class="sectionbody">
-<div class="paragraph"><div class="title">GUI Parameters</div><p>GUI Parameters are the simulation parameters that appear in the parameters view
-in the application GUI. These parameters are automatically created from the
-parameters XML file or from any @Parameters method annotations that are used in
-a Context. At the moment, these two options only allow for the creation of
-unconstrained numeric, boolean and String parameters. However, constrained
-parameters of more complicated types can be defined using an xml based format.
-This section describes how  to save, load and "set as default" parameters using
-the parameters tools menu, and the last section looks  at the parameters
-returned from agent probes.</p></div>
-<div class="paragraph"><div class="title">Convertors and custom parameter types</div><p>Repast Simphony can internally handle the conversion of numeric and boolean
-types to and from the Strings in the gui display and the parameter file.
+<div class="sect2">
+<h3 id="_scneario_tree">11.1. Scneario Tree</h3>
+<div class="paragraph"><p>The <a href="#runtime_gui_scenario_tree">scenario tree</a> in the Repast runtime GUI provides access to wizards and menus
+for creating and modifying runtime components like charts, displays, and data
+logging.  The Repast runtime components reflect the state of the model simulation
+in various ways, like displaying the positions of the agents in space.  The Repast
+runtime components do not actually have an effect on model behavior, except for when
+the parameters or custom user panel components are adjusted.  In other words,
+creating a chart or a display, or an absence of these components will not affect
+model behavior.</p></div>
+<div class="paragraph"><p>The scenario tree contains a fixed set of available runtime components including
+time series and histogram charts, data loaders, data sets, displays (2D, 3D, GIS),
+file (data) sinks, and User Panel options.  Right clicking on any of the top-level
+component categories provides the option to create new entries for each.  Double
+clicking on existing entries in each category will provide access to specific options.</p></div>
+<div class="paragraph"><p>The scenario tree is just one of the available runtime interfaces available in the
+left panel of the runtime window.  Additional panels can be accessed by clicking on
+the named tabs in the left side panel for Run Options, Parameters, and User Panel.</p></div>
+<div class="imageblock" id="runtime_gui_scenario_tree">
+<div class="content">
+<img src="figures/runtime_gui_scenario.png" alt="figures/runtime_gui_scenario.png" />
+</div>
+<div class="title">Figure 17. Repast runtime GUI with scenario tree (left).</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_run_options">11.2. Run Options</h3>
+<div class="paragraph"><p>The <a href="#runtime_gui_run_options">runtime run options panel</a> provides access to
+options for controlling the model run state.  These include:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Pause At:</strong> a double precision value that indicates the tick at which to automatically
+pause the model.  Default value of zero disables this option.
+</p>
+</li>
+<li>
+<p>
+<strong>Stop At:</strong> a double precision value that indicates the tick at which to automatically
+stop the model.  Default value of zero disables this option.
+</p>
+</li>
+<li>
+<p>
+<strong>Schedule Tick Delay:</strong> The value of the slider indicates the time in milliseconds
+for which to delay the model between scheduled ticks. Default value of zero
+disables this option.
+</p>
+</li>
+</ul></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/tip.png" alt="Tip" />
+</td>
+<td class="content">Increasing the schedule tick delay will slow down the model execution speed and can
+be useful when observing agent behaviors that execute too quickly.</td>
+</tr></table>
+</div>
+<div class="imageblock" id="runtime_gui_run_options">
+<div class="content">
+<img src="figures/runtime_gui_run_options.png" alt="figures/runtime_gui_run_options.png" />
+</div>
+<div class="title">Figure 18. Repast runtime GUI with run options panel (left).</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_parameters">11.3. Parameters</h3>
+<div class="paragraph"><p>The <a href="#runtime_gui_parameters">parameters panel</a> shows the list of available model
+parameters and their values, and allows each parameter value to be changed before
+or during a model run.  Model parameters will typically be represented in the GUI
+by an editable text box with the current value, or a check box that can be toggled
+for boolean true/false values, or a fixed list of allowed values, depending on how
+the parameters are defined.  When a model is initialized or reset, the parameter values
+are set to their default values.  Parameter values can be changed before or after
+a simulation is started, however the impact on model behavior id dependent on how
+the model parameters are accessed in the model code.  In one model, the parameters
+might only be read during initialization in which case changing parameter values
+after the model has started will have no affect on behavior.  In another model, the
+design could incorporate a check of model parameters at regular intervals and in this
+case changing parameter values after the model has started would affect behavior.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/tip.png" alt="Tip" />
+</td>
+<td class="content">To impact model behavior after the simulation is started, parameters need to be
+updated in the model code in a regularly scheduled agent behavior.</td>
+</tr></table>
+</div>
+<div class="imageblock" id="runtime_gui_parameters">
+<div class="content">
+<img src="figures/runtime_gui_parameters.png" alt="figures/runtime_gui_parameters.png" />
+</div>
+<div class="title">Figure 19. Repast runtime GUI with parameters panel (left).</div>
+</div>
+<div class="sect3">
+<h4 id="_modifying_existing_parameters">11.3.1. Modifying existing parameters</h4>
+<div class="paragraph"><p>Model parameters can be added and deleted using the toolbar in the parameters panel.
+To delete an existing model parameter click the <span class="image">
+<img src="figures/button_cancel.png" alt="figures/button_cancel.png" />
+</span>
+button and then select the parameters to delete in the <a href="#delete_parameter">Delete Parameter dialog</a>, and click OK.</p></div>
+<div class="imageblock" id="delete_parameter">
+<div class="content">
+<img src="figures/remove_parameter.png" alt="figures/remove_parameter.png" />
+</div>
+<div class="title">Figure 20. Dialog window for deleting existing model parameters.</div>
+</div>
+<div class="paragraph"><p>Additional parameter modification options include setting the default values from
+the currently visible values in the panel.  When the model is initialized or reset,
+the default value is displayed for each parameter.  However, to change
+the default value of the parameters simply change the value of the parameters in
+the panel and click the <span class="image">
+<img src="figures/redo.png" alt="figures/redo.png" />
+</span> button.  Changing the default values
+in this way is only temporary unless the parameters are saved.  To save the parameter
+default values, click the <span class="image">
+<img src="figures/filesave16.png" alt="figures/filesave16.png" />
+</span> button.  When the parameters
+are saved, their default values will persist even when the Repast runtime GUI is
+closed and restarted.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/tip.png" alt="Tip" />
+</td>
+<td class="content">Save the model parameters any time the default value is changed or parameters are
+added or removed.</td>
+</tr></table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_adding_new_parameters">11.3.2. Adding new parameters</h4>
+<div class="paragraph"><p>New model parameters can be created by clicking on the <span class="image">
+<img src="figures/edit_add.png" alt="figures/edit_add.png" />
+</span>
+button which will bring up the <a href="#runtime_gui_add_parameter">Add Parameter</a> dialog.
+All of the fields in the Add Parameter dialog are empty and require information that
+defines the parameter name, type, default value, and additional meta data.</p></div>
+<div class="paragraph"><p>The required parameter options are:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Name:</strong> a string value that represents the parameter name used in the model code
+when referencing the parameter value, e.g. "zombie_count." (Don&#8217;t include quotes).
+</p>
+</li>
+<li>
+<p>
+<strong>Display Name:</strong> a human-readable name for the parameter that will be shown in the
+parameter panel, e.g. "Zombie Count." (Don&#8217;t include quotes).
+</p>
+</li>
+<li>
+<p>
+<strong>Type:</strong> the parameter type. The type can be any Java class or primitive types like
+int or double.  Typical examples and use cases may include:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>int:</strong> for representing integer numbers like the total count of some type of agent.
+</p>
+</li>
+<li>
+<p>
+<strong>double:</strong> for representing floating-point numbers like a movement speed of an agent.
+</p>
+</li>
+<li>
+<p>
+<strong>boolean:</strong> for representing a true/false parameter.
+</p>
+</li>
+<li>
+<p>
+<strong>String:</strong> for repressing a string parameter.
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+<strong>Default Value:</strong> the initial value for the parameter when the runtime is started.
+The default value should be appropriate to the type, e.g. a numeric value for int
+or double, true/false for boolean, and a string value for string type parameters.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The optional parameter options are:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Converter:</strong> an implementation of a <a href="#parameter_convertors">Repast parameter converter.</a>
+</p>
+</li>
+<li>
+<p>
+<strong>Values:</strong> a <em>space-separated list</em> of allowed values for the parameter, e.g. "1,5,10,20"
+(Don&#8217;t include quotes).  When the value list is provided, the parameter representation
+in the parameter panel changes from a text box to a list box from which the specified
+parameter values may be selected.
+</p>
+</li>
+</ul></div>
+<div class="imageblock" id="runtime_gui_add_parameter">
+<div class="content">
+<img src="figures/runtime_gui_add_parameter.png" alt="figures/runtime_gui_add_parameter.png" />
+</div>
+<div class="title">Figure 21. Repast runtime add new parameter dialog.</div>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/note.png" alt="Note" />
+</td>
+<td class="content">When adding new parameters, the parameter panel may take a few seconds to update
+after the OK button is pressed in the parameter dialog.</td>
+</tr></table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_model_parameters">11.3.3. Example Model Parameters</h4>
+<div class="paragraph"><p>Several example Add Parameter dialogs are shown below for different types of model
+parameters represented in the <a href="#runtime_gui_parameters">parameters panel</a>.</p></div>
+<div class="sect4">
+<h5 id="_integer_parameter">Integer Parameter</h5>
+<div class="paragraph"><p>An example integer parameter is shown below.</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="figures/runtime_gui_add_parameter_int.png" alt="figures/runtime_gui_add_parameter_int.png" />
+</div>
+<div class="title">Figure 22. Adding a new integer parameter.</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_double_parameter">Double Parameter</h5>
+<div class="paragraph"><p>An example double parameter is shown below.</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="figures/runtime_gui_add_parameter_double.png" alt="figures/runtime_gui_add_parameter_double.png" />
+</div>
+<div class="title">Figure 23. Adding a new double parameter.</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_boolean_parameter">Boolean Parameter</h5>
+<div class="paragraph"><p>An example boolean parameter is shown below.  Notethat default values are only
+<em>true</em> or <em>false</em>.</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="figures/runtime_gui_add_parameter_boolean.png" alt="figures/runtime_gui_add_parameter_boolean.png" />
+</div>
+<div class="title">Figure 24. Adding a new boolean parameter.</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_string_parameter">String Parameter</h5>
+<div class="paragraph"><p>An example String parameter is shown below.  Note that the type <strong>String</strong> is
+capitalized. Default values with spaces should be wrapped in single quote characters.</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="figures/runtime_gui_add_parameter_string.png" alt="figures/runtime_gui_add_parameter_string.png" />
+</div>
+<div class="title">Figure 25. Adding a new String parameter.</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_integer_parameter_with_list_values">Integer Parameter with List Values</h5>
+<div class="paragraph"><p>An example integer parameter with list values is shown below.  This will produce
+a list box in the parameter panel with the values 0, 1, 5, 10, and 15.  Value
+list parameters can be used for any parameter type as long as the values correspond
+to the type.</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="figures/runtime_gui_add_parameter_list.png" alt="figures/runtime_gui_add_parameter_list.png" />
+</div>
+<div class="title">Figure 26. Adding a new integer parameter with list values.</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="parameter_convertors">11.3.4. Convertors and custom parameter types</h4>
+<div class="paragraph"><p>Repast Simphony can internally handle the conversion of numeric and boolean
+types to and from the Strings in the GUI display and the parameter XML file.
 However, if you wish to use a type other than these, then you must provide a
 converter that will convert an Object to and from a String representation. A
 converter is class that implements StringConverter and is used to create the
-appropriate Object from a string representation when reading the xml file and
+appropriate Object from a string representation when reading the XML file and
 taking input from the gui. The converter also converts the object to a string
 representation. This string is then used when writing the object out and
-displaying the parameter&#8217;s value in the gui.</p></div>
+displaying the parameter&#8217;s value in the GUI.</p></div>
 <div class="paragraph"><p>For example, supposing you wish use the following Name class as a Parameter.</p></div>
 <div class="listingblock">
 <div class="content">
@@ -3555,7 +3834,7 @@ displaying the parameter&#8217;s value in the gui.</p></div>
         }
 }</code></pre>
 </div></div>
-<div class="paragraph"><p>Your parameter XML then would look something like:</p></div>
+<div class="paragraph"><p>The parameter XML then would look something like:</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><code>&lt;parameters&gt; ...
@@ -3646,35 +3925,1372 @@ of a converted parameter. For example:</p></div>
 Strings that can be converted using the converter. If you do constrain a
 converted parameter in this way, you must override equals (and hashCode) in your
 custom type. If not, then the constraint validation will most likely fail.</p></div>
-<div class="paragraph"><div class="title">Parameters Panel Tools</div><p>The menu on the parameters panels allows the user to save and load parameter
-values, and set the current parameter values as the default.</p></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="runtime_gui_datasets">11.4. Data Sets</h3>
+<div class="paragraph"><p>Repast Simphony records data from data sources of two types - Aggregate and
+Non-Aggregate.  Aggregate data sources receive a collection of objects (agents,
+for example) and typically return an aggregate value derived from the set of
+all of the objects. For example, an aggregate data source might call a method on
+each object and return the maximum value or mean of all values. A non-aggregate
+data source takes a single object (e.g. a single agent) and returns a single
+value for each object. For example, a non-aggregate data source might call a
+method on an agent and return the result of that method call. Data sources are
+grouped into named data sets. A data set is a collection of data sources.</p></div>
+<div class="paragraph"><p>Once a data set is defined, the Repast runtime will record the data produced by
+the data set&#8217;s data sources. However, the recorded data will not be written to a
+file or displayed in a chart. For that to occur, a <a href="#runtime_gui_textsinks">Text Sink</a> must be defined. A text sink takes the data produced by data sources
+and writes them to a file or the console. Similarly, a <a href="#runtime_gui_charts">Chart</a>
+may be used to display the data set content in a time series or histogram.
+A single data set can be connected to multiple text sinks and charts.</p></div>
+<div class="sect3">
+<h4 id="_creating_a_data_set">11.4.1. Creating a Data Set</h4>
+<div class="paragraph"><p>Data collection is set up in Repast Simphony by defining the data sets and data
+sources described above. To create a data set, right click on the Data Sets node
+in the <a href="#runtime_gui_scenario_tree">scenario tree</a> and select <strong>Add Data Set.</strong>
+The <a href="#runtime_gui_add_dataset">Data Set Editor dialog</a> will appear in which
+the name the data set can be specified, along with the data set type. Data sets
+are able to record <a href="#runtme_gui_aggregate_data">aggregate</a> and
+<a href="#runtme_gui_nonaggregate_data">non-aggregate data sources</a>.</p></div>
+<div class="imageblock" id="runtime_gui_add_dataset">
+<div class="content">
+<img src="figures/runtime_gui_add_dataset.png" alt="figures/runtime_gui_add_dataset.png" />
+</div>
+<div class="title">Figure 27. Repast runtime add new Data Set dialog.</div>
+</div>
+<div class="sect4">
+<h5 id="_standard_data_sources">Standard Data Sources</h5>
+<div class="paragraph"><p>In the next step (click <strong>Next</strong>), the data sources from which data will be recorded
+are defined. In the data source step there are three different tabs in which data
+sources are selected and defined.</p></div>
+<div class="paragraph"><p>The first tab <a href="#runtime_gui_add_dataset_std"><strong>Standard Sources</strong></a> is common to
+aggregate and non-aggregate sources, and includes the model <strong>Tick Count</strong>,
+<strong>Random Seed</strong>, and <strong>Run Number</strong>.  Selecting these sources will automatically insert
+the current value of these variables into the data set. The tick count value is
+selected by default and is almost always needed to record the timing of events,
+say to create a time-series chart, and in general simply to understand how the
+model progresses over time. The random seed parameter is useful to include in
+models with stochastic behavior so that specific results can be re-created by
+using the same random seed in additional model runs.  Finally, the run number is
+useful to include in logged data when more than one model run will be executed,
+say in batch mode, so that each of the run data are indexed in the data set.</p></div>
+<div class="paragraph"><p>The remaining two tabs include <strong>Method Data Sources</strong> and <strong>Custom Data Sources</strong>, and
+define which data is logged from the model components, and function differently
+depending on the data set type (aggregate or non-) and are described below.</p></div>
+<div class="imageblock" id="runtime_gui_add_dataset_std">
+<div class="content">
+<img src="figures/runtime_gui_add_dataset_std.png" alt="figures/runtime_gui_add_dataset_std.png" />
+</div>
+<div class="title">Figure 28. Repast runtime add new Data Set dialog standard sources.</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="runtme_gui_aggregate_data">Aggregate Data Sources</h5>
+<div class="paragraph"><p>For an aggregate data set, the <strong>Method Data Sources</strong> tab allows one to define data
+sources that call a method on each of the agents of a specified type
+and then perform an aggregate operation on the results of those method calls. For
+example, if a model contains "Human" agents, each of which have a getEnergy()
+method that returns the agent&#8217;s energy as a double value, an aggregate data
+source can record the mean, maximum, and minimum energy for the population of
+Human agents.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/tip.png" alt="Tip" />
+</td>
+<td class="content">Use an aggregate data source to perform statistical summaries of agent properties.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>To add an aggregate Method Data Source, click the <strong>Add</strong> button. A new row in the
+method data source table will be added. The type of agent for which to record
+data can be selected by double clicking on the cell in the <strong>Agent Type</strong> column. When
+multiple agent types are available in the model, double clicking will display a
+list of agents from which to chose.  Next, the method for the selected agent type
+is set by clicking on the cell in the <strong>Method</strong> column and selecting the available
+agent methods for the data source row.  Since aggregate data sources perform a
+data operation on all of the agents for the specified type, the operation needs
+to be selected in the <strong>Aggregate Operation</strong> column.  Double clicking on the cell
+in this column provides a list of available data operations such as min, max, mean,
+standard deviation, and others.  Finally, the data source should be provided with
+a unique name that can be typed into the cell in the <strong>Source Name</strong> column.</p></div>
+<div class="paragraph"><p>An <a href="#runtime_gui_add_dataset_agg_1">example aggregate data set source</a> is shown
+below in which the average energy for the "Human" agent type is aggregated into
+a mean value.</p></div>
+<div class="paragraph"><p>Note that boolean operations can be summed, averaged, and so forth. True is equal
+to 1 and false is equal to 0. You will also need to provide a name for the data
+source by double clicking and typing a name in the cell in the Source Name column.</p></div>
+<div class="paragraph"><p>After all of the desired data sources are defined, the data set update behavior
+needs to be defined via the <a href="#runtime_gui_schedule_dataset"><strong>Schedule Parameters</strong></a>.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/note.png" alt="Note" />
+</td>
+<td class="content">The example <strong>Data Set</strong> dialogs in this section display content from the <strong>JZombies</strong>
+demo.  The actual content of the dialogs will vary by model data set content.</td>
+</tr></table>
+</div>
+<div class="imageblock" id="runtime_gui_add_dataset_agg_1">
+<div class="content">
+<img src="figures/runtime_gui_add_dataset_agg_1.png" alt="figures/runtime_gui_add_dataset_agg_1.png" />
+</div>
+<div class="title">Figure 29. Selecting data sources for an aggregate data set.</div>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/tip.png" alt="Tip" />
+</td>
+<td class="content">If no methods are listed for the agent type in the data source, this means that
+the agent class does not have publicly visible methods.  Make sure that the agent
+has methods that return numeric data types and have public visibility.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>An additional aggregate <strong>Count</strong> operation is available that will return the
+current number of agents of the specified type in the simulation. The Count
+operation does not require an agent method return value, but rather it simply
+sums up all instances of the agent type, and is thus useful for calculating
+population size during a model run. <a href="#runtime_gui_add_dataset_agg_2">A Count data source is created by clicking</a>
+the Add button in the <strong>Method Data Sources</strong> tab and selecting Count in the
+Aggregate Operation column. By selecting the Count operation the Method column
+cell with be set to a "N/A" (non-applicable) value indicating that the Count
+operation doesn&#8217;t require a method call.  The Count operation will apply to the
+class specified in the Agent Type column.  A unique name for the Count source
+should be provided in the Source Name column.</p></div>
+<div class="imageblock" id="runtime_gui_add_dataset_agg_2">
+<div class="content">
+<img src="figures/runtime_gui_add_dataset_agg_2.png" alt="figures/runtime_gui_add_dataset_agg_2.png" />
+</div>
+<div class="title">Figure 30. Creating a Count data source for an aggregate data set.</div>
+</div>
+<div class="paragraph"><p>The <strong>Custom Data Sources</strong> tab allows you to specify custom data sources that are
+provided via a user-defined data source class that implements the
+repast.simphon.data2.AggregateDataSource interface. Type the name
+of the implementing class into the text box next to the Add button, then
+click the Add button. The new data source should appear in the list below
+the text box.</p></div>
+</div>
+<div class="sect4">
+<h5 id="runtme_gui_nonaggregate_data">Non-Aggregate Data Sources</h5>
+<div class="paragraph"><p>For an non-aggregate data set, the <strong>Method Data Sources</strong> tab allows one to define data
+sources that call a method on each of the agents of a specified type and returns
+a <strong>separate result for each agent instance</strong> of that type. Unlike the aggregate
+data source, an aggregate operation is not performed. For example, if a model
+contains "Human" agents, each of which have a getEnergy() method that returns
+the agent&#8217;s energy as a double value, a non-aggregate data source will record the
+individual energy value for each agent as a separate entry in the data set.
+Non-aggregate data sources are therefore useful for tracking the individual agent
+properties during a simulation.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/tip.png" alt="Tip" />
+</td>
+<td class="content">Use a non-aggregate data source to record the individual property values of each
+agent during a simulation.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>To define a non-aggregate Method Data Source, select the source class in the
+<strong>Source Class</strong> combo box and then click <strong>Add</strong> to add a new row to the method data
+source table.</p></div>
+<div class="paragraph"><p>Next, the method for the selected agent type is set by clicking on the cell in
+the <strong>Method</strong> column and selecting the available agent methods for the data source
+row. Finally, the data source should be provided with a unique name that can be
+typed into the cell in the <strong>Source Name</strong> column. Note that only a single source
+class can be used, that is, all the method data sources need to be method calls
+on that selected class.</p></div>
+<div class="paragraph"><p>An <a href="#runtime_gui_add_dataset_nonagg">example non-aggregate data set source</a> is shown
+below in which the energy for all individual "Human" agents type is logged as
+discrete values.</p></div>
+<div class="paragraph"><p>After all of the desired data sources are defined, the data set update behavior
+needs to be defined via the <a href="#runtime_gui_schedule_dataset"><strong>Schedule Parameters</strong></a>.</p></div>
+<div class="imageblock" id="runtime_gui_add_dataset_nonagg">
+<div class="content">
+<img src="figures/runtime_gui_add_dataset_nonagg.png" alt="figures/runtime_gui_add_dataset_nonagg.png" />
+</div>
+<div class="title">Figure 31. Creating a Count data source for an aggregate data set.</div>
+</div>
+<div class="paragraph"><p>The <strong>Custom Data Sources</strong> tab allows you to specify custom data sources that are
+provided via a user-defined data source class that implements the
+repast.simphon.data2.NonAggregateDataSource interface. Type the name
+of the implementing class into the text box next to the Add button, then
+click the Add button. The new data source should appear in the list below
+the text box.</p></div>
+</div>
+<div class="sect4">
+<h5 id="runtime_gui_schedule_dataset">Scheduling Data Sets</h5>
+<div class="paragraph"><p>After data sources are defined, clicking the <strong>Next</strong> button displays the
+<a href="#runtime_gui_schedule_params">Schedule Parameters dialog</a> in which to specify
+the start time, priority, frequency, and interval (assuming a repeating frequency).
+These parameters are as follows:</p></div>
+<div class="imageblock" id="runtime_gui_schedule_params">
+<div class="content">
+<img src="figures/runtime_gui_schedule_params.png" alt="figures/runtime_gui_schedule_params.png" />
+</div>
+<div class="title">Figure 32. Specifying schedule parameters for a data set.</div>
+</div>
 <div class="ulist"><ul>
 <li>
 <p>
-Saving - clicking the save menu item will prompt for a file name and then save
-the current parameter values into that file.
+<strong>Start Time:</strong> a double precision value that specifies the tick count at which
+to begin data collection, as defined in the data set&#8217;s data sources.
 </p>
 </li>
 <li>
 <p>
-Loading - clicking the load menu item will prompt for a file name and then
-load the parameter values from that file into the current parameters. This
-assumes that the current parameters are compatible with those being loaded,
-that is, that the names and types of parameters in the file match the current
-parameters.
+<strong>Priority:</strong> a value of either <strong>Random</strong>, <strong>First</strong>, or <strong>Last</strong> that determines when the
+data collection occurs in a single simulation tick, relative to all other scheduled
+simulation behaviors.  Typically this value is <strong>Last</strong> which indicates that all
+scheduled agent behaviors will execute in a single time step before the data is collected.
 </p>
 </li>
 <li>
 <p>
-Set as Default - this allows the user to set current parameter values as
-defaults such that these values will be used when the simulation is reset.
-Clicking this menu item prompts for which parameters to set as defaults and then
-sets those as the new defaults.
+<strong>Frequency:</strong> a value of either <strong>Repeat</strong> or <strong>One Time</strong> that determines if the data
+collection should occur on a regular repeating interval, or just a single time.
+</p>
+</li>
+<li>
+<p>
+<strong>Interval:</strong> a double precision value that specifies the interval frequency at which
+to collect the data.
+</p>
+</li>
+<li>
+<p>
+<strong>Also At End:</strong> check this box to perform an additional data collection when the
+simulation ends.
+</p>
+</li>
+<li>
+<p>
+<strong>Only A End:</strong> check this box to only record data at the end of the simulation.
 </p>
 </li>
 </ul></div>
-<div class="paragraph"><div class="title">Agent Probes</div><p>An agent can be probed by clicking on its visual representation in the gui. The
-agent&#8217;s parameters will then be displayed in a probe panel. By default, the
+<div class="paragraph"><p>Clicking <strong>Finish</strong> will create the data set for the current scenario. To actually
+save the data set parameters in the scenario, select <strong>File &#8594; Save</strong> in the GUI.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/tip.png" alt="Tip" />
+</td>
+<td class="content">Don&#8217;t forget to save the scenario after adding new data sets.</td>
+</tr></table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="runtime_gui_textsinks">11.5. Text Sinks</h3>
+<div class="paragraph"><p><a href="#runtime_gui_datasets">Data sets</a> allow the Repast runtime to record model data
+in memory, but data sets themselves do not provide access to the data in a
+human-readable format and their contents are lost when the Repast runtime is closed.
+Data set content can be directed to Text Sinks that will direct the data to either
+the Eclipse program console or to an output file. Console output will show up in
+Eclipse&#8217;s console tab and can be useful for debugging.</p></div>
+<div class="sect3">
+<h4 id="runtime_gui_textsinks_filesink">11.5.1. File Sinks</h4>
+<div class="paragraph"><p>To write data to a file, a file sink needs to be defined. To create a file sink
+right click <strong>Text Sinks</strong> in the Scenario Tree and click <strong>Add File Sink</strong>. The
+<a href="#runtime_gui_add_filesink_1">File Sink Editor dialog</a> will appear.  The <strong>Name</strong>
+box contains a default value for the file sink and this should be changed to a
+meaningful and unique description for the file sink that will appear in the scenario
+tree.  Next, select the <strong>Data Set ID</strong> from the list of available data sets that
+have created. When the data set is selecte, a list of the data sources in that
+data set in the list box on the left hand side. Select the sources to write to a
+file and click the right arrow to move them over to the list of data sources to
+be written. The order in which sources will be written can be changed using the
+up and down arrows.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/note.png" alt="Note" />
+</td>
+<td class="content">The example <strong>File Sink</strong> dialogs in this section display content from the <strong>JZombies</strong>
+demo.  The actual content of the dialogs will vary by model data set content.</td>
+</tr></table>
+</div>
+<div class="imageblock" id="runtime_gui_add_filesink_1">
+<div class="content">
+<img src="figures/runtime_gui_add_filesink_1.png" alt="figures/runtime_gui_add_filesink_1.png" />
+</div>
+<div class="title">Figure 33. Repast runtime add new File Sink dialog.</div>
+</div>
+<div class="paragraph"><p>Once the desired data sources to record have been selected, click <strong>Next</strong> to define
+the &lt;runtime_gui_add_filesink_2, output file properties&gt;&gt;.  The <strong>File Name</strong> specifies
+the name of the file to which to write the data.  When only the file name without
+a directory path is entered, the file path is relative to the model root folder.
+The <strong>Browse</strong> button can be used to facilitate locating the output file if it is
+desired to save it in a location other than the model folder.  The checkbox below
+the file name can be used to insert the current system data and time into the
+file name.  This feature is extremely useful to prevent overwriting an existing
+file name with the same name.</p></div>
+<div class="imageblock" id="runtime_gui_add_filesink_2">
+<div class="content">
+<img src="figures/runtime_gui_add_filesink_2.png" alt="figures/runtime_gui_add_filesink_2.png" />
+</div>
+<div class="title">Figure 34. Repast runtime add new File Sink (File Properties) dialog.</div>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/tip.png" alt="Tip" />
+</td>
+<td class="content">When only the output file name without a directory path is entered, the file path
+is relative to the model root folder.</td>
+</tr></table>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/caution.png" alt="Caution" />
+</td>
+<td class="content">Enable the checkbox to insert the current time into the output file name to avoid
+overwriting existing model output data.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>The <strong>Delimiter</strong> character is used use to separate the data entries in the output
+file. Comma-delimitted files are common and can be imported into most spreadsheet
+applications and data analysis packages.  Other example delimiters are the colon <em>:</em>,
+or semi-colon <em>;</em> characters, although any character may be used.</p></div>
+<div class="paragraph"><p>Data can be written in two formats. <strong>Tabular</strong> format writes the data in typical
+spreadsheet type tabular format. Each data source will be a column in the table
+and the name of the data source will be the column header. For example, the raw
+file output would look like:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>"tick", "Human Count", "Zombie Count"
+1.0, 199, 6
+2.0, 199, 6
+3.0, 198, 7
+4.0, 195, 10</code></pre>
+</div></div>
+<div class="paragraph"><p>And this same data imported into a spreadsheet application would appear as in
+the following table:</p></div>
+<div class="tableblock">
+<table rules="all"
+width="50%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<caption class="title">Table 11. Tabular view of data</caption>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+<thead>
+<tr>
+<th align="left" valign="top">tick </th>
+<th align="left" valign="top">Human Count </th>
+<th align="left" valign="top">Zombie Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">1.0</p></td>
+<td align="left" valign="top"><p class="table">199</p></td>
+<td align="left" valign="top"><p class="table">6</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">2.0</p></td>
+<td align="left" valign="top"><p class="table">199</p></td>
+<td align="left" valign="top"><p class="table">6</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">3.0</p></td>
+<td align="left" valign="top"><p class="table">198</p></td>
+<td align="left" valign="top"><p class="table">7</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">4.0</p></td>
+<td align="left" valign="top"><p class="table">195</p></td>
+<td align="left" valign="top"><p class="table">10</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><p><strong>Line</strong> format writes the data out on a single line where the data source name is
+followed by a colon followed by the value. For example,</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>tick: 1.0, Human Count: 199, Zombie Count: 6
+tick: 2.0, Human Count: 198, Zombie Count: 7</code></pre>
+</div></div>
+<div class="paragraph"><p>The choice of using either tabular or line format output files is entirely
+dependent on how the data will be used after the simulation run is completed.
+Click <strong>Finish</strong> to add the file sink to the scenario and don&#8217;t forget to save the
+scenario.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/tip.png" alt="Tip" />
+</td>
+<td class="content">Don&#8217;t forget to save the scenario after adding new file sinks.</td>
+</tr></table>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/note.png" alt="Note" />
+</td>
+<td class="content">The frequency at which the data are saved to the file sink depends on the
+<a href="#runtime_gui_schedule_dataset">schedule parameters of the data set</a>.</td>
+</tr></table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_console_sinks">11.5.2. Console Sinks</h4>
+<div class="paragraph"><p>To define a console sink, click on the <strong>Text Sinks</strong> node in the scenario tree
+and select <strong>Add Console Sink</strong>. The steps to define a console sink are nearly
+identical those used to define a <a href="#runtime_gui_textsinks_filesink">file sink</a>.</p></div>
+<div class="paragraph"><p>As with File Sinks, the data set and data sources are selected, along with a
+delimiter and a format type. A console sink can also be enabled or disabled using
+the checkbox in the Configure Console Properties in the console sink wizard.
+This can be useful to enable a console sink for debugging and then disable it
+for production runs.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_batch_runs">11.5.3. Batch Runs</h4>
+<div class="paragraph"><p>Output during batch runs now consists of a single file. The file will automatically
+include the batch run number. For example,</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>"run", "tick", "Human Count", "Zombie Count"
+1, 1.0, 199, 6
+1, 2.0, 199, 6
+1, 3.0, 198, 7
+...
+2, 1.0, 199, 5
+2, 2.0, 199, 5
+2, 3.0, 198, 7</code></pre>
+</div></div>
+<div class="paragraph"><p>where "run" is the batch run number. A parameter mapping file will also be
+produced that describes what parameters were used for each run. For example,</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>"run","randomSeed","human_count","zombie_count"
+1, 1, 200, 5
+2, 1, 200, 6</code></pre>
+</div></div>
+<div class="paragraph"><p>Here, run 1 was run with a random seed of 1, a human count of 200 and zombie
+count of 5. Run 2 was run with a random seed of 1, a human count of 200 and
+zombie count of 6. This mapping file will have the same name as the output file
+with "batch_param_map" inserted. So, ModelOutput.2012.Jan.27.14_23_34.txt
+will have a mapping file of ModelOutput.2012.Jan.27.14_23_34.batch_param_Map.txt.</p></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="runtime_gui_charts">11.6. Charts</h3>
+<div class="paragraph"><p>Repast allows you to create two different kinds of charts: time series and
+histograms.</p></div>
+<div class="imageblock" id="runtime_gui_ts_chart_example_agg">
+<div class="content">
+<img src="figures/runtime_gui_ts_chart_example_agg.png" alt="figures/runtime_gui_ts_chart_example_agg.png" />
+</div>
+<div class="title">Figure 35. Repast runtime example aggregate data time series chart.</div>
+</div>
+<div class="imageblock" id="runtime_gui_ts_chart_example_nonagg">
+<div class="content">
+<img src="figures/runtime_gui_ts_chart_example_nonagg.png" alt="figures/runtime_gui_ts_chart_example_nonagg.png" />
+</div>
+<div class="title">Figure 36. Repast runtime example non-aggregate data time series chart.</div>
+</div>
+<div class="imageblock" id="runtime_gui_hist_chart_example_nonagg">
+<div class="content">
+<img src="figures/runtime_gui_hist_chart_example.png" alt="figures/runtime_gui_hist_chart_example.png" />
+</div>
+<div class="title">Figure 37. Repast runtime example histogram chart.</div>
+</div>
+<div class="sect3">
+<h4 id="_time_series_charts">11.6.1. Time Series Charts</h4>
+<div class="paragraph"><p>To create a time series chart right click on the Charts node in the scenario tree
+and choose <strong>Add Time Series Chart</strong> and the <a href="#runtime_gui_add_ts_chart_1">Time Series Chart dialog</a> will appear. Provide a meaningful <strong>Name</strong> for the chart that will
+appear in the Chart title and in the scenario tree.  Duplicate chart names are
+allowed.</p></div>
+<div class="paragraph"><p>Select the <a href="#runtime_gui_datasets"><strong>Data Set</strong></a> that will serve as the source of
+the chart data. Note that the data set must contain a data source named <strong>tick</strong>
+in order to create a time series. The standard data source <strong>current tick count</strong>
+will provide this. The tick value will be the x-axis value. The next step will be
+different depending on the type (aggregate or non-) of data set you have chosen.</p></div>
+<div class="imageblock" id="runtime_gui_add_ts_chart_1">
+<div class="content">
+<img src="figures/runtime_gui_add_ts_chart_1.png" alt="figures/runtime_gui_add_ts_chart_1.png" />
+</div>
+<div class="title">Figure 38. Repast runtime add new Time Series Chart dialog.</div>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/caution.png" alt="Caution" />
+</td>
+<td class="content">Time series charts require that the source data set contain a "tick" source.</td>
+</tr></table>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/note.png" alt="Note" />
+</td>
+<td class="content">The frequency at which the chart data are updated depends on the
+<a href="#runtime_gui_schedule_dataset">schedule parameters of the data set</a>.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>When charting <a href="#runtme_gui_aggregate_data">aggregate data</a>, each data source in
+the data set can become a series in the chart. The <strong>Chart Data</strong> step specifies
+which of the data sources defined in the chosen data set will be displayed as
+series in the chart. A data source for display in the chart is selected by
+clicking the <strong>check box</strong> in the left most column of the table. Only the selected
+data will be shown in the chart, and not all data needs to be selected. The
+<strong>Color</strong> of the displayed series is specified by double clicking on the relevant
+ cell in the color column. This will bring up a color selection dialog from which
+a color for the series may be chosen. The <strong>Label</strong> column boxes can be edited to
+change the series label as it will appear in the chart legend.</p></div>
+<div class="imageblock" id="runtime_gui_add_ts_chart_2">
+<div class="content">
+<img src="figures/runtime_gui_add_ts_chart_2.png" alt="figures/runtime_gui_add_ts_chart_2.png" />
+</div>
+<div class="title">Figure 39. Repast runtime add new Time Series Chart (Data) dialog.</div>
+</div>
+<div class="paragraph"><p>When charting <a href="#runtme_gui_nonaggregate_data">non-aggregate data</a>, the series
+definition works differently. A non-aggregate data set generates a row of data
+for each object rather than aggregating the individual data into a single row.</p></div>
+<div class="paragraph"><p>When creating a time series from non-aggregate data, each series will represent
+an individual agent and the y-value will be the value of some selected property
+or properties of that agent. Consequently, in the <a href="#runtime_gui_add_ts_chart_3">data selection step for non-aggregate data</a>, a <strong>Series ID</strong> needs to be
+selected that uniquely identifies a particular agent, e.g. the agent&#8217;s name or
+label.  The Series ID corresponds to a data source in the data set.  This can be
+a String value like the agent&#8217;s label, or an integer ID.  Each series line in
+the chart will be colored uniquely and will represent the property of a single
+agent.</p></div>
+<div class="paragraph"><p>In addition to the Series ID, the actual agent property to plot is selected from
+the available set of data on the left side list and then click the right point
+arrow to add it to the list of data to display. Data sources can removed from
+the list of those to display by clicking on the right hand side entries and
+clicking on the left pointing arrow.</p></div>
+<div class="imageblock" id="runtime_gui_add_ts_chart_3">
+<div class="content">
+<img src="figures/runtime_gui_add_ts_chart_3.png" alt="figures/runtime_gui_add_ts_chart_3.png" />
+</div>
+<div class="title">Figure 40. Repast runtime add new Time Series Chart (Non-Aggregate Data) dialog.</div>
+</div>
+<div class="paragraph"><p>The final step in the time series wizard is the same regardless of the data set
+type. In this step, the <a href="#runtime_gui_add_ts_chart_4">chart display properties</a>
+are specified, such as the chart <strong>Title</strong> and the <strong>X-Axis</strong> and <strong>Y-axis</strong> labels.
+The <strong>Background Color</strong> and <strong>Grid Line Color</strong> of the chart may also be changed by
+clicking their respective buttons. The chart gridlines can be turned on or off
+using the <strong>Show Grid Lines</strong> check box.</p></div>
+<div class="paragraph"><p>The <strong>X-Axis Range</strong> can be set and specifies how much of the X-Axis is visible in
+the chart. For example, a range of 20 means that only the last 20 ticks will be
+visible. A value of <strong>-1</strong> indicates that the entire plot should be displayed. The
+<strong>Show Legend</strong> check box specifies whether the chart legend will be displayed or not.
+Click <strong>Finish</strong> to add the time series to the scenario. Don&#8217;t forget to save the
+scenario after adding new charts.</p></div>
+<div class="imageblock" id="runtime_gui_add_ts_chart_4">
+<div class="content">
+<img src="figures/runtime_gui_add_ts_chart_4.png" alt="figures/runtime_gui_add_ts_chart_4.png" />
+</div>
+<div class="title">Figure 41. Repast runtime add new Time Series Chart (Properties) dialog.</div>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/tip.png" alt="Tip" />
+</td>
+<td class="content">When creating a time series chart with non-aggregate data and many agents, disabling
+the figure legend will improve chart legibility.</td>
+</tr></table>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/tip.png" alt="Tip" />
+</td>
+<td class="content">Don&#8217;t forget to save the scenario after adding new charts.</td>
+</tr></table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_histogram_charts">11.6.2. Histogram Charts</h4>
+<div class="paragraph"><p>To create a histogram chart right click on the <strong>Charts</strong> node in the scenario tree
+and choose <strong>Add Histogram Chart</strong> and the <a href="#runtime_gui_add_hist_chart_1">Histogram Chart dialog</a> will appear. Provide a meaningful <strong>Name</strong> for the chart that will
+appear in the Chart title and in the scenario tree.  Duplicate chart names are
+allowed.</p></div>
+<div class="paragraph"><p>Select the <a href="#runtime_gui_datasets"><strong>Data Set</strong></a> and the <strong>Data</strong> source that will
+serve as the source of the chart data. Only <a href="#runtme_gui_nonaggregate_data">non-aggregate data</a> sources are used with histogram charts.  The chart will
+histogram the data recorded by a single data source and then display it.
+For example, suppose a non-aggregate data set is defined with a data source that
+records the amount of energy of each agent in the model. Each time data is
+recorded, that data set will record a number of energy values equal to the current
+number of agents in the model. The histogram chart will histogram these values and
+update the chart to display the histogram in a bar chart.</p></div>
+<div class="imageblock" id="runtime_gui_add_hist_chart_1">
+<div class="content">
+<img src="figures/runtime_gui_add_hist_chart_1.png" alt="figures/runtime_gui_add_hist_chart_1.png" />
+</div>
+<div class="title">Figure 42. Repast runtime add new Histogram Chart dialog.</div>
+</div>
+<div class="paragraph"><p>Click <strong>Next</strong> to move to the <a href="#runtime_gui_add_hist_chart_2">histogram properties dialog</a>.  The <strong>Bin Count</strong> specifies how many histogram bin categories will exist
+and is constant when the chart is displaying during the simulation. The value of
+the bin count determines the resolution of the histogram chart.  Too many bins
+will generate many columns in the chart resulting in noisy information that is
+difficult to interpret, and too few bins will lump data together and may hide
+important details.</p></div>
+<div class="imageblock" id="runtime_gui_add_hist_chart_2">
+<div class="content">
+<img src="figures/runtime_gui_add_hist_chart_2.png" alt="figures/runtime_gui_add_hist_chart_2.png" />
+</div>
+<div class="title">Figure 43. Repast runtime add new Histogram Chart (Properties) dialog.</div>
+</div>
+<div class="paragraph"><p>The <strong>Histogram Type</strong> parameter indicates if the histogram is <strong>Dynamic</strong>, meaning
+that the X-Axis range will dynamically change depending on the data values, or if
+the histogram is <strong>Static</strong>, meaning that the X-Axis range is fixed. For static
+histograms, the <strong>Maximum</strong> and <strong>Minimum</strong> values need to be provided along
+with how values outside that range are handled. The Out of Range options are:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Ignore:</strong> out of range values will be ignored
+</p>
+</li>
+<li>
+<p>
+<strong>Add to Min / Max Bins:</strong> items less than min will count in the minimum value
+bin and items greater than max will count in the maximum value bin
+</p>
+</li>
+<li>
+<p>
+<strong>Display Values in Chart Subtitle:</strong> a chart subtitle will display overflow and
+underflow counts.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The <a href="#runtime_gui_add_hist_chart_3">final step in the histogram chart wizard</a>
+specifies chart properties such as the chart <strong>Title</strong> and the <strong>X-Axis</strong> and <strong>Y-axis</strong> labels.
+The <strong>Background Color</strong> and <strong>Grid Line Color</strong> of the chart may also be changed by
+clicking their respective buttons. The chart gridlines can be turned on or off
+using the <strong>Show Grid Lines</strong> check box. Click <strong>Finish</strong> to add the time series to
+the scenario. Don&#8217;t forget to save the scenario after adding new charts.</p></div>
+<div class="imageblock" id="runtime_gui_add_hist_chart_3">
+<div class="content">
+<img src="figures/runtime_gui_add_hist_chart_3.png" alt="figures/runtime_gui_add_hist_chart_3.png" />
+</div>
+<div class="title">Figure 44. Repast runtime add new Histogram Chart (Properties) dialog.</div>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/tip.png" alt="Tip" />
+</td>
+<td class="content">Don&#8217;t forget to save the scenario after adding new charts.</td>
+</tr></table>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/note.png" alt="Note" />
+</td>
+<td class="content">The frequency at which the chart data are updated depends on the
+<a href="#runtime_gui_schedule_dataset">schedule parameters of the data set</a>.</td>
+</tr></table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_displays">11.7. Displays</h3>
+<div class="paragraph"><p>Repast displays can be used to visually represent agent locations in 2D space,
+3D space, and GIS projections.  Additionally, continuous space, grid, and value
+layer projections, along with network projections can be combined together in
+displays to create visually rich representations of the agent world.</p></div>
+<div class="paragraph"><p>Creating displays involves the following common steps to specify:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+The display type (2D, 3D, GIS)
+</p>
+</li>
+<li>
+<p>
+The space projections to include in the display (continuous, grid, network, geography etc).
+</p>
+</li>
+<li>
+<p>
+The agents that are visible in the display
+</p>
+</li>
+<li>
+<p>
+How the agents are visually styled (color, shape, size)
+</p>
+</li>
+<li>
+<p>
+How networks and value layers are visually styled (if applicable)
+</p>
+</li>
+<li>
+<p>
+When the display is updated
+</p>
+</li>
+<li>
+<p>
+Additional display-specific options
+</p>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_2d_displays">11.7.1. 2D Displays</h4>
+<div class="paragraph"><p>To create a 2D Display right click on the <strong>Displays</strong> node in the scenario tree
+and choose <strong>Add Display</strong> and the <a href="#runtime_gui_add_disp_2d_1">DIsplay Details dialog</a> will appear. Provide a meaningful <strong>Name</strong> for the display that will
+appear in the Display title and in the scenario tree. Duplicate chart names are
+allowed.</p></div>
+<div class="paragraph"><p>The <strong>Type</strong> list selector is used to specify the type of display.  Select <strong>2D</strong> for
+a 2D display. The <strong>Projections and Value Layers</strong> section provides a list of available
+spatial projections like grid and continuous spaces, along with value layers that
+may be added to the display. Select the desired projections and add them to the
+right hand list using the arrows. Projections on the right side can be moved back
+to the left side and they will not be included. Note that projections cannot be
+added to or removed from a display after the display creation is finalized.</p></div>
+<div class="imageblock" id="runtime_gui_add_disp_2d_1">
+<div class="content">
+<img src="figures/runtime_gui_add_disp_2d_1.png" alt="figures/runtime_gui_add_disp_2d_1.png" />
+</div>
+<div class="title">Figure 45. Repast runtime add new 2D Display dialog.</div>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/note.png" alt="Note" />
+</td>
+<td class="content">Projections cannot be added to or removed from a display after the display is created.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>Click <strong>Next</strong> and the <a href="#runtime_gui_add_disp_2d_2">Agent Selection</a> will appear in
+which the agents that appear in the display will be selected. The left hand list
+contains all user-defined classes in the model. In many cases, only a subset of the
+model classes are actually agents, and therefore which types of classes are shown
+in the display must be selected. For example, a model will normally also have a
+ContextBuilder class, and additional utility classes that themselves are not agents.
+Such non-agent classes should not be included in the display. Select the desired
+agents using the left-right arrows. In 2D displays, the <strong>layer order</strong> is
+important as agents that are collocated may obscure agent layers depending on their
+ordering. Use the up-down arrows to arrange the layer orders from foreground (top)
+to background (bottom).</p></div>
+<div class="imageblock" id="runtime_gui_add_disp_2d_2">
+<div class="content">
+<img src="figures/runtime_gui_add_disp_2d_2.png" alt="figures/runtime_gui_add_disp_2d_2.png" />
+</div>
+<div class="title">Figure 46. Repast runtime add new 2D Display (Agent Selection) dialog.</div>
+</div>
+<div class="sect4">
+<h5 id="_agent_styles">Agent Styles</h5>
+<div class="paragraph"><p>Click <strong>Next</strong> and the <a href="#runtime_gui_add_disp_2d_3">Agent Style dialog</a> will appear
+in which the appearance of the agents will be defined. The <strong>Agents</strong> list in the
+left hand side contains the list of agents that were selected in the previous step.
+All of these agents will appear in the display and must have a visual style defined
+for each.  The <strong>Agent Class</strong> box displays the model class that corresponds to the
+selected agent in the list for informational purposes only, and is not editable.
+The <strong>Style Class</strong> box contains the default style class initially and may be used
+to specify a user-defined custom style class for the agent. This list box will
+contain any user-defined style class that implements <strong>StyleOGL2D</strong>. Any style
+classes that implement this interface and are in the model classpath will be
+available for selection and assignment to agents in the list.</p></div>
+<div class="imageblock" id="runtime_gui_add_disp_2d_3">
+<div class="content">
+<img src="figures/runtime_gui_add_disp_2d_3.png" alt="figures/runtime_gui_add_disp_2d_3.png" />
+</div>
+<div class="title">Figure 47. Repast runtime add new 2D Display (Agent Style) dialog.</div>
+</div>
+<div class="paragraph"><p>An alternative to defining an agent style class is to use the built-in
+<a href="#runtime_gui_add_disp_2d_4">Style Editor</a> by clicking the
+<span class="image">
+<img src="figures/edit.png" alt="figures/edit.png" />
+</span> icon next to the style class selection list. The style
+editor provides a simple method to define the agent shape, color, and label using
+a wizard-based interface and does not require user-defined style classes. The
+<strong>Icon Shape and Color</strong> section in the upper left can be used to specify the 2D
+shape from a list of available shapes, and the color by clicking on the color
+button. When the shape and color are changed, the <strong>Icon Preview</strong> at right will
+be updated. Additionally, an <strong>Icon File</strong> can be used to provide the agent icon
+and generally is a good way to specify complex agent icons in the display since
+any existing image file can be used. Supported file types include GIF, JPG, PNG,
+and BMP.  The use of small resolution (less than 50x50) PNG files is suggested
+for best results.</p></div>
+<div class="imageblock" id="runtime_gui_add_disp_2d_4">
+<div class="content">
+<img src="figures/runtime_gui_add_disp_2d_4.png" alt="figures/runtime_gui_add_disp_2d_4.png" />
+</div>
+<div class="title">Figure 48. Repast runtime 2D Shape editor dialog.</div>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/tip.png" alt="Tip" />
+</td>
+<td class="content">Complex and interesting agent shapes can easily be achieved using predefined
+image files. Use small resolution (less than 50x50) PNG files for best results.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>The <strong>Icon Size</strong> section specifies the size of the agent icon in the display. The
+<strong>Value</strong> box allows either a fixed number, or an agent method that returns a number.
+When a fixed value is used, the agent icon will be the same size during a model
+run.  Using a method in the value box allows the agent size to change during a
+simulation, depending on the value returned by the method. For example, an agent&#8217;s
+energy value could be used to increase the size of the icon as the energy increase
+over time. When a method value is used, the <strong>Minimum</strong>, <strong>Maximum</strong>, and <strong>Scaling</strong>
+values can be used to scale the method value accordingly. For example, if the desired
+agent size is around 15.0, and the returned energy value ranges from 0-300, the
+maximum value specified should be 300, the minimum value should be 0, and the
+scaling should be 15.0  The min and max values will scale the method value between
+0 and 1, and the scaling will be multiplied by the 0-1 range. The actual size
+used is defined according to the formula:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>  icon_size = ((method_size - min) / (max - min) ) * scale</code></pre>
+</div></div>
+<div class="paragraph"><p>The <strong>Icon Label</strong> section specified if and how a text label should appear next to
+each agent icon in the display. The <strong>Value</strong> box may contain either a constant
+String value, or a method that returns a string or numeric type. The <strong>Position</strong>
+box specifies the label position relative to the agent icon, with the specified
+<strong>Offset</strong> distance. The <strong>Precision</strong> box specifies the numerical precision in number
+of decimal places to be displayed for numerical labels. The <strong>Icon Label Font</strong>
+section specifies the icon font type, size, style, and color.</p></div>
+<div class="paragraph"><p>The <strong>Variable Icon Color</strong> section can be used to specify how the icon color changes
+based on agent attributes. Variable icon coloring only applies to base icon shapes
+(circle, square, triangle, etc) and not image-based icons. As with the icon size,
+the value, min, max, and scaling can be specified using either a fixed numerical
+value or an agent method that returns a number. When a method value is specified,
+the min and max should reflect the expected range of this returned value. Generally,
+a scaling value of 1.0 is used because each of the Red, Green, and Blue values is
+used to construct an RGB color using a range of 0-1 for each.</p></div>
+</div>
+<div class="sect4">
+<h5 id="_network_styles">Network Styles</h5>
+<div class="paragraph"><p>When a display includes a <strong>Network</strong> projection, the appearance of the network edges
+can be specified in much the same way as agents are styled. The
+<a href="#runtime_gui_add_disp_2d_5">Network Edge Style dialog</a> will automatically appear
+in displays that contain network projections, after the agent style step is complete.
+Selecting the network name in the left-hand box will allow the specification of a
+style class for the network edges that implements EdgeStyleOGL2D.</p></div>
+<div class="imageblock" id="runtime_gui_add_disp_2d_5">
+<div class="content">
+<img src="figures/runtime_gui_add_disp_2d_5.png" alt="figures/runtime_gui_add_disp_2d_5.png" />
+</div>
+<div class="title">Figure 49. Repast runtime 2D Network style dialog.</div>
+</div>
+<div class="paragraph"><p>Similar to the 2D agent icon styling, a <a href="#runtime_gui_add_disp_2d_6">Network Style Editor</a> is available by clicking the <span class="image">
+<img src="figures/edit.png" alt="figures/edit.png" />
+</span> icon next to the
+style class selection list. The <strong>Edge Color</strong> can be specified by clicking on the
+color button an choosing the desired color. The line thickness can be specified
+by either a constant numerical value, or by a method that returns a value from the
+edge.  The <strong>getWeight</strong> method is available by default on RepastEdge implementations,
+which are the default edges used in Repast Networks. User-defined network edge
+classes can provide additional methods from which to set the line thickness.</p></div>
+<div class="paragraph"><p>The line thickness and color can also be variable based on a method value and is
+defined in exactly the same way as the agent icon variable size and color.</p></div>
+<div class="imageblock" id="runtime_gui_add_disp_2d_6">
+<div class="content">
+<img src="figures/runtime_gui_add_disp_2d_6.png" alt="figures/runtime_gui_add_disp_2d_6.png" />
+</div>
+<div class="title">Figure 50. Repast runtime 2D Network style editor dialog.</div>
+</div>
+<div class="paragraph"><p>After all styles are defined, clicking the <strong>Next</strong> button to proceed to the
+<a href="#runtime_gui_schedule_disp">Schedule Details dialog</a> in which to specify
+the display update frequency and finally save the new display.</p></div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_3d_displays">11.7.2. 3D Displays</h4>
+<div class="paragraph"><p>To create a 3D Display right click on the <strong>Displays</strong> node in the scenario tree
+and choose <strong>Add Display</strong> and the <a href="#runtime_gui_add_disp_3d_1">DIsplay Details dialog</a> will appear. Provide a meaningful <strong>Name</strong> for the display that will
+appear in the Display title and in the scenario tree. Duplicate chart names are
+allowed.  Nearly all of the subsequent steps in creating 3D displays are the same
+as for 2D displays, however there are some differences.  Nevertheless, the complete
+sequence of steps for creating 3D displays is contained in this section.</p></div>
+<div class="paragraph"><p>The <strong>Type</strong> list selector is used to specify the type of display.  Select <strong>3D</strong> for
+a 3D display. The <strong>Projections and Value Layers</strong> section provides a list of available
+spatial projections like grid and continuous spaces, along with value layers that
+may be added to the display. Select the desired projections and add them to the
+right hand list using the arrows. Projections on the right side can be moved back
+to the left side and they will not be included. Note that projections cannot be
+added to or removed from a display after the display creation is finalized.</p></div>
+<div class="imageblock" id="runtime_gui_add_disp_3d_1">
+<div class="content">
+<img src="figures/runtime_gui_add_disp_3d_1.png" alt="figures/runtime_gui_add_disp_3d_1.png" />
+</div>
+<div class="title">Figure 51. Repast runtime add new 3D Display dialog.</div>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/note.png" alt="Note" />
+</td>
+<td class="content">Projections cannot be added to or removed from a display after the display is created.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>Click <strong>Next</strong> and the <a href="#runtime_gui_add_disp_3d_2">Agent Selection</a> will appear in
+which the agents that appear in the display will be selected. The left hand list
+contains all user-defined classes in the model. In many cases, only a subset of the
+model classes are actually agents, and therefore which types of classes are shown
+in the display must be selected. For example, a model will normally also have a
+ContextBuilder class, and additional utility classes that themselves are not agents.
+Such non-agent classes should not be included in the display. Select the desired
+agents using the left-right arrows. In 3D displays, the <strong>layer order</strong> has no effect
+on agent visibility, which is strictly determined by the agent&#8217;s position in 3D space.</p></div>
+<div class="imageblock" id="runtime_gui_add_disp_3d_2">
+<div class="content">
+<img src="figures/runtime_gui_add_disp_3d_2.png" alt="figures/runtime_gui_add_disp_3d_2.png" />
+</div>
+<div class="title">Figure 52. Repast runtime add new 3D Display (Agent Selection) dialog.</div>
+</div>
+<div class="sect4">
+<h5 id="_agent_styles_2">Agent Styles</h5>
+<div class="paragraph"><p>Click <strong>Next</strong> and the <a href="#runtime_gui_add_disp_3d_3">Agent Style dialog</a> will appear
+in which the appearance of the agents will be defined. The <strong>Agents</strong> list in the
+left hand side contains the list of agents that were selected in the previous step.
+All of these agents will appear in the display and must have a visual style defined
+for each. The <strong>Agent Class</strong> box displays the model class that corresponds to the
+selected agent in the list for informational purposes only, and is not editable.
+The <strong>Style Class</strong> box contains the default style class initially and may be used
+to specify a user-defined custom style class for the agent. This list box will
+contain any user-defined style class that implements <strong>Style3D</strong>. Any style
+classes that implement this interface and are in the model classpath will be
+available for selection and assignment to agents in the list.</p></div>
+<div class="imageblock" id="runtime_gui_add_disp_3d_3">
+<div class="content">
+<img src="figures/runtime_gui_add_disp_3d_3.png" alt="figures/runtime_gui_add_disp_3d_3.png" />
+</div>
+<div class="title">Figure 53. Repast runtime add new 3D Display (Agent Style) dialog.</div>
+</div>
+<div class="paragraph"><p>An alternative to defining an agent style class is to use the built-in
+<a href="#runtime_gui_add_disp_3d_4">Style Editor</a> by clicking the
+<span class="image">
+<img src="figures/edit.png" alt="figures/edit.png" />
+</span> icon next to the style class selection list. The style
+editor provides a simple method to define the agent shape, color, and label using
+a wizard-based interface and does not require user-defined style classes.  The
+<strong>Icon Shape and Color</strong> section in the upper left can be used to specify the 3D
+shape from a list of available shapes, and the color by clicking on the color
+button. The <strong>Icon Preview</strong> at right is not active in the 3D style editor.</p></div>
+<div class="paragraph"><p>Alternatively, an <strong>Model File</strong> or <strong>Texture</strong> can be used to provide the 3D agent icon
+and generally is a good way to specify complex agent icons in the display since
+any existing 3D model files can be used. Supported 3D model formats include
+Milkshape3D (<a href="http://www.milkshape3d.com/">http://www.milkshape3d.com/</a>), Lightwave3D (<a href="https://www.lightwave3d.com/">https://www.lightwave3d.com/</a>),
+and Wavefront OBJ (<a href="https://en.wikipedia.org/wiki/Wavefront_.obj_file">https://en.wikipedia.org/wiki/Wavefront_.obj_file</a>).  Textures
+are simply image files that are wrapped around 3D objects and can be applied to
+both simply objects and model files.  For example, an image of the Earth can be
+wrapped around a sphere icon to create a very realistic 3D Earth visualization.
+Creating 3D model files from scratch is difficult and requires either open source
+or commercial 3D modeling software, however a large number of free 3D model files
+are available via online repositories.</p></div>
+<div class="imageblock" id="runtime_gui_add_disp_3d_4">
+<div class="content">
+<img src="figures/runtime_gui_add_disp_3d_4.png" alt="figures/runtime_gui_add_disp_3d_4.png" />
+</div>
+<div class="title">Figure 54. Repast runtime 3D Shape editor dialog.</div>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/tip.png" alt="Tip" />
+</td>
+<td class="content">Complex and interesting agent shapes can easily be achieved using 3D model files
+and textures that are freely available online via third party repositories.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>The <strong>Icon Size</strong> section specifies the size of the agent icon in the display. The
+<strong>Value</strong> box allows either a fixed number, or an agent method that returns a number.
+When a fixed value is used, the agent icon will be the same size during a model
+run.  Using a method in the value box allows the agent size to change during a
+simulation, depending on the value returned by the method. For example, an agent&#8217;s
+energy value could be used to increase the size of the icon as the energy increase
+over time. When a method value is used, the <strong>Minimum</strong>, <strong>Maximum</strong>, and <strong>Scaling</strong>
+values can be used to scale the method value accordingly. For example, if the desired
+agent size is around 15.0, and the returned energy value ranges from 0-300, the
+maximum value specified should be 300, the minimum value should be 0, and the
+scaling should be 15.0  The min and max values will scale the method value between
+0 and 1, and the scaling will be multiplied by the 0-1 range. The actual size
+used is defined according to the formula:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>  icon_size = ((method_size - min) / (max - min) ) * scale</code></pre>
+</div></div>
+<div class="paragraph"><p>The <strong>Icon Label</strong> section specified if and how a text label should appear next to
+each agent icon in the display. The <strong>Value</strong> box may contain either a constant
+String value, or a method that returns a string or numeric type. The <strong>Position</strong>
+box specifies the label position relative to the agent icon, with the specified
+<strong>Offset</strong> distance.  The <strong>Precision</strong> box specifies the numerical precision in number
+of decimal places to be displayed for numerical labels. The <strong>Icon Label Font</strong>
+section specifies the icon font type, size, style, and color.</p></div>
+<div class="paragraph"><p>The <strong>Variable Icon Color</strong> section can be used to specify how the icon color changes
+based on agent attributes. Variable icon coloring only applies to base icon shapes
+(circle, square, triangle, etc) and not image-based icons. As with the icon size,
+the value, min, max, and scaling can be specified using either a fixed numerical
+value or an agent method that returns a number. When a method value is specified,
+the min and max should reflect the expected range of this returned value. Generally,
+a scaling value of 1.0 is used because each of the Red, Green, and Blue values is
+used to construct an RGB color using a range of 0-1 for each.</p></div>
+</div>
+<div class="sect4">
+<h5 id="_network_styles_2">Network Styles</h5>
+<div class="paragraph"><p>When a display includes a <strong>Network</strong> projection, the appearance of the network edges
+can be specified in much the same way as agents are styled. The
+<a href="#runtime_gui_add_disp_3d_5">Network Edge Style dialog</a> will automatically appear
+in displays that contain network projections, after the agent style step is complete.
+Selecting the network name in the left-hand box will allow the specification of a
+style class for the network edges that implements EdgeStyle3D.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/note.png" alt="Note" />
+</td>
+<td class="content">Unlike 2D displays, the network edges in 3D displays are not lines, but 3D cylinders.</td>
+</tr></table>
+</div>
+<div class="imageblock" id="runtime_gui_add_disp_3d_5">
+<div class="content">
+<img src="figures/runtime_gui_add_disp_3d_5.png" alt="figures/runtime_gui_add_disp_3d_5.png" />
+</div>
+<div class="title">Figure 55. Repast runtime 3D Network style dialog.</div>
+</div>
+<div class="paragraph"><p>Similar to the 3D agent icon styling, a <a href="#runtime_gui_add_disp_3d_6">Network Style Editor</a> is available by clicking the <span class="image">
+<img src="figures/edit.png" alt="figures/edit.png" />
+</span> icon next to the
+style class selection list.  The <strong>Edge Color</strong> can be specified by clicking on the
+color button an choosing the desired color. The edge diameter can be specified
+by either a constant numerical value, or by a method that returns a value from the
+edge.  The <strong>getWeight</strong> method is available by default on RepastEdge implementations,
+which are the default edges used in Repast Networks. User-defined network edge
+classes can provide additional methods from which to set the edge diameter.</p></div>
+<div class="paragraph"><p>The edge diameter and color can also be variable based on a method value and is
+defined in exactly the same way as the agent icon variable size and color.</p></div>
+<div class="imageblock" id="runtime_gui_add_disp_3d_6">
+<div class="content">
+<img src="figures/runtime_gui_add_disp_3d_6.png" alt="figures/runtime_gui_add_disp_3d_6.png" />
+</div>
+<div class="title">Figure 56. Repast runtime 3D Network style editor dialog.</div>
+</div>
+<div class="paragraph"><p>After all styles are defined, clicking the <strong>Next</strong> button to proceed to the
+<a href="#runtime_gui_schedule_disp">Schedule Details dialog</a> in which to specify
+the display update frequency and finally save the new display.</p></div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_gis_displays">11.7.3. GIS Displays</h4>
+<div class="paragraph"><p>To create a GIS Display right click on the <strong>Displays</strong> node in the scenario tree
+and choose <strong>Add Display</strong> and the <a href="#runtime_gui_add_disp_gis_1">Display Details dialog</a> will appear. Provide a meaningful <strong>Name</strong> for the display that will
+appear in the Display title and in the scenario tree. Duplicate chart names are
+allowed.  Nearly all of the subsequent steps in creating GIS displays are the same
+as for Cartesian 2D and 3D displays, however there are some differences.
+Nevertheless, the complete sequence of steps for creating GIS displays is
+contained in this section.</p></div>
+<div class="paragraph"><p>The <strong>Type</strong> list selector is used to specify the type of display.  Select <strong>GIS 3D</strong> for
+a GIS display.  Note that there are two types of GIS displays available: <strong>GIS</strong> and
+<strong>GIS 3D</strong>.   The GIS displays are legacy display types with limited functionality
+and are no longer supported in documentation. The GIS 3D display type is a fully
+featured GIS display and should be used normally for all GIS display applications.</p></div>
+<div class="paragraph"><p>The <strong>Projections and Value Layers</strong> section provides a list of available
+spatial projections like grid and continuous spaces, along with value layers that
+may be added to the display. Select the desired projections and add them to the
+right hand list using the arrows. A GIS display requires a <strong>Geography</strong> projection
+and cannot be created unless a Geography projection is available in the model.
+Projections on the right side can be moved back to the left side and they will
+not be included. Note that projections cannot be added to or removed from a display
+after the display creation is finalized.</p></div>
+<div class="imageblock" id="runtime_gui_add_disp_gis_1">
+<div class="content">
+<img src="figures/runtime_gui_add_disp_gis_1.png" alt="figures/runtime_gui_add_disp_gis_1.png" />
+</div>
+<div class="title">Figure 57. Repast runtime add new GIS Display dialog.</div>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/tip.png" alt="Tip" />
+</td>
+<td class="content">A GIS display requires a <strong>Geography</strong> projection and cannot be created
+unless a Geography projection is available in the model.</td>
+</tr></table>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/note.png" alt="Note" />
+</td>
+<td class="content">Projections cannot be added to or removed from a display after the display is created.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>Click <strong>Next</strong> and the <a href="#runtime_gui_add_disp_gis_2">Agent Selection</a> will appear in
+which the agents that appear in the display will be selected. The left hand list
+contains all user-defined classes in the model. In many cases, only a subset of the
+model classes are actually agents, and therefore which types of classes are shown
+in the display must be selected. For example, a model will normally also have a
+ContextBuilder class, and additional utility classes that themselves are not agents.
+Such non-agent classes should not be included in the display. Select the desired
+agents using the left-right arrows. In GIS displays, the <strong>layer order</strong> is
+important as agents that are collocated may obscure agent layers depending on their
+ordering. Use the up-down arrows to arrange the layer orders from foreground (top)
+to background (bottom).</p></div>
+<div class="imageblock" id="runtime_gui_add_disp_gis_2">
+<div class="content">
+<img src="figures/runtime_gui_add_disp_gis_2.png" alt="figures/runtime_gui_add_disp_gis_2.png" />
+</div>
+<div class="title">Figure 58. Repast runtime add new 3D Display (Agent Selection) dialog.</div>
+</div>
+<div class="sect4">
+<h5 id="_agent_styles_3">Agent Styles</h5>
+<div class="paragraph"><p>Click <strong>Next</strong> and the <a href="#runtime_gui_add_disp_gis_3">Agent Style dialog</a> will appear
+in which the appearance of the agents will be defined. The <strong>Agents</strong> list in the
+left hand side contains the list of agents that were selected in the previous step.
+All of these agents will appear in the display and must have a visual style defined
+for each. The <strong>Agent Class</strong> box displays the model class that corresponds to the
+selected agent in the list for informational purposes only, and is not editable.
+The <strong>Style Class</strong> box contains the default style class initially and may be used
+to specify a user-defined custom style class for the agent. This list box will
+contain any user-defined style class that implements <strong>MarkStyle</strong> or
+<strong>SurfaceShapeStyle</strong>. An important feature of GIS displays that is different from
+the 2D and 3D displays, is that the style class interface depends on the type of
+GIS feature that is being displays. In 2D and 3D displays, each agent location
+in space is a single coordinate, however GIS displays may contain agents with point
+locations, or multi-point locations that represent lines and polygons.  Point
+location agents are styled with MarkStyle implementations, and line and polygon
+agents are styled with SurfaceShapeStyle implementations. The display wizard does
+not distinguish agent feature types so it is the user&#8217;s responsibility to set the
+style class accordingly. Style classes that implement these interfaces and are
+in the model classpath will be available for selection and assignment to agents
+in the list.</p></div>
+<div class="imageblock" id="runtime_gui_add_disp_gis_3">
+<div class="content">
+<img src="figures/runtime_gui_add_disp_gis_3.png" alt="figures/runtime_gui_add_disp_gis_3.png" />
+</div>
+<div class="title">Figure 59. Repast runtime add new GIS Display (Agent Style) dialog.</div>
+</div>
+<div class="paragraph"><p>An alternative to defining an agent style class is to use the built-in
+<a href="#runtime_gui_add_disp_gis_4">Style Editor</a> by clicking the
+<span class="image">
+<img src="figures/edit.png" alt="figures/edit.png" />
+</span> icon next to the style class selection list. The style
+editor provides a simple method to define the agent shape, color, and label using
+a wizard-based interface and does not require user-defined style classes.  The
+<strong>Icon Shape and Color</strong> section in the upper left can be used to specify the GIS
+shape from a list of available shapes, and the color by clicking on the color
+button. The shape selection must specify either a shape for a single point marker
+style, or a line or polygon for those respective styles, depending on how the
+agent is modeled in the geography.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/caution.png" alt="Caution" />
+</td>
+<td class="content">The icon shape must specify a shape (cricle, square, etc) for single point location
+marker styles, or <strong>line</strong> or <strong>polygon</strong> for styles that represent agent line or
+polygon geometries.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>When the shape and color are changed, the <strong>Icon Preview</strong> at right will
+be updated. Additionally, an <strong>Icon File</strong> can be used to provide the agent icon
+and generally is a good way to specify complex agent icons in the display since
+any existing image file can be used. Supported file types include GIF, JPG, PNG,
+and BMP.  The use of small resolution (less than 50x50) PNG files is suggested
+for best results.</p></div>
+<div class="imageblock" id="runtime_gui_add_disp_gis_4">
+<div class="content">
+<img src="figures/runtime_gui_add_disp_gis_4.png" alt="figures/runtime_gui_add_disp_gis_4.png" />
+</div>
+<div class="title">Figure 60. Repast runtime GIS Shape editor dialog.</div>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/tip.png" alt="Tip" />
+</td>
+<td class="content">Complex and interesting agent shapes can easily be achieved using predefined
+image files. Use small resolution (less than 50x50) PNG files for best results.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>The <strong>Icon Size</strong> section specifies the size of the agent icon in the display. The
+<strong>Value</strong> box allows either a fixed number, or an agent method that returns a number.
+When a fixed value is used, the agent icon will be the same size during a model
+run.  Using a method in the value box allows the agent size to change during a
+simulation, depending on the value returned by the method. For example, an agent&#8217;s
+energy value could be used to increase the size of the icon as the energy increase
+over time. When a method value is used, the <strong>Minimum</strong>, <strong>Maximum</strong>, and <strong>Scaling</strong>
+values can be used to scale the method value accordingly. For example, if the desired
+agent size is around 15.0, and the returned energy value ranges from 0-300, the
+maximum value specified should be 300, the minimum value should be 0, and the
+scaling should be 15.0  The min and max values will scale the method value between
+0 and 1, and the scaling will be multiplied by the 0-1 range. The actual size
+used is defined according to the formula:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>  icon_size = ((method_size - min) / (max - min) ) * scale</code></pre>
+</div></div>
+<div class="paragraph"><p>The <strong>Icon Label</strong> section specified if and how a text label should appear next to
+each agent icon in the display. The <strong>Value</strong> box may contain either a constant
+String value, or a method that returns a string or numeric type. The <strong>Position</strong>
+box specifies the label position relative to the agent icon, with the specified
+<strong>Offset</strong> distance. The <strong>Precision</strong> box specifies the numerical precision in number
+of decimal places to be displayed for numerical labels. The <strong>Icon Label Font</strong>
+section specifies the icon font type, size, style, and color.</p></div>
+<div class="paragraph"><p>The <strong>Variable Icon Color</strong> section can be used to specify how the icon color changes
+based on agent attributes. Variable icon coloring only applies to base icon shapes
+(circle, square, triangle, etc) and not image-based icons. As with the icon size,
+the value, min, max, and scaling can be specified using either a fixed numerical
+value or an agent method that returns a number. When a method value is specified,
+the min and max should reflect the expected range of this returned value. Generally,
+a scaling value of 1.0 is used because each of the Red, Green, and Blue values is
+used to construct an RGB color using a range of 0-1 for each.</p></div>
+</div>
+<div class="sect4">
+<h5 id="_coverage_styles">Coverage Styles</h5>
+<div class="paragraph"><p>Coverages in GIS displays represent 2D raster image data that is geolocated.
+Example coverage data could include measured surface temperature, weather radar,
+or population density. Coverages can also include static satellite image data.
+When a GIS display contains a coverage projection, the <a href="#runtime_gui_add_disp_gis_5">Coverage Layer Style dialog</a> will appear automatically after the agent styles
+are completed.</p></div>
+<div class="paragraph"><p>As with the agent style step, the coverage style step contains a list of <strong>Coverage
+Layers</strong> on the left hand side that can be individually selected and styled. The
+<strong>Style Class</strong> box contains the default style class initially and may be used
+to specify a user-defined custom style class for the coverage. This list box will
+contain any user-defined style class that implements <strong>CoverageStyle</strong>.</p></div>
+<div class="paragraph"><p>Static raster layers can also be added to the display from standard GIS raster
+data formats like ArcGrid and GeoTIFF by clicking the <strong>+</strong> icon and then selecting
+the desired image file.  Multiple static raster layers can be added to a single
+display.</p></div>
+<div class="imageblock" id="runtime_gui_add_disp_gis_5">
+<div class="content">
+<img src="figures/runtime_gui_add_disp_gis_5.png" alt="figures/runtime_gui_add_disp_gis_5.png" />
+</div>
+<div class="title">Figure 61. Repast runtime GIS Coverage style dialog.</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_gis_options">GIS Options</h5>
+<div class="paragraph"><p>After coverage styles are complete, the <a href="#runtime_gui_add_disp_gis_6">GIS Options dialog</a> appears in which GIS-specific display options can be specified. The
+<strong>View Type</strong> of the GIS display is either <strong>Fat</strong> or <strong>Globe</strong> which results in the
+display appearing as either a flat plane, or a rotatable globe, respectively.  The
+<strong>Render Quality</strong> determines how finely lines are displayed. Higher values will
+produce crisper lines at the cost of rendering speed. Finally, the background
+layers contains a list of available background raster data that can be included
+in the display. Many of these layers are available via third-party GIS data servers
+and require both an Internet connection and the server to be online. Checking the
+<strong>Include</strong> box for any entry will include the layer in the display, but will not
+activate it by default. Checking the <strong>Enable</strong> box will also enable the layer by
+default when the display is initialized.</p></div>
+<div class="imageblock" id="runtime_gui_add_disp_gis_6">
+<div class="content">
+<img src="figures/runtime_gui_add_disp_gis_6.png" alt="figures/runtime_gui_add_disp_gis_6.png" />
+</div>
+<div class="title">Figure 62. Repast runtime GIS options dialog.</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_network_styles_3">Network Styles</h5>
+<div class="paragraph"><p>When a display includes a <strong>Network</strong> projection, the appearance of the network edges
+can be specified in much the same way as agents are styled. The
+<a href="#runtime_gui_add_disp_gis_7">Network Edge Style dialog</a> will automatically appear
+in displays that contain network projections, after the agent style step is complete.
+Selecting the network name in the left-hand box will allow the specification of a
+style class for the network edges that implements NetworkStyleGIS.</p></div>
+<div class="imageblock" id="runtime_gui_add_disp_gis_7">
+<div class="content">
+<img src="figures/runtime_gui_add_disp_gis_7.png" alt="figures/runtime_gui_add_disp_gis_7.png" />
+</div>
+<div class="title">Figure 63. Repast runtime GIS Network style dialog.</div>
+</div>
+<div class="paragraph"><p>Similar to the GIS agent icon styling, a <a href="#runtime_gui_add_disp_gis_8">Network Style Editor</a> is available by clicking the <span class="image">
+<img src="figures/edit.png" alt="figures/edit.png" />
+</span> icon next to the
+style class selection list. The <strong>Edge Color</strong> can be specified by clicking on the
+color button an choosing the desired color. The line thickness can be specified
+by either a constant numerical value, or by a method that returns a value from the
+edge. The <strong>getWeight</strong> method is available by default on RepastEdge implementations,
+which are the default edges used in Repast Networks. User-defined network edge
+classes can provide additional methods from which to set the line thickness. The
+line thickness and color can also be variable based on a method value and is
+defined in exactly the same way as the agent icon variable size and color.</p></div>
+<div class="imageblock" id="runtime_gui_add_disp_gis_8">
+<div class="content">
+<img src="figures/runtime_gui_add_disp_gis_8.png" alt="figures/runtime_gui_add_disp_gis_8.png" />
+</div>
+<div class="title">Figure 64. Repast runtime GIS Network style editor dialog.</div>
+</div>
+<div class="paragraph"><p>After all styles are defined, clicking the <strong>Next</strong> button to proceed to the
+<a href="#runtime_gui_schedule_disp">Schedule Details dialog</a> in which to specify
+the display update frequency and finally save the new display.</p></div>
+</div>
+<div class="sect4">
+<h5 id="runtime_gui_schedule_disp">Scheduling Displays</h5>
+<div class="paragraph"><p>The last step which is common to all display creation wizards is scheduling the
+display update frequency. After all styles are defined, clicking the <strong>Next</strong> button
+displays the <a href="#runtime_gui_schedule_params_disp">Schedule Details dialog</a> in which
+to specify the start time, priority, frequency, and interval (assuming a repeating frequency).
+These parameters are as follows:</p></div>
+<div class="imageblock" id="runtime_gui_schedule_params_disp">
+<div class="content">
+<img src="figures/runtime_gui_schedule_params_disp.png" alt="figures/runtime_gui_schedule_params_disp.png" />
+</div>
+<div class="title">Figure 65. Specifying schedule parameters for a display.</div>
+</div>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Start Time:</strong> a double precision value that specifies the tick count at which
+to begin display updates.
+</p>
+</li>
+<li>
+<p>
+<strong>Priority:</strong> a value of either <strong>Random</strong>, <strong>First</strong>, or <strong>Last</strong> that determines when the
+display update occurs in a single simulation tick, relative to all other scheduled
+simulation behaviors.  Typically this value is <strong>Last</strong> which indicates that all
+scheduled agent behaviors will execute in a single time step before the display
+is updated.
+</p>
+</li>
+<li>
+<p>
+<strong>Frequency:</strong> a value of either <strong>Repeat</strong> or <strong>One Time</strong> that determines if the display
+update should occur on a regular repeating interval, or just a single time.
+</p>
+</li>
+<li>
+<p>
+<strong>Interval:</strong> a double precision value that specifies the interval frequency at which
+to update the display.
+</p>
+</li>
+</ul></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/tip.png" alt="Tip" />
+</td>
+<td class="content">The display frequency can have a significant impact on the simulation speed (except
+in batch runs).  Frequent display updates can slow down the simulation when many
+agents are in the display.  Reducing the update interval to even once every 2 ticks can
+have a dramatic impact on speed.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>Clicking <strong>Finish</strong> will create the display for the current scenario. To actually
+save the new display parameters in the scenario, select <strong>File &#8594; Save</strong> in the GUI.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/tip.png" alt="Tip" />
+</td>
+<td class="content">Don&#8217;t forget to save the scenario after adding new data displays.</td>
+</tr></table>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_agent_probes">11.7.4. Agent Probes</h4>
+<div class="paragraph"><p>An agent can be <strong>probed</strong> by clicking on its visual representation in a display.
+The agent&#8217;s parameters will then be displayed in a probe panel. By default, the
 displayed parameters are derived from an agent&#8217;s Java bean properties which are
 themselves derived from get / set accessor method pairs. For example,</p></div>
 <div class="listingblock">
@@ -3690,13 +5306,13 @@ themselves derived from get / set accessor method pairs. For example,</p></div>
         }
 }</code></pre>
 </div></div>
-<div class="paragraph"><p>This creates a "wealth" parameter. The probe panel will display an entry for
-"wealth" whose value is the result of the "getWealth" call. When the user enters
-a new value in the "wealth" text field then the setWealth method will passed
+<div class="paragraph"><p>This creates a <strong>wealth</strong> parameter. The probe panel will display an entry for
+wealth whose value is the result of the <strong>getWealth</strong> call. When the user enters
+a new value in the wealth text field then the setWealth method will passed
 this new value. Read-only parameters can be created by specifying only a
-get-style method. The label for this field will be the simple java bean
+get-style method. The label for this field will be the simple Java bean
 properties name. Which properties are treated as parameters, and how to display
-them can be further refined by adding an @Parameter annotation to either the
+them can be further refined by adding an <strong>@Parameter</strong> annotation to either the
 getter or setter of a property method pair. (The information in the annotation
 applies equally to both methods.) Using a Parameter annotation, a more
 descriptive display name can be specified. For example:</p></div>
@@ -3714,7 +5330,7 @@ descriptive display name can be specified. For example:</p></div>
         }
 }</code></pre>
 </div></div>
-<div class="paragraph"><p>The usageName should correspond to the java bean property which is typically the
+<div class="paragraph"><p>The usageName should correspond to the Java bean property which is typically the
 method name minus the get/set with the first character lower-cased. The
 displayName specifies the gui label for this parameter in the probe window.</p></div>
 <div class="admonitionblock">
@@ -3749,11 +5365,10 @@ example,</p></div>
 </div></div>
 <div class="paragraph"><p>In this case, the agent&#8217;s wealth is represented by a Money class and a
 MoneyConverter is used to convert to and from a String value. Lastly, by default
-the probe&#8217;s title will be the result of calling "toString()" on the probed
-object (e.g. <a href="mailto:VizAgent@55927f">VizAgent@55927f</a>, in the above screen shot). A more appropriate
-title can be specified either by overriding toString() and returning the desired
-value, or annotating any method that returns the desired title with @ProbeID.
-For example:</p></div>
+the probe&#8217;s title will be the result of calling <strong>toString()</strong> on the probed
+object  A more appropriate title can be specified either by overriding toString()
+and returning the desired value, or annotating any method that returns the desired
+title with @ProbeID. For example:</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><code>public class VizAgent {
@@ -3774,8 +5389,10 @@ For example:</p></div>
 </div></div>
 </div>
 </div>
+</div>
+</div>
 <div class="sect1">
-<h2 id="_batch_runs">12. Batch Runs</h2>
+<h2 id="_batch_runs_2">12. Batch Runs</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_batch_parameters">12.1. Batch Parameters</h3>
@@ -4191,7 +5808,7 @@ method.</p></div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-11-13 12:53:40 Central Standard Time
+Last updated 2019-09-29 23:32:56 Central Daylight Time
 </div>
 </div>
 </body>
