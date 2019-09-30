@@ -147,4 +147,6 @@ repast.simphony.visualization.visualization3D
 repast.simphony.visualization.visualization3D.layout
 repast.simphony.visualization.visualization3D.style
 repast.simphony.visualizationOGL2D
+repast.simphony.ws
+repast.simphony.ws.gis
 repast.simphony.xml
