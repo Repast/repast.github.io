@@ -48,14 +48,14 @@ table.download tr {
 		<col width="60%">
 		<tr>
 			<td>Windows</td>
-			<td><a href="https://github.com/Repast/repast.simphony/releases/download/v2.7.0/Repast-Simphony-2.7-win64.exe">Windows Installer</a></td>
+			<td><a href="https://github.com/Repast/repast.simphony/releases/download/v2.8.0/Repast-Simphony-2.8-win64.exe">Windows Installer</a></td>
 			<td>Run the executable installer file and follow the installation
 			wizard's prompts.  Using the default installation settings is
 			recommended for most users.</td>
 		</tr>
 		<tr>
 			<td>macOS</td>
-			<td><a href="https://github.com/Repast/repast.simphony/releases/download/v2.7.0/RepastSimphony-2.7.0.dmg">macOS Disk Image</a></td>
+			<td><a href="https://github.com/Repast/repast.simphony/releases/download/v2.8.0/RepastSimphony-2.8.0.dmg">macOS Disk Image</a></td>
 			<td>Double click on the dmg file and follow the installation instructions
 			that appear.</td>
 		</tr>
@@ -67,7 +67,7 @@ table.download tr {
 		</tr>
 		<tr>
 			<td>Repast Model Library</td>
-			<td><a href="https://github.com/Repast/repast.simphony.models/archive/v.2.7.zip">Model Archive</a></td>
+			<td><a href=" https://github.com/Repast/repast.simphony.models/archive/v.2.8.zip">Model Archive</a></td>
 			<td>The model archive is bundled with the installers but may be downloaded
 			separately.  See the  the <a href="./quick_start.html"> Repast Simphony
 			quick start guide</a> for help on importing the demo models.</td>
@@ -125,8 +125,8 @@ table.download tr {
 		a compatible Java Development Kit.</li>
 
 		<li>Download
-		<a href="https://www.eclipse.org/downloads/packages/release/2019-06/r/eclipse-ide-eclipse-committers">
-		Eclipse IDE for Eclipse Committers 2019-06</a>.  Eclipse is provided as a .zip
+		<a href="https://www.eclipse.org/downloads/packages/release/2020-06/r/eclipse-ide-eclipse-committers">
+		Eclipse IDE for Eclipse Committers 2020-06</a>.  Eclipse is provided as a .zip
 		or .tar archive.  Extract the eclipse archive to the desired location. 
 		
 		<br><br>
@@ -141,18 +141,11 @@ table.download tr {
 		to install Repast and required dependencies from their respective update sites.</li>
 
 		<ul>
-			<li>Install Groovy Eclipse 3.4.0 from the update site:
+			<li>Install Groovy Eclipse 4.16 from the update site:
 			<ul>
-                <li><b>https://dist.springsource.org/release/GRECLIPSE/3.4.0/e4.12</b></li>				
-			
-				<li>Main Package</li>
-				<ul>
-					<li>Eclipse Groovy Development Tools</li>
-				</ul>
-				<li>More Compilers</li>
-				<ul>
-					<li>Groovy Compiler 2.4</li>
-				</ul>
+				<li><b>https://dist.springsource.org/release/GRECLIPSE/e4.16</b></li>
+				<li>Install the Groovy compiler 2.4</li>
+				<li>Do <b>NOT</b> install 2.5 or 3.0</li>
 			</ul>
 
 			<li>Install Repast from the update site:
@@ -165,6 +158,9 @@ table.download tr {
 				signed with a security certificate.</li>
 			</ul>
 
+			<li>Uninstall Wild Web Developer 0.10.0.202006021616 org.eclipse.wildwebdeveloper.feature.feature.group</li>
+			<li>Uninstall Web Developer project POM Editor using LemMinX language server (includes Incubating components) 1.16.0.20200609-1359
+			org.eclipse.m2e.lemminx.feature.feature.group</li>
 		</ul>
 
 		<li>Once you have downloaded Eclipse and installed all required plugins,
