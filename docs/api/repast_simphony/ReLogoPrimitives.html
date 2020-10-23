@@ -1,0 +1,1509 @@
+<html>
+  <head>
+    <title>ReLogo Primitives ver. 2.8</title>
+    <style type='text/css'>
+          table {
+            border: 1px solid #dee3e9;
+            border-collapse: collapse;
+          }
+          td {
+            border: 2px solid #4D7A97;
+            white-space: nowrap;
+            border-collapse: collapse;
+            vertical-align: top;
+            padding: 10px;
+            font-family:"DejaVu Sans", Arial, Helvetica, sans-serif;
+            font-size:14px;
+          }
+          th {
+            color:#4E4E4E;
+            white-space: nowrap;
+            border-collapse: collapse;
+            vertical-align: top;
+            padding: 10px;
+            font-family:"DejaVu Sans", Arial, Helvetica, sans-serif;
+            font-size:14px;
+            background-color: #dee3e9;
+          }
+          body {
+
+            font-family:"DejaVu Sans", Arial, Helvetica, sans-serif;
+          }
+          a:link, a:visited {
+            text-decoration:none;
+            color:#4A6782;
+            font-weight:bold;
+          }
+          a:hover, a:focus {
+            text-decoration:none;
+            color:#bb7a2a;
+            font-weight:bold;
+          }
+
+        </style>
+  </head>
+  <body>
+    <h1>ReLogo Primitives ver. 2.8</h1>
+    <font size='5'>
+      <a href='#Turtle'>Turtle</a>&nbsp;&nbsp;
+    </font>
+    <font size='5'>
+      <a href='#Utilities'>Utilities</a>&nbsp;&nbsp;
+    </font>
+    <font size='5'>
+      <a href='#Patch'>Patch</a>&nbsp;&nbsp;
+    </font>
+    <font size='5'>
+      <a href='#Observer'>Observer</a>&nbsp;&nbsp;
+    </font>
+    <font size='5'>
+      <a href='#Link'>Link</a>&nbsp;&nbsp;
+    </font>
+    <hr width='100%' />
+    <A NAME='Turtle' />
+    <h2>Turtle</h2>
+    <table>
+      <tr>
+        <th>
+          <font size='4'>Motion Primitives</font>
+        </th>
+        <th>
+          <font size='4'>Spatial primitives</font>
+        </th>
+        <th>
+          <font size='4'>Turtle creation/destruction primitives</font>
+        </th>
+        <th>
+          <font size='4'>Rotation primitives</font>
+        </th>
+        <th>
+          <font size='4'>Turtle property primitives</font>
+        </th>
+        <th>
+          <font size='4'>Ask primitives</font>
+        </th>
+        <th>
+          <font size='4'>Turtle-centric primitives</font>
+        </th>
+        <th>
+          <font size='4'>Patch-centric primitives</font>
+        </th>
+        <th>
+          <font size='4'>Link-centric primitives</font>
+        </th>
+        <th>
+          <font size='4'>AgentSet/Collection primitives</font>
+        </th>
+        <th>
+          <font size='4'>World primitives</font>
+        </th>
+        <th>
+          <font size='4'>Query primitives</font>
+        </th>
+        <th>
+          <font size='4'>Miscellaneous primitives</font>
+        </th>
+        <th>
+          <font size='4'>Pen primitives</font>
+        </th>
+        <th>
+          <font size='4'>Visibility primitives</font>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <a href='repast/simphony/relogo/Turtle.html#back(java.lang.Number)'>back(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#bk(java.lang.Number)'>bk(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#canMoveQ(java.lang.Number)'>canMoveQ(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#downhill(java.lang.String)'>downhill(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#downhill4(java.lang.String)'>downhill4(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#fd(java.lang.Number)'>fd(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#forward(java.lang.Number)'>forward(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#home()'>home()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#jump(java.lang.Number)'>jump(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#moveTo(repast.simphony.relogo.Patch)'>moveTo(Patch)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#moveTo(repast.simphony.relogo.Turtle)'>moveTo(Turtle)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#setXcor(java.lang.Number)'>setXcor(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#setxy(java.lang.Number, java.lang.Number)'>setxy(Number,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#setYcor(java.lang.Number)'>setYcor(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#uphill(java.lang.String)'>uphill(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#uphill4(java.lang.String)'>uphill4(String)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Turtle.html#distance(repast.simphony.relogo.Patch)'>distance(Patch)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#distance(repast.simphony.relogo.Turtle)'>distance(Turtle)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#distancexy(java.lang.Number, java.lang.Number)'>distancexy(Number,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#dx()'>dx()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#dy()'>dy()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#getXcor()'>getXcor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#getYcor()'>getYcor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#getPxcor()'>getPxcor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#getPycor()'>getPycor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#inCone(java.util.Collection, java.lang.Number, java.lang.Number)'>inCone(Collection,Number,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#inRadius(java.util.Collection, java.lang.Number)'>inRadius(Collection,Number)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Turtle.html#die()'>die()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#hatch(java.lang.Number)'>hatch(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#hatch(java.lang.Number, groovy.lang.Closure)'>hatch(Number,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#hatch(java.lang.Number, groovy.lang.Closure, java.lang.String)'>hatch(Number,Closure,String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#hatch(java.lang.Number, groovy.lang.Closure, java.lang.Class)'>hatch(Number,Closure,Class)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Turtle.html#face(repast.simphony.relogo.Patch)'>face(Patch)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#face(repast.simphony.relogo.Turtle)'>face(Turtle)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#facexy(java.lang.Number, java.lang.Number)'>facexy(Number,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#left(java.lang.Number)'>left(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#lt(java.lang.Number)'>lt(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#right(java.lang.Number)'>right(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#rt(java.lang.Number)'>rt(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#towards(repast.simphony.relogo.Patch)'>towards(Patch)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#towards(repast.simphony.relogo.Turtle)'>towards(Turtle)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#towardsxy(java.lang.Number, java.lang.Number)'>towardsxy(Number,Number)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Turtle.html#getColor()'>getColor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#setColor(java.lang.Number)'>setColor(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#getHeading()'>getHeading()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#setHeading(java.lang.Number)'>setHeading(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#getLabel()'>getLabel()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#setLabel(java.lang.Object)'>setLabel(Object)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#getLabelColor()'>getLabelColor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#setLabelColor(java.lang.Number)'>setLabelColor(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#getPcolor()'>getPcolor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#setPcolor(java.lang.Number)'>setPcolor(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#getPenMode()'>getPenMode()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#setPenMode(java.lang.Number)'>setPenMode(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#getPenSize()'>getPenSize()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#setPenSize(java.lang.Number)'>setPenSize(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#getPxcor()'>getPxcor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#getPycor()'>getPycor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#getShape()'>getShape()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#setShape(java.lang.String)'>setShape(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#getSize()'>getSize()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#setSize(java.lang.Number)'>setSize(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#getWho()'>getWho()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#getXcor()'>getXcor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#setXcor(java.lang.Number)'>setXcor(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#getYcor()'>getYcor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#setYcor(java.lang.Number)'>setYcor(Number)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Turtle.html#ask(AgentSet&lt;? extends ReLogoAgent&gt;, groovy.lang.Closure)'>ask(AgentSet&lt;? extends ReLogoAgent&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#ask(Collection&lt;? extends ReLogoAgent&gt;, groovy.lang.Closure)'>ask(Collection&lt;? extends ReLogoAgent&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#ask(repast.simphony.relogo.Link, groovy.lang.Closure)'>ask(Link,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#ask(repast.simphony.relogo.Patch, groovy.lang.Closure)'>ask(Patch,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#ask(repast.simphony.relogo.Turtle, groovy.lang.Closure)'>ask(Turtle,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#myself()'>myself()</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Turtle.html#turtle(java.lang.Number)'>turtle(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#turtles()'>turtles()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#turtlesAt(java.lang.Number, java.lang.Number)'>turtlesAt(Number,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#turtlesHere()'>turtlesHere()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#turtlesOn(java.util.Collection)'>turtlesOn(Collection)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#turtlesOn(repast.simphony.relogo.Patch)'>turtlesOn(Patch)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#turtlesOn(repast.simphony.relogo.Turtle)'>turtlesOn(Turtle)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Turtle.html#downhill(java.lang.String)'>downhill(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#downhill4(java.lang.String)'>downhill4(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#uphill(java.lang.String)'>uphill(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#uphill4(java.lang.String)'>uphill4(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#neighbors()'>neighbors()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#neighbors(int)'>neighbors(int)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#neighbors(int, int)'>neighbors(int,int)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#neighbors4()'>neighbors4()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#neighbors4(int)'>neighbors4(int)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#neighbors4(int, int)'>neighbors4(int,int)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#patch(java.lang.Number, java.lang.Number)'>patch(Number,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#patchAhead(java.lang.Number)'>patchAhead(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#patchAt(java.lang.Number, java.lang.Number)'>patchAt(Number,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#patchAtHeadingAndDistance(java.lang.Number, java.lang.Number)'>patchAtHeadingAndDistance(Number,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#patches()'>patches()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#patchHere()'>patchHere()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#patchLeftAndAhead(java.lang.Number, java.lang.Number)'>patchLeftAndAhead(Number,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#patchRightAndAhead(java.lang.Number, java.lang.Number)'>patchRightAndAhead(Number,Number)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Turtle.html#allLinks()'>allLinks()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#allMyInLinks()'>allMyInLinks()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#allMyLinks()'>allMyLinks()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#allMyOutLinks()'>allMyOutLinks()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#createLinkFrom(repast.simphony.relogo.Turtle)'>createLinkFrom(Turtle)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#createLinkFrom(repast.simphony.relogo.Turtle, groovy.lang.Closure)'>createLinkFrom(Turtle,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#createLinksFrom(Collection&lt;? extends Turtle&gt;, groovy.lang.Closure)'>createLinksFrom(Collection&lt;? extends Turtle&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#createLinksFrom(Collection&lt;? extends Turtle&gt;)'>createLinksFrom(Collection&lt;? extends Turtle&gt;)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#createLinksFrom(Collection&lt;? extends Turtle&gt;, groovy.lang.Closure)'>createLinksFrom(Collection&lt;? extends Turtle&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#createLinksTo(Collection&lt;? extends Turtle&gt;, groovy.lang.Closure)'>createLinksTo(Collection&lt;? extends Turtle&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#createLinksTo(Collection&lt;? extends Turtle&gt;)'>createLinksTo(Collection&lt;? extends Turtle&gt;)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#createLinksTo(Collection&lt;? extends Turtle&gt;, groovy.lang.Closure)'>createLinksTo(Collection&lt;? extends Turtle&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#createLinksWith(Collection&lt;? extends Turtle&gt;, groovy.lang.Closure)'>createLinksWith(Collection&lt;? extends Turtle&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#createLinksWith(Collection&lt;? extends Turtle&gt;)'>createLinksWith(Collection&lt;? extends Turtle&gt;)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#createLinksWith(Collection&lt;? extends Turtle&gt;, groovy.lang.Closure)'>createLinksWith(Collection&lt;? extends Turtle&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#createLinkTo(repast.simphony.relogo.Turtle)'>createLinkTo(Turtle)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#createLinkTo(repast.simphony.relogo.Turtle, groovy.lang.Closure)'>createLinkTo(Turtle,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#createLinkWith(repast.simphony.relogo.Turtle)'>createLinkWith(Turtle)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#createLinkWith(repast.simphony.relogo.Turtle, groovy.lang.Closure)'>createLinkWith(Turtle,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#inLinkFrom(repast.simphony.relogo.Turtle)'>inLinkFrom(Turtle)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#inLinkNeighborQ(repast.simphony.relogo.Turtle)'>inLinkNeighborQ(Turtle)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#inLinkNeighbors()'>inLinkNeighbors()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#link(java.lang.Number, java.lang.Number)'>link(Number,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#link(repast.simphony.relogo.Turtle, repast.simphony.relogo.Turtle)'>link(Turtle,Turtle)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#linkNeighborQ(repast.simphony.relogo.Turtle)'>linkNeighborQ(Turtle)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#linkNeighbors()'>linkNeighbors()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#links()'>links()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#linkWith(repast.simphony.relogo.Turtle)'>linkWith(Turtle)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#myInLinks()'>myInLinks()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#myLinks()'>myLinks()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#myOutLinks()'>myOutLinks()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#otherEnd()'>otherEnd()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#outLinkNeighborQ(repast.simphony.relogo.Turtle)'>outLinkNeighborQ(Turtle)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#outLinkNeighbors()'>outLinkNeighbors()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#outLinkTo(repast.simphony.relogo.Turtle)'>outLinkTo(Turtle)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Turtle.html#allQ(java.util.Collection, groovy.lang.Closure)'>allQ(Collection,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#maxNOf(int, Collection&lt;? extends ReLogoAgent&gt;, groovy.lang.Closure)'>maxNOf(int,Collection&lt;? extends ReLogoAgent&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#maxOneOf(Collection&lt;? extends ReLogoAgent&gt;, groovy.lang.Closure)'>maxOneOf(Collection&lt;? extends ReLogoAgent&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#minNOf(int, Collection&lt;? extends ReLogoAgent&gt;, groovy.lang.Closure)'>minNOf(int,Collection&lt;? extends ReLogoAgent&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#minOneOf(Collection&lt;? extends ReLogoAgent&gt;, groovy.lang.Closure)'>minOneOf(Collection&lt;? extends ReLogoAgent&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#inCone(java.util.Collection, java.lang.Number, java.lang.Number)'>inCone(Collection,Number,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#inRadius(java.util.Collection, java.lang.Number)'>inRadius(Collection,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#other(java.util.Collection)'>other(Collection)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Turtle.html#getMaxPxcor()'>getMaxPxcor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#getMaxPycor()'>getMaxPycor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#getMinPxcor()'>getMinPxcor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#getMinPycor()'>getMinPycor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#randomPxcor()'>randomPxcor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#randomPycor()'>randomPycor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#randomXcor()'>randomXcor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#randomYcor()'>randomYcor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#worldHeight()'>worldHeight()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#worldWidth()'>worldWidth()</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Turtle.html#allQ(java.util.Collection, groovy.lang.Closure)'>allQ(Collection,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#canMoveQ(java.lang.Number)'>canMoveQ(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#isHiddenQ()'>isHiddenQ()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#inLinkNeighborQ(repast.simphony.relogo.Turtle)'>inLinkNeighborQ(Turtle)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#linkNeighborQ(repast.simphony.relogo.Turtle)'>linkNeighborQ(Turtle)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#outLinkNeighborQ(repast.simphony.relogo.Turtle)'>outLinkNeighborQ(Turtle)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Turtle.html#fileShow(java.lang.Object)'>fileShow(Object)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#run(java.lang.String)'>run(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#show(java.lang.Object)'>show(Object)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#self()'>self()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#runresult(java.lang.String)'>runresult(String)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Turtle.html#getPenMode()'>getPenMode()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#getPenSize()'>getPenSize()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#pd()'>pd()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#pe()'>pe()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#penDown()'>penDown()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#penErase()'>penErase()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#penUp()'>penUp()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#pu()'>pu()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#setPenMode(java.lang.Number)'>setPenMode(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#setPenSize(java.lang.Number)'>setPenSize(Number)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Turtle.html#hideTurtle()'>hideTurtle()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#ht()'>ht()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#isHiddenQ()'>isHiddenQ()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#setHiddenQ(boolean)'>setHiddenQ(boolean)</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#showTurtle()'>showTurtle()</a>
+          <br />
+          <a href='repast/simphony/relogo/Turtle.html#st()'>st()</a>
+          <br />
+        </td>
+      </tr>
+    </table>
+    <A NAME='Utilities' />
+    <h2>Utilities</h2>
+    <table>
+      <tr>
+        <th>
+          <font size='4'>Color primitives</font>
+        </th>
+        <th>
+          <font size='4'>String primitives</font>
+        </th>
+        <th>
+          <font size='4'>Collection/List primitives</font>
+        </th>
+        <th>
+          <font size='4'>AgentSet primitives</font>
+        </th>
+        <th>
+          <font size='4'>Math primitives</font>
+        </th>
+        <th>
+          <font size='4'>Query primitives</font>
+        </th>
+        <th>
+          <font size='4'>Random number primitives</font>
+        </th>
+        <th>
+          <font size='4'>Time and ticks primitives</font>
+        </th>
+        <th>
+          <font size='4'>Input/Output primitives</font>
+        </th>
+        <th>
+          <font size='4'>Miscellaneous primitives</font>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <a href='repast/simphony/relogo/Utility.html#black()'>black()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#blue()'>blue()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#brown()'>brown()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#cyan()'>cyan()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#gray()'>gray()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#green()'>green()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#lime()'>lime()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#magenta()'>magenta()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#orange()'>orange()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#pink()'>pink()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#red()'>red()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#sky()'>sky()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#turquoise()'>turquoise()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#violet()'>violet()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#white()'>white()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#yellow()'>yellow()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#baseColors()'>baseColors()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#scaleColor(java.lang.Number, java.lang.Number, java.lang.Number, java.lang.Number)'>scaleColor(Number,Number,Number,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#shadeOfQ(java.lang.Number, java.lang.Number)'>shadeOfQ(Number,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#wrapColor(java.lang.Number)'>wrapColor(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#hsb(java.lang.Number, java.lang.Number, java.lang.Number)'>hsb(Number,Number,Number)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Utility.html#butFirst(java.lang.String)'>butFirst(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#butLast(java.lang.String)'>butLast(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#capitalize(java.lang.String)'>capitalize(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#emptyQ(java.lang.String)'>emptyQ(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#first(java.lang.String)'>first(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#item(int, java.lang.String)'>item(int,String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#last(java.lang.String)'>last(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#length(java.lang.String)'>length(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#memberQ(java.lang.String, java.lang.String)'>memberQ(String,String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#position(java.lang.String, java.lang.String)'>position(String,String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#remove(java.lang.String, java.lang.String)'>remove(String,String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#removeItem(int, java.lang.String)'>removeItem(int,String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#replaceItem(int, java.lang.String, java.lang.String)'>replaceItem(int,String,String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#reverse(java.lang.String)'>reverse(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#substring(java.lang.String, int, int)'>substring(String,int,int)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#word(java.lang.Object)'>word(Object...)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Utility.html#anyQ(java.util.Collection)'>anyQ(Collection)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#butFirst(List&lt;E&gt;)'>butFirst(List&lt;E&gt;)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#butLast(List&lt;E&gt;)'>butLast(List&lt;E&gt;)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#count(java.util.Collection)'>count(Collection)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#emptyQ(java.util.Collection)'>emptyQ(Collection)</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#filter(groovy.lang.Closure, Collection&lt;E&gt;)'>filter(Closure,Collection&lt;E&gt;)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#first(List&lt;E&gt;)'>first(List&lt;E&gt;)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#flatten(java.util.Collection)'>flatten(Collection)</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#foreach(groovy.lang.Closure, java.util.List)'>foreach(Closure,List...)</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#foreach(groovy.lang.Closure, java.util.Collection)'>foreach(Closure,Collection)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#fput(java.lang.Object, java.util.List)'>fput(Object,List)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#item(int, List&lt;E&gt;)'>item(int,List&lt;E&gt;)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#last(List&lt;E&gt;)'>last(List&lt;E&gt;)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#length(java.util.Collection)'>length(Collection)</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#list(java.lang.Object)'>list(Object...)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#lput(java.lang.Object, java.util.List)'>lput(Object,List)</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#map(groovy.lang.Closure, java.util.List)'>map(Closure,List...)</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#map(groovy.lang.Closure, java.util.Collection)'>map(Closure,Collection)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#max(java.util.Collection)'>max(Collection)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#mean(java.util.Collection)'>mean(Collection)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#median(java.util.Collection)'>median(Collection)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#memberQ(java.lang.Object, java.util.Collection)'>memberQ(Object,Collection)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#min(java.util.Collection)'>min(Collection)</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#modes(java.util.Collection)'>modes(Collection)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#nOf(int, Collection&lt;E&gt;)'>nOf(int,Collection&lt;E&gt;)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#nValues(int, groovy.lang.Closure)'>nValues(int,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#oneOf(Collection&lt;X&gt;)'>oneOf(Collection&lt;X&gt;)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#position(java.lang.Object, java.util.List)'>position(Object,List)</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#reduce(groovy.lang.Closure, List&lt;E&gt;)'>reduce(Closure,List&lt;E&gt;)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#remove(java.lang.Object, Collection&lt;E&gt;)'>remove(Object,Collection&lt;E&gt;)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#removeDuplicates(List&lt;E&gt;)'>removeDuplicates(List&lt;E&gt;)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#removeItem(int, List&lt;E&gt;)'>removeItem(int,List&lt;E&gt;)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#replaceItem(int, java.util.List, java.lang.Object)'>replaceItem(int,List,Object)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#reverse(List&lt;E&gt;)'>reverse(List&lt;E&gt;)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#sentence(java.lang.Object)'>sentence(Object...)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#shuffle(List&lt;E&gt;)'>shuffle(List&lt;E&gt;)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#sort(java.util.List)'>sort(List)</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#sortBy(groovy.lang.Closure, Collection&lt;E&gt;)'>sortBy(Closure,Collection&lt;E&gt;)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#standardDeviation(java.util.Collection)'>standardDeviation(Collection)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#sublist(List&lt;E&gt;, int, int)'>sublist(List&lt;E&gt;,int,int)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#sum(java.util.Collection)'>sum(Collection)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#variance(java.util.Collection)'>variance(Collection)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Utility.html#linkSet(java.lang.Object)'>linkSet(Object...)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#nOf(int, AgentSet&lt;E&gt;)'>nOf(int,AgentSet&lt;E&gt;)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#noLinks()'>noLinks()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#noPatches()'>noPatches()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#noTurtles()'>noTurtles()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#patchSet(java.lang.Object)'>patchSet(Object...)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#sort(repast.simphony.relogo.AgentSet)'>sort(AgentSet)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#turtleSet(java.lang.Object)'>turtleSet(Object...)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Utility.html#abs(java.lang.Number)'>abs(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#acos(java.lang.Number)'>acos(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#asin(java.lang.Number)'>asin(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#atan(java.lang.Number, java.lang.Number)'>atan(Number,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#ceiling(java.lang.Number)'>ceiling(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#cos(java.lang.Number)'>cos(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#e()'>e()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#floor(java.lang.Number)'>floor(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#intPart(java.lang.Number)'>intPart(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#ln(java.lang.Number)'>ln(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#log(java.lang.Number, java.lang.Number)'>log(Number,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#mod(java.lang.Number, java.lang.Number)'>mod(Number,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#modes(java.util.Collection)'>modes(Collection)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#pi()'>pi()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#precision(java.math.BigDecimal, int)'>precision(BigDecimal,int)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#remainder(java.lang.Number, java.lang.Number)'>remainder(Number,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#round(java.lang.Number)'>round(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#sin(java.lang.Number)'>sin(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#sqrt(java.lang.Number)'>sqrt(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#standardDeviation(java.util.Collection)'>standardDeviation(Collection)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#sum(java.util.Collection)'>sum(Collection)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#tan(java.lang.Number)'>tan(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#variance(java.util.Collection)'>variance(Collection)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Utility.html#isAgentQ(java.lang.Object)'>isAgentQ(Object)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#isAgentSetQ(java.lang.Object)'>isAgentSetQ(Object)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#isBooleanQ(java.lang.Object)'>isBooleanQ(Object)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#isDirectedLinkQ(java.lang.Object)'>isDirectedLinkQ(Object)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#isLinkQ(java.lang.Object)'>isLinkQ(Object)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#isLinkSetQ(java.lang.Object)'>isLinkSetQ(Object)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#isListQ(java.lang.Object)'>isListQ(Object)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#isNumberQ(java.lang.Object)'>isNumberQ(Object)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#isPatchQ(java.lang.Object)'>isPatchQ(Object)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#isPatchSetQ(java.lang.Object)'>isPatchSetQ(Object)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#isStringQ(java.lang.Object)'>isStringQ(Object)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#isTurtleQ(java.lang.Object)'>isTurtleQ(Object)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#isTurtleSetQ(java.lang.Object)'>isTurtleSetQ(Object)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#isUndirectedLinkQ(java.lang.Object)'>isUndirectedLinkQ(Object)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Utility.html#random(java.lang.Number)'>random(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#randomExponential(java.lang.Number)'>randomExponential(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#randomFloat(java.lang.Number)'>randomFloat(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#randomGamma(java.lang.Number, java.lang.Number)'>randomGamma(Number,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#randomNormal(java.lang.Number, java.lang.Number)'>randomNormal(Number,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#randomPoisson(java.lang.Number)'>randomPoisson(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#newSeed()'>newSeed()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#randomSeed(int)'>randomSeed(int)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Utility.html#dateAndTime()'>dateAndTime()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#pause()'>pause()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#resetTicks()'>resetTicks()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#resetTimer()'>resetTimer()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#stop()'>stop()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#tick()'>tick()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#tickAdvance(java.lang.Number)'>tickAdvance(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#ticks()'>ticks()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#timer()'>timer()</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#wait(java.lang.Number)'>wait(Number)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/UtilityG.html#beep()'>beep()</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#fileAtEndQ()'>fileAtEndQ()</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#fileClose()'>fileClose()</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#fileCloseAll()'>fileCloseAll()</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#fileDelete(java.lang.String)'>fileDelete(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#fileExistsQ(java.lang.String)'>fileExistsQ(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#fileFlush()'>fileFlush()</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#fileOpen(java.lang.String)'>fileOpen(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#filePrint(java.lang.Object)'>filePrint(Object)</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#fileRead()'>fileRead()</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#fileReadCharacters(int)'>fileReadCharacters(int)</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#fileReadLine()'>fileReadLine()</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#fileType(java.lang.Object)'>fileType(Object)</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#fileWrite(java.lang.Object)'>fileWrite(Object)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#flushFileSinks()'>flushFileSinks()</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#print(java.lang.Object)'>print(Object)</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#setCurrentDirectory(java.lang.String)'>setCurrentDirectory(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#type(java.lang.Object)'>type(Object)</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#userDirectory()'>userDirectory()</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#userFile()'>userFile()</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#userInput(java.lang.Object)'>userInput(Object)</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#userMessage(java.lang.Object)'>userMessage(Object)</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#userNewFile()'>userNewFile()</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#userOneOf(java.lang.Object, java.lang.Object)'>userOneOf(Object,Object...)</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#userYesOrNoQ(java.lang.Object)'>userYesOrNoQ(Object)</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#write(java.lang.Object)'>write(Object)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/UtilityG.html#ifelseValue(groovy.lang.Closure, groovy.lang.Closure, groovy.lang.Closure)'>ifelseValue(Closure,Closure,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/UtilityG.html#readFromString(java.lang.String)'>readFromString(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#repeat(java.lang.Number, groovy.lang.Closure)'>repeat(Number,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Utility.html#subtractHeadings(double, double)'>subtractHeadings(double,double)</a>
+          <br />
+        </td>
+      </tr>
+    </table>
+    <A NAME='Patch' />
+    <h2>Patch</h2>
+    <table>
+      <tr>
+        <th>
+          <font size='4'>Spatial primitives</font>
+        </th>
+        <th>
+          <font size='4'>Patch property primitives</font>
+        </th>
+        <th>
+          <font size='4'>AgentSet/Collection primitives</font>
+        </th>
+        <th>
+          <font size='4'>Ask primitives</font>
+        </th>
+        <th>
+          <font size='4'>Turtle-centric primitives</font>
+        </th>
+        <th>
+          <font size='4'>Patch-centric primitives</font>
+        </th>
+        <th>
+          <font size='4'>Link-centric primitives</font>
+        </th>
+        <th>
+          <font size='4'>World primitives</font>
+        </th>
+        <th>
+          <font size='4'>Query primitives</font>
+        </th>
+        <th>
+          <font size='4'>Miscellaneous primitives</font>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <a href='repast/simphony/relogo/Patch.html#distance(repast.simphony.relogo.Patch)'>distance(Patch)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#distance(repast.simphony.relogo.Turtle)'>distance(Turtle)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#distancexy(java.lang.Number, java.lang.Number)'>distancexy(Number,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#getPxcor()'>getPxcor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#getPycor()'>getPycor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#inRadius(java.util.Collection, java.lang.Number)'>inRadius(Collection,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#neighbors()'>neighbors()</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#neighbors(int)'>neighbors(int)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#neighbors(int, int)'>neighbors(int,int)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#neighbors4()'>neighbors4()</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#neighbors4(int)'>neighbors4(int)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#neighbors4(int, int)'>neighbors4(int,int)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Patch.html#getPcolor()'>getPcolor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#setPcolor(double)'>setPcolor(double)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#getPlabel()'>getPlabel()</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#setPlabel(java.lang.Object)'>setPlabel(Object)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#getPlabelColor()'>getPlabelColor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#setPlabelColor(java.lang.Number)'>setPlabelColor(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#setToDefault()'>setToDefault()</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Patch.html#maxNOf(int, Collection&lt;? extends ReLogoAgent&gt;, groovy.lang.Closure)'>maxNOf(int,Collection&lt;? extends ReLogoAgent&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#maxOneOf(Collection&lt;? extends ReLogoAgent&gt;, groovy.lang.Closure)'>maxOneOf(Collection&lt;? extends ReLogoAgent&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#minNOf(int, Collection&lt;? extends ReLogoAgent&gt;, groovy.lang.Closure)'>minNOf(int,Collection&lt;? extends ReLogoAgent&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#minOneOf(Collection&lt;? extends ReLogoAgent&gt;, groovy.lang.Closure)'>minOneOf(Collection&lt;? extends ReLogoAgent&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#other(java.util.Collection)'>other(Collection)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Patch.html#ask(AgentSet&lt;? extends ReLogoAgent&gt;, groovy.lang.Closure)'>ask(AgentSet&lt;? extends ReLogoAgent&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#ask(repast.simphony.relogo.Link, groovy.lang.Closure)'>ask(Link,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#ask(Collection&lt;? extends ReLogoAgent&gt;, groovy.lang.Closure)'>ask(Collection&lt;? extends ReLogoAgent&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#ask(repast.simphony.relogo.Patch, groovy.lang.Closure)'>ask(Patch,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#ask(repast.simphony.relogo.Turtle, groovy.lang.Closure)'>ask(Turtle,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#myself()'>myself()</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Patch.html#sprout(java.lang.Number)'>sprout(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#sprout(java.lang.Number, groovy.lang.Closure)'>sprout(Number,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#sprout(java.lang.Number, groovy.lang.Closure, java.lang.Class)'>sprout(Number,Closure,Class)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#sprout(java.lang.Number, groovy.lang.Closure, java.lang.String)'>sprout(Number,Closure,String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#turtle(java.lang.Number)'>turtle(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#turtles()'>turtles()</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#turtlesAt(java.lang.Number, java.lang.Number)'>turtlesAt(Number,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#turtlesHere()'>turtlesHere()</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#turtlesOn(java.util.Collection)'>turtlesOn(Collection)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#turtlesOn(repast.simphony.relogo.Patch)'>turtlesOn(Patch)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#turtlesOn(repast.simphony.relogo.Turtle)'>turtlesOn(Turtle)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Patch.html#patch(java.lang.Number, java.lang.Number)'>patch(Number,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#patchAt(java.lang.Number, java.lang.Number)'>patchAt(Number,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#patchAtHeadingAndDistance(java.lang.Number, java.lang.Number)'>patchAtHeadingAndDistance(Number,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#patches()'>patches()</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Patch.html#allLinks()'>allLinks()</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#link(java.lang.Number, java.lang.Number)'>link(Number,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#link(repast.simphony.relogo.Turtle, repast.simphony.relogo.Turtle)'>link(Turtle,Turtle)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#links()'>links()</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Patch.html#getMaxPxcor()'>getMaxPxcor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#getMaxPycor()'>getMaxPycor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#getMinPxcor()'>getMinPxcor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#getMinPycor()'>getMinPycor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#randomPxcor()'>randomPxcor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#randomPycor()'>randomPycor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#randomXcor()'>randomXcor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#randomYcor()'>randomYcor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#worldHeight()'>worldHeight()</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#worldWidth()'>worldWidth()</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Patch.html#allQ(java.util.Collection, groovy.lang.Closure)'>allQ(Collection,Closure)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Patch.html#fileShow(java.lang.Object)'>fileShow(Object)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#run(java.lang.String)'>run(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#runresult(java.lang.String)'>runresult(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#self()'>self()</a>
+          <br />
+          <a href='repast/simphony/relogo/Patch.html#show(java.lang.Object)'>show(Object)</a>
+          <br />
+        </td>
+      </tr>
+    </table>
+    <A NAME='Observer' />
+    <h2>Observer</h2>
+    <table>
+      <tr>
+        <th>
+          <font size='4'>Ask primitives</font>
+        </th>
+        <th>
+          <font size='4'>Turtle-centric primitives</font>
+        </th>
+        <th>
+          <font size='4'>Turtle creation primitives</font>
+        </th>
+        <th>
+          <font size='4'>Patch-centric primitives</font>
+        </th>
+        <th>
+          <font size='4'>Diffusible primitives</font>
+        </th>
+        <th>
+          <font size='4'>Clear primitives</font>
+        </th>
+        <th>
+          <font size='4'>World primitives</font>
+        </th>
+        <th>
+          <font size='4'>Link-centric primitives</font>
+        </th>
+        <th>
+          <font size='4'>AgentSet/Collection primitives</font>
+        </th>
+        <th>
+          <font size='4'>Miscellaneous primitives</font>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <a href='repast/simphony/relogo/Observer.html#ask(AgentSet&lt;? extends ReLogoAgent&gt;, groovy.lang.Closure)'>ask(AgentSet&lt;? extends ReLogoAgent&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#ask(repast.simphony.relogo.Link, groovy.lang.Closure)'>ask(Link,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#ask(Collection&lt;? extends ReLogoAgent&gt;, groovy.lang.Closure)'>ask(Collection&lt;? extends ReLogoAgent&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#ask(repast.simphony.relogo.Patch, groovy.lang.Closure)'>ask(Patch,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#ask(repast.simphony.relogo.Turtle, groovy.lang.Closure)'>ask(Turtle,Closure)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Observer.html#setDefaultShape(java.lang.Class, java.lang.String)'>setDefaultShape(Class,String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#setDefaultShape(java.lang.String, java.lang.String)'>setDefaultShape(String,String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#turtle(java.lang.Number)'>turtle(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#turtles()'>turtles()</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#turtlesOn(java.util.Collection)'>turtlesOn(Collection)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#turtlesOn(repast.simphony.relogo.Patch)'>turtlesOn(Patch)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#turtlesOn(repast.simphony.relogo.Turtle)'>turtlesOn(Turtle)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Observer.html#createTurtles(int)'>createTurtles(int)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createTurtles(int, groovy.lang.Closure)'>createTurtles(int,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createTurtles(int, groovy.lang.Closure, java.lang.Class)'>createTurtles(int,Closure,Class)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createTurtles(int, groovy.lang.Closure, java.lang.String)'>createTurtles(int,Closure,String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createTurtlesFromCSV(java.lang.String)'>createTurtlesFromCSV(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createTurtlesFromCSV(java.lang.String, groovy.lang.Closure)'>createTurtlesFromCSV(String,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createTurtlesFromCSV(java.lang.String, Class&lt;E&gt;)'>createTurtlesFromCSV(String,Class&lt;E&gt;)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createTurtlesFromCSV(java.lang.String, Class&lt;E&gt;, groovy.lang.Closure)'>createTurtlesFromCSV(String,Class&lt;E&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createTurtlesFromExcel(java.lang.String)'>createTurtlesFromExcel(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createTurtlesFromExcel(java.lang.String, groovy.lang.Closure)'>createTurtlesFromExcel(String,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createTurtlesFromExcel(java.lang.String, Class&lt;E&gt;)'>createTurtlesFromExcel(String,Class&lt;E&gt;)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createTurtlesFromExcel(java.lang.String, Class&lt;E&gt;, groovy.lang.Closure)'>createTurtlesFromExcel(String,Class&lt;E&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createTurtlesFromExcelWithSheet(java.lang.String, java.lang.String)'>createTurtlesFromExcelWithSheet(String,String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createTurtlesFromExcelWithSheet(java.lang.String, java.lang.String, groovy.lang.Closure)'>createTurtlesFromExcelWithSheet(String,String,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createTurtlesFromExcelWithSheet(java.lang.String, java.lang.String, Class&lt;E&gt;)'>createTurtlesFromExcelWithSheet(String,String,Class&lt;E&gt;)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createTurtlesFromExcelWithSheet(java.lang.String, java.lang.String, Class&lt;E&gt;, groovy.lang.Closure)'>createTurtlesFromExcelWithSheet(String,String,Class&lt;E&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#crt(int)'>crt(int)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#crt(int, groovy.lang.Closure)'>crt(int,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#crt(int, groovy.lang.Closure, java.lang.Class)'>crt(int,Closure,Class)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#crt(int, groovy.lang.Closure, java.lang.String)'>crt(int,Closure,String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createOrderedTurtles(int)'>createOrderedTurtles(int)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createOrderedTurtles(int, groovy.lang.Closure)'>createOrderedTurtles(int,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createOrderedTurtles(int, groovy.lang.Closure, java.lang.Class)'>createOrderedTurtles(int,Closure,Class)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createOrderedTurtles(int, groovy.lang.Closure, java.lang.String)'>createOrderedTurtles(int,Closure,String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createOrderedTurtlesFromCSV(java.lang.String)'>createOrderedTurtlesFromCSV(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createOrderedTurtlesFromCSV(java.lang.String, groovy.lang.Closure)'>createOrderedTurtlesFromCSV(String,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createOrderedTurtlesFromCSV(java.lang.String, Class&lt;E&gt;)'>createOrderedTurtlesFromCSV(String,Class&lt;E&gt;)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createOrderedTurtlesFromCSV(java.lang.String, Class&lt;E&gt;, groovy.lang.Closure)'>createOrderedTurtlesFromCSV(String,Class&lt;E&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createOrderedTurtlesFromExcel(java.lang.String)'>createOrderedTurtlesFromExcel(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createOrderedTurtlesFromExcel(java.lang.String, groovy.lang.Closure)'>createOrderedTurtlesFromExcel(String,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createOrderedTurtlesFromExcel(java.lang.String, Class&lt;E&gt;)'>createOrderedTurtlesFromExcel(String,Class&lt;E&gt;)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createOrderedTurtlesFromExcel(java.lang.String, Class&lt;E&gt;, groovy.lang.Closure)'>createOrderedTurtlesFromExcel(String,Class&lt;E&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createOrderedTurtlesFromExcelWithSheet(java.lang.String, java.lang.String)'>createOrderedTurtlesFromExcelWithSheet(String,String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createOrderedTurtlesFromExcelWithSheet(java.lang.String, java.lang.String, groovy.lang.Closure)'>createOrderedTurtlesFromExcelWithSheet(String,String,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createOrderedTurtlesFromExcelWithSheet(java.lang.String, java.lang.String, Class&lt;E&gt;)'>createOrderedTurtlesFromExcelWithSheet(String,String,Class&lt;E&gt;)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#createOrderedTurtlesFromExcelWithSheet(java.lang.String, java.lang.String, Class&lt;E&gt;, groovy.lang.Closure)'>createOrderedTurtlesFromExcelWithSheet(String,String,Class&lt;E&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#cro(int)'>cro(int)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#cro(int, groovy.lang.Closure)'>cro(int,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#cro(int, groovy.lang.Closure, java.lang.Class)'>cro(int,Closure,Class)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#cro(int, groovy.lang.Closure, java.lang.String)'>cro(int,Closure,String)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Observer.html#patch(java.lang.Number, java.lang.Number)'>patch(Number,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#patches()'>patches()</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Observer.html#diffuse(java.lang.String, double)'>diffuse(String,double)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#diffuse4(java.lang.String, double)'>diffuse4(String,double)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#diffusibleAdd(java.lang.String, java.lang.Number)'>diffusibleAdd(String,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#diffusibleApply(java.lang.String, DoubleFunction)'>diffusibleApply(String,DoubleFunction)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#diffusibleDivide(java.lang.String, java.lang.Number)'>diffusibleDivide(String,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#diffusibleMultiply(java.lang.String, java.lang.Number)'>diffusibleMultiply(String,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#diffusibleSubtract(java.lang.String, java.lang.Number)'>diffusibleSubtract(String,Number)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Observer.html#clearAll()'>clearAll()</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#ca()'>ca()</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#clearLinks()'>clearLinks()</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#clearPatches()'>clearPatches()</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#cp()'>cp()</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#clearTurtles()'>clearTurtles()</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#ct()'>ct()</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Observer.html#getMaxPxcor()'>getMaxPxcor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#getMaxPycor()'>getMaxPycor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#getMinPxcor()'>getMinPxcor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#getMinPycor()'>getMinPycor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#randomPxcor()'>randomPxcor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#randomPycor()'>randomPycor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#randomXcor()'>randomXcor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#randomYcor()'>randomYcor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#worldHeight()'>worldHeight()</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#worldWidth()'>worldWidth()</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Observer.html#allLinks()'>allLinks()</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#link(java.lang.Number, java.lang.Number)'>link(Number,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#link(repast.simphony.relogo.Turtle, repast.simphony.relogo.Turtle)'>link(Turtle,Turtle)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#links()'>links()</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Observer.html#maxNOf(int, Collection&lt;? extends ReLogoAgent&gt;, groovy.lang.Closure)'>maxNOf(int,Collection&lt;? extends ReLogoAgent&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#maxOneOf(Collection&lt;? extends ReLogoAgent&gt;, groovy.lang.Closure)'>maxOneOf(Collection&lt;? extends ReLogoAgent&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#minNOf(int, Collection&lt;? extends ReLogoAgent&gt;, groovy.lang.Closure)'>minNOf(int,Collection&lt;? extends ReLogoAgent&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#minOneOf(Collection&lt;? extends ReLogoAgent&gt;, groovy.lang.Closure)'>minOneOf(Collection&lt;? extends ReLogoAgent&gt;,Closure)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Observer.html#allQ(java.util.Collection, groovy.lang.Closure)'>allQ(Collection,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#fileShow(java.lang.Object)'>fileShow(Object)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#registerModelParameterListener(java.lang.String, groovy.lang.Closure)'>registerModelParameterListener(String,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#run(java.lang.String)'>run(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#runresult(java.lang.String)'>runresult(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Observer.html#show(java.lang.Object)'>show(Object)</a>
+          <br />
+        </td>
+      </tr>
+    </table>
+    <A NAME='Link' />
+    <h2>Link</h2>
+    <table>
+      <tr>
+        <th>
+          <font size='4'>Link property primitives</font>
+        </th>
+        <th>
+          <font size='4'>AgentSet/Collection primitives</font>
+        </th>
+        <th>
+          <font size='4'>Ask primitives</font>
+        </th>
+        <th>
+          <font size='4'>Turtle-centric primitives</font>
+        </th>
+        <th>
+          <font size='4'>Patch-centric primitives</font>
+        </th>
+        <th>
+          <font size='4'>Link-centric primitives</font>
+        </th>
+        <th>
+          <font size='4'>World primitives</font>
+        </th>
+        <th>
+          <font size='4'>Tie primitives</font>
+        </th>
+        <th>
+          <font size='4'>Visibility primitives</font>
+        </th>
+        <th>
+          <font size='4'>Miscellaneous primitives</font>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <a href='repast/simphony/relogo/Link.html#getColor()'>getColor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#setColor(java.lang.Number)'>setColor(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#getEnd1()'>getEnd1()</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#setEnd1(T)'>setEnd1(T)</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#getEnd2()'>getEnd2()</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#setEnd2(T)'>setEnd2(T)</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#getLabelColor()'>getLabelColor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#setLabelColor(java.lang.Number)'>setLabelColor(Number)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Link.html#maxNOf(int, Collection&lt;? extends ReLogoAgent&gt;, groovy.lang.Closure)'>maxNOf(int,Collection&lt;? extends ReLogoAgent&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#maxOneOf(Collection&lt;? extends ReLogoAgent&gt;, groovy.lang.Closure)'>maxOneOf(Collection&lt;? extends ReLogoAgent&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#minNOf(int, Collection&lt;? extends ReLogoAgent&gt;, groovy.lang.Closure)'>minNOf(int,Collection&lt;? extends ReLogoAgent&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#minOneOf(Collection&lt;? extends ReLogoAgent&gt;, groovy.lang.Closure)'>minOneOf(Collection&lt;? extends ReLogoAgent&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#other(java.util.Collection)'>other(Collection)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Link.html#ask(AgentSet&lt;? extends ReLogoAgent&gt;, groovy.lang.Closure)'>ask(AgentSet&lt;? extends ReLogoAgent&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#ask(repast.simphony.relogo.Link, groovy.lang.Closure)'>ask(Link,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#ask(Collection&lt;? extends ReLogoAgent&gt;, groovy.lang.Closure)'>ask(Collection&lt;? extends ReLogoAgent&gt;,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#ask(repast.simphony.relogo.Patch, groovy.lang.Closure)'>ask(Patch,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#ask(repast.simphony.relogo.Turtle, groovy.lang.Closure)'>ask(Turtle,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#myself()'>myself()</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#otherEnd()'>otherEnd()</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Link.html#bothEnds()'>bothEnds()</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#turtle(java.lang.Number)'>turtle(Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#turtles()'>turtles()</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#turtlesOn(java.util.Collection)'>turtlesOn(Collection)</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#turtlesOn(repast.simphony.relogo.Patch)'>turtlesOn(Patch)</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#turtlesOn(repast.simphony.relogo.Turtle)'>turtlesOn(Turtle)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Link.html#patch(java.lang.Number, java.lang.Number)'>patch(Number,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#patches()'>patches()</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Link.html#allLinks()'>allLinks()</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#die()'>die()</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#link(java.lang.Number, java.lang.Number)'>link(Number,Number)</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#link(repast.simphony.relogo.Turtle, repast.simphony.relogo.Turtle)'>link(Turtle,Turtle)</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#linkHeading()'>linkHeading()</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#linkLength()'>linkLength()</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#links()'>links()</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Link.html#getMaxPxcor()'>getMaxPxcor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#getMaxPycor()'>getMaxPycor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#getMinPxcor()'>getMinPxcor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#getMinPycor()'>getMinPycor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#randomPxcor()'>randomPxcor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#randomPycor()'>randomPycor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#randomXcor()'>randomXcor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#randomYcor()'>randomYcor()</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#worldHeight()'>worldHeight()</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#worldWidth()'>worldWidth()</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Link.html#tie()'>tie()</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#setTieMode(java.lang.String)'>setTieMode(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#untie()'>untie()</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Link.html#hideLink()'>hideLink()</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#isHiddenQ()'>isHiddenQ()</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#showLink()'>showLink()</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#setHiddenQ(boolean)'>setHiddenQ(boolean)</a>
+          <br />
+        </td>
+        <td>
+          <a href='repast/simphony/relogo/Link.html#allQ(java.util.Collection, groovy.lang.Closure)'>allQ(Collection,Closure)</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#fileShow(java.lang.Object)'>fileShow(Object)</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#self()'>self()</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#show(java.lang.Object)'>show(Object)</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#run(java.lang.String)'>run(String)</a>
+          <br />
+          <a href='repast/simphony/relogo/Link.html#runresult(java.lang.String)'>runresult(String)</a>
+          <br />
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
