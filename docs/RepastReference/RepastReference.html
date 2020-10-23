@@ -782,7 +782,7 @@ asciidoc.install(3);
 <body class="article" style="max-width:50em">
 <div id="header">
 <h1>Repast Simphony Reference Manual</h1>
-<span id="author">Version 2.7 October 2019</span><br />
+<span id="author">Version 2.8 October 2020</span><br />
 <div id="toc">
   <div id="toctitle">Table of Contents</div>
   <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
@@ -2113,6 +2113,8 @@ To remove a context that is a subcontext:
 </div>
 <div class="sect2">
 <h3 id="_finding_objects_in_contexts">4.3. Finding Objects in Contexts</h3>
+<div class="sect3">
+<h4 id="_finding_objects_using_repast_2_7_or_earlier">4.3.1. Finding objects using Repast 2.7 or earlier</h4>
 <div class="paragraph"><p>Objects (typically agents) contained in a context can be referenced in several
 ways.</p></div>
 <div class="ulist"><ul>
@@ -2153,8 +2155,72 @@ To get a random iterable collection of all objects of a specific class:
 }</code></pre>
 </div></div>
 </div>
+<div class="sect3">
+<h4 id="_finding_objects_using_repast_2_8_or_later">4.3.2. Finding objects using Repast 2.8 or later</h4>
+<div class="paragraph"><p>Starting with verion 2.8, contexts can provide objects and random objects using
+<a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html">Java streams</a>
+which provide higher performance and flexibility in handling agents.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+To get a stream of all objects of type MyClass:
+</p>
+<div class="listingblock">
+<div class="content">
+<pre><code>Stream&lt;MyClass&gt; s = context.getObjectsAsStream(MyClass.class);</code></pre>
+</div></div>
+</li>
+<li>
+<p>
+To get a random stream of some (count) objects of type MyClass:
+</p>
+<div class="listingblock">
+<div class="content">
+<pre><code>Stream&lt;MyClass&gt; s = context.getRandomObjectsAsStream(MyClass.class, count);</code></pre>
+</div></div>
+</li>
+</ul></div>
+<div class="paragraph"><p>Java Streams provide flexibility in how the stream is processes and added to
+collections like lists.  For example, to create a list of objects in a stream:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>List&lt;MyClass&gt; myList = s.collect(Collectors.toList());</code></pre>
+</div></div>
+<div class="paragraph"><p>To pass each object in the stream to a method myMethod:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>s.forEach(this::myFunction)</code></pre>
+</div></div>
+</div>
+</div>
 <div class="sect2">
-<h3 id="_implementing_custom_contexts">4.4. Implementing Custom Contexts</h3>
+<h3 id="_querying_objects_in_contexts">4.4. Querying Objects in Contexts</h3>
+<div class="paragraph"><p>Starting with verion 2.8, queries on objects within contexts can be performed using
+<a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html">Java streams</a>
+filters.  A stream filter processes the entire stream of objects returned by the context
+and passes only those objects that satisfy the conditions in the filter.  Complex filter
+conditions can be used to find objects whose attributes meet a set of conditions.  The use of
+stream filters is recommended over the legacy Property queries due to significant improvements
+in performance.</p></div>
+<div class="paragraph"><p>As an example of a stream filter, if an agent has a property "energy" and a getter method
+"getEnergy()"  The following will generate a list of agents whose energy value is less than 4:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>Stream&lt;MyAgent&gt; s = context.getObjectsAsStream(MyAgent.class);
+List&lt;MyAgent&gt; list = s.filter(c -&gt; c.getEnergy() &lt; 4).collect(Collectors.toList());</code></pre>
+</div></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/tip.png" alt="Tip" />
+</td>
+<td class="content">The use of stream filters is recommended over the legacy Property queries due to
+significant improvements in performance.</td>
+</tr></table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_implementing_custom_contexts">4.5. Implementing Custom Contexts</h3>
 <div class="paragraph"><p>User models can implement their own custom Context implementations, either by
 creating a complete <em>Context</em> interface implementation from scratch, or by
 extending the Repast <em>DefaultContext</em> class.  Extending <em>DefaultContext</em> is the
@@ -2163,7 +2229,7 @@ implementations for the <em>Context</em> interface.  User context imlplementatio
 be used in model code in exactly the same way as the default Repast Context.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_context_loading">4.5. Context Loading</h3>
+<h3 id="_context_loading">4.6. Context Loading</h3>
 <div class="paragraph"><p>Context loading is the process of populating the root model context with agents,
 projections, and sub-contexts and occurs when a model run is initialized, and
 may be thought of as the model&#8217;s "main" function that assembles the model
@@ -2214,7 +2280,71 @@ user-defined ContextBuilder, see the section on <a href="#DataLoaders">Data Load
 <div class="paragraph"><p>There are basically three ways to work with the Repast Simphony Scheduler. No
 one is better than the other and they each have their specified purpose.</p></div>
 <div class="sect2">
-<h3 id="schedule-direct">5.1. Directly Schedule an action</h3>
+<h3 id="schedule-model-initializer">5.1. Using the Model Initializer</h3>
+<div class="paragraph"><p>There are a couple of approaches to perform model initialization/setup and
+appropriate method depends on specific modeling needs.</p></div>
+<div class="paragraph"><p>To initialize a model run without user input by say setting model parameters,
+reading input data, etc, then the ContextBuilder implementation is be the
+preferred approach since the build(…) method is called once every time the
+model is initialized or started via the GUI.</p></div>
+<div class="paragraph"><p>To perform any programmatic actions before init/run via the GUI, use a Model
+Initializer to perform the setup behavior by creating a class that implements
+repast.simphony.scenario.ModelInitializer. The initialize(…) method is called
+only once as the Repast GUI is created and before the model init/run button is pushed.
+The MouseTrap demo model provides an example of using the ModelInitializer.</p></div>
+<div class="paragraph"><p>The Eclipse new class wizard will create a template class with the initialize(…) method
+in which model initialization code may be included. The ModelInitializer implementation
+code will execute only once per runtime session, even if the model is reset/restarted
+and before the ContextBuilder code is executed. The ModelInitializer class needs to be specified
+in the scenario.xml as follows, assuming the class is named myModel.MyModelInitializer.
+The MouseTrap demo contains an example of this.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;model.initializer class="myModel.MyModelInitializer" /&gt;</code></pre>
+</div></div>
+<div class="paragraph"><p>To provide user interaction with the model setup/init before pushing the init/run button,
+the ModelInitializer could be used to create an external JFrame/Panel that contains custom
+GUI elements. This approach could be used to store the user input information in a static
+singleton that is accessible by the model during the ContextBuilder.build().</p></div>
+<div class="paragraph"><p>A common model initialization design is to consider the GUI initialization at tick = 0, the model
+initialization at tick = 1, and then schedule all model behaviors at tick &gt; 1. This allows the
+use of the GUI parameters and User Panel to set any model initialization information.  A more
+detailed sequence of events is as follows:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+The GUI init/run is pressed, the ContextBuilder.build() is called. This is tick = 0.
+Model parameters are available in the model code and the User Panel is created. Here we don’t
+actually want to create the model components since they may depend on user input. Instead, we
+create a "model creator" class that will be scheduled at tick = 1 (or any arbitrary time later)
+that creates all of the model components. We can simply move the current contents of the
+ContextBuilder.build(…) into the new model creator class and schedule it for tick = 1.
+Pausing the model at tick = 0 for good measure so that the schedule will not advance before
+user input is received:
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>* RunEnvironment.getInstance().pauseAt(0);</code></pre>
+</div></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Optionally, the UserPanel is populated in the model post-initialization by creating an implementation of repast.simphony.userpanel.ui.UserPanelCreator and by specifying this class in the Repast GUI “User Panel” item. The UserPanelCreator class will return a JPanel via the createPanel() method and can contain any Java Swing GUI components. The UserPanel is re-created each time the model is reset.
+</p>
+</li>
+<li>
+<p>
+The new model creator create() method is called. This is tick = 1. All model init code
+that is normally in the ContextBuilder.build() will be called here. We can access the model
+parameters set via the GUI, and any information that was input via the User Panel.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="schedule-direct">5.2. Directly Schedule an action</h3>
 <div class="paragraph"><p>This is similar to the way that actions have always been scheduled in repast
 with a slight twist. In this scenario, you get a schedule and tell it the when
 and what to run. An example of adding an item to the schedule this way is as
@@ -2249,7 +2379,7 @@ looks like this:</p></div>
 </div></div>
 </div>
 <div class="sect2">
-<h3 id="schedule-annotation">5.2. Schedule with Annotations</h3>
+<h3 id="schedule-annotation">5.3. Schedule with Annotations</h3>
 <div class="paragraph"><p>Java 5 introduced several new and exciting features (some of which are used
 above), but one of the most useful is Annotation support. Annotations, in java,
 are bits of metadata which can be attached to classes, methods or fields that
@@ -2288,7 +2418,7 @@ handle dynamic scheduling, but only scheduling, where the actions are well
 defined at compile time.</p></div>
 </div>
 <div class="sect2">
-<h3 id="schedule-global">5.3. Scheduling Global Behaviors</h3>
+<h3 id="schedule-global">5.4. Scheduling Global Behaviors</h3>
 <div class="paragraph"><p>There&#8217;s at least two ways to do this. Both assume that you create your model in
 your own ContextBuilder Java class.</p></div>
 <div class="paragraph"><p>The first way requires that you have your ContextBuilder extend DefaultContext.
@@ -2334,7 +2464,7 @@ Schedule with which can add your behavior. For example</p></div>
 </div></div>
 </div>
 <div class="sect2">
-<h3 id="_schedule_with_watcher">5.4. Schedule with Watcher</h3>
+<h3 id="_schedule_with_watcher">5.5. Schedule with Watcher</h3>
 <div class="paragraph"><p>Scheduling using watchers is the most radical of the new scheduling approaches.
 Watchers are designed to be used for dynamic scheduling where a typical workflow
 is well understood by the model designer. Basically, a watcher allows an agent
@@ -2396,7 +2526,7 @@ public void shutDown(){
 work with scheduling this way.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_watcher_queries">5.5. Watcher Queries</h3>
+<h3 id="_watcher_queries">5.6. Watcher Queries</h3>
 <div class="paragraph"><p>Watcher queries are boolean expressions that evaluate the watcher and the
 watchee with respect to each other and some projection or context. The context
 is the context where the watcher resides and the projections are those contained
@@ -2457,7 +2587,7 @@ precedence. For example
 MyWatcher.</p></div>
 </div>
 <div class="sect2">
-<h3 id="schedule-stop">5.6. Stopping and Pausing the Model Using the Schedule.</h3>
+<h3 id="schedule-stop">5.7. Stopping and Pausing the Model Using the Schedule.</h3>
 <div class="paragraph"><p>The Repast schedule can be stopped or paused by model code, either scheduled at
 predetermined time, or immediately via some event.  The following scheduling options
 are available:</p></div>
@@ -3444,61 +3574,26 @@ and 1, in (0, 1), if the random number is greater than the agent&#8217;s happine
 will move.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_multiple_stream_non_uniform_stream_usage">10.4. Multiple Stream / Non Uniform Stream Usage</h3>
-<div class="paragraph"><p>As with the single streams, you generally are going to want to create your
-Random number streams when your model is initializing, primarily in a
-ParameterSetter, at the point the ParameterSetter will be executed the run&#8217;s
-RandomRegistry will be setup, and you can feel free to use the RandomHelper.</p></div>
-<div class="paragraph"><p>With these streams you are going to need to consistently use the same stream
-name(s) when working with the RandomHelper or the RandomRegistry. You will need
-to pass this name into the methods, so that that the helper/registry knows where
-to get the values from. For example, let&#8217;s say that you want 2 random number
-streams; one a Poisson distribution, and one a Normal distribution. With both of
-these using a distinct random seed.</p></div>
-<div class="paragraph"><p>So an example initialization would look like:</p></div>
+<h3 id="_custom_random_engine_and_streams">10.4. Custom Random Engine and Streams</h3>
+<div class="paragraph"><p>Advanced applications that require multiple different random streams
+can use RandomHelper&#8217;s registerGenerator(String, int) method.
+This method will create a new random stream (a RandomEngine) with
+the specified name and seed.This stream can then be used to create distributions.
+See <a href="https://github.com/Repast/repast.simphony/blob/master/repast.simphony.core/src/repast/simphony/random/DefaultRandomRegistry.java">Simphony&#8217;s DefaultRandomRegistry</a>
+implementation for examples of how to create distributions from the RandomEngine.
+RandomHelper&#8217;s registerDistribution(String, AbstractDistribution) and getDistribution(String)
+methods can be used to store and retrieve custom distributions in and from
+the RandomHelper.</p></div>
+<div class="paragraph"><p>For example,</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><code>public class MySetter extends ParameterSetter {
-  public void next(Parameters params) {
-    // first create the normal distribution
-    // we pass in null so that it will use the current random registry
-    RandomHelper.createNormal(null, "MyNormal", normalSeed, 0, 1);
-    // next we create the poisson distribution
-
-    RandomHelper.createPoisson(null, "MyPoisson", poissonSeed, 0);
-  }
-}</code></pre>
-</div></div>
-<div class="paragraph"><p>The above code created a normal distribution named "MyNormal" that has a mean of
-0, a standard deviation of 1, and some seed (normalSeed). It then creates a
-poisson distribution named "MyPoisson" with a mean of 0 and some specified seed
-(poissonSeed). It is worth noticing however that unlike the default stream, if
-you do not setup these streams with the given name they will not be created for
-you. You must create them in some way (for instance like above) or you will not
-be able to use them.</p></div>
-<div class="paragraph"><p>You can then use these distributions from your code. If you wanted to do the
-same thing as the single stream example, but with the normal stream you would do:</p></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>public void agentAction() {
-        if (myHappiness &lt; RandomHelper.getNormal("MyNormal").nextDouble()) {
-                move();
-        }
-}</code></pre>
-</div></div>
-<div class="paragraph"><p>The Poisson stream is slightly less straighforward to use, in that direct helper
-methods are not provided that will cast the stream to a Poisson distribution.
-For this distribution you must cast the stream yourself. This is more
-complicated than it sounds, and functions simply like:</p></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>public void agentAction() {
-        // grab the distribution with the given name, casting it to a Poisson distribution
-        Poisson randomStream = (Poisson) RandomHelper.getStream("MyPoisson");
-        // now use it
-        if (myHappiness &lt; randomStream.nextDouble()) {
-                move();
-        }
+<pre><code>public void customStreamExample {
+   RandomEngine eng = RandomHelper.registerGenerator("MyStream", 42);
+   Uniform myUniform = new Uniform(5, 10, eng);
+   RandomHelper.registerDistribution("MyUniform", myUniform);
+   ...
+   Uniform uni = (Uniform)RandomHelper.getDistribution("MyUniform");
+   double f = uni.nextDouble();
 }</code></pre>
 </div></div>
 </div>
@@ -3728,6 +3823,14 @@ parameter values may be selected.
 after the OK button is pressed in the parameter dialog.</td>
 </tr></table>
 </div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/note.png" alt="Note" />
+</td>
+<td class="content">By default, the parameters are displayed in alphabetical order. <a href="#parameter_order">A custom order</a> can be set by editing the parameters.xml to a "displayOrder" attribute.</td>
+</tr></table>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_example_model_parameters">11.3.3. Example Model Parameters</h4>
@@ -3932,6 +4035,46 @@ of a converted parameter. For example:</p></div>
 Strings that can be converted using the converter. If you do constrain a
 converted parameter in this way, you must override equals (and hashCode) in your
 custom type. If not, then the constraint validation will most likely fail.</p></div>
+</div>
+<div class="sect3">
+<h4 id="parameter_order">11.3.5. Custom Parameter Order</h4>
+<div class="paragraph"><p>By default parameters are ordered alphabetically. A custom
+parameter order can be set using the "displayOrder" parameter numeric attribute.
+This attribute must be number and parameters are sorted using this value
+in ascending order. All the parameters with a displayOrder attribute will be
+sorted and display first, followed by those with no displayOrder attribute. The
+latter group will be displayed in alphabetical order.
+Currently, the only way to add this attribute is by editing parameters.xml directly.
+An example:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;parameters&gt;
+
+        &lt;parameter name="zombie_count" displayName="Zombie Count" type="int"
+                defaultValue="10"
+                isReadOnly="false"
+                displayOrder="0.0
+        /&gt;
+
+        &lt;parameter name="human_count"
+                displayName="Human Count" type="int"
+                defaultValue="120"
+                isReadOnly="false"
+                range="0.0 200.0 20.0"
+                displayOrder="1.0"
+        /&gt;
+
+
+
+        &lt;parameter name="stop_at" displayName="Batch Stop At" type="int"
+                defaultValue="2000"
+                isReadOnly="false"
+                displayOrder="2.0"
+        /&gt;
+&lt;/parameters&gt;</code></pre>
+</div></div>
+<div class="paragraph"><p>Here Zombie Count (displayOrder = 0.0) will be displayed at the top of the parameters
+panel, followed by Human Count (displayOrder=1.0), and Batch Stop At (displayOrder=2.0)</p></div>
 </div>
 </div>
 <div class="sect2">
@@ -5815,7 +5958,7 @@ method.</p></div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-09-29 23:32:56 Central Daylight Time
+Last updated 2020-10-20 17:52:26 Central Daylight Time
 </div>
 </div>
 </body>
