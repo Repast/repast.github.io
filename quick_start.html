@@ -44,6 +44,14 @@ table.quick_start td, th {
 
 	To get started using Repast Simphony, please follow these steps:<br>
 	</div>
+
+	<h3 class="title">Step 0: MacOS and Linux users only, Download and install a Java Development Kit </h3>
+	<div class="entry">
+		<ul>
+			<li><b>Download and install a JDK. See the 
+					<a href="./requirements.html">requirements page</a> for more details.</b>
+		</ul>
+	</div>
 	
 	<h3 class="title">Step 1: Download and install Repast Simphony</h3>
 	<div class="entry">
@@ -53,7 +61,7 @@ table.quick_start td, th {
 	</ul>
 	</div>
 	
-	<h3 class="title">Step 2: Run Repast and import example models</h3>
+	<h3 class="title">Step 2: Run and Configure Repast and import example models</h3>
 	<div class="entry">
 	<ul>
 		<li><b>After Repast is installed, run the "Repast Simphony" shortcut</b> for Windows or
@@ -67,6 +75,19 @@ table.quick_start td, th {
 		</a>
 		<br>
 		<br>
+
+		<li><b>Set the Java Compiler Compliance Level and JRE</b>
+		From the window menu, select Eclipse -> Prefences (macOS) or Window -> Preferences (Windows).
+		In the menu tree on the left hand side, select Java -> Compiler, and set the Compiler Compliance
+		Level to 1.8.
+		<br>
+		In the menu tree on the left hand side, select Java -> Installed JREs, and select a version
+		11 JRE. If you do not see your JRE in the list, click the "Add" button to add it.
+		Click "Apply and Close".
+		</li>
+		<br>
+		<br>
+
 		<li><b>From the window menu, select File -> Import Repast Examples</b>.
 		The model import dialog will appear with the list of available Repast models
 		if the Windows or macOS installer was used.  Linux users should download the
