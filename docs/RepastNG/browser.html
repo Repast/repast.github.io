@@ -738,7 +738,7 @@ asciidoc.install(3);
 <body class="article" style="max-width:55em">
 <div id="header">
 <h1>Running your Repast Simphony Model via a Browser</h1>
-<span id="author">October 2020</span><br />
+<span id="author">October 2021</span><br />
 <div id="toc">
   <div id="toctitle">Table of Contents</div>
   <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
@@ -785,8 +785,40 @@ Model runtime interaction (run, stop, pause, etc.)
 not all, models should load and run, the full array of existing GUI elements
 is not yet supported. For example, controlling simulations through the User Panel
 and visualizing ReLogo displays other than charts are both not yet supported.
-The <code>Geography</code>, <code>JZombies</code>, <code>GlidersGrid</code>, and <code>GridGameOfLife</code> demonstration models provide
-the best examples of the newly implemented browser GUI.</p></div>
+In particular, the:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<code>Geography</code>
+</p>
+</li>
+<li>
+<p>
+<code>JZombies</code>
+</p>
+</li>
+<li>
+<p>
+<code>GlidersGrid</code>
+</p>
+</li>
+<li>
+<p>
+<code>GridGameOfLife</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>demonstration models provide the best examples of the newly implemented browser GUI.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/note.png" alt="Note" />
+</td>
+<td class="content">As of this writing, an <a href="https://github.com/mrdoob/three.js/issues/22582">issue</a> has been reported for an incompatibility
+between the three.js library and the Safari browser (version 15.0), causing the user interface to not load properly.
+You can either use another browser or navigate to the <code>Developer</code> menu in Safari and enable <code>Experimental Features &gt; WebGL via Metal</code>.</td>
+</tr></table>
+</div>
 <div class="paragraph"><p>For feedback and questions about the browser GUI please contact us through our <a href="https://repast.github.io/support.html">regular support channels</a>.</p></div>
 </div>
 </div>
@@ -984,7 +1016,7 @@ address.</p></div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-10-20 17:18:41 Central Daylight Time
+Last updated 2021-10-19 14:31:58 Central Daylight Time
 </div>
 </div>
 </body>
