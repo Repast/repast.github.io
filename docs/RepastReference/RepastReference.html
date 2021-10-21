@@ -782,7 +782,7 @@ asciidoc.install(3);
 <body class="article" style="max-width:50em">
 <div id="header">
 <h1>Repast Simphony Reference Manual</h1>
-<span id="author">Version 2.8 October 2020</span><br />
+<span id="author">Version 2.9 October 2021</span><br />
 <div id="toc">
   <div id="toctitle">Table of Contents</div>
   <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
@@ -1376,7 +1376,7 @@ context element which specifies the name of the root context "MyProject" which b
 default is the same as the project name.  The additional xmlns and xsi values
 specify the XML descriptor information which provides content assistence in XML
 editors like in Eclipse.</p></div>
-<div class="paragraph"><p>context.xml contains the context heirarchy information.</p></div>
+<div class="paragraph"><p>context.xml contains the context hierarchy information.</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><code>&lt;context id="..." class="..."&gt;
@@ -1411,12 +1411,12 @@ cellspacing="0" cellpadding="4">
 <tbody>
 <tr>
 <td align="left" valign="top"><p class="table">id</p></td>
-<td align="left" valign="top"><p class="table">Unique identifer for the context</p></td>
+<td align="left" valign="top"><p class="table">Unique identifier for the context</p></td>
 <td align="left" valign="top"><p class="table">YES</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table">class</p></td>
-<td align="left" valign="top"><p class="table">Fully qualitifed name of a Context implementation. If this
+<td align="left" valign="top"><p class="table">Fully qualified name of a Context implementation. If this
 is present this context will be used instead of the default</p></td>
 <td align="left" valign="top"><p class="table">NO</p></td>
 </tr>
@@ -1442,7 +1442,7 @@ cellspacing="0" cellpadding="4">
 <tbody>
 <tr>
 <td align="left" valign="top"><p class="table">id</p></td>
-<td align="left" valign="top"><p class="table">Unique identifer for the attribute</p></td>
+<td align="left" valign="top"><p class="table">Unique identifier for the attribute</p></td>
 <td align="left" valign="top"><p class="table">YES</p></td>
 </tr>
 <tr>
@@ -1496,7 +1496,7 @@ cellspacing="0" cellpadding="4">
 <tbody>
 <tr>
 <td align="left" valign="top"><p class="table">id</p></td>
-<td align="left" valign="top"><p class="table">Unique identifer for the projection</p></td>
+<td align="left" valign="top"><p class="table">Unique identifier for the projection</p></td>
 <td align="left" valign="top"><p class="table">YES</p></td>
 </tr>
 <tr>
@@ -1717,15 +1717,101 @@ and use the default RepastEdge as the edge type.</p></div>
 </div>
 <div class="sect2">
 <h3 id="distribute-model">2.7. Distributing Your Model</h3>
-<div class="paragraph"><p>Models created with Repast Simphony may easily be distributed with the provided
-Install Builder tool. This tool builds a distributable installer that anyone may
-use to install the model to their computer. The only requirement for those to
-who the model is distributed is the target system to have a current Java Runtime
-Environment.</p></div>
-<div class="paragraph"><p>To start the Install Builder, select Build Installer in the run menu</p></div>
-<div class="paragraph"><p>The builder make take a few minutes to complete the installer. Once this process
-is complete, a message "BUILD SUCCESSFUL" should be visible in the Console
-window.</p></div>
+<div class="paragraph"><p>Repast Simphony provides multiple ways to distribute executable models to others
+without the need for them to separately download and configure Repast Simphony on
+their computer.</p></div>
+<div class="sect3">
+<h4 id="_building_a_portable_model_archive">2.7.1. Building a Portable Model Archive</h4>
+<div class="paragraph"><p>The first option creates a portable zip archive of the user&#8217;s model and
+packages it with the Repast runtime components required to execute the model.
+This option is best for those who wish to provide a simple runnable version of their
+model to others without the need for others to run executable installers on their
+machines.  This is also useful when users are restricted from installing software, as the
+portable model archive requires only unpacking the archive and running the model script,
+along with a Java Runtime Environment (JRE) on the target machine.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/note.png" alt="Note" />
+</td>
+<td class="content">When distributing a model as a portable archive
+the archive does not include a JRE which must be separately installed on the target machine.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>To build a portable model archive, select the launch configuration "Build portable
+archive for &lt;user&gt; model", where the &lt;user&gt; variable will reflect the name of the current
+project.  You will be prompted to select a folder in which to save the model archive, which
+will be written to model.zip.  The build process may take a minute or two depending
+on the number of files in the project.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/tip.png" alt="Tip" />
+</td>
+<td class="content">Advanced model developers may wish to customize the
+contents of the portable model archive which can be done by modifying the
+installer/create_model_archive.xml file that defines an <a href="https://ant.apache.org/">ant</a>
+build process for the archive.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>The portable model archive can then be copied to another computer and contains all of the
+components needed to run the Repast Simphony model.  Simply extract the model archive and
+double click or run the included start_model.bat for Windows, or start_model.command for
+Linux or macOS. Depending on your Linux distribution and settings, double clicking
+start_model.command may be enough to run the model, otherwise run it from the terminal.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_building_a_model_installer_application">2.7.2. Building a Model Installer Application</h4>
+<div class="paragraph"><p>The second option for creating a distributable model requires the creation of an installer
+application which is a Java-based model installer that resembles a typical step-based
+software installer, allowing the user to accept a license agreement, select an installation
+directory, and create desktop shortcuts.  Like the model archive builder described above, the
+model installer application contains all of the components needed to run a Repast Simphony
+model.</p></div>
+<div class="paragraph"><p>Repast Simphony provides an automated process to build a Java-based model installer using
+the <a href="http://izpack.org/">IzPack</a> packager which
+is included with Repast Simphony.  This type of installer is appropriate for those who wish
+to distribute a more formal software installer for their Repast Simphony models.  One
+caveat is that the IzPack based model installer requires JRE 8 and may not compatible with
+later versions of Java.  This restriction is only true for the installer itself as the Repast
+Simphony runtime is compatible with JRE versions 8, 9, 11, and 16. A second caveat is that
+the user of the target machine on which the model is to be installed must have the necessary
+privileges to run a software installer application.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/note.png" alt="Note" />
+</td>
+<td class="content">Using the IzPack based model installer requires JRE 8 and may not compatible with
+later versions of Java.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>To build the model installer application, select "Build Installer &#8230;" in the run menu.
+You will be prompted to select a folder in which to save the model installer, which
+will be written to setup.jar. The builder may take a few minutes to complete the installer.
+Once this process is complete, a message "BUILD SUCCESSFUL" should be visible in the Console
+window.  The setup.jar file is an executable Java jar file that when double clicked will launch
+the model installer application on the target machine.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/tip.png" alt="Tip" />
+</td>
+<td class="content">Advanced model developers may wish to customize the contents and the installer options of the
+IzPack-based model installer application and can be done by modifying the
+installer/installation_coordinator.xml file that defines an <a href="https://ant.apache.org/">ant</a> build process for the installer.
+The IzPack installer configuration information is contained in the installation_components.xml file
+and defines the available steps in the installer applications, along with what options are available
+when installing the model.  The IzPack installer configuration used by Repast Simphony models
+conforms to the IzPack 5.0 schema.
+See the <a href="https://izpack.atlassian.net/wiki/home">IzPack Wiki</a> for more details.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>After the Repast Simphony model installer is run on the target machine, it will create a folder
+containing the model files and the Repast Simphonhy components.  On Windows systems, their may be
+shortcuts available to run the model if this option was selected during the installation process.
+On macOS and Linux, the model can be executed using the start_model.command.</p></div>
+</div>
 </div>
 </div>
 </div>
@@ -5958,7 +6044,7 @@ method.</p></div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-10-20 17:52:26 Central Daylight Time
+Last updated 2021-10-06 22:45:25 Central Daylight Time
 </div>
 </div>
 </body>

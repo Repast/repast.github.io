@@ -45,31 +45,31 @@ which can be optionally downloaded and installed separately:
 <p class="meta"></p>
 <div class="entry">
 Developers who wish to modify the Repast Simphony platform should download
-<a href="https://www.eclipse.org/downloads/packages/eclipse-ide-eclipse-committers/oxygen3a">Eclipse IDE for Eclipse Committers Oxygen</a>.
+<a href="https://www.eclipse.org/downloads/packages/release/2021-06/r/eclipse-ide-eclipse-committers">Eclipse IDE for Eclipse Committers 2021-06</a>.
 Please note that Repast Simphony development <i>requires</i> this feature-complete edition
 and will not work with the limited Eclipse Java Edition.
 Then use the Eclipse Update Manager to install the following components.
 <p>
 <ul>
-<li>From the default <b>Neon</b> (note that Oxygen versions do not exist yet) update site
-  (http://download.eclipse.org/releases/neon).
+<li>From the default update site:
 <ul>
-<li>GMF Tooling 3.3.1</li>
-<li>GMF Tooling Runtime Extensions 3.3.1</li>
-<li>GMF Tooling Xtend2 Support</li>
-<li>GMF Toolking SDK 3.3.1</li>
-<li>Xpand SDK 2.2.0</li>
+<li>GMF SDK and Runtime </li>
+<li>Xpand SDK</li>
+<li>Eclipse XML Editors and Tools</li>
 </ul>
 </li>
-<li>From the Groovy Update Site (http://dist.springsource.org/release/GRECLIPSE/e4.7):
+<li>From the Groovy Update Site (https://dist.springsource.org/release/GRECLIPSE/e4.20):
 <ul>
-<li>Extra Groovy Compilers</li>
+<li>Extra Groovy Compilers - You must install 3.0.x</li>
 <li>Groovy-Eclipse</li>
 <li>Uncategorized</li>
 </ul>
 </li>
-
 </ul>
+
+In Eclipse Groovy settings make sure that the compiler is set to 3.0.x, and that
+in Eclipse Java Compiler Error/Warning settings, Forbidden access is changed to WARNING.
+
 The repast repository can be cloned from the links provided at the
 <a href="https://github.com/Repast/repast.simphony">Simphony
 GitHub repository</a>. The master branch contains the code in a distribution, tagged with the
