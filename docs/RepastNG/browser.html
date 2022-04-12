@@ -731,14 +731,14 @@ install: function(toclevels) {
 }
 
 }
-asciidoc.install(3);
+asciidoc.install(2);
 /*]]>*/
 </script>
 </head>
 <body class="article" style="max-width:55em">
 <div id="header">
 <h1>Running your Repast Simphony Model via a Browser</h1>
-<span id="author">October 2021</span><br />
+<span id="author">April 2022</span><br />
 <div id="toc">
   <div id="toctitle">Table of Contents</div>
   <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
@@ -1002,21 +1002,33 @@ determines whether or not to auto-launch a browser where <code>true</code> means
 </p>
 </li>
 </ol></div>
-<div class="paragraph"><p>Note that if you change the server port, then the browser will point to a different
-address.</p></div>
 <div class="imageblock" id="img_launcher">
 <div class="content">
 <img src="images/launcher.png" alt="images/launcher.png" />
 </div>
 <div class="title">Figure 4. Server Launcher Configuration Dialog</div>
 </div>
+<div class="paragraph"><p>Note that if you change the server port, you will need update the port
+number in the javascript code for the web sever itself. To do that,
+you need to edit the <code>client.js</code> file in the repast.simphony.server plugin. On
+macOS <code>client.js</code> can be found at:</p></div>
+<div class="paragraph"><p><code>/Applications/Repast Simphony x.x.x/Eclipse.app/Contents/Eclipse/plugins/repast.simphony.server_x.x.x/web/static/js/client.js</code></p></div>
+<div class="paragraph"><p>On Windows, <code>client.js</code> can be found at:</p></div>
+<div class="paragraph"><p><code>C:\Users\&lt;username&gt;\RepastSimphony-x.x.x\eclipse\plugins\repast.simphony.server_x.x.x\web\static\js\client.js</code></p></div>
+<div class="paragraph"><p>And on Linux, at:</p></div>
+<div class="paragraph"><p><code>X/Eclipse/plugins/repast.simphony.server_x.x.x/web/static/js/client.js</code></p></div>
+<div class="paragraph"><p>where <code>X</code> is the install location and <code>x.x.x</code> is the version number (e.g., 2.9.1).</p></div>
+<div class="paragraph"><p>In <code>client.js</code> the port number is set on line 187:</p></div>
+<div class="paragraph"><p><code>socket = new WebSocket('ws://localhost:5000/simphony/simsocket');</code></p></div>
+<div class="paragraph"><p>Change <code>5000</code> to another port. For example,</p></div>
+<div class="paragraph"><p><code>socket = new WebSocket('ws://localhost:11219/simphony/simsocket');</code></p></div>
 </div>
 </div>
 </div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-10-19 14:31:58 Central Daylight Time
+Last updated 2022-04-12 15:17:23 EDT
 </div>
 </div>
 </body>
