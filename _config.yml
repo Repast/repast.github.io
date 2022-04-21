@@ -27,8 +27,8 @@ exclude:
 include:
   - _*.html
 
-simphony_version: 2.9.0
-simphony_release_date: 21 October 2021
+simphony_version: 2.9.1
+simphony_release_date: 21 April 2022
 hpc_version: 2.3.1
 hpc_release_date: 21 October 2021
 r4py_version: 1.0.0beta1
