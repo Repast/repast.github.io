@@ -31,8 +31,8 @@ simphony_version: 2.9.1
 simphony_release_date: 21 April 2022
 hpc_version: 2.3.1
 hpc_release_date: 21 October 2021
-r4py_version: 1.0.0beta1
-r4py_release_date: 27 October 2021
+r4py_version: 1.0.5beta1
+r4py_release_date: 17 October 2022
 
 # Build settings
 markdown: kramdown
