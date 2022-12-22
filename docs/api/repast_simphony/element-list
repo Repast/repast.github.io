@@ -55,7 +55,6 @@ repast.simphony.gis.ui.probe
 repast.simphony.gis.util
 repast.simphony.gis.visualization.engine
 repast.simphony.gis.xml
-repast.simphony.groovy.math
 repast.simphony.integration
 repast.simphony.integration.eclipse
 repast.simphony.parameter

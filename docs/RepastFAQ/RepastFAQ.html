@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
     "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.6.9" />
+<meta name="generator" content="AsciiDoc 10.2.0" />
 <title>Repast Simphony Frequently Asked Questions</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
@@ -347,10 +348,6 @@ div.colist td img {
   margin-bottom: 2.5em;
 }
 
-/* Only underline links on hover */
-#toc a:link {text-decoration: none; }
-#toc a:hover { text-decoration: underline; }
-
 #toctitle {
   color: #527bbd;
   font-size: 1.1em;
@@ -439,7 +436,7 @@ thead, p.table.header {
 p.table {
   margin-top: 0;
 }
-/* Because the table frame attribute is overriden by CSS in most browsers. */
+/* Because the table frame attribute is overridden by CSS in most browsers. */
 div.tableblock > table[frame="void"] {
   border-style: none;
 }
@@ -537,8 +534,80 @@ body.manpage div.sectionbody {
 @media print {
   body.manpage div#toc { display: none; }
 }
+.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #808080 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0040D0 } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
 
 
+
+/* Custom CSS for Repast AsciiDoc documents*/
+
+/* Body Only underline links on hover */
+a:link {text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* TOC Only underline links on hover */
+#toc a:link {text-decoration: none; }
+#toc a:hover { text-decoration: underline; }
 </style>
 <script type="text/javascript">
 /*<![CDATA[*/
@@ -738,7 +807,7 @@ asciidoc.install(3);
 <body class="article" style="max-width:55em">
 <div id="header">
 <h1>Repast Simphony Frequently Asked Questions</h1>
-<span id="author">October 2021</span><br />
+<span id="author">December 2022</span><br />
 <div id="toc">
   <div id="toctitle">Table of Contents</div>
   <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
@@ -1246,25 +1315,24 @@ the RepastMain from your own code. As long as you have repast.simphony.runtime/b
 to your classpath, RepastMain will be able to find the runtime and start properly.</p></div>
 <div class="paragraph"><p>Here&#8217;s a simple class that will do this:</p></div>
 <div class="listingblock">
-<div class="content">
-<pre><code>public class UserMain {
+<div class="content"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserMain</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
-public UserMain(){};
+<span class="kd">public</span><span class="w"> </span><span class="nf">UserMain</span><span class="p">(){};</span><span class="w"></span>
 
-  public void start(){
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">start</span><span class="p">(){</span><span class="w"></span>
 
-    String[] args = new String[]{"C:/myModel/scenario.rs"};
+<span class="w">    </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="p">{</span><span class="s">&quot;C:/myModel/scenario.rs&quot;</span><span class="p">};</span><span class="w"></span>
 
-    repast.simphony.runtime.RepastMain.main(args);
-  }
+<span class="w">    </span><span class="n">repast</span><span class="p">.</span><span class="na">simphony</span><span class="p">.</span><span class="na">runtime</span><span class="p">.</span><span class="na">RepastMain</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="n">args</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  public static void main(String[] args) {
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
-    UserMain um = new UserMain();
-    um.start();
-  }
-}</code></pre>
-</div></div>
+<span class="w">    </span><span class="n">UserMain</span><span class="w"> </span><span class="n">um</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UserMain</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">um</span><span class="p">.</span><span class="na">start</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div></div></div>
 </div>
 <div class="sect3">
 <h4 id="_how_can_i_control_the_repast_simphony_schedule_from_another_java_application">2.10.2. How can I control the Repast Simphony schedule from another Java application?</h4>
@@ -1283,8 +1351,69 @@ from repast.simphony.runtime and repast.simphony.Batch in your classpath to run.
 </div>
 <div class="sect2">
 <h3 id="_model_configuration">2.11. Model Configuration</h3>
+</div>
+<div class="sect2">
+<h3 id="_how_can_i_give_my_repast_model_to_someone_else">2.12. How can I give my Repast model to someone else?</h3>
+<div class="paragraph"><p>See the Repast Reference manual section
+<a href="../RepastReference/RepastReference.html#distribute-model">Distributing Your Model</a>.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_how_do_i_open_a_repast_model_that_someone_else_gave_me">2.13. How do I open a Repast model that someone else gave me?</h3>
+<div class="paragraph"><p>See the Repast Reference manual section
+<a href="../RepastReference/RepastReference.html#importing-model">Importing a Model</a>.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_how_do_i_include_a_third_party_library_in_my_model">2.14. How do I include a third-party library in my model?</h3>
+<div class="paragraph"><p>Simply place the .jar files in the project /lib folder and the Repast runtime
+will automatically load them.  See the Repast Reference manual section
+<a href="../RepastReference/RepastReference.html#user-path">user_path</a> for more details.</p></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_upgrading_repast_simphony_models">3. Upgrading Repast Simphony Models</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_updating_from_version_2_9_x_to_2_10_0">3.1. Updating from version 2.9.x to 2.10.0</h3>
+<div class="paragraph"><p>Several third party libraries were updated and require minor changes to user models
+code.  These include:</p></div>
 <div class="sect3">
-<h4 id="_how_can_i_convert_my_repast_simphony_1_0_1_1_or_1_2_model_to_run_in_repast_simphony_2_0_and_later">2.11.1. How can I convert my Repast Simphony 1.0, 1.1 or 1.2 model to run in Repast Simphony 2.0 and later?</h4>
+<h4 id="_user_models_that_use_geotools_and_jts_classes">3.1.1. User models that use GeoTools and JTS classes</h4>
+<div class="paragraph"><p>Reorganize java imports to reflect new package names by changing any import of:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+com.vividsolutions.jts.* to org.locationtech.jts.*
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect3">
+<h4 id="_java_units_api_2_0">3.1.2. Java Units API 2.0</h4>
+<div class="paragraph"><p>The <a href="https://jcp.org/en/jsr/detail?id=385">Java Units API</a> has been updated to version 2.0.
+User model code that use the JScience <strong>org.jscience.physics.amount.Amount</strong> will need to
+be updated to use the new <strong>javax.measure.Quantity</strong>.</p></div>
+<div class="paragraph"><p>For example, using the JScience Units API:</p></div>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.jscience.physics.amount.Amount</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import static</span><span class="w"> </span><span class="nn">javax.measure.unit.SI.*</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">Amount</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Amount</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="w"> </span><span class="n">METRE</span><span class="p">);</span><span class="w"></span>
+<span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="na">doubleValue</span><span class="p">();</span><span class="w"></span>
+</pre></div></div></div>
+<div class="paragraph"><p>would need to be updated to the new Units 2.0 API:</p></div>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">tech.units.indriya.quantity.Quantities</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.measure.Quantity</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import static</span><span class="w"> </span><span class="nn">tech.units.indriya.unit.Units.METRE</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">Quantity</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Quantities</span><span class="p">.</span><span class="na">getQuantity</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="w"> </span><span class="n">METRE</span><span class="p">);</span><span class="w"></span>
+<span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="na">getValue</span><span class="p">().</span><span class="na">doubleValue</span><span class="p">();</span><span class="w"></span>
+</pre></div></div></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_updating_from_version_1_0_1_1_or_1_2_model_to_run_in_repast_simphony_2_0_and_later">3.2. Updating from version 1.0, 1.1 or 1.2 model to run in Repast Simphony 2.0 and later</h3>
 <div class="paragraph"><p>To upgrade scenarios simply do the following:</p></div>
 <div class="ulist"><ul>
 <li>
@@ -1303,8 +1432,8 @@ It will also make backup copy of the scenario.xml file and then remove any displ
 from the scenario file. Removing the displays is necessary because old Piccolo
 2D displays will no longer load in version 2.0.</p></div>
 </div>
-<div class="sect3">
-<h4 id="_how_can_i_convert_my_repast_j_model_to_run_in_repast_simphony">2.11.2. How can I convert my Repast J model to run in Repast Simphony?</h4>
+<div class="sect2">
+<h3 id="_how_can_i_convert_my_repast_j_model_to_run_in_repast_simphony">3.3. How can I convert my Repast J model to run in Repast Simphony?</h3>
 <div class="paragraph"><p>A quick summary of the process of converting to Repast J to Repast S:</p></div>
 <div class="ulist"><ul>
 <li>
@@ -1337,30 +1466,13 @@ Create displays, loggers, etc via the Repast S runtime interface.
 are direct ports from the Repast J models, so comparing these will provide some
 additional help on porting models.</p></div>
 </div>
-<div class="sect3">
-<h4 id="_how_do_i_include_a_third_party_library_in_my_model">2.11.3. How do I include a third-party library in my model?</h4>
-<div class="paragraph"><p>Simply place the .jar files in the project /lib folder and the Repast runtime
-will automatically load them.  See the Repast Reference manual section
-<a href="../RepastReference/RepastReference.html#user-path">user_path</a> for more details.</p></div>
-</div>
-<div class="sect3">
-<h4 id="_how_can_i_give_my_repast_model_to_someone_else">2.11.4. How can I give my Repast model to someone else?</h4>
-<div class="paragraph"><p>See the Repast Reference manual section
-<a href="../RepastReference/RepastReference.html#distribute-model">Distributing Your Model</a>.</p></div>
-</div>
-<div class="sect3">
-<h4 id="_how_do_i_open_a_repast_model_that_someone_else_gave_me">2.11.5. How do I open a Repast model that someone else gave me?</h4>
-<div class="paragraph"><p>See the Repast Reference manual section
-<a href="../RepastReference/RepastReference.html#importing-model">Importing a Model</a>.</p></div>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_problems">3. Problems</h2>
+<h2 id="_problems">4. Problems</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_my_project_does_not_show_up_on_eclipse_8217_s_run_launch_button">3.1. My project does not show up on Eclipse&#8217;s run (launch) button</h3>
+<h3 id="_my_project_does_not_show_up_on_eclipse_8217_s_run_launch_button">4.1. My project does not show up on Eclipse&#8217;s run (launch) button</h3>
 <div class="paragraph"><p>The project launch configuration has simply become hidden and needs to be manually
 added to the list of available programs to run.  Follow these steps:
 1. Choose "Organize Favorites" from the bottom of the Run menu
@@ -1368,7 +1480,7 @@ added to the list of available programs to run.  Follow these steps:
 3. Select all of the items in the "Add Run Favorites" window.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_warning_an_illegal_reflective_access_operation_has_occurred">3.2. WARNING: An illegal reflective access operation has occurred</h3>
+<h3 id="_warning_an_illegal_reflective_access_operation_has_occurred">4.2. WARNING: An illegal reflective access operation has occurred</h3>
 <div class="paragraph"><p>The following warning message occurs when using Java 9 or later, and has no impact
 on the model code, performance, or reliability, and can be safely ignored:</p></div>
 <div class="listingblock">
@@ -1381,7 +1493,7 @@ WARNING: All illegal access operations will be denied in a future release</code>
 </div></div>
 </div>
 <div class="sect2">
-<h3 id="_fatal_java_lang_unsupportedclassversionerror">3.3. FATAL: java.lang.UnsupportedClassVersionError</h3>
+<h3 id="_fatal_java_lang_unsupportedclassversionerror">4.3. FATAL: java.lang.UnsupportedClassVersionError</h3>
 <div class="paragraph"><p>This can occur when Elipse&#8217;s compiler compliance level is greater than the current JRE. For exammple, the following
 will occur when the compiler compliance is 16 and the JRE is 11.</p></div>
 <div class="listingblock">
@@ -1394,7 +1506,7 @@ this version of the Java Runtime only recognizes class file versions up to 55.0<
 set the compiler compliance level to 1.8.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_fatal_java_lang_exceptionininitializererror_caused_by_java_lang_reflect_inaccessibleobjectexception">3.4. FATAL java.lang.ExceptionInInitializerError (caused by java.lang.reflect.InaccessibleObjectException)</h3>
+<h3 id="_fatal_java_lang_exceptionininitializererror_caused_by_java_lang_reflect_inaccessibleobjectexception">4.4. FATAL java.lang.ExceptionInInitializerError (caused by java.lang.reflect.InaccessibleObjectException)</h3>
 <div class="paragraph"><p>This will occur when using a JRE &gt; 11. For example,</p></div>
 <div class="listingblock">
 <div class="content">
@@ -1428,62 +1540,23 @@ Run &#8594; Run Configurations &#8594; Select the Model, and add the VM argument
 the VM arguments text panel in the Arguments tab.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_port_already_in_use_error_when_running_repast_simphony_web_server">3.5. "Port Already in Use" Error when running Repast Simphony Web Server</h3>
+<h3 id="_port_already_in_use_error_when_running_repast_simphony_web_server">4.5. "Port Already in Use" Error when running Repast Simphony Web Server</h3>
 <div class="paragraph"><p>When attempting to start the Repast Simphony Web Server to
 run a model in a browser, the network port used by the server may be
 already in use, and the following exception will appear.</p></div>
 <div class="paragraph"><p>Exception in thread "main" java.lang.RuntimeException: Port already in use. Make sure no other process is
 using port 5000 and try again.
         at io.javalin.Javalin.start(Javalin.java:158)</p></div>
-<div class="paragraph"><p>The error can be avoided by changing the port number. This must be done in two places.</p></div>
-<div class="olist arabic"><ol class="arabic">
-<li>
-<p>
-Update the port number in the javascript code (<code>client.js</code>) for the webserver. On
-macOS <code>client.js</code> can be found at:
-</p>
-<div class="paragraph"><p><code>/Applications/Repast Simphony x.x.x/Eclipse.app/Contents/Eclipse/plugins/repast.simphony.server_x.x.x/web/static/js/client.js</code></p></div>
-<div class="paragraph"><p>On Windows, <code>client.js</code> can be found at:</p></div>
-<div class="paragraph"><p><code>C:\Users\&lt;username&gt;\RepastSimphony-x.x.x\eclipse\plugins\repast.simphony.server_x.x.x\web\static\js\client.js</code></p></div>
-<div class="paragraph"><p>And on Linux, at:</p></div>
-<div class="paragraph"><p><code>X/Eclipse/plugins/repast.simphony.server_x.x.x/web/static/js/client.js</code></p></div>
-<div class="paragraph"><p>where <code>X</code> is the install location and <code>x.x.x</code> is the version number (e.g., 2.9.1).</p></div>
-<div class="paragraph"><p>In <code>client.js</code> the port number is set on line 187:</p></div>
-<div class="paragraph"><p><code>socket = new WebSocket('ws://localhost:5000/simphony/simsocket');</code></p></div>
-<div class="paragraph"><p>Change <code>5000</code> to another port. For example,</p></div>
-<div class="paragraph"><p><code>socket = new WebSocket('ws://localhost:11219/simphony/simsocket');</code></p></div>
-</li>
-<li>
-<p>
-Update the launch configuration to point to the new port. The server port can be
-configured in the server&#8217;s launch configuration.
-</p>
-<div class="olist loweralpha"><ol class="loweralpha">
-<li>
-<p>
-Go to the <code>Run Menu</code> &#8594; <code>Run Configurations</code> (at the bottom of the menu)
-</p>
-</li>
-<li>
-<p>
-Click on the Server launcher you want to edit.
-</p>
-</li>
-<li>
-<p>
-Click on the Arguments tab
-</p>
-</li>
-<li>
-<p>
-Edit the program arguments. The first argument (e.g., 5000) specifies the server
+<div class="paragraph"><p>The error can be avoided by changing the port number in the launch configuration.
+The server port can be
+configured in the server&#8217;s launch configuration.</p></div>
+<div class="paragraph"><p>+
+    a. Go to the <code>Run Menu</code> &#8594; <code>Run Configurations</code> (at the bottom of the menu)
+    b. Click on the Server launcher you want to edit.
+    c. Click on the Arguments tab
+    d. Edit the program arguments. The first argument (e.g., 5000) specifies the server
     port, the second the scenario folder of the model to run, and the third argument
-    determines whether or not to auto-launch a browser where <code>true</code> means auto-launch.
-</p>
-</li>
-</ol></div>
-</li>
-</ol></div>
+    determines whether or not to auto-launch a browser where <code>true</code> means auto-launch.</p></div>
 <div class="imageblock" id="img_launcher">
 <div class="content">
 <img src="images/launcher.png" alt="images/launcher.png" />
@@ -1492,7 +1565,7 @@ Edit the program arguments. The first argument (e.g., 5000) specifies the server
 </div>
 </div>
 <div class="sect2">
-<h3 id="_warning_nswindow_drag_regions_should_only_be_invalidated_on_the_main_thread">3.6. WARNING: NSWindow drag regions should only be invalidated on the Main Thread!</h3>
+<h3 id="_warning_nswindow_drag_regions_should_only_be_invalidated_on_the_main_thread">4.6. WARNING: NSWindow drag regions should only be invalidated on the Main Thread!</h3>
 <div class="paragraph"><p>The following warning message occurs when using macOS Mojave, and has no impact
 on the model code, performance, or reliability, and can be safely ignored:</p></div>
 <div class="listingblock">
@@ -1502,7 +1575,7 @@ on the model code, performance, or reliability, and can be safely ignored:</p></
 </div></div>
 </div>
 <div class="sect2">
-<h3 id="_inconsistency_detected_by_ld_so_8230">3.7. "Inconsistency detected by ld.so &#8230;"</h3>
+<h3 id="_inconsistency_detected_by_ld_so_8230">4.7. "Inconsistency detected by ld.so &#8230;"</h3>
 <div class="paragraph"><p>There are reported issues with the standard Java 11 install on Ubuntu 18.04 that result in
 this error being generated when a model is initialized. The issue can be avoided by either
 downgrading to Java 8 or by installing the Adopt OpenJDK version of Java 11:</p></div>
@@ -1511,7 +1584,7 @@ downgrading to Java 8 or by installing the Adopt OpenJDK version of Java 11:</p>
 <div class="paragraph"><p><code>apt-get install adoptopenjdk-11-hotspot</code></p></div>
 </div>
 <div class="sect2">
-<h3 id="_eclipse_an_out_of_memory_error_has_occurred">3.8. Eclipse: An out of memory error has occurred.</h3>
+<h3 id="_eclipse_an_out_of_memory_error_has_occurred">4.8. Eclipse: An out of memory error has occurred.</h3>
 <div class="paragraph"><p>Eclipse may exceed the specified maximum memory it can use when building large
 projects.  The memory allocated to Eclipse is specified in the
 <a href="https://wiki.eclipse.org/Eclipse.ini">eclipse.ini</a> file in the /eclipse folder and
@@ -1530,14 +1603,14 @@ of Eclipse, or for Repast versions prior to 2.6, the -Xms and -Xmx values can be
 removed or updated as needed.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_severe_retrieval_returned_no_content_for_https_worldwind20_arc_nasa_gov_8230">3.9. SEVERE: Retrieval returned no content for https://worldwind20.arc.nasa.gov/&#8230;</h3>
+<h3 id="_severe_retrieval_returned_no_content_for_https_worldwind20_arc_nasa_gov_8230">4.9. SEVERE: Retrieval returned no content for https://worldwind20.arc.nasa.gov/&#8230;</h3>
 <div class="paragraph"><p>This is a benign warning that sometimes occurs in GIS displays because the online
 server for layers like satellite imagery is unreachable or offline.  The only impact
 of this error is that some GIS display imagery data may be unavailable.  Model behavior
 is not affected.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_warn_empty_or_non_existent_path">3.10. WARN "Empty or non-existent path"</h3>
+<h3 id="_warn_empty_or_non_existent_path">4.10. WARN "Empty or non-existent path"</h3>
 <div class="paragraph"><p>When launching a Repast model, the following errors may occur in the console:</p></div>
 <div class="listingblock">
 <div class="content">
@@ -1551,7 +1624,7 @@ usually by default this is "../bin".  This warning will also occur if no agent
 classes are defined within the "mypath" location.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_when_i_run_my_model_i_see_the_error_java_lang_classnotfoundexception_somepackage_someclass_at_8230">3.11. When I run my model I see the error "java.lang.ClassNotFoundException: somepackage.someclass at &#8230;"</h3>
+<h3 id="_when_i_run_my_model_i_see_the_error_java_lang_classnotfoundexception_somepackage_someclass_at_8230">4.11. When I run my model I see the error "java.lang.ClassNotFoundException: somepackage.someclass at &#8230;"</h3>
 <div class="paragraph"><p>This is caused by a Java classpath configuration error such that the model cannot
 find the specified class "somepackage.someclass".  If the specified class refers to
 a user-created model file, please make sure that the <strong>user_path.xml</strong> agents path
@@ -1561,12 +1634,12 @@ is included in the project /lib folder and that the <strong>user_path.xml</stron
 folder as a classpath entry.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_i_press_the_run_button_but_nothing_happens_or_the_tick_reads_1">3.12. I press the run button but nothing happens or the tick reads -1</h3>
+<h3 id="_i_press_the_run_button_but_nothing_happens_or_the_tick_reads_1">4.12. I press the run button but nothing happens or the tick reads -1</h3>
 <div class="paragraph"><p>The tick counter will not increment if no behaviors have been scheduled.  Schedule
 agent behaviors in the agent classes using the @ScheduledMethod annotation.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_error_log4j_warn_no_appenders_could_be_found_for_logger_messagecenter_internal_repast_simphony_ui_rsuiplugin">3.13. Error "log4j:WARN No appenders could be found for logger (MessageCenter.INTERNAL.repast.simphony.ui.RSUIPlugin)"</h3>
+<h3 id="_error_log4j_warn_no_appenders_could_be_found_for_logger_messagecenter_internal_repast_simphony_ui_rsuiplugin">4.13. Error "log4j:WARN No appenders could be found for logger (MessageCenter.INTERNAL.repast.simphony.ui.RSUIPlugin)"</h3>
 <div class="paragraph"><p>An issue sometimes occurs with the Repast message logging system that results in
 error messages like</p></div>
 <div class="listingblock">
@@ -1583,7 +1656,7 @@ you can usually find more information from the Repast runtime error log.
 The error log is available when the icon in the lower right corner of the Repast runtime is flashing.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_exception_in_thread_main_java_lang_outofmemoryerror_java_heap_space">3.14. Exception in thread "main" java.lang.OutOfMemoryError: Java heap space</h3>
+<h3 id="_exception_in_thread_main_java_lang_outofmemoryerror_java_heap_space">4.14. Exception in thread "main" java.lang.OutOfMemoryError: Java heap space</h3>
 <div class="paragraph"><p>Java has attempted to use more memory that is available to the model.  With version
 of Java prior to version 9, it was usually necessary to specify the amount of memory
 needed by an application, because the default amount or "heap space" was very small.
@@ -1603,7 +1676,7 @@ a memory limit of 4 GB.</p></div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_when_i_run_the_model_i_get_the_runtime_error_javax_media_opengl_glexception">3.15. When I run the model I get the runtime error javax.media.opengl.GLException</h3>
+<h3 id="_when_i_run_the_model_i_get_the_runtime_error_javax_media_opengl_glexception">4.15. When I run the model I get the runtime error javax.media.opengl.GLException</h3>
 <div class="paragraph"><p>When running a Repast model with displays an error similar to that shown below is
 seen and the displays do not show correctly in the Repast runtime GUI:</p></div>
 <div class="listingblock">
@@ -1620,7 +1693,7 @@ generally available from the computer manufaturer or directly from the GPU suppo
 sites of NVidia or ATI.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_osx_macos_vecmath_jogl_java3d_related_exceptions">3.16. OSX/macOS vecmath / jogl/ java3d related exceptions</h3>
+<h3 id="_osx_macos_vecmath_jogl_java3d_related_exceptions">4.16. OSX/macOS vecmath / jogl/ java3d related exceptions</h3>
 <div class="paragraph"><p>Under OSX, Apple has installed older obsolete versions of the vecmath and
 Java3D libraries. These may be located in a variety of locations such as</p></div>
 <div class="paragraph"><p>/System/Library/Java/Extensions</p></div>
@@ -1631,16 +1704,16 @@ Java3D libraries. These may be located in a variety of locations such as</p></di
 jogl, and jnilib files from those directories.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_problems_with_updating_older_repast_models">3.17. Problems with updating older Repast models</h3>
+<h3 id="_problems_with_updating_older_repast_models">4.17. Problems with updating older Repast models</h3>
 <div class="sect3">
-<h4 id="_i_imported_a_previous_workspace_into_a_new_version_and_now_i_get_an_error_like_java_lang_unsupportedclassversionerror_8230_unsupported_major_minor_version_51_0">3.17.1. I imported a previous workspace into a new version and now I get an error like "java.lang.UnsupportedClassVersionError&#8230;.unsupported major.minor version 51.0"</h4>
+<h4 id="_i_imported_a_previous_workspace_into_a_new_version_and_now_i_get_an_error_like_java_lang_unsupportedclassversionerror_8230_unsupported_major_minor_version_51_0">4.17.1. I imported a previous workspace into a new version and now I get an error like "java.lang.UnsupportedClassVersionError&#8230;.unsupported major.minor version 51.0"</h4>
 <div class="paragraph"><p>Older workspaces that previously worked with Simphony may be setup to use Java 1.6.
 The workspace preferences must be updated to use Java 1.8 or later. Go to the
 Preferences menu then select Java &#8594; Installed JREs and choose a Java JRE 8 or
 later that installed on your system.</p></div>
 </div>
 <div class="sect3">
-<h4 id="_i_tried_the_batch_model_launcher_in_eclipse_and_i_get_class_not_found_errors_for_the_apache_cli_classes">3.17.2. I tried the batch model launcher in Eclipse and I get class not found errors for the apache CLI classes.</h4>
+<h4 id="_i_tried_the_batch_model_launcher_in_eclipse_and_i_get_class_not_found_errors_for_the_apache_cli_classes">4.17.2. I tried the batch model launcher in Eclipse and I get class not found errors for the apache CLI classes.</h4>
 <div class="paragraph"><p>The current version of the batch GUI require a different classpath and
 older versions of the .launch file do not have the correct classpath. To
 fix this, open the .launch file as text and replace the line:</p></div>
@@ -1661,7 +1734,7 @@ path=&amp;quot;3&amp;quot; type=&amp;quot;4&amp;quot;/&amp;gt;&amp;#10;"/&gt;</c
 </div></div>
 </div>
 <div class="sect3">
-<h4 id="_when_building_the_model_installer_i_get_an_exception_java_com_izforge_izpack_compiler_compilerexception">3.17.3. When building the model installer I get an exception "[java] com.izforge.izpack.compiler.CompilerException"</h4>
+<h4 id="_when_building_the_model_installer_i_get_an_exception_java_com_izforge_izpack_compiler_compilerexception">4.17.3. When building the model installer I get an exception "[java] com.izforge.izpack.compiler.CompilerException"</h4>
 <div class="paragraph"><p>Models created with previous version of Repast should have their installer configuration
 files updated.  This can be done automatically.  If you created a Repast or ReLogo
 project using a previous version of Repast Simphony and would like to update the
@@ -1669,7 +1742,7 @@ project files to a newer version of Repast, see the Repast Reference manual sect
 <a href="../RepastReference/RepastReference.html#update-repast-project">Updating an Existing Repast Project</a>.</p></div>
 </div>
 <div class="sect3">
-<h4 id="_my_repast_project_includes_junit_unit_tests_but_the_tests_won_8217_t_compile_e_g_the_imported_packages_won_8217_t_import_etc">3.17.4. My Repast project includes JUnit unit tests but the tests won&#8217;t compile (e.g. the imported packages won&#8217;t import etc.).</h4>
+<h4 id="_my_repast_project_includes_junit_unit_tests_but_the_tests_won_8217_t_compile_e_g_the_imported_packages_won_8217_t_import_etc">4.17.4. My Repast project includes JUnit unit tests but the tests won&#8217;t compile (e.g. the imported packages won&#8217;t import etc.).</h4>
 <div class="paragraph"><p>Eclipse included with Repast Simphony changed the name of its JUnit library plugin.
 The project build path needs to be updated to this new JUnit library. To do this,
 right click on the project name in the package explorer then Build Path &#8594;
@@ -1677,7 +1750,7 @@ Add Libraries. Choose JUnit from the list, then Next, then Finish. That will add
 Eclipse&#8217;s current JUnit to the project.</p></div>
 </div>
 <div class="sect3">
-<h4 id="_i_imported_an_existing_2_0_project_into_2_1_2_2_and_created_a_statechart_the_statechart_code_in_my_agent_won_8217_t_compile">3.17.5. I imported an existing 2.0 project into 2.1 / 2.2 and created a statechart. The statechart code in my agent won&#8217;t compile.</h4>
+<h4 id="_i_imported_an_existing_2_0_project_into_2_1_2_2_and_created_a_statechart_the_statechart_code_in_my_agent_won_8217_t_compile">4.17.5. I imported an existing 2.0 project into 2.1 / 2.2 and created a statechart. The statechart code in my agent won&#8217;t compile.</h4>
 <div class="paragraph"><p>By default a 2.0 project is not set up to generate and compile code from
 a statechart. To enable this, the project must be upgraded to a new verison of Repast Simphony.
 To do that, right click on the project name, then choose Repast Simphony
@@ -1686,7 +1759,7 @@ statechart you should see a src-gen directory in into which the statechart
 code is generated.</p></div>
 </div>
 <div class="sect3">
-<h4 id="_batch_run_gui_nullpointerexception">3.17.6. Batch run GUI NullPointerException</h4>
+<h4 id="_batch_run_gui_nullpointerexception">4.17.6. Batch run GUI NullPointerException</h4>
 <div class="paragraph"><p>When running the Repast batch run GUI with a model created with an older version
 of Repast, you may see an error like:</p></div>
 <div class="listingblock">
@@ -1733,7 +1806,8 @@ log4j.appender.R.layout.ConversionPattern=%-5p [%t] %d{ISO8601} %c - %m%n</code>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-09-29 14:38:15 EDT
+Last updated
+ 2022-12-19 14:40:07 CST
 </div>
 </div>
 </body>
