@@ -28,11 +28,11 @@ include:
   - _*.html
 
 simphony_version: 2.11.0
-simphony_release_date: 1 Juli 2024
+simphony_release_date: 1 July 2024
 hpc_version: 2.3.1
 hpc_release_date: 21 October 2021
-r4py_version: 1.1.5
-r4py_release_date: 14 March 2024
+r4py_version: 1.1.6
+r4py_release_date: 12 September 2024
 
 # Build settings
 markdown: kramdown
